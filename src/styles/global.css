@@ -12,6 +12,7 @@ html {
   box-sizing: border-box;
   overflow-y: scroll; /* All browsers without overlaying scrollbars */
   -webkit-text-size-adjust: 100%; /* iOS 8+ */
+  font-size: 62.5%;
 }
 
 *,
