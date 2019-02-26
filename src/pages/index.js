@@ -2,6 +2,7 @@ import React from "react";
 
 import SEO from "../components/seo";
 
+import "typeface-montserrat";
 import styles from "./index.module.css";
 
 const IndexPage = () => (
