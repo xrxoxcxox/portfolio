@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Watanuki Portfolio - Work In Progress`,
     description: `もうすぐ公開する（予定）のポートフォリオです`,
-    author: `@gxrxoxcxox`
+    author: `@xrxoxcxox`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
