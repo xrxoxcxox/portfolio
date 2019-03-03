@@ -32,7 +32,6 @@ const GlobalStyles = createGlobalStyle`
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -40,17 +39,14 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  display: block;
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
-  font-size: calc(2rem + 20vw);
-  line-height: 0.85;
-  color: ${props => (props.lowercase ? "#c7c7cc" : "#8e8e93")};
-  animation: ${contrast} ${props => (props.lowercase ? "6000ms" : "6400ms")}
-    ease-in-out infinite normal;
-  &::selection {
-    background: none;
-  }
+  font-size: calc(2rem + 8vw);
+  line-height: 1;
+  margin-left: ${props => (props.WiP ? "calc(0.4rem + 2vw)" : 0)};
+  color: ${props => (props.WiP ? "#007aff" : "#000")};
+  animation: ${contrast} ${props => (props.WiP ? "6000ms" : "0")} ease-in-out
+    infinite normal;
 `;
 
 const IndexPage = () => (
@@ -71,9 +67,9 @@ const IndexPage = () => (
       </script>
     </Helmet>
     <Container>
-      <SEO title="WiP WIP" />
-      <Title lowercase>WiP</Title>
-      <Title>WIP</Title>
+      <SEO title="Keisuke WiP" />
+      <Title>Keisuke</Title>
+      <Title WiP>WiP</Title>
     </Container>
   </>
 );
