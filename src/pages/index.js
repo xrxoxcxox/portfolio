@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
-import styled, { keyframes, createGlobalStyle } from "styled-components";
+import styled, { keyframes } from "styled-components";
+import colors from "../styles/colors.js";
 import SEO from "../components/seo";
 
 const contrast = keyframes`
@@ -21,15 +22,6 @@ const contrast = keyframes`
   }
 `;
 
-const GlobalStyles = createGlobalStyle`
-  html {
-    visibility: hidden;
-  }
-  html.wf-active {
-    visibility: visible;
-  }
-`;
-
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -44,14 +36,13 @@ const Title = styled.h1`
   font-size: calc(2rem + 8vw);
   line-height: 1;
   margin-left: ${props => (props.WiP ? "calc(0.4rem + 2vw)" : 0)};
-  color: ${props => (props.WiP ? "#007aff" : "#000")};
+  color: ${props => (props.WiP ? colors.Blue : colors.Black)};
   animation: ${contrast} ${props => (props.WiP ? "6000ms" : "0")} ease-in-out
     infinite normal;
 `;
 
 const IndexPage = () => (
   <>
-    <GlobalStyles />
     <Helmet>
       <script>
         {`
