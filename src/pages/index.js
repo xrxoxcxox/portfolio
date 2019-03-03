@@ -23,10 +23,7 @@ const subTitle = keyframes`
   0% {
     opacity: 0;
   }
-  60% {
-    opacity: 0;
-  }
-  90% {
+  95% {
     opacity: 0;
   }
   100% {
