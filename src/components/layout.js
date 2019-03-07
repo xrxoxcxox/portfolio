@@ -6,7 +6,7 @@ const Layout = styled.div`
   grid-template-columns: repeat(12, 6.4rem);
   justify-content: center;
   grid-column-gap: 2.4rem;
-  height: 100vh;
+  padding-bottom: 16rem;
 `;
 
 export default ({ children }) => <Layout>{children}</Layout>;

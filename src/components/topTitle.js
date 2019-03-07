@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import colors from "../styles/colors.js";
 
-const title = keyframes`
+const titleBlur = keyframes`
   0% {
     filter: blur(0) contrast(1);
   }
@@ -17,20 +17,30 @@ const title = keyframes`
   }
 `;
 
-const subTitle = keyframes`
+const titleSize = keyframes`
   0% {
-    opacity: 0;
-  }
-  95% {
-    opacity: 0;
+    font-size: 8rem;
+    padding-top: 40vh;
   }
   100% {
-    opacity: 1;
+    font-size: 4.8rem;
+    padding-top: 16rem;
+  }
+`;
+
+const subtitleSize = keyframes`
+  0% {
+    font-size: 2.4rem;
+    padding-bottom: 40vh;
+  }
+  100% {
+    font-size: 2rem;
+    padding-bottom: 16rem;
   }
 `;
 
 const Container = styled.div`
-  grid-column: 1 / 13;
+  grid-column: span 12;
   align-self: center;
 `;
 
@@ -41,8 +51,10 @@ const Title = styled.h1`
   font-size: 8rem;
   font-feature-settings: "salt";
   margin-left: ${props => (props.WiP ? "1.2rem" : 0)};
-  animation: ${title} ${props => (props.WiP ? "4000ms" : "0")} ease-in-out
-    normal;
+  padding-top: 40vh;
+  animation: ${titleBlur} ${props => (props.WiP ? "4000ms" : "0")} ease-in-out
+      normal,
+    ${titleSize} 400ms ease-out 4400ms forwards;
 `;
 
 const WiP = styled.span`
@@ -50,13 +62,14 @@ const WiP = styled.span`
 `;
 
 const SubTitle = styled.h2`
+  grid-column: span 12;
   font-family: source-han-sans-japanese, sans-serif;
   font-weight: 400;
   font-size: 2.4rem;
   font-feature-settings: "palt";
   letter-spacing: 0.02em;
-  grid-column: 1 / 13;
-  animation: ${subTitle} 4000ms ease-in-out normal;
+  padding-bottom: 40vh;
+  animation: ${subtitleSize} 300ms ease-out 4400ms forwards;
 `;
 
 export default class TopTitle extends React.Component {

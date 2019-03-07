@@ -9,20 +9,18 @@ import aboutMe from "../images/aboutme.jpg";
 
 import styled from "styled-components";
 
-const ImageContainer = styled.div`
-  grid-column: 1 / 7;
-`;
-
 const AboutPortfolio = styled.div`
   background-image: url(${aboutPortfolio});
   background-size: contain;
-  grid-column: 1 / 7;
+  grid-column: span 6;
+  height: 37.8rem;
 `;
 
 const AboutMe = styled.div`
   background-image: url(${aboutMe});
   background-size: contain;
-  grid-column: 7 / 13;
+  grid-column: span 6;
+  height: 37.8rem;
 `;
 
 export default () => (
