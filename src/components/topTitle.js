@@ -30,23 +30,17 @@ const subTitle = keyframes`
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 103.2rem;
-  padding: 0 2.4rem;
-  height: 100vh;
-  margin: auto;
+  grid-column: 1 / 13;
+  align-self: center;
 `;
 
 const Title = styled.h1`
   display: inline-block;
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
-  font-size: calc(2rem + 2vw);
+  font-size: 8rem;
   font-feature-settings: "salt";
-  letter-spacing: 0.02em;
-  margin-left: ${props => (props.WiP ? "calc(0.4rem + 0.8vw)" : 0)};
+  margin-left: ${props => (props.WiP ? "1.2rem" : 0)};
   animation: ${title} ${props => (props.WiP ? "4000ms" : "0")} ease-in-out
     normal;
 `;
@@ -58,9 +52,10 @@ const WiP = styled.span`
 const SubTitle = styled.h2`
   font-family: source-han-sans-japanese, sans-serif;
   font-weight: 400;
-  font-size: calc(0.8rem + 0.8vw);
+  font-size: 2.4rem;
   font-feature-settings: "palt";
   letter-spacing: 0.02em;
+  grid-column: 1 / 13;
   animation: ${subTitle} 4000ms ease-in-out normal;
 `;
 
@@ -82,17 +77,15 @@ export default class TopTitle extends React.Component {
   render() {
     return (
       <Container>
-        <div>
-          <Title>Keisuke</Title>
-          <Title WiP>
-            <WiP>W</WiP>
-            {this.state.atanuk}
-            <WiP>i</WiP>
-            {this.state.space}
-            <WiP>P</WiP>
-            {this.state.ortfolio}
-          </Title>
-        </div>
+        <Title>Keisuke</Title>
+        <Title WiP>
+          <WiP>W</WiP>
+          {this.state.atanuk}
+          <WiP>i</WiP>
+          {this.state.space}
+          <WiP>P</WiP>
+          {this.state.ortfolio}
+        </Title>
         <SubTitle>頑張って早く公開します。絶賛製作中。</SubTitle>
       </Container>
     );

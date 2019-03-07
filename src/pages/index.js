@@ -1,16 +1,15 @@
 import React from "react";
 import AdobeFonts from "../components/adobeFonts";
 import SEO from "../components/seo";
+import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
 
-export default class IndexPage extends React.Component {
-  render() {
-    return (
-      <>
-        <AdobeFonts />
-        <SEO title="Keisuke Watanuki Portfolio" />
-        <TopTitle />
-      </>
-    );
-  }
-}
+export default () => (
+  <>
+    <AdobeFonts />
+    <SEO title="Keisuke Watanuki Portfolio" />
+    <Layout>
+      <TopTitle />
+    </Layout>
+  </>
+);
