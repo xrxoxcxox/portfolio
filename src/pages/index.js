@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
@@ -11,15 +12,24 @@ import styled from "styled-components";
 const Work = styled.div`
   background-image: url(${props => props.title});
   background-size: contain;
-  grid-column: span 6;
+  width: 100%;
   height: 37.8rem;
+  cursor: pointer;
+`;
+
+const LinkBlock = styled(Link)`
+  grid-column: span 6;
 `;
 
 export default () => (
   <Layout>
     <SEO title="Keisuke Watanuki Portfolio" />
     <TopTitle />
-    <Work title={aboutThisPortfolio} />
-    <Work title={aboutMe} />
+    <LinkBlock to="/about-this-portfolio">
+      <Work title={aboutThisPortfolio} />
+    </LinkBlock>
+    <LinkBlock to="/about-me">
+      <Work title={aboutMe} />
+    </LinkBlock>
   </Layout>
 );
