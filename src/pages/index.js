@@ -27,7 +27,7 @@ const opacity = keyframes`
 const LinkBlock = styled(Link)`
   grid-column: span 6;
   overflow-y: hidden;
-  animation: ${opacity} 600ms ease-out 850ms backwards;
+  animation: ${opacity} 400ms ease-out 800ms backwards;
 `;
 
 export default () => (
