@@ -1,5 +1,4 @@
 import React from "react";
-import AdobeFonts from "../components/adobeFonts";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
@@ -24,13 +23,10 @@ const AboutMe = styled.div`
 `;
 
 export default () => (
-  <>
-    <AdobeFonts />
+  <Layout>
     <SEO title="Keisuke Watanuki Portfolio" />
-    <Layout>
-      <TopTitle />
-      <AboutPortfolio />
-      <AboutMe />
-    </Layout>
-  </>
+    <TopTitle />
+    <AboutPortfolio />
+    <AboutMe />
+  </Layout>
 );
