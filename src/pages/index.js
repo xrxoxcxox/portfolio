@@ -1,36 +1,44 @@
 import React from "react";
-import AdobeFonts from "../components/adobeFonts";
+import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
+import Work from "../components/work";
 
-import aboutPortfolio from "../images/aboutportfolio.jpg";
-import aboutMe from "../images/aboutme.jpg";
+import styled, { keyframes } from "styled-components";
 
-import styled from "styled-components";
+import aboutThisPortfolio from "../images/about-this-portfolio.jpg";
+import aboutMe from "../images/about-me.jpg";
 
-const AboutPortfolio = styled.div`
-  background-image: url(${aboutPortfolio});
-  background-size: contain;
-  grid-column: span 6;
-  height: 37.8rem;
+const opacity = keyframes`
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  50% {
+    max-height: 37.8rem;
+  }
+  100% {
+    opacity: 1;
+    max-height: 37.8rem;
+  }
 `;
 
-const AboutMe = styled.div`
-  background-image: url(${aboutMe});
-  background-size: contain;
+const LinkBlock = styled(Link)`
   grid-column: span 6;
-  height: 37.8rem;
+  overflow-y: hidden;
+  animation: ${opacity} 600ms ease-out 850ms backwards;
 `;
 
 export default () => (
-  <>
-    <AdobeFonts />
+  <Layout>
     <SEO title="Keisuke Watanuki Portfolio" />
-    <Layout>
-      <TopTitle />
-      <AboutPortfolio />
-      <AboutMe />
-    </Layout>
-  </>
+    <TopTitle />
+    <LinkBlock to="/about-this-portfolio">
+      <Work title={aboutThisPortfolio} />
+    </LinkBlock>
+    <LinkBlock to="/about-me">
+      <Work title={aboutMe} />
+    </LinkBlock>
+  </Layout>
 );

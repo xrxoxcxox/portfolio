@@ -1,4 +1,5 @@
 import React from "react";
+import AdobeFonts from "../components/adobeFonts";
 import styled from "styled-components";
 
 const Layout = styled.div`
@@ -9,4 +10,9 @@ const Layout = styled.div`
   padding-bottom: 16rem;
 `;
 
-export default ({ children }) => <Layout>{children}</Layout>;
+export default ({ children, className }) => (
+  <Layout className={className}>
+    <AdobeFonts />
+    {children}
+  </Layout>
+);
