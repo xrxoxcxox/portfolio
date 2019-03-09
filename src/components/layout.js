@@ -10,8 +10,8 @@ const Layout = styled.div`
   padding-bottom: 16rem;
 `;
 
-export default ({ children }) => (
-  <Layout>
+export default ({ children, className }) => (
+  <Layout className={className}>
     <AdobeFonts />
     {children}
   </Layout>
