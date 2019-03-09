@@ -6,37 +6,48 @@ const titleBlur = keyframes`
   0% {
     filter: blur(0) contrast(1);
   }
-  40% {
+  30% {
     filter: blur(0) contrast(1);
   }
-  90% {
+  50% {
     filter: blur(4rem) contrast(2);
   }
-  100% {
+  85% {
     filter: blur(0) contrast(1);
   }
 `;
 
 const titleSize = keyframes`
   0% {
-    font-size: 8rem;
     padding-top: 40vh;
   }
   100% {
-    font-size: 4.8rem;
     padding-top: 16rem;
   }
 `;
 
 const subtitleSize = keyframes`
   0% {
-    font-size: 2.4rem;
     padding-bottom: 40vh;
   }
   100% {
-    font-size: 2rem;
     padding-bottom: 16rem;
   }
+`;
+
+const appear = keyframes`
+0% {
+  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
+  max-width: 0%;
+}
+45% {
+  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
+  max-width: 0%;
+}
+85% {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  max-width: 100%;
+}
 `;
 
 const Container = styled.div`
@@ -54,11 +65,18 @@ const Title = styled.h1`
   padding-top: 40vh;
   animation: ${titleBlur} ${props => (props.WiP ? "1000ms" : "0")} ease-in-out
       normal,
-    ${titleSize} 400ms ease-out 850ms forwards;
+    ${titleSize} 400ms ease-out 600ms forwards;
 `;
 
 const WiP = styled.span`
+  display: inline-block;
   color: ${colors.Blue};
+`;
+
+const Hide = styled.span`
+  display: inline-block;
+  white-space: pre;
+  animation: ${appear} 1000ms ease-out backwards;
 `;
 
 const SubTitle = styled.h2`
@@ -69,38 +87,20 @@ const SubTitle = styled.h2`
   font-feature-settings: "palt";
   letter-spacing: 0.02em;
   padding-bottom: 40vh;
-  animation: ${subtitleSize} 300ms ease-out 850ms forwards;
+  animation: ${subtitleSize} 300ms ease-out 600ms forwards;
 `;
 
-export default class TopTitle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      atanuk: "",
-      space: "",
-      ortfolio: ""
-    };
-    this.componentDidMount = this.componentDidMount.bind(this);
-  }
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ atanuk: "atanuk", space: " ", ortfolio: "ortfolio" });
-    }, 900);
-  }
-  render() {
-    return (
-      <Container>
-        <Title>Keisuke</Title>
-        <Title WiP>
-          <WiP>W</WiP>
-          {this.state.atanuk}
-          <WiP>i</WiP>
-          {this.state.space}
-          <WiP>P</WiP>
-          {this.state.ortfolio}
-        </Title>
-        <SubTitle>頑張って早く公開します。絶賛製作中。</SubTitle>
-      </Container>
-    );
-  }
-}
+export default () => (
+  <Container>
+    <Title>Keisuke</Title>
+    <Title WiP>
+      <WiP>W</WiP>
+      <Hide>atanuk</Hide>
+      <WiP>i</WiP>
+      <Hide> </Hide>
+      <WiP>P</WiP>
+      <Hide>ortfolio</Hide>
+    </Title>
+    <SubTitle>頑張って早く公開します。絶賛製作中。</SubTitle>
+  </Container>
+);
