@@ -7,7 +7,7 @@ import TopTitle from "../components/topTitle";
 import aboutThisPortfolio from "../images/about-this-portfolio.jpg";
 import aboutMe from "../images/about-me.jpg";
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Work = styled.div`
   background-image: url(${props => props.title});
@@ -17,8 +17,24 @@ const Work = styled.div`
   cursor: pointer;
 `;
 
+const opacity = keyframes`
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  50% {
+    max-height: 37.8rem;
+  }
+  100% {
+    opacity: 1;
+    max-height: 37.8rem;
+  }
+`;
+
 const LinkBlock = styled(Link)`
   grid-column: span 6;
+  overflow-y: hidden;
+  animation: ${opacity} 600ms ease-in 850ms backwards;
 `;
 
 export default () => (

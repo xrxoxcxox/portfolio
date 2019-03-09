@@ -6,7 +6,7 @@ const titleBlur = keyframes`
   0% {
     filter: blur(0) contrast(1);
   }
-  60% {
+  40% {
     filter: blur(0) contrast(1);
   }
   90% {
@@ -52,9 +52,9 @@ const Title = styled.h1`
   font-feature-settings: "salt";
   margin-left: ${props => (props.WiP ? "1.2rem" : 0)};
   padding-top: 40vh;
-  animation: ${titleBlur} ${props => (props.WiP ? "1600ms" : "0")} ease-in-out
+  animation: ${titleBlur} ${props => (props.WiP ? "1000ms" : "0")} ease-in-out
       normal,
-    ${titleSize} 400ms ease-out 1350ms forwards;
+    ${titleSize} 400ms ease-out 850ms forwards;
 `;
 
 const WiP = styled.span`
@@ -69,7 +69,7 @@ const SubTitle = styled.h2`
   font-feature-settings: "palt";
   letter-spacing: 0.02em;
   padding-bottom: 40vh;
-  animation: ${subtitleSize} 300ms ease-out 1350ms forwards;
+  animation: ${subtitleSize} 300ms ease-out 850ms forwards;
 `;
 
 export default class TopTitle extends React.Component {
@@ -85,7 +85,7 @@ export default class TopTitle extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ atanuk: "atanuk", space: " ", ortfolio: "ortfolio" });
-    }, 1400);
+    }, 900);
   }
   render() {
     return (
