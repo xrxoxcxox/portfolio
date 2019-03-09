@@ -3,8 +3,8 @@ import SEO from "../components/seo";
 import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
 
-import aboutThisPortfolio from "../images/aboutportfolio.jpg";
-import aboutMe from "../images/aboutme.jpg";
+import aboutThisPortfolio from "../images/about-this-portfolio.jpg";
+import aboutMe from "../images/about-me.jpg";
 
 import styled from "styled-components";
 
