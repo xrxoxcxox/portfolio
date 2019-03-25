@@ -13,6 +13,7 @@ html {
   overflow-y: scroll; /* All browsers without overlaying scrollbars */
   -webkit-text-size-adjust: 100%; /* iOS 8+ */
   font-size: 62.5%;
+  font-family: source-han-sans-japanese, sans-serif;
   visibility: hidden; /* Webフォント読み込み時のちらつき防止のため */
 }
 

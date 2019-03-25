@@ -3,12 +3,10 @@ import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
-import Work from "../components/work";
+import WorkThumbnail from "../components/workThumbnail";
 
 import { css, keyframes } from "@emotion/core";
-
-import aboutThisPortfolio from "../images/about-this-portfolio.jpg";
-import aboutMe from "../images/about-me.jpg";
+import colors from "../styles/colors.js";
 
 const opacity = keyframes`
   0% {
@@ -16,22 +14,41 @@ const opacity = keyframes`
     max-height: 0;
   }
   50% {
-    max-height: 37.8rem;
+    max-height: 30rem;
   }
   100% {
     opacity: 1;
-    max-height: 37.8rem;
+    max-height: 30rem;
   }
 `;
 
 const link = css`
   grid-column: span 6;
-  overflow-y: hidden;
-  animation: ${opacity} 400ms ease-out 800ms backwards;
-  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  animation: ${opacity} 400ms ease-out 800ms both;
+  position: relative;
   :hover {
-    box-shadow: 0 0.4rem 4rem rgba(0, 0, 0, 0.16);
-    transform: translateY(-0.2rem);
+    transition: all 0.2s ease-in-out;
+    div {
+      filter: brightness(40%);
+      transition: all 0.2s ease-in-out;
+    }
+    p {
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  p {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+    font-size: 2.4rem;
+    color: ${colors.White};
+    opacity: 0;
   }
 `;
 
@@ -40,10 +57,12 @@ export default () => (
     <SEO title="Keisuke Watanuki Portfolio" />
     <TopTitle />
     <Link to="/about-this-portfolio" css={link}>
-      <Work title={aboutThisPortfolio} />
+      <WorkThumbnail filename="about-this-portfolio.jpg" />
+      <p>このポートフォリオを作った目的</p>
     </Link>
     <Link to="/about-me" css={link}>
-      <Work title={aboutMe} />
+      <WorkThumbnail filename="about-me.jpg" />
+      <p>綿貫佳祐について</p>
     </Link>
   </Layout>
 );

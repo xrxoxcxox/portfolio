@@ -86,7 +86,6 @@ const hide = css`
 
 const subTitle = css`
   grid-column: span 12;
-  font-family: source-han-sans-japanese, sans-serif;
   font-weight: 400;
   font-size: 2.4rem;
   font-feature-settings: "palt";
