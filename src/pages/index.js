@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
 import Work from "../components/work";
 
-import styled, { keyframes } from "styled-components";
+import { css, keyframes } from "@emotion/core";
 
 import aboutThisPortfolio from "../images/about-this-portfolio.jpg";
 import aboutMe from "../images/about-me.jpg";
@@ -24,7 +24,7 @@ const opacity = keyframes`
   }
 `;
 
-const LinkBlock = styled(Link)`
+const link = css`
   grid-column: span 6;
   overflow-y: hidden;
   animation: ${opacity} 400ms ease-out 800ms backwards;
@@ -39,11 +39,11 @@ export default () => (
   <Layout>
     <SEO title="Keisuke Watanuki Portfolio" />
     <TopTitle />
-    <LinkBlock to="/about-this-portfolio">
+    <Link to="/about-this-portfolio" css={link}>
       <Work title={aboutThisPortfolio} />
-    </LinkBlock>
-    <LinkBlock to="/about-me">
+    </Link>
+    <Link to="/about-me" css={link}>
       <Work title={aboutMe} />
-    </LinkBlock>
+    </Link>
   </Layout>
 );

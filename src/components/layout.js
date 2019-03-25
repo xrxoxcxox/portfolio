@@ -1,8 +1,9 @@
 import React from "react";
 import AdobeFonts from "../components/adobeFonts";
-import styled from "styled-components";
 
-const Layout = styled.div`
+import { css } from "@emotion/core";
+
+const layout = css`
   display: grid;
   grid-template-columns: repeat(12, 6.4rem);
   justify-content: center;
@@ -11,8 +12,8 @@ const Layout = styled.div`
 `;
 
 export default ({ children, className }) => (
-  <Layout className={className}>
+  <div css={layout} className={className}>
     <AdobeFonts />
     {children}
-  </Layout>
+  </div>
 );
