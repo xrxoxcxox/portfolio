@@ -3,10 +3,15 @@ import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 
-import styled from "styled-components";
+import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
-const UnderConstruction = styled.p`
+const layout = css`
+  height: 100vh;
+  padding-bottom: 0;
+`;
+
+const text = css`
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
   font-size: 6rem;
@@ -16,27 +21,25 @@ const UnderConstruction = styled.p`
   color: ${colors.Gray};
 `;
 
-const CustomLayout = styled(Layout)`
-  height: 100vh;
-  padding-bottom: 0;
-`;
-
-const ToIndex = styled(Link)`
+const link = css`
   text-align: center;
   color: ${colors.Blue};
   margin-top: 4rem;
-  grid-column: span 12;
+  grid-column: 6 / 8;
   font-size: 1.4rem;
+  align-self: flex-start;
 `;
 
 export default () => (
-  <CustomLayout>
+  <Layout css={layout}>
     <SEO title="About Me" />
-    <UnderConstruction>
+    <p css={text}>
       "About Me" is
       <br />
       Under Construction...
-    </UnderConstruction>
-    <ToIndex to="/">サイトトップへ戻る</ToIndex>
-  </CustomLayout>
+    </p>
+    <Link to="/" css={link}>
+      サイトトップへ戻る
+    </Link>
+  </Layout>
 );

@@ -1,5 +1,6 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+
+import { css, keyframes } from "@emotion/core";
 import colors from "../styles/colors.js";
 
 const titleBlur = keyframes`
@@ -50,36 +51,40 @@ const appear = keyframes`
 }
 `;
 
-const Container = styled.div`
+const container = css`
   grid-column: span 12;
   align-self: center;
 `;
 
-const Title = styled.h1`
+const title = css`
   display: inline-block;
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
   font-size: 8rem;
   font-feature-settings: "salt";
-  margin-left: ${props => (props.WiP ? "1.2rem" : 0)};
   padding-top: 40vh;
-  animation: ${titleBlur} ${props => (props.WiP ? "1000ms" : "0")} ease-in-out
-      normal,
+  animation: ${titleSize} 400ms ease-out 600ms forwards;
+`;
+
+const titleWip = css`
+  ${title}
+  margin-left: 1.2rem;
+  animation: ${titleBlur} 1000ms ease-in-out normal,
     ${titleSize} 400ms ease-out 600ms forwards;
 `;
 
-const WiP = styled.span`
+const wip = css`
   display: inline-block;
   color: ${colors.Blue};
 `;
 
-const Hide = styled.span`
+const hide = css`
   display: inline-block;
   white-space: pre;
   animation: ${appear} 1000ms ease-out backwards;
 `;
 
-const SubTitle = styled.h2`
+const subTitle = css`
   grid-column: span 12;
   font-family: source-han-sans-japanese, sans-serif;
   font-weight: 400;
@@ -91,16 +96,16 @@ const SubTitle = styled.h2`
 `;
 
 export default () => (
-  <Container>
-    <Title>Keisuke</Title>
-    <Title WiP>
-      <WiP>W</WiP>
-      <Hide>atanuk</Hide>
-      <WiP>i</WiP>
-      <Hide> </Hide>
-      <WiP>P</WiP>
-      <Hide>ortfolio</Hide>
-    </Title>
-    <SubTitle>頑張って早く公開します。絶賛製作中。</SubTitle>
-  </Container>
+  <div css={container}>
+    <h1 css={title}>Keisuke</h1>
+    <h1 css={titleWip}>
+      <span css={wip}>W</span>
+      <span css={hide}>atanuk</span>
+      <span css={wip}>i</span>
+      <span css={hide}> </span>
+      <span css={wip}>P</span>
+      <span css={hide}>ortfolio</span>
+    </h1>
+    <h2 css={subTitle}>頑張って早く公開します。絶賛製作中。</h2>
+  </div>
 );
