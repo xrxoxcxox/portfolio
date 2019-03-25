@@ -33,11 +33,7 @@ const link = css`
 export default () => (
   <Layout css={layout}>
     <SEO title="About This Portfolio" />
-    <p css={text}>
-      "About This Portfolio" is
-      <br />
-      Under Construction...
-    </p>
+    <p css={text}>Under Construction...</p>
     <Link to="/" css={link}>
       サイトトップへ戻る
     </Link>

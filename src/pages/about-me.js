@@ -33,11 +33,7 @@ const link = css`
 export default () => (
   <Layout css={layout}>
     <SEO title="About Me" />
-    <p css={text}>
-      "About Me" is
-      <br />
-      Under Construction...
-    </p>
+    <p css={text}>Under Construction...</p>
     <Link to="/" css={link}>
       サイトトップへ戻る
     </Link>
