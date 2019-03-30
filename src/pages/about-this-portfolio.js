@@ -53,9 +53,37 @@ const content = css`
     grid-column: 3 / 9;
     font-size: 1.6rem;
     line-height: 2.6rem;
+    + p {
+      margin-top: 1.6rem;
+    }
   }
-  * + p {
-    margin-top: 1.6rem;
+  h2 + p {
+    margin-top: 3.2rem;
+  }
+`;
+
+const tag = css`
+  grid-column: 1 / 3;
+  p {
+    font-size: 1.6rem;
+  }
+  span {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    color: ${colors.Gray};
+    border-left: 0.1rem solid ${colors.Gray};
+    margin-top: 0.4rem;
+    padding: 0.4rem 0 0.4rem 0.8rem;
+  }
+`;
+
+const originOfTheTitle = css`
+  grid-column: 1 / 9;
+  box-shadow: 0 0.4rem 1.2rem ${hexToRgba(colors.Black, 16)};
+  margin-top: 3.2rem;
+  + p {
+    margin-top: 4rem;
   }
 `;
 
@@ -72,6 +100,14 @@ export default () => (
       </WorkTitle>
     </div>
     <section css={content}>
+      <div css={tag}>
+        <p>2019</p>
+        <span>
+          #デザインプロセス
+          <br />
+          #ポートフォリオ
+        </span>
+      </div>
       <p>
         私はWebデザイナーをしていて、いわゆる事業会社に勤めています。毎日サイト改善の業務はしていますが、あるときふと気がつきました。
       </p>
@@ -86,6 +122,7 @@ export default () => (
     </section>
     <section css={content}>
       <h2>このサイトの名前</h2>
+      <Image filename="origin-of-the-title.jpg" css={originOfTheTitle} />
       <p>
         “素早く作って壊す”制作はしたことがあっても、全く未完成のまま世の中に出したことはありません。
       </p>
@@ -104,7 +141,8 @@ export default () => (
     </section>
     <section css={content}>
       <h2>
-        今はここまで、 <br />これから続きを記します
+        今はここまで、 <br />
+        これから続きを記します
       </h2>
     </section>
   </Layout>
