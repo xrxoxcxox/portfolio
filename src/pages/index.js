@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
-import WorkThumbnail from "../components/workThumbnail";
+import Image from "../components/image";
 
 import { css, keyframes } from "@emotion/core";
 import colors from "../styles/colors.js";
@@ -57,11 +57,11 @@ export default () => (
     <SEO title="Keisuke Watanuki Portfolio" />
     <TopTitle />
     <Link to="/about-this-portfolio" css={link}>
-      <WorkThumbnail filename="about-this-portfolio.jpg" />
+      <Image filename="about-this-portfolio.jpg" />
       <p>このポートフォリオを作った目的</p>
     </Link>
     <Link to="/about-me" css={link}>
-      <WorkThumbnail filename="about-me.jpg" />
+      <Image filename="about-me.jpg" />
       <p>綿貫佳祐について</p>
     </Link>
   </Layout>

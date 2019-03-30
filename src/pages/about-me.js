@@ -17,8 +17,8 @@ const text = css`
   font-size: 6rem;
   text-align: center;
   grid-column: span 12;
-  align-self: flex-end;
   color: ${colors.Gray};
+  margin-top: calc(50vh - 6rem);
 `;
 
 const link = css`
