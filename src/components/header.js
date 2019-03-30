@@ -29,10 +29,15 @@ const header = css`
       width: 100%;
     }
   }
+  span {
+    color: ${colors.Blue};
+  }
 `;
 
 export default ({ className }) => (
   <div className={className} css={header}>
-    <Link to="/">Keisuke Watanuki Portfolio</Link>
+    <Link to="/">
+      Keisuke <span>W</span>atanuk<span>i</span> <span>P</span>ortfolio
+    </Link>
   </div>
 );
