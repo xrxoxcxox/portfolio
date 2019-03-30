@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
+import Header from "../components/header";
 
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
@@ -17,8 +18,8 @@ const text = css`
   font-size: 6rem;
   text-align: center;
   grid-column: span 12;
-  align-self: flex-end;
   color: ${colors.Gray};
+  margin-top: calc(50vh - 6.4rem - 6rem);
 `;
 
 const link = css`
@@ -33,6 +34,7 @@ const link = css`
 export default () => (
   <Layout css={layout}>
     <SEO title="About This Portfolio" />
+    <Header />
     <p css={text}>Under Construction...</p>
     <Link to="/" css={link}>
       サイトトップへ戻る
