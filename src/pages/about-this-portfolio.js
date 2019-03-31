@@ -1,84 +1,17 @@
 import React from "react";
-import { Link } from "gatsby";
 import hexToRgba from "hex-rgba";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import Header from "../components/header";
-import WorkTitle from "../components/workTitle";
+import AboveTheFold from "../components/aboveTheFold";
+import Tag from "../components/workTag";
 import Image from "../components/image";
+import ToIndex from "../components/workToIndex";
+
+import Content from "../components/workContent";
 
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
-
-const layout = css`
-  min-height: 100vh;
-  padding-bottom: 12rem;
-`;
-
-const aboveTheFold = css`
-  display: grid;
-  grid-column: 1 / 13;
-  grid-template-columns: repeat(12, 6.4rem);
-  grid-column-gap: inherit;
-  position: relative;
-  margin-top: 4rem;
-`;
-
-const title = css`
-  position: absolute;
-  bottom: 4.8rem;
-  text-shadow: 0 0 1.2rem ${hexToRgba(colors.White, 40)};
-`;
-
-const keyVisual = css`
-  grid-column: 5 / 13;
-  filter: brightness(120%);
-`;
-
-const content = css`
-  display: grid;
-  grid-column: 3 / 11;
-  grid-template-columns: repeat(8, 6.4rem);
-  grid-column-gap: inherit;
-  margin-top: 4.8rem;
-  :first-of-type {
-    margin-top: 6.4rem;
-  }
-  h2 {
-    grid-column: 3 / 9;
-    font-size: 4rem;
-    line-height: 5rem;
-    font-weight: normal;
-  }
-  p {
-    grid-column: 3 / 9;
-    font-size: 1.6rem;
-    line-height: 2.6rem;
-    + p {
-      margin-top: 1.6rem;
-    }
-  }
-  h2 + p {
-    margin-top: 3.2rem;
-  }
-`;
-
-const tag = css`
-  grid-column: 1 / 3;
-  p {
-    font-size: 1.6rem;
-  }
-  ul {
-    display: block;
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-    color: ${colors.Gray};
-    border-left: 0.1rem solid ${colors.Gray};
-    margin-top: 0.4rem;
-    padding: 0.4rem 0 0.4rem 0.8rem;
-    list-style-type: none;
-  }
-`;
 
 const originOfTheTitle = css`
   grid-column: 1 / 9;
@@ -89,33 +22,19 @@ const originOfTheTitle = css`
   }
 `;
 
-const link = css`
-  color: ${colors.Blue};
-  margin-top: 6.4rem;
-  grid-column: 5 / 9;
-  font-size: 1.4rem;
-`;
+const tags = ["デザインプロセス", "ポートフォリオ"];
 
 export default () => (
-  <Layout css={layout}>
+  <Layout>
     <SEO title="About This Portfolio" />
     <Header />
-    <div css={aboveTheFold}>
-      <Image filename="about-this-portfolio.jpg" css={keyVisual} />
-      <WorkTitle css={title}>
-        このポートフォリオを
-        <br />
-        作った目的
-      </WorkTitle>
-    </div>
-    <section css={content}>
-      <div css={tag}>
-        <p>2019</p>
-        <ul>
-          <li>デザインプロセス</li>
-          <li>ポートフォリオ</li>
-        </ul>
-      </div>
+    <AboveTheFold image="about-this-portfolio.jpg">
+      このポートフォリオを
+      <br />
+      作った目的
+    </AboveTheFold>
+    <Content>
+      <Tag year="2019" tags={tags} />
       <p>
         私はWebデザイナーをしていて、いわゆる事業会社に勤めています。普段の業務では同じチームのメンバーと一緒にサイトの改善をしています。そんな中で、あるときふと気がつきました。
       </p>
@@ -129,8 +48,8 @@ export default () => (
         危機感を覚えた私は、まずポートフォリオを作ることにしました。私はポートフォリオそのものをコミュニケーションツールと捉えています。今は制作実績として載せられるものはありませんが、このポートフォリオが徐々に出来ていく様を記録し、1つの作品として仕上げようと考えています。
       </p>
       <p>以下にポートフォリオの制作プロセスを記していきます。</p>
-    </section>
-    <section css={content}>
+    </Content>
+    <Content>
       <h2>このサイトの名前</h2>
       <Image filename="origin-of-the-title.jpg" css={originOfTheTitle} />
       <p>
@@ -148,15 +67,13 @@ export default () => (
         そういうわけでW, i,
         Pだけ色を変えて、まさに今製作中のポートフォリオであることを強調しています。
       </p>
-    </section>
-    <section css={content}>
+    </Content>
+    <Content>
       <h2>
         今はここまで、 <br />
         これから続きを記します
       </h2>
-    </section>
-    <Link to="/" css={link}>
-      サイトトップへ戻る
-    </Link>
+    </Content>
+    <ToIndex />
   </Layout>
 );

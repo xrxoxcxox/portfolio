@@ -9,7 +9,7 @@ const layout = css`
   grid-column-gap: 2.4rem;
   justify-content: center;
   align-content: flex-start;
-  padding-bottom: 16rem;
+  padding-bottom: 12rem;
 `;
 
 export default ({ children, className }) => (
