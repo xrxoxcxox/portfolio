@@ -4,7 +4,7 @@ import hexToRgba from "hex-rgba";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import Header from "../components/header";
-import WorkTitle from "../components/workTitle";
+import AboveTheFold from "../components/aboveTheFold";
 import Image from "../components/image";
 
 import { css } from "@emotion/core";
@@ -13,26 +13,6 @@ import colors from "../styles/colors.js";
 const layout = css`
   min-height: 100vh;
   padding-bottom: 12rem;
-`;
-
-const aboveTheFold = css`
-  display: grid;
-  grid-column: 1 / 13;
-  grid-template-columns: repeat(12, 6.4rem);
-  grid-column-gap: inherit;
-  position: relative;
-  margin-top: 4rem;
-`;
-
-const title = css`
-  position: absolute;
-  bottom: 4.8rem;
-  text-shadow: 0 0 1.2rem ${hexToRgba(colors.White, 40)};
-`;
-
-const keyVisual = css`
-  grid-column: 5 / 13;
-  filter: brightness(120%);
 `;
 
 const content = css`
@@ -100,14 +80,11 @@ export default () => (
   <Layout css={layout}>
     <SEO title="About This Portfolio" />
     <Header />
-    <div css={aboveTheFold}>
-      <Image filename="about-this-portfolio.jpg" css={keyVisual} />
-      <WorkTitle css={title}>
-        このポートフォリオを
-        <br />
-        作った目的
-      </WorkTitle>
-    </div>
+    <AboveTheFold image="about-this-portfolio.jpg">
+      このポートフォリオを
+      <br />
+      作った目的
+    </AboveTheFold>
     <section css={content}>
       <div css={tag}>
         <p>2019</p>

@@ -1,41 +1,24 @@
 import React from "react";
+// eslint-disable-next-line
 import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
+import Header from "../components/header";
+import AboveTheFold from "../components/aboveTheFold";
 
 import { css } from "@emotion/core";
+// eslint-disable-next-line
 import colors from "../styles/colors.js";
 
 const layout = css`
-  height: 100vh;
-  padding-bottom: 0;
-`;
-
-const text = css`
-  font-family: proxima-nova, sans-serif;
-  font-weight: 900;
-  font-size: 6rem;
-  text-align: center;
-  grid-column: span 12;
-  color: ${colors.Gray};
-  margin-top: calc(50vh - 6rem);
-`;
-
-const link = css`
-  text-align: center;
-  color: ${colors.Blue};
-  margin-top: 4rem;
-  grid-column: 6 / 8;
-  font-size: 1.4rem;
-  align-self: flex-start;
+  min-height: 100vh;
+  padding-bottom: 12rem;
 `;
 
 export default () => (
   <Layout css={layout}>
     <SEO title="About Me" />
-    <p css={text}>Under Construction...</p>
-    <Link to="/" css={link}>
-      サイトトップへ戻る
-    </Link>
+    <Header />
+    <AboveTheFold image="about-me.jpg">綿貫佳祐について</AboveTheFold>
   </Layout>
 );
