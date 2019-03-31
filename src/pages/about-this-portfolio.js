@@ -7,40 +7,14 @@ import Header from "../components/header";
 import AboveTheFold from "../components/aboveTheFold";
 import Image from "../components/image";
 
+import Content from "../components/workContent";
+
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
 const layout = css`
   min-height: 100vh;
   padding-bottom: 12rem;
-`;
-
-const content = css`
-  display: grid;
-  grid-column: 3 / 11;
-  grid-template-columns: repeat(8, 6.4rem);
-  grid-column-gap: inherit;
-  margin-top: 4.8rem;
-  :first-of-type {
-    margin-top: 6.4rem;
-  }
-  h2 {
-    grid-column: 3 / 9;
-    font-size: 4rem;
-    line-height: 5rem;
-    font-weight: normal;
-  }
-  p {
-    grid-column: 3 / 9;
-    font-size: 1.6rem;
-    line-height: 2.6rem;
-    + p {
-      margin-top: 1.6rem;
-    }
-  }
-  h2 + p {
-    margin-top: 3.2rem;
-  }
 `;
 
 const tag = css`
@@ -85,7 +59,7 @@ export default () => (
       <br />
       作った目的
     </AboveTheFold>
-    <section css={content}>
+    <Content>
       <div css={tag}>
         <p>2019</p>
         <ul>
@@ -106,8 +80,8 @@ export default () => (
         危機感を覚えた私は、まずポートフォリオを作ることにしました。私はポートフォリオそのものをコミュニケーションツールと捉えています。今は制作実績として載せられるものはありませんが、このポートフォリオが徐々に出来ていく様を記録し、1つの作品として仕上げようと考えています。
       </p>
       <p>以下にポートフォリオの制作プロセスを記していきます。</p>
-    </section>
-    <section css={content}>
+    </Content>
+    <Content>
       <h2>このサイトの名前</h2>
       <Image filename="origin-of-the-title.jpg" css={originOfTheTitle} />
       <p>
@@ -125,13 +99,13 @@ export default () => (
         そういうわけでW, i,
         Pだけ色を変えて、まさに今製作中のポートフォリオであることを強調しています。
       </p>
-    </section>
-    <section css={content}>
+    </Content>
+    <Content>
       <h2>
         今はここまで、 <br />
         これから続きを記します
       </h2>
-    </section>
+    </Content>
     <Link to="/" css={link}>
       サイトトップへ戻る
     </Link>
