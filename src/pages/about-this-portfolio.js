@@ -1,21 +1,16 @@
 import React from "react";
-import { Link } from "gatsby";
 import hexToRgba from "hex-rgba";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import AboveTheFold from "../components/aboveTheFold";
 import Image from "../components/image";
+import ToIndex from "../components/workToIndex";
 
 import Content from "../components/workContent";
 
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
-
-const layout = css`
-  min-height: 100vh;
-  padding-bottom: 12rem;
-`;
 
 const tag = css`
   grid-column: 1 / 3;
@@ -43,15 +38,8 @@ const originOfTheTitle = css`
   }
 `;
 
-const link = css`
-  color: ${colors.Blue};
-  margin-top: 6.4rem;
-  grid-column: 5 / 9;
-  font-size: 1.4rem;
-`;
-
 export default () => (
-  <Layout css={layout}>
+  <Layout>
     <SEO title="About This Portfolio" />
     <Header />
     <AboveTheFold image="about-this-portfolio.jpg">
@@ -106,8 +94,6 @@ export default () => (
         これから続きを記します
       </h2>
     </Content>
-    <Link to="/" css={link}>
-      サイトトップへ戻る
-    </Link>
+    <ToIndex />
   </Layout>
 );
