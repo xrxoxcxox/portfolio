@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `WIP`,
-    description: `もうすぐ公開する（予定）のポートフォリオです`,
+    title: `Keisuke Watanuki Portfolio`,
+    description: `Keisuke Watanukiのポートフォリオ、現在製作中`,
     author: `@xrxoxcxox`
   },
   plugins: [
