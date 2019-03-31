@@ -4,6 +4,7 @@ import SEO from "../components/seo";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import AboveTheFold from "../components/aboveTheFold";
+import Tag from "../components/workTag";
 import Image from "../components/image";
 import ToIndex from "../components/workToIndex";
 
@@ -11,23 +12,6 @@ import Content from "../components/workContent";
 
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
-
-const tag = css`
-  grid-column: 1 / 3;
-  p {
-    font-size: 1.6rem;
-  }
-  ul {
-    display: block;
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-    color: ${colors.Gray};
-    border-left: 0.1rem solid ${colors.Gray};
-    margin-top: 0.4rem;
-    padding: 0.4rem 0 0.4rem 0.8rem;
-    list-style-type: none;
-  }
-`;
 
 const originOfTheTitle = css`
   grid-column: 1 / 9;
@@ -37,6 +21,8 @@ const originOfTheTitle = css`
     margin-top: 4rem;
   }
 `;
+
+const tags = ["デザインプロセス", "ポートフォリオ"];
 
 export default () => (
   <Layout>
@@ -48,13 +34,7 @@ export default () => (
       作った目的
     </AboveTheFold>
     <Content>
-      <div css={tag}>
-        <p>2019</p>
-        <ul>
-          <li>デザインプロセス</li>
-          <li>ポートフォリオ</li>
-        </ul>
-      </div>
+      <Tag year="2019" tags={tags} />
       <p>
         私はWebデザイナーをしていて、いわゆる事業会社に勤めています。普段の業務では同じチームのメンバーと一緒にサイトの改善をしています。そんな中で、あるときふと気がつきました。
       </p>

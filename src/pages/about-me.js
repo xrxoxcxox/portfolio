@@ -3,6 +3,7 @@ import SEO from "../components/seo";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import AboveTheFold from "../components/aboveTheFold";
+import Tag from "../components/workTag";
 import Content from "../components/workContent";
 import Image from "../components/image";
 import ToIndex from "../components/workToIndex";
@@ -21,12 +22,15 @@ const externalLink = css`
   margin-left: 1.6rem;
 `;
 
+const tags = ["デザイナー", "Web", "UI", "UX"];
+
 export default () => (
   <Layout>
     <SEO title="About Me" />
     <Header />
     <AboveTheFold image="about-me.jpg">綿貫佳祐について</AboveTheFold>
     <Content>
+      <Tag year="1993" tags={tags} />
       <p>愛知県在住。エイチームという会社でデザイナーをしています。</p>
       <p>
         1993年生まれ、大学を卒業後にエイチームに就職。業務ではWebのビジュアルからマークアップまでを担当。また、サイトを分析し改善、効果測定をしてまた分析……と制作以外の役割も担っています。
