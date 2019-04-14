@@ -12,7 +12,8 @@ const layout = css`
   align-content: flex-start;
   padding-bottom: 12rem;
   @media (max-width: 768px) {
-    padding: 0 1.2rem;
+    //TODO: なぜかmax-widthがremだと意図しない動きをする、要検証
+    padding: 0 1.2rem 8rem;
   }
   @media (max-width: 414px) {
     //TODO: なぜかmax-widthがremだと意図しない動きをする、要検証

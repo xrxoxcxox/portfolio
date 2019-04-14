@@ -4,7 +4,7 @@ import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
 const info = css`
-  grid-column: 1 / 3;
+  grid-column: 3 / 5;
   position: absolute;
   p {
     font-size: 1.6rem;
@@ -18,6 +18,11 @@ const info = css`
     margin: 0.4rem 0 0 0;
     padding: 0.4rem 0 0.4rem 1.2rem;
     list-style-type: none;
+  }
+  @media (max-width: 768px) {
+    grid-column: 2 / -1;
+    position: static;
+    padding-bottom: 4rem;
   }
 `;
 

@@ -7,7 +7,7 @@ import colors from "../styles/colors";
 const header = css`
   display: flex;
   align-items: center;
-  grid-column: 1 / 13;
+  grid-column: 1 / -1;
   height: 6.4rem;
   background-color: ${colors.White};
   a {

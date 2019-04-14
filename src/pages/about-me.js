@@ -13,6 +13,9 @@ import { css } from "@emotion/core";
 const availableTechnics = css`
   grid-column: 1 / 9;
   margin-top: 3.2rem;
+  @media (max-width: 768px) {
+    grid-column: 2 / -2;
+  }
   + p {
     margin-top: 4rem;
   }
