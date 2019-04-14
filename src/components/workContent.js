@@ -13,14 +13,25 @@ const content = css`
   :first-of-type {
     margin-top: 6.4rem;
   }
+  @media (max-width: 768px) {
+    :first-of-type {
+      margin-top: 4.8rem;
+    }
+  }
   h2 {
     grid-column: 5 / 11;
     font-size: 4rem;
     line-height: 5rem;
     font-weight: normal;
     @media (max-width: 768px) {
-      grid-column: 2 / -1;
-      position: static;
+      grid-column: 4 / -2;
+      font-size: 3.2rem;
+      line-height: 4.2rem;
+    }
+    @media (max-width: 414px) {
+      grid-column: 1 / -1;
+      font-size: 2.8rem;
+      line-height: 3.8rem;
     }
   }
   p,
@@ -29,8 +40,12 @@ const content = css`
     font-size: 1.6rem;
     line-height: 2.6rem;
     @media (max-width: 768px) {
-      grid-column: 2 / -2;
-      position: static;
+      grid-column: 4 / -2;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+    }
+    @media (max-width: 414px) {
+      grid-column: 1 / -1;
     }
     + p,
     ul {
@@ -43,6 +58,9 @@ const content = css`
   h2 + p,
   ul {
     margin-top: 3.2rem;
+    @media (max-width: 768px) {
+      margin-top: 2rem;
+    }
   }
   a {
     color: ${colors.Blue};

@@ -14,6 +14,9 @@ const aboveTheFold = css`
   grid-column-gap: inherit;
   position: relative;
   margin-top: 4rem;
+  @media (max-width: 768px) {
+    margin-top: 2.4rem;
+  }
 `;
 
 const keyVisual = css`
@@ -22,6 +25,9 @@ const keyVisual = css`
   @media (max-width: 768px) {
     grid-column: 2 / -1;
   }
+  @media (max-width: 414px) {
+    grid-column: 1 / -1;
+  }
 `;
 
 const title = css`
@@ -29,9 +35,11 @@ const title = css`
   bottom: 4.8rem;
   text-shadow: 0 0 1.2rem ${hexToRgba(colors.White, 40)};
   @media (max-width: 768px) {
-    position: relative;
-    bottom: inherit;
-    margin-top: 1.2rem;
+    bottom: 0.6em;
+  }
+  @media (max-width: 414px) {
+    position: static;
+    margin-top: 0.4rem;
   }
 `;
 

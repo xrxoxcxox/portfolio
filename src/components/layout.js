@@ -10,7 +10,7 @@ const layout = css`
   grid-column-gap: 2.4rem;
   justify-content: center;
   align-content: flex-start;
-  padding-bottom: 12rem;
+  padding: 0 1.2rem 12rem;
   @media (max-width: 768px) {
     //TODO: なぜかmax-widthがremだと意図しない動きをする、要検証
     padding: 0 1.2rem 8rem;

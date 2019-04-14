@@ -19,9 +19,17 @@ const originOfTheTitle = css`
   margin-top: 3.2rem;
   @media (max-width: 768px) {
     grid-column: 2 / -2;
+    margin-top: 2.4rem;
+  }
+  @media (max-width: 414px) {
+    grid-column: 1 / -1;
+    margin-top: 2.4rem;
   }
   + p {
     margin-top: 4rem;
+    @media (max-width: 768px) {
+      margin-top: 2.4rem;
+    }
   }
 `;
 
@@ -32,9 +40,7 @@ export default () => (
     <SEO title="About This Portfolio" />
     <Header />
     <AboveTheFold image="about-this-portfolio.jpg">
-      このポートフォリオを
-      <br />
-      作った目的
+      このポートフォリオを作った目的
     </AboveTheFold>
     <Content>
       <Tag year="2019" tags={tags} />
