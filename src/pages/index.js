@@ -25,8 +25,13 @@ const opacity = keyframes`
 const link = css`
   grid-column: span 6;
   overflow: hidden;
-  animation: ${opacity} 400ms ease-out 800ms both;
+  animation: ${opacity} 400ms ease-out 900ms both;
   position: relative;
+  @media (max-width: 414px) {
+    :not(:first-of-type) {
+      margin-top: 1.2rem;
+    }
+  }
   :hover {
     transition: all 0.2s ease-in-out;
     div {

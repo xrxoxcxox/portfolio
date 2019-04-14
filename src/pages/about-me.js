@@ -11,10 +11,17 @@ import ToIndex from "../components/workToIndex";
 import { css } from "@emotion/core";
 
 const availableTechnics = css`
-  grid-column: 1 / 9;
+  grid-column: 3 / 11;
   margin-top: 3.2rem;
+  @media (max-width: 768px) {
+    grid-column: 2 / -2;
+    margin-top: 2.4rem;
+  }
   + p {
     margin-top: 4rem;
+    @media (max-width: 768px) {
+      margin-top: 2.4rem;
+    }
   }
 `;
 
