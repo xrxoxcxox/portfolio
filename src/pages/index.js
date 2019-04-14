@@ -11,22 +11,15 @@ import colors from "../styles/colors.js";
 const opacity = keyframes`
   0% {
     opacity: 0;
-    max-height: 0;
-  }
-  50% {
-    max-height: 30rem;
   }
   100% {
     opacity: 1;
-    max-height: 30rem;
   }
 `;
 
 const link = css`
   grid-column: span 6;
-  overflow: hidden;
   animation: ${opacity} 400ms ease-out 900ms both;
-  position: relative;
   @media (max-width: 414px) {
     :not(:first-of-type) {
       margin-top: 1.2rem;
