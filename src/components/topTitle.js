@@ -18,24 +18,6 @@ const titleBlur = keyframes`
   }
 `;
 
-const titleSize = keyframes`
-  0% {
-    padding-top: 40vh;
-  }
-  100% {
-    padding-top: 16rem;
-  }
-`;
-
-const subtitleSize = keyframes`
-  0% {
-    padding-bottom: 40vh;
-  }
-  100% {
-    padding-bottom: 16rem;
-  }
-`;
-
 const appear = keyframes`
 0% {
   clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
@@ -52,25 +34,26 @@ const appear = keyframes`
 `;
 
 const container = css`
-  grid-column: span 12;
+  grid-column: 1 / -1;
   align-self: center;
+  margin: 16rem auto;
+  @media (max-width: 480px) {
+    margin: 20vh auto;
+  }
 `;
 
 const title = css`
   display: inline-block;
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
-  font-size: 8rem;
+  font-size: calc(2rem + 4vw);
   font-feature-settings: "salt";
-  padding-top: 40vh;
-  animation: ${titleSize} 400ms ease-out 600ms forwards;
+  white-space: pre-wrap;
 `;
 
 const titleWip = css`
   ${title}
-  margin-left: 1.2rem;
-  animation: ${titleBlur} 1000ms ease-in-out normal,
-    ${titleSize} 400ms ease-out 600ms forwards;
+  animation: ${titleBlur} 600ms ease-out 600ms normal;
 `;
 
 const wip = css`
@@ -81,27 +64,24 @@ const wip = css`
 const hide = css`
   display: inline-block;
   white-space: pre;
-  animation: ${appear} 1000ms ease-out backwards;
+  animation: ${appear} 600ms ease-out 600ms backwards;
 `;
 
 const subTitle = css`
   grid-column: span 12;
   font-weight: 400;
-  font-size: 2.4rem;
+  font-size: calc(1.2rem + 1vw);
   font-feature-settings: "palt";
   letter-spacing: 0.02em;
-  padding-bottom: 40vh;
-  animation: ${subtitleSize} 300ms ease-out 600ms forwards;
 `;
 
 export default () => (
   <div css={container}>
-    <h1 css={title}>Keisuke</h1>
+    <h1 css={title}>Keisuke </h1>
     <h1 css={titleWip}>
       <span css={wip}>W</span>
       <span css={hide}>atanuk</span>
-      <span css={wip}>i</span>
-      <span css={hide}> </span>
+      <span css={wip}>i </span>
       <span css={wip}>P</span>
       <span css={hide}>ortfolio</span>
     </h1>
