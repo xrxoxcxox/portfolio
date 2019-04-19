@@ -19,7 +19,8 @@ const opacity = keyframes`
 
 const link = css`
   grid-column: span 6;
-  animation: ${opacity} 400ms ease-out 900ms both;
+  position: relative;
+  animation: ${opacity} 400ms ease-out 400ms both;
   @media (max-width: 414px) {
     :not(:first-of-type) {
       margin-top: 1.2rem;
