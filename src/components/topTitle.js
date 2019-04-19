@@ -53,7 +53,7 @@ const title = css`
 
 const titleWip = css`
   ${title}
-  animation: ${titleBlur} 600ms ease-out 600ms normal;
+  animation: ${titleBlur} 600ms ease-out 200ms normal;
 `;
 
 const wip = css`
@@ -64,7 +64,7 @@ const wip = css`
 const hide = css`
   display: inline-block;
   white-space: pre;
-  animation: ${appear} 600ms ease-out 600ms backwards;
+  animation: ${appear} 600ms ease-out 200ms backwards;
 `;
 
 const subTitle = css`
