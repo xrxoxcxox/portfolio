@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
+import image from "../images/OGP.png";
+
 function SEO({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
@@ -10,6 +12,8 @@ function SEO({ description, lang, meta, keywords, title }) {
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description;
+        const metaTitle = title || data.site.siteMetadata.title;
+        const ogImage = `${data.site.siteMetadata.url}${image}`;
         return (
           <Helmet
             htmlAttributes={{
@@ -27,7 +31,11 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: `og:title`,
-                content: title
+                content: metaTitle
+              },
+              {
+                property: `og:url`,
+                content: data.site.siteMetadata.url
               },
               {
                 property: `og:description`,
@@ -38,16 +46,20 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: `website`
               },
               {
+                name: `og:image`,
+                content: ogImage
+              },
+              {
                 name: `twitter:card`,
                 content: `summary`
               },
               {
-                name: `twitter:creator`,
+                name: `twitter:site`,
                 content: data.site.siteMetadata.author
               },
               {
                 name: `twitter:title`,
-                content: title
+                content: metaTitle
               },
               {
                 name: `twitter:description`,
@@ -93,6 +105,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        url
       }
     }
   }
