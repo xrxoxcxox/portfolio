@@ -1,4 +1,5 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
 import { css, keyframes } from "@emotion/core";
 import colors from "../styles/colors.js";
@@ -35,10 +36,9 @@ const appear = keyframes`
 
 const container = css`
   grid-column: 1 / -1;
-  align-self: center;
-  margin: 16rem auto;
+  margin: 16rem 0;
   @media (max-width: 480px) {
-    margin: 20vh auto;
+    margin: 20vh 0;
   }
 `;
 
@@ -75,18 +75,32 @@ const subTitle = css`
   letter-spacing: 0.02em;
 `;
 
-export default () => (
+const TopTitle = ({ data }) => (
   <div css={container}>
     <h1 css={title}>Keisuke </h1>
     <h1 css={titleWip}>
       <span css={wip}>W</span>
       <span css={hide}>atanuk</span>
-      <span css={wip}>i </span>
+      <span css={wip}>i</span>
+      <span css={hide}> </span>
       <span css={wip}>P</span>
       <span css={hide}>ortfolio</span>
     </h1>
-    <h2 css={subTitle}>
-      デジタルプロダクトやユーザー体験をデザインしています。綿貫佳祐です。
-    </h2>
+    <h2 css={subTitle}>{data.site.siteMetadata.description}</h2>
   </div>
+);
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            description
+          }
+        }
+      }
+    `}
+    render={data => <TopTitle data={data} {...props} />}
+  />
 );
