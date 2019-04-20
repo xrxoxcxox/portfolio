@@ -53,7 +53,7 @@ const link = css`
 
 export default () => (
   <Layout>
-    <SEO title="Keisuke Watanuki Portfolio" />
+    <SEO title="" />
     <TopTitle />
     <Link to="/about-this-portfolio" css={link}>
       <Image filename="about-this-portfolio.jpg" />
