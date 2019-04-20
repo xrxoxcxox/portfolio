@@ -1,8 +1,12 @@
+import ogImage from "./src/images/OGP.png";
+
 module.exports = {
   siteMetadata: {
     title: `Keisuke Watanuki Portfolio`,
     description: `デジタルプロダクトやユーザー体験をデザインしています。 綿貫佳祐といいます。`,
-    author: `@xrxoxcxox`
+    author: `@xrxoxcxox`,
+    url: `https://keisukewatanuki.work`,
+    image: ogImage
   },
   plugins: [
     `gatsby-plugin-emotion`,
