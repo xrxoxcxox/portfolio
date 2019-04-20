@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Keisuke Watanuki Portfolio`,
-    description: `Keisuke Watanukiのポートフォリオ、現在製作中`,
+    description: `デジタルプロダクトやユーザー体験をデザインしています。綿貫佳祐といいます。`,
     author: `@xrxoxcxox`
   },
   plugins: [

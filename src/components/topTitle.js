@@ -85,6 +85,8 @@ export default () => (
       <span css={wip}>P</span>
       <span css={hide}>ortfolio</span>
     </h1>
-    <h2 css={subTitle}>頑張って早く公開します。絶賛製作中。</h2>
+    <h2 css={subTitle}>
+      デジタルプロダクトやユーザー体験をデザインしています。綿貫佳祐です。
+    </h2>
   </div>
 );
