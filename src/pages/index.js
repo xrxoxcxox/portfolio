@@ -57,7 +57,7 @@ export default () => (
     <TopTitle />
     <Link to="/about-this-portfolio" css={link}>
       <Image filename="about-this-portfolio.jpg" />
-      <p>このポートフォリオを作った目的</p>
+      <p>ポートフォリオそのものについて</p>
     </Link>
     <Link to="/about-me" css={link}>
       <Image filename="about-me.jpg" />

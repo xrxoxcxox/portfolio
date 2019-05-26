@@ -8,7 +8,7 @@ const content = css`
   grid-column: 1 / -1;
   grid-template-columns: repeat(12, minmax(1.2rem, 6.4rem));
   grid-column-gap: inherit;
-  margin-top: 4.8rem;
+  margin-top: 6.4rem;
   position: relative;
   :first-of-type {
     margin-top: 6.4rem;
