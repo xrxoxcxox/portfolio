@@ -18,13 +18,19 @@ const content = css`
   @media (max-width: 414px) {
     grid-column: 1 / -1;
   }
+  h3 {
+    margin-top: 3.2rem;
+    @media (max-width: 768px) {
+      margin-top: 2.4rem;
+    }
+  }
 `;
 
 const availableTechnics = css`
   grid-column: 3 / 11;
   margin-top: 3.2rem;
   @media (max-width: 768px) {
-    grid-column: 2 / -2;
+    grid-column: 1 / -1;
     margin-top: 2.4rem;
   }
   + p {

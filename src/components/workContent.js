@@ -10,13 +10,8 @@ const content = css`
   grid-column-gap: inherit;
   margin-top: 6.4rem;
   position: relative;
-  :first-of-type {
-    margin-top: 6.4rem;
-  }
   @media (max-width: 768px) {
-    :first-of-type {
-      margin-top: 4.8rem;
-    }
+    margin-top: 4.8rem;
   }
   h2 {
     font-size: 4rem;

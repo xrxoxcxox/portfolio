@@ -50,6 +50,10 @@ const tool = css`
   }
 `;
 
+const margin = css`
+  margin-top: 3.2rem;
+`;
+
 const tags = ["デザインプロセス", "ポートフォリオ"];
 
 export default () => (
@@ -84,7 +88,7 @@ export default () => (
         <h2>サイト名の表記の由来</h2>
       </div>
       <Image filename="origin-of-the-title.jpg" css={originOfTheTitle} />
-      <div css={content}>
+      <div css={[content, margin]}>
         <p>
           “素早く作って素早く壊す”制作はしたことがあっても、全く未完成のものを世の中に出したことはありません。
         </p>
