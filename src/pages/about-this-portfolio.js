@@ -36,19 +36,16 @@ const originOfTheTitle = css`
 const tool = css`
   grid-column: 5 / 9;
   @media (max-width: 414px) {
-    grid-column: 4 / 10;
-  }
-  :first-of-type {
-    margin-top: 1.2rem;
-  }
-  :not(:first-of-type) {
-    margin-top: 4rem;
+    grid-column: 3 / 11;
   }
   + h3 {
     font-size: 2.4rem;
-    grid-column: 3 / 11;
-    @media (max-width: 414px) {
+    grid-column: 5 / 11;
+    @media (max-width: 768px) {
       font-size: 2rem;
+      grid-column: 4 / -2;
+    }
+    @media (max-width: 414px) {
       grid-column: 1 / -1;
     }
     + p {
@@ -56,12 +53,6 @@ const tool = css`
       @media (max-width: 414px) {
         margin-top: 1.6rem;
       }
-    }
-  }
-  ~ p {
-    grid-column: 3 / 11;
-    @media (max-width: 414px) {
-      grid-column: 1 / -1;
     }
   }
 `;
@@ -144,16 +135,27 @@ export default () => (
       <h3>emotionによるスタイリング</h3>
       <p>
         CSS in
-        JSによるスタイリングはどのライブラリを使っても一長一短で悩ましかったですが、emotionを使うことにしました。
+        JSによるスタイリングはどのライブラリを使っても一長一短で悩ましかったのですが、emotionを使うことにしました。
       </p>
       <p>
-        かなり後発なライブラリだけあって「あれが出来るけどこれは出来ない」が少なく、全部乗せな印象を受けるものです。
+        かなり後発なライブラリだけあって、「他では出来るのにemotionでは出来ないこと」はほとんどないのではないでしょうか。
       </p>
       <p>
-        かなり消去法に近い選び方で不本意ですが、実はemotionに決めるまでにstyled-componentとstyled-jsxで1度ずつ全てをスタイリング。
+        実はemotionに決めるまでにstyled-componentとstyled-jsxで1度ずつ全てをスタイリングしています。
       </p>
       <p>
-        どれが一番コードを書くのがキツくならないか……という観点での選択です。
+        実際に手を動かしてみて、書きやすく将来破綻しづらそうに思えたので選びました。
+      </p>
+    </Content>
+    <Content>
+      <h2>GitHubのリポジトリ</h2>
+      <p>
+        <a href="https://github.com/xrxoxcxox/playground">
+          こちらがこのサイトのリポジトリです。
+        </a>
+      </p>
+      <p>
+        GitHubはアカウントこそ持っていたものの全く使っていませんでした。自分でサイトを1から作るにあたってリポジトリを作成したので公開します。
       </p>
     </Content>
     <Content>
