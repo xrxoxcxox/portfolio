@@ -10,9 +10,6 @@ const link = css`
   grid-column: 5 / 9;
   font-size: 1.4rem;
   @media (max-width: 768px) {
-    grid-column: 4 / -1;
-  }
-  @media (max-width: 414px) {
     grid-column: 1 / -1;
     text-align: center;
   }

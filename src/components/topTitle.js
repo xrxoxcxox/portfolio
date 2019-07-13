@@ -37,7 +37,7 @@ const appear = keyframes`
 const container = css`
   grid-column: 1 / -1;
   margin: 16rem 0;
-  @media (max-width: 480px) {
+  @media (max-width: 414px) {
     margin: 20vh 0;
   }
 `;
@@ -68,11 +68,15 @@ const hide = css`
 `;
 
 const subTitle = css`
-  grid-column: span 12;
+  grid-column: 1 / -1;
   font-weight: 400;
   font-size: calc(1.2rem + 1vw);
   font-feature-settings: "palt";
   letter-spacing: 0.02em;
+  @media (max-width: 768px) {
+    margin-top: 1.2rem;
+    line-height: 1.6;
+  }
 `;
 
 const TopTitle = ({ data }) => (

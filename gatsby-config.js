@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Keisuke Watanuki Portfolio`,
-    description: `デジタルプロダクトやユーザー体験をデザインしています。 綿貫佳祐といいます。`,
+    description: `デザイナー、綿貫佳祐のポートフォリオです。デジタルプロダクトやユーザー体験をデザインしています。`,
     author: `@xrxoxcxox`,
     url: `https://keisukewatanuki.work`
   },
