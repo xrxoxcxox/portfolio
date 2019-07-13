@@ -6,7 +6,7 @@ import colors from "../styles/colors.js";
 const info = css`
   grid-column: 3 / 5;
   position: absolute;
-  p {
+  span {
     font-size: 1.6rem;
   }
   ul {
@@ -33,7 +33,7 @@ function Tag({ year, tags }) {
   const tagItems = tags.map(tag => <li key={tag}>{tag}</li>);
   return (
     <div css={info}>
-      <p>{year}</p>
+      <span>{year}</span>
       <ul>{tagItems}</ul>
     </div>
   );
