@@ -31,7 +31,7 @@ const originOfTheTitle = css`
 `;
 
 const tool = css`
-  grid-column: 5 / 9;
+  grid-column: 5 / 8;
   @media (max-width: 768px) {
     grid-column: 3 / 11;
   }
@@ -100,7 +100,7 @@ export default () => (
       </div>
       <Image filename="icon_figma.png" css={tool} />
       <div css={content}>
-        <h3>ビジュアル制作ではFigmaを使用しています。</h3>
+        <h3>ビジュアル制作ではFigma</h3>
         <p>
           各種デザインツールの中で、最もコンポーネント類の管理がしやすいと思っています。特に色やテキスト。自分は、Sketchにおけるこれらの扱いには少々不満がありました。
         </p>
@@ -113,7 +113,7 @@ export default () => (
       </div>
       <Image filename="icon_gatsby.png" css={tool} />
       <div css={content}>
-        <h3>フロントにはGatsbyを採用しました。</h3>
+        <h3>サイトジェネレーターとしてGatsby</h3>
         <p>
           たまたまですが、会社の中でも外でもReactを使う機会が増えてきており勉強したいと思っていました。ポートフォリオサイトにReactはオーバースペックかな？と思っていましたが、静的ジェネレーターのGatsbyを発見。
         </p>
