@@ -26,9 +26,11 @@ const link = css`
       margin-top: 1.2rem;
     }
   }
-  :hover {
+  :hover,
+  :active {
     transition: all 0.2s ease-in-out;
-    div {
+    .gatsby-image-wrapper {
+      /* Imageコンポーネントにクラス名などが渡せないためここで指定 */
       filter: brightness(40%);
       transition: all 0.2s ease-in-out;
     }
