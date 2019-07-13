@@ -18,10 +18,6 @@ const content = css`
     line-height: 5rem;
     font-weight: 500;
     @media (max-width: 768px) {
-      font-size: 3.2rem;
-      line-height: 4.2rem;
-    }
-    @media (max-width: 414px) {
       font-size: 2.8rem;
       line-height: 3.8rem;
     }
@@ -31,10 +27,6 @@ const content = css`
     line-height: 3.4rem;
     font-weight: 600;
     @media (max-width: 768px) {
-      font-size: 2.2rem;
-      line-height: 3.2rem;
-    }
-    @media (max-width: 414px) {
       font-size: 2rem;
       line-height: 3rem;
     }
@@ -46,8 +38,6 @@ const content = css`
     @media (max-width: 768px) {
       font-size: 1.4rem;
       line-height: 2.4rem;
-    }
-    @media (max-width: 414px) {
     }
     & + p,
     & + ul {

@@ -20,9 +20,6 @@ const info = css`
     list-style-type: none;
   }
   @media (max-width: 768px) {
-    grid-column: 2 / 4;
-  }
-  @media (max-width: 414px) {
     grid-column: 1 / -1;
     position: static;
     padding-bottom: 2.4rem;

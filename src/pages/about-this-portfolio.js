@@ -13,39 +13,26 @@ import Content from "../components/workContent";
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
+const content = css`
+  grid-column: 5 / 11;
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+  }
+`;
+
 const originOfTheTitle = css`
   grid-column: 3 / 11;
   box-shadow: 0 0.4rem 1.2rem ${hexToRgba(colors.Black, 16)};
   margin-top: 3.2rem;
   @media (max-width: 768px) {
-    grid-column: 2 / -2;
-    margin-top: 2.4rem;
-  }
-  @media (max-width: 414px) {
     grid-column: 1 / -1;
     margin-top: 2.4rem;
-  }
-  & + ${content} {
-    margin-top: 4rem;
-    @media (max-width: 768px) {
-      margin-top: 2.4rem;
-    }
-  }
-`;
-
-const content = css`
-  grid-column: 5 / 11;
-  @media (max-width: 768px) {
-    grid-column: 4 / -2;
-  }
-  @media (max-width: 414px) {
-    grid-column: 1 / -1;
   }
 `;
 
 const tool = css`
   grid-column: 5 / 9;
-  @media (max-width: 414px) {
+  @media (max-width: 768px) {
     grid-column: 3 / 11;
   }
 `;

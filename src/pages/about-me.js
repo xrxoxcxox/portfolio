@@ -13,9 +13,6 @@ import { css } from "@emotion/core";
 const content = css`
   grid-column: 5 / 11;
   @media (max-width: 768px) {
-    grid-column: 4 / -2;
-  }
-  @media (max-width: 414px) {
     grid-column: 1 / -1;
   }
   h3 {

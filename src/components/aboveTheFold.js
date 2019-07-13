@@ -1,7 +1,6 @@
 import React from "react";
 import hexToRgba from "hex-rgba";
 
-import WorkTitle from "../components/workTitle";
 import Image from "../components/image";
 
 import { css } from "@emotion/core";
@@ -23,22 +22,23 @@ const keyVisual = css`
   grid-column: 5 / -1;
   filter: brightness(120%);
   @media (max-width: 768px) {
-    grid-column: 2 / -1;
-  }
-  @media (max-width: 414px) {
     grid-column: 1 / -1;
   }
 `;
 
 const title = css`
+  grid-column: 1 / 9;
   position: absolute;
-  bottom: 4.8rem;
+  bottom: 3.2rem;
+  font-size: 6.4rem;
+  line-height: 7.4rem;
+  font-weight: bold;
   text-shadow: 0 0 1.2rem ${hexToRgba(colors.White, 40)};
   @media (max-width: 768px) {
-    bottom: 0.6em;
-  }
-  @media (max-width: 414px) {
+    grid-column: 1 / -1;
     position: static;
+    font-size: calc(2rem + 4vw);
+    line-height: 1.4;
     margin-top: 0.4rem;
   }
 `;
@@ -46,6 +46,6 @@ const title = css`
 export default ({ image, children }) => (
   <div css={aboveTheFold}>
     <Image filename={image} css={keyVisual} />
-    <WorkTitle css={title}>{children}</WorkTitle>
+    <h1 css={title}>{children}</h1>
   </div>
 );
