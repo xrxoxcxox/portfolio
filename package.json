@@ -21,6 +21,7 @@
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-sharp": "^2.1.17",
     "hex-rgba": "^1.0.2",
+    "lodash.template": "^4.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
