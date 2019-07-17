@@ -43,10 +43,10 @@ const container = css`
 `;
 
 const title = css`
-  display: inline-block;
+  display: inline;
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
-  font-size: calc(2rem + 4vw);
+  font-size: 6.4rem;
   font-feature-settings: "salt";
   white-space: pre-wrap;
 `;
@@ -56,21 +56,31 @@ const titleWip = css`
   animation: ${titleBlur} 600ms ease-out 200ms normal;
 `;
 
+const titleBlock = css`
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
 const wip = css`
-  display: inline-block;
   color: ${colors.Blue};
 `;
 
 const hide = css`
-  display: inline-block;
   white-space: pre;
   animation: ${appear} 600ms ease-out 200ms backwards;
+`;
+
+const space = css`
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const subTitle = css`
   grid-column: 1 / -1;
   font-weight: 400;
-  font-size: calc(1.2rem + 1vw);
+  font-size: 2rem;
   font-feature-settings: "palt";
   letter-spacing: 0.02em;
   @media (max-width: 768px) {
@@ -81,14 +91,20 @@ const subTitle = css`
 
 const TopTitle = ({ data }) => (
   <div css={container}>
-    <h1 css={title}>Keisuke </h1>
+    <h1 css={title}>
+      <span css={titleBlock}>Keisuke </span>
+    </h1>
     <h1 css={titleWip}>
-      <span css={wip}>W</span>
-      <span css={hide}>atanuk</span>
-      <span css={wip}>i</span>
-      <span css={hide}> </span>
-      <span css={wip}>P</span>
-      <span css={hide}>ortfolio</span>
+      <span css={titleBlock}>
+        <span css={wip}>W</span>
+        <span css={hide}>atanuk</span>
+        <span css={wip}>i</span>
+        <span css={[hide, space]}> </span>
+      </span>
+      <span css={titleBlock}>
+        <span css={wip}>P</span>
+        <span css={hide}>ortfolio</span>
+      </span>
     </h1>
     <h2 css={subTitle}>{data.site.siteMetadata.description}</h2>
   </div>
