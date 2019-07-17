@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import TopTitle from "../components/topTitle";
+import Footer from "../components/footer";
 import Image from "../components/image";
 
 import { css, keyframes } from "@emotion/core";
@@ -53,6 +54,10 @@ const link = css`
   }
 `;
 
+const footer = css`
+  margin-top: 8rem;
+`;
+
 export default () => (
   <Layout>
     <SEO title="" />
@@ -65,5 +70,6 @@ export default () => (
       <Image filename="about-me.jpg" />
       <p>綿貫佳祐について</p>
     </Link>
+    <Footer css={footer} />
   </Layout>
 );
