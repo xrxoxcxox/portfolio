@@ -3,9 +3,10 @@ module.exports = {
     title: `Keisuke Watanuki Portfolio`,
     description: `デザイナー、綿貫佳祐のポートフォリオです。デジタルプロダクトやユーザー体験をデザインしています。`,
     author: `@xrxoxcxox`,
-    url: `https://keisukewatanuki.work`
+    siteUrl: `https://keisukewatanuki.work`
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     {

@@ -13,7 +13,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         const metaDescription =
           description || data.site.siteMetadata.description;
         const metaTitle = title || data.site.siteMetadata.title;
-        const ogImage = `${data.site.siteMetadata.url}${image}`;
+        const ogImage = `${data.site.siteMetadata.siteUrl}${image}`;
         return (
           <Helmet
             htmlAttributes={{
@@ -35,7 +35,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: `og:url`,
-                content: data.site.siteMetadata.url
+                content: data.site.siteMetadata.siteUrl
               },
               {
                 property: `og:description`,
@@ -105,7 +105,7 @@ const detailsQuery = graphql`
         title
         description
         author
-        url
+        siteUrl
       }
     }
   }
