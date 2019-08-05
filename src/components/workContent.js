@@ -12,7 +12,7 @@ const root = css`
     grid-column: 1 / -1;
     margin-top: 2rem;
   }
-  h2 {
+  h2:not([class]) {
     font-size: 4rem;
     line-height: 5rem;
     font-weight: 500;
@@ -23,7 +23,7 @@ const root = css`
       margin-top: 4rem;
     }
   }
-  h3 {
+  h3:not([class]) {
     font-size: 2.4rem;
     line-height: 3.4rem;
     font-weight: 600;
@@ -34,7 +34,7 @@ const root = css`
       margin-top: 2.4rem;
     }
   }
-  p {
+  p:not([class]) {
     font-size: 1.6rem;
     line-height: 2.6rem;
     &:not(:first-of-type) {
@@ -45,7 +45,7 @@ const root = css`
       line-height: 2.4rem;
     }
   }
-  ul {
+  ul:not([class]) {
     font-size: 1.6rem;
     line-height: 2.6rem;
     margin-top: 1.6rem;
@@ -55,7 +55,7 @@ const root = css`
       line-height: 2.4rem;
     }
   }
-  a {
+  a:not([class]) {
     color: ${colors.Blue};
   }
 `;

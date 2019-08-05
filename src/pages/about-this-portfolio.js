@@ -13,11 +13,20 @@ import WorkContent from "../components/workContent";
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
-const originOfTheTitle = css`
-  box-shadow: 0 0.4rem 1.2rem ${hexToRgba(colors.Black, 16)};
+const title = css`
+  font-family: proxima-nova, sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  text-align: center;
+  font-feature-settings: "salt";
   margin-top: 3.2rem;
+  padding: 2rem;
+  box-shadow: 0 0.4rem 1.2rem ${hexToRgba(colors.Black, 16)};
   @media (max-width: 768px) {
     margin-top: 2.4rem;
+  }
+  span {
+    color: ${colors.Blue};
   }
 `;
 
@@ -43,9 +52,9 @@ export default () => (
     <SEO title="About This Portfolio" />
     <Header />
     <AboveTheFold image="about-this-portfolio.jpg">
-      ポートフォリオ
+      <span>ポートフォリオ</span>
       <br css={br} />
-      そのものについて
+      <span>そのものについて</span>
     </AboveTheFold>
     <WorkTag year="2019" tags={tags} />
     <WorkContent>
@@ -63,7 +72,9 @@ export default () => (
       </p>
       <p>以下にポートフォリオの制作プロセスを記していきます。</p>
       <h2>サイト名の表記の由来</h2>
-      <Image filename="origin-of-the-title.jpg" css={originOfTheTitle} />
+      <p css={title}>
+        Keisuke <span>W</span>atanuk<span>i</span> <span>P</span>ortfolio
+      </p>
       <p>
         “素早く作って素早く壊す”制作はしたことがあっても、全く未完成のものを世の中に出したことはありません。
       </p>

@@ -39,7 +39,9 @@ export default () => (
   <Layout>
     <SEO title="About Me" />
     <Header />
-    <AboveTheFold image="about-me.jpg">綿貫佳祐について</AboveTheFold>
+    <AboveTheFold image="about-me.jpg">
+      <span>綿貫佳祐について</span>
+    </AboveTheFold>
     <Tag year="1993" tags={tags} css={tag} />
     <WorkContent css={content}>
       <p>愛知県在住。エイチームという会社でデザイナーをしています。</p>

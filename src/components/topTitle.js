@@ -80,7 +80,7 @@ const space = css`
 const subTitle = css`
   grid-column: 1 / -1;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-feature-settings: "palt";
   letter-spacing: 0.02em;
   @media (max-width: 768px) {

@@ -20,7 +20,7 @@ const aboveTheFold = css`
 
 const keyVisual = css`
   grid-column: 5 / -1;
-  filter: brightness(120%);
+  /* filter: brightness(120%); */
   @media (max-width: 768px) {
     grid-column: 1 / -1;
   }
@@ -31,15 +31,23 @@ const title = css`
   position: absolute;
   bottom: 3.2rem;
   font-size: 6.4rem;
-  line-height: 7.4rem;
+  line-height: 8rem;
   font-weight: bold;
-  text-shadow: 0 0 1.2rem ${hexToRgba(colors.White, 40)};
+  /* text-shadow: 0 0 1.2rem ${hexToRgba(colors.White, 40)}; */
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
     font-size: calc(2rem + 4vw);
     line-height: 1.4;
     margin-top: 0.4rem;
+  }
+  span {
+    padding: 0 1.2rem;
+    background-color: ${colors.White};
+    @media (max-width: 768px) {
+      padding: 0;
+      background-color: transparent;
+    }
   }
 `;
 
