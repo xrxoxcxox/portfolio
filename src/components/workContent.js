@@ -3,67 +3,71 @@ import React from "react";
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
-const content = css`
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(12, minmax(1.2rem, 6.4rem));
-  grid-column-gap: inherit;
+const root = css`
+  grid-row: span 2;
+  grid-column: 5 / 11;
   margin-top: 6.4rem;
-  position: relative;
   @media (max-width: 768px) {
-    margin-top: 4.8rem;
+    grid-row: span 1;
+    grid-column: 1 / -1;
+    margin-top: 2rem;
   }
-  h2 {
+  h2:not([class]) {
     font-size: 4rem;
     line-height: 5rem;
     font-weight: 500;
+    margin-top: 6.4rem;
     @media (max-width: 768px) {
       font-size: 2.8rem;
       line-height: 3.8rem;
+      margin-top: 4rem;
     }
   }
-  h3 {
+  h3:not([class]) {
     font-size: 2.4rem;
     line-height: 3.4rem;
     font-weight: 600;
+    margin-top: 3.2rem;
     @media (max-width: 768px) {
       font-size: 2rem;
       line-height: 3rem;
+      margin-top: 2.4rem;
     }
   }
-  p,
-  ul {
+  p:not([class]) {
     font-size: 1.6rem;
     line-height: 2.6rem;
+    &:not(:first-of-type) {
+      margin-top: 1.6rem;
+    }
     @media (max-width: 768px) {
       font-size: 1.4rem;
       line-height: 2.4rem;
     }
-    & + p,
-    & + ul {
-      margin-top: 1.6rem;
-    }
   }
-  ul {
+  ul:not([class]) {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    margin-top: 1.6rem;
     margin-left: 1.2em;
-  }
-  h2 + p,
-  h2 + ul {
-    margin-top: 3.2rem;
     @media (max-width: 768px) {
-      margin-top: 2rem;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
     }
   }
-  h3 + p,
-  h3 + ul {
-    margin-top: 2.4rem;
-    @media (max-width: 768px) {
-      margin-top: 2rem;
-    }
-  }
-  a {
+  a:not([class]) {
     color: ${colors.Blue};
+  }
+  small:not([class]) {
+    display: block;
+    font-size: 1.2rem;
+    color: ${colors.Gray};
+    margin-top: 0.8rem;
   }
 `;
 
-export default ({ children }) => <section css={content}>{children}</section>;
+export default ({ className, children }) => (
+  <section css={root} className={className}>
+    {children}
+  </section>
+);

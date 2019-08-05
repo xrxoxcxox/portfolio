@@ -22,7 +22,7 @@ const link = css`
   grid-column: span 6;
   position: relative;
   animation: ${opacity} 400ms ease-out 400ms both;
-  @media (max-width: 414px) {
+  @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
       margin-top: 1.2rem;
@@ -64,11 +64,11 @@ export default () => (
     <SEO title="" />
     <TopTitle />
     <Link to="/about-this-portfolio" css={link}>
-      <Image filename="about-this-portfolio.jpg" />
+      <Image filename="about_this_portfolio.jpg" />
       <p>ポートフォリオそのものについて</p>
     </Link>
     <Link to="/about-me" css={link}>
-      <Image filename="about-me.jpg" />
+      <Image filename="about_me.jpg" />
       <p>綿貫佳祐について</p>
     </Link>
     <Footer css={footer} />

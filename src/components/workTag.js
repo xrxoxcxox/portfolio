@@ -3,11 +3,18 @@ import React from "react";
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
-const info = css`
+const root = css`
   grid-column: 3 / 5;
-  position: absolute;
+  position: sticky;
+  top: 9.6rem;
+  margin-top: 6.4rem;
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+    position: static;
+    margin-top: 2rem;
+  }
   span {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   ul {
     display: block;
@@ -19,21 +26,16 @@ const info = css`
     padding: 0.4rem 0 0.4rem 1.2rem;
     list-style-type: none;
   }
-  @media (max-width: 768px) {
-    grid-column: 1 / -1;
-    position: static;
-    padding-bottom: 2.4rem;
-  }
 `;
 
-function Tag({ year, tags }) {
+const Tag = ({ className, year, tags }) => {
   const tagItems = tags.map(tag => <li key={tag}>{tag}</li>);
   return (
-    <div css={info}>
+    <div css={root} className={className}>
       <span>{year}</span>
       <ul>{tagItems}</ul>
     </div>
   );
-}
+};
 
 export default Tag;
