@@ -4,23 +4,20 @@ import Layout from "../components/layout";
 import Header from "../components/header";
 import AboveTheFold from "../components/aboveTheFold";
 import Tag from "../components/workTag";
-import Content from "../components/workContent";
+import WorkContent from "../components/workContent";
 import Image from "../components/image";
 import ToIndex from "../components/workToIndex";
 
 import { css } from "@emotion/core";
 
+const tag = css`
+  margin-top: 6.4rem;
+  position: sticky;
+  top: 9.6rem;
+`;
+
 const content = css`
-  grid-column: 5 / 11;
-  @media (max-width: 768px) {
-    grid-column: 1 / -1;
-  }
-  h3 {
-    margin-top: 3.2rem;
-    @media (max-width: 768px) {
-      margin-top: 2.4rem;
-    }
-  }
+  margin-top: 6.4rem;
 `;
 
 const availableTechnics = css`
@@ -49,9 +46,9 @@ export default () => (
     <SEO title="About Me" />
     <Header />
     <AboveTheFold image="about-me.jpg">綿貫佳祐について</AboveTheFold>
-    <Content>
-      <Tag year="1993" tags={tags} />
-      <div css={content}>
+    <Tag year="1993" tags={tags} css={tag} />
+    <WorkContent css={content}>
+      <div>
         <p>愛知県在住。エイチームという会社でデザイナーをしています。</p>
         <p>
           1993年生まれ、大学を卒業後にエイチームに就職。業務ではWebのビジュアルからマークアップまでを担当。また、サイトを分析し改善、効果測定をしてまた分析……と制作以外の役割も担っています。
@@ -60,9 +57,7 @@ export default () => (
           個人でもWebサービスやアプリの開発をしており、前述の通りスタイリングにまつわる部分は1人でも完結が可能。
         </p>
       </div>
-    </Content>
-    <Content>
-      <div css={content}>
+      <div>
         <h2>私が出来ること</h2>
         <ul>
           <li>画像編集、グラフィック、エディトリアルなど静的なスタイリング</li>
@@ -72,9 +67,7 @@ export default () => (
         </ul>
       </div>
       <Image filename="available-technics.jpg" css={availableTechnics} />
-    </Content>
-    <Content>
-      <div css={content}>
+      <div>
         <h2>普段の私</h2>
         <p>Twitterとnoteによくいます。</p>
         <p>
@@ -99,9 +92,7 @@ export default () => (
         </p>
         <p>良かったら是非声をかけてください。</p>
       </div>
-    </Content>
-    <Content>
-      <div css={content}>
+      <div>
         <h2>デザイナーを志した理由</h2>
         <h3>ことの始まりは高校受験の頃</h3>
         <p>中学2年の秋か冬か……進路相談の時期がやってきました。</p>
@@ -151,7 +142,7 @@ export default () => (
           当初の計画から早くも変更になるわけですが、「自分の人生を賭けてやりたいもの」がアップデートされただけなのでむしろ良いことだったと思っています。
         </p>
       </div>
-    </Content>
+    </WorkContent>
     <ToIndex />
   </Layout>
 );
