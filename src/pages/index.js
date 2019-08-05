@@ -22,7 +22,7 @@ const link = css`
   grid-column: span 6;
   position: relative;
   animation: ${opacity} 400ms ease-out 400ms both;
-  @media (max-width: 414px) {
+  @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
       margin-top: 1.2rem;

@@ -13,16 +13,6 @@ import WorkContent from "../components/workContent";
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
-const tag = css`
-  margin-top: 6.4rem;
-  position: sticky;
-  top: 9.6rem;
-`;
-
-const content = css`
-  margin-top: 6.4rem;
-`;
-
 const originOfTheTitle = css`
   box-shadow: 0 0.4rem 1.2rem ${hexToRgba(colors.Black, 16)};
   margin-top: 3.2rem;
@@ -34,6 +24,16 @@ const originOfTheTitle = css`
 const tool = css`
   width: 24rem;
   margin-top: 4.8rem;
+  @media (max-width: 768px) {
+    width: 20rem;
+    margin: 4.8rem auto 0;
+  }
+`;
+
+const br = css`
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const tags = ["デザインプロセス", "ポートフォリオ", "GatsbyJS"];
@@ -44,11 +44,11 @@ export default () => (
     <Header />
     <AboveTheFold image="about-this-portfolio.jpg">
       ポートフォリオ
-      <br />
+      <br css={br} />
       そのものについて
     </AboveTheFold>
-    <WorkTag year="2019" tags={tags} css={tag} />
-    <WorkContent css={content}>
+    <WorkTag year="2019" tags={tags} />
+    <WorkContent>
       <p>
         私はWebデザイナーをしていて、いわゆる事業会社に勤めています。普段の業務では同じチームのメンバーと一緒にサイトの改善をしています。そんな中で、あるときふと気がつきました。
       </p>
@@ -132,7 +132,7 @@ export default () => (
         GitHubはアカウントこそ持っていたものの全く使っていませんでした。自分でサイトを1から作るにあたってリポジトリを作成したので公開します。
       </p>
       <h2>
-        今はここまで、 <br />
+        今はここまで、 <br css={br} />
         これから続きを記します
       </h2>
     </WorkContent>

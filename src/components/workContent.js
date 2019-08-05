@@ -6,6 +6,12 @@ import colors from "../styles/colors.js";
 const root = css`
   grid-row: span 2;
   grid-column: 5 / 11;
+  margin-top: 6.4rem;
+  @media (max-width: 768px) {
+    grid-row: span 1;
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+  }
   h2 {
     font-size: 4rem;
     line-height: 5rem;
@@ -14,6 +20,7 @@ const root = css`
     @media (max-width: 768px) {
       font-size: 2.8rem;
       line-height: 3.8rem;
+      margin-top: 4rem;
     }
   }
   h3 {
@@ -24,6 +31,7 @@ const root = css`
     @media (max-width: 768px) {
       font-size: 2rem;
       line-height: 3rem;
+      margin-top: 2.4rem;
     }
   }
   p {

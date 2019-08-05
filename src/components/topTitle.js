@@ -37,7 +37,7 @@ const appear = keyframes`
 const container = css`
   grid-column: 1 / -1;
   margin: 16rem 0;
-  @media (max-width: 414px) {
+  @media (max-width: 480px) {
     margin: 20vh 0;
   }
 `;
