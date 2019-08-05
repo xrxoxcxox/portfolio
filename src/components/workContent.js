@@ -3,16 +3,9 @@ import React from "react";
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
-const content = css`
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(12, minmax(1.2rem, 6.4rem));
-  grid-column-gap: inherit;
-  margin-top: 6.4rem;
-  position: relative;
-  @media (max-width: 768px) {
-    margin-top: 4.8rem;
-  }
+const root = css`
+  grid-row: span 2;
+  grid-column: 5 / 11;
   h2 {
     font-size: 4rem;
     line-height: 5rem;
@@ -39,31 +32,17 @@ const content = css`
       font-size: 1.4rem;
       line-height: 2.4rem;
     }
-    & + p,
-    & + ul {
-      margin-top: 1.6rem;
-    }
   }
   ul {
     margin-left: 1.2em;
-  }
-  h2 + p,
-  h2 + ul {
-    margin-top: 3.2rem;
-    @media (max-width: 768px) {
-      margin-top: 2rem;
-    }
-  }
-  h3 + p,
-  h3 + ul {
-    margin-top: 2.4rem;
-    @media (max-width: 768px) {
-      margin-top: 2rem;
-    }
   }
   a {
     color: ${colors.Blue};
   }
 `;
 
-export default ({ children }) => <section css={content}>{children}</section>;
+export default ({ className, children }) => (
+  <section css={root} className={className}>
+    {children}
+  </section>
+);

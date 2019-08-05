@@ -11,12 +11,7 @@ const layout = css`
   justify-content: center;
   align-content: flex-start;
   padding: 0 1.2rem 12rem;
-  @media (max-width: 768px) {
-    //TODO: なぜかmax-widthがremだと意図しない動きをする、要検証
-    padding: 0 1.2rem 8rem;
-  }
-  @media (max-width: 414px) {
-    //TODO: なぜかmax-widthがremだと意図しない動きをする、要検証
+  @media (max-width: 480px) {
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 0;
   }

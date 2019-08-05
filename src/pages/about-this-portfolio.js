@@ -4,42 +4,34 @@ import SEO from "../components/seo";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import AboveTheFold from "../components/aboveTheFold";
-import Tag from "../components/workTag";
+import WorkTag from "../components/workTag";
 import Image from "../components/image";
 import ToIndex from "../components/workToIndex";
 
-import Content from "../components/workContent";
+import WorkContent from "../components/workContent";
 
 import { css } from "@emotion/core";
 import colors from "../styles/colors.js";
 
+const tag = css`
+  margin-top: 6.4rem;
+  position: sticky;
+  top: 9.6rem;
+`;
+
 const content = css`
-  grid-column: 5 / 11;
-  @media (max-width: 768px) {
-    grid-column: 1 / -1;
-  }
+  margin-top: 6.4rem;
 `;
 
 const originOfTheTitle = css`
-  grid-column: 3 / 11;
   box-shadow: 0 0.4rem 1.2rem ${hexToRgba(colors.Black, 16)};
   margin-top: 3.2rem;
   @media (max-width: 768px) {
-    grid-column: 1 / -1;
     margin-top: 2.4rem;
   }
 `;
 
-const tool = css`
-  grid-column: 5 / 8;
-  @media (max-width: 768px) {
-    grid-column: 3 / 11;
-  }
-`;
-
-const margin = css`
-  margin-top: 3.2rem;
-`;
+const tool = css``;
 
 const tags = ["デザインプロセス", "ポートフォリオ"];
 
@@ -52,9 +44,9 @@ export default () => (
       <br />
       そのものについて
     </AboveTheFold>
-    <Content>
-      <Tag year="2019" tags={tags} />
-      <div css={content}>
+    <WorkTag year="2019" tags={tags} css={tag} />
+    <WorkContent css={content}>
+      <div>
         <p>
           私はWebデザイナーをしていて、いわゆる事業会社に勤めています。普段の業務では同じチームのメンバーと一緒にサイトの改善をしています。そんな中で、あるときふと気がつきました。
         </p>
@@ -69,13 +61,11 @@ export default () => (
         </p>
         <p>以下にポートフォリオの制作プロセスを記していきます。</p>
       </div>
-    </Content>
-    <Content>
-      <div css={content}>
+      <div>
         <h2>サイト名の表記の由来</h2>
       </div>
       <Image filename="origin-of-the-title.jpg" css={originOfTheTitle} />
-      <div css={[content, margin]}>
+      <div>
         <p>
           “素早く作って素早く壊す”制作はしたことがあっても、全く未完成のものを世の中に出したことはありません。
         </p>
@@ -93,13 +83,11 @@ export default () => (
           Pだけ色を変えて、まさに今製作中のポートフォリオであることを強調しています。
         </p>
       </div>
-    </Content>
-    <Content>
-      <div css={content}>
+      <div>
         <h2>使っているツール・技術</h2>
       </div>
       <Image filename="icon_figma.png" css={tool} />
-      <div css={content}>
+      <div>
         <h3>ビジュアル制作ではFigma</h3>
         <p>
           各種デザインツールの中で、最もコンポーネント類の管理がしやすいと思っています。特に色やテキスト。自分は、Sketchにおけるこれらの扱いには少々不満がありました。
@@ -112,7 +100,7 @@ export default () => (
         </p>
       </div>
       <Image filename="icon_gatsby.png" css={tool} />
-      <div css={content}>
+      <div>
         <h3>サイトジェネレーターとしてGatsby</h3>
         <p>
           たまたまですが、会社の中でも外でもReactを使う機会が増えてきており勉強したいと思っていました。ポートフォリオサイトにReactはオーバースペックかな？と思っていましたが、静的ジェネレーターのGatsbyを発見。
@@ -129,7 +117,7 @@ export default () => (
         </p>
       </div>
       <Image filename="icon_emotion.png" css={tool} />
-      <div css={content}>
+      <div>
         <h3>emotionによるスタイリング</h3>
         <p>
           CSS in
@@ -145,9 +133,7 @@ export default () => (
           実際に手を動かしてみて、書きやすく将来破綻しづらそうに思えたので選びました。
         </p>
       </div>
-    </Content>
-    <Content>
-      <div css={content}>
+      <div>
         <h2>GitHubのリポジトリ</h2>
         <p>
           <a href="https://github.com/xrxoxcxox/playground">
@@ -158,15 +144,13 @@ export default () => (
           GitHubはアカウントこそ持っていたものの全く使っていませんでした。自分でサイトを1から作るにあたってリポジトリを作成したので公開します。
         </p>
       </div>
-    </Content>
-    <Content>
-      <div css={content}>
+      <div>
         <h2>
           今はここまで、 <br />
           これから続きを記します
         </h2>
       </div>
-    </Content>
+    </WorkContent>
     <ToIndex />
   </Layout>
 );
