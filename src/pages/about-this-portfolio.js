@@ -51,7 +51,7 @@ export default () => (
   <Layout>
     <SEO title="About This Portfolio" />
     <Header />
-    <AboveTheFold image="about-this-portfolio.jpg">
+    <AboveTheFold image="about_this_portfolio.jpg">
       <span>ポートフォリオ</span>
       <br css={br} />
       <span>そのものについて</span>
@@ -92,7 +92,7 @@ export default () => (
         Pだけ色を変えて、まさに今製作中のポートフォリオであることを強調しています。
       </p>
       <h2>使っているツール・技術</h2>
-      <Image filename="icon_figma.png" css={tool} />
+      <Image filename="icon-figma.png" css={tool} />
       <h3>ビジュアル制作ではFigma</h3>
       <p>
         各種デザインツールの中で、最もコンポーネント類の管理がしやすいと思っています。特に色やテキスト。自分は、Sketchにおけるこれらの扱いには少々不満がありました。
@@ -103,7 +103,7 @@ export default () => (
       <p>
         そんな中Figmaのコンポーネントの設計は非常に惹かれ、「次にプロダクトを作るとしたら絶対コレで作るぞ！」と決めていました。それが自分のポートフォリオになるとは思っていなかったですが笑
       </p>
-      <Image filename="icon_gatsby.png" css={tool} />
+      <Image filename="icon-gatsby.png" css={tool} />
       <h3>サイトジェネレーターとしてGatsby</h3>
       <p>
         たまたまですが、会社の中でも外でもReactを使う機会が増えてきており勉強したいと思っていました。ポートフォリオサイトにReactはオーバースペックかな？と思っていましたが、静的ジェネレーターのGatsbyを発見。
@@ -118,7 +118,7 @@ export default () => (
         初めのうちこそ苦労しましたが、ほとんどカスタマイズしなくてもBlazing
         Fastに表示してくれるなどリターンも大きかったです。
       </p>
-      <Image filename="icon_emotion.png" css={tool} />
+      <Image filename="icon-emotion.png" css={tool} />
       <h3>emotionによるスタイリング</h3>
       <p>
         CSS in
