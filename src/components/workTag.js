@@ -6,7 +6,7 @@ import colors from "../styles/colors.js";
 const info = css`
   grid-column: 3 / 5;
   span {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   ul {
     display: block;

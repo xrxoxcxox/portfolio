@@ -27,7 +27,7 @@ const keyVisual = css`
 `;
 
 const title = css`
-  grid-column: 1 / 9;
+  grid-column: 1 / -1;
   position: absolute;
   bottom: 3.2rem;
   font-size: 6.4rem;
