@@ -9,6 +9,7 @@ import Image from "../components/image";
 import ToIndex from "../components/workToIndex";
 
 import { css } from "@emotion/core";
+import colors from "../styles/colors.js";
 
 const tag = css`
   margin-top: 6.4rem;
@@ -20,17 +21,18 @@ const content = css`
   margin-top: 6.4rem;
 `;
 
-const availableTechnics = css`
-  grid-column: 3 / 11;
-  margin-top: 3.2rem;
+const image = css`
+  margin-top: 4rem;
   @media (max-width: 768px) {
-    grid-column: 1 / -1;
     margin-top: 2.4rem;
   }
 `;
 
 const externalLink = css`
-  margin-left: 1.6rem;
+  color: ${colors.Blue};
+  & + & {
+    margin-left: 1.6rem;
+  }
 `;
 
 const tags = ["デザイナー", "Web", "UI", "UX"];
@@ -59,7 +61,7 @@ export default () => (
         <li>プロトタイプ作成からユーザーテストまで、UXデザイン全般</li>
         <li>設計から実装まで、マークアップ全般</li>
       </ul>
-      <Image filename="available-technics.jpg" css={availableTechnics} />
+      <Image filename="available-technics.jpg" css={image} />
       <h2>普段の私</h2>
       <p>Twitterとnoteによくいます。</p>
       <p>
@@ -70,6 +72,7 @@ export default () => (
           href="https://twitter.com/xrxoxcxox"
           target="_blank"
           rel="noopener noreferrer"
+          css={externalLink}
         >
           Twitterはコチラ
         </a>
@@ -103,6 +106,8 @@ export default () => (
       <p>
         合点のいった私は「夢がないから勉強する」状態になり、地元ではそれなりに頭の良い高校に合格しました。
       </p>
+      <Image filename="about_me-ronin.jpg" css={image} />
+      <small>浪人中の色彩構成、多分受験の直前に描いていたもの。</small>
       <h3>大学受験で「気づいた」</h3>
       <p>時は経ち……今度は大学受験のシーズンです。</p>
       <p>
@@ -124,6 +129,10 @@ export default () => (
       <p>
         自分で言うのもなんですが、当時は偏差値70以上はあったのでかなり無茶な進路変更だったと思います。
       </p>
+      <Image filename="about_me-graduation_production.jpg" css={image} />
+      <small>
+        卒業制作、サインシステムに使用する想定のフォント。サインの実寸を再現したら印刷がこうなった。
+      </small>
       <h3>紆余曲折を経てデザイナーへ</h3>
       <p>
         その後はイラストレーターになるための道筋を考えてデザイン学科を志望。足掛かりとして学び始めたデザインでしたが……これがイラストを描くよりも更に面白く感じられました。

@@ -58,6 +58,12 @@ const root = css`
   a:not([class]) {
     color: ${colors.Blue};
   }
+  small:not([class]) {
+    display: block;
+    font-size: 1.2rem;
+    color: ${colors.Gray};
+    margin-top: 0.8rem;
+  }
 `;
 
 export default ({ className, children }) => (
