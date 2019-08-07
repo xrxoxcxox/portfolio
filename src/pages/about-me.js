@@ -41,7 +41,7 @@ export default () => (
   <Layout>
     <SEO title="About Me" />
     <Header />
-    <AboveTheFold image="about_me.jpg">
+    <AboveTheFold image="about_me.jpg" alt="綿貫佳祐">
       <span>綿貫佳祐について</span>
     </AboveTheFold>
     <Tag year="1993" tags={tags} css={tag} />
@@ -61,7 +61,11 @@ export default () => (
         <li>プロトタイプ作成からユーザーテストまで、UXデザイン全般</li>
         <li>設計から実装まで、マークアップ全般</li>
       </ul>
-      <Image filename="available-technics.jpg" css={image} />
+      <Image
+        filename="available-technics.jpg"
+        alt="使えるソフトの一覧"
+        css={image}
+      />
       <h2>普段の私</h2>
       <p>Twitterとnoteによくいます。</p>
       <p>
@@ -106,7 +110,11 @@ export default () => (
       <p>
         合点のいった私は「夢がないから勉強する」状態になり、地元ではそれなりに頭の良い高校に合格しました。
       </p>
-      <Image filename="about_me-ronin.jpg" css={image} />
+      <Image
+        filename="about_me-ronin.jpg"
+        alt="浪人当時の色彩構成"
+        css={image}
+      />
       <small>浪人中の色彩構成、多分受験の直前に描いていたもの。</small>
       <h3>大学受験で「気づいた」</h3>
       <p>時は経ち……今度は大学受験のシーズンです。</p>
@@ -129,7 +137,11 @@ export default () => (
       <p>
         自分で言うのもなんですが、当時は偏差値70以上はあったのでかなり無茶な進路変更だったと思います。
       </p>
-      <Image filename="about_me-graduation_production.jpg" css={image} />
+      <Image
+        filename="about_me-graduation_production.jpg"
+        alt="卒業制作のフォントと、一緒に写る自分"
+        css={image}
+      />
       <small>
         卒業制作、サインシステムに使用する想定のフォント。サインの実寸を再現したら印刷がこうなった。
       </small>
