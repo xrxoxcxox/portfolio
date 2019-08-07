@@ -51,9 +51,9 @@ const title = css`
   }
 `;
 
-export default ({ image, children }) => (
+export default ({ image, alt, children }) => (
   <div css={aboveTheFold}>
-    <Image filename={image} css={keyVisual} />
+    <Image filename={image} alt={alt} css={keyVisual} />
     <h1 css={title}>{children}</h1>
   </div>
 );
