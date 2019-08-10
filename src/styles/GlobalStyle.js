@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Global, css } from '@emotion/core'
 
 const resetStyle = css`
@@ -15,6 +17,12 @@ const resetStyle = css`
     box-sizing: border-box;
     overflow-y: scroll; /* All browsers without overlaying scrollbars */
     -webkit-text-size-adjust: 100%; /* iOS 8+ */
+    font-family: source-han-sans-japanese, sans-serif;
+    visibility: hidden; /* Webフォント読み込み時のちらつき防止のため */
+  }
+
+  html.wf-active {
+    visibility: visible; /* Webフォント読み込み時のちらつき防止のため */
   }
 
   *,
@@ -85,7 +93,7 @@ const resetStyle = css`
   }
 
   small {
-    font-size: 0.75em; /* Set font-size to 80% in 'small' elements */
+    font-size: 0.75em; /* Set font-size to 75% in 'small' elements */
   }
 
   [hidden],

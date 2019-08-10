@@ -1,13 +1,14 @@
-import React from "react";
-import { Link } from "gatsby";
-import SEO from "../components/seo";
-import Layout from "../components/layout";
-import TopTitle from "../components/topTitle";
-import Footer from "../components/footer";
-import Image from "../components/image";
+import React from 'react'
+import { Link } from 'gatsby'
+import SEO from '../components/seo'
+import Layout from '../components/layout'
+import TopTitle from '../components/topTitle'
+import Footer from '../components/footer'
+import Image from '../components/image'
 
-import { css, keyframes } from "@emotion/core";
-import colors from "../styles/colors.js";
+import { css, keyframes } from '@emotion/core'
+import { GlobalStyle } from '../styles/GlobalStyle'
+import colors from '../styles/colors.js'
 
 const opacity = keyframes`
   0% {
@@ -16,7 +17,7 @@ const opacity = keyframes`
   100% {
     opacity: 1;
   }
-`;
+`
 
 const link = css`
   grid-column: span 6;
@@ -53,27 +54,30 @@ const link = css`
     color: ${colors.White};
     opacity: 0;
   }
-`;
+`
 
 const footer = css`
   margin-top: 8rem;
-`;
+`
 
 export default () => (
-  <Layout>
-    <SEO title="" />
-    <TopTitle />
-    <Link to="/about-this-portfolio" css={link}>
-      <Image
-        filename="about_this_portfolio.jpg"
-        alt="ポートフォリオを作っている最中"
-      />
-      <p>ポートフォリオについて</p>
-    </Link>
-    <Link to="/about-me" css={link}>
-      <Image filename="about_me.jpg" alt="綿貫佳祐" />
-      <p>綿貫佳祐について</p>
-    </Link>
-    <Footer css={footer} />
-  </Layout>
-);
+  <>
+    <GlobalStyle />
+    <Layout>
+      <SEO title='' />
+      <TopTitle />
+      <Link to='/about-this-portfolio' css={link}>
+        <Image
+          filename='about_this_portfolio.jpg'
+          alt='ポートフォリオを作っている最中'
+        />
+        <p>ポートフォリオについて</p>
+      </Link>
+      <Link to='/about-me' css={link}>
+        <Image filename='about_me.jpg' alt='綿貫佳祐' />
+        <p>綿貫佳祐について</p>
+      </Link>
+      <Footer css={footer} />
+    </Layout>
+  </>
+)
