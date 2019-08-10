@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+
 import Seo from '../components/Seo'
 import Layout from '../components/Layout'
 import TopTitle from '../components/TopTitle'
@@ -9,6 +10,7 @@ import Image from '../components/Image'
 import { css, keyframes } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Colors from '../styles/Colors'
+import Size from '../styles/Size'
 
 const opacity = keyframes`
   0% {
@@ -26,7 +28,7 @@ const link = css`
   @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
-      margin-top: 1.2rem;
+      margin-top: ${Size(3)};
     }
   }
   :hover,
@@ -57,7 +59,7 @@ const link = css`
 `
 
 const footer = css`
-  margin-top: 8rem;
+  margin-top: ${Size(20)};
 `
 
 export default () => (
@@ -67,14 +69,11 @@ export default () => (
       <Seo title='' />
       <TopTitle />
       <Link to='/about-this-portfolio' css={link}>
-        <Image
-          filename='about_this_portfolio.jpg'
-          alt='ポートフォリオを作っている最中'
-        />
+        <Image filename='about_this_portfolio.jpg' alt='画像' />
         <p>ポートフォリオについて</p>
       </Link>
       <Link to='/about-me' css={link}>
-        <Image filename='about_me.jpg' alt='綿貫佳祐' />
+        <Image filename='about_me.jpg' alt='画像' />
         <p>綿貫佳祐について</p>
       </Link>
       <Footer css={footer} />

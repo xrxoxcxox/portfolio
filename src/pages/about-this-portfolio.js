@@ -1,29 +1,31 @@
 import React from 'react'
 import hexToRgba from 'hex-rgba'
-import Seo from '../components/Seo'
-import Layout from '../components/Layout'
-import Header from '../components/Header'
+
 import AboveTheFold from '../components/AboveTheFold'
+import Header from '../components/Header'
+import Image from '../components/Image'
+import Layout from '../components/Layout'
+import Seo from '../components/Seo'
+import ToIndex from '../components/WorkToIndex'
 import WorkTag from '../components/WorkTag'
 import WorkContent from '../components/WorkContent'
-import Image from '../components/Image'
-import ToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Colors from '../styles/Colors'
+import Size from '../styles/Size'
 
-const title = css`
+const origin = css`
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
   font-size: 4rem;
   text-align: center;
   font-feature-settings: 'salt';
-  margin-top: 3.2rem;
-  padding: 2rem;
-  box-shadow: 0 0.4rem 1.2rem ${hexToRgba(Colors.Black, 16)};
+  margin-top: ${Size(8)};
+  padding: ${Size(5)};
+  box-shadow: 0 ${Size(1)} ${Size(3)} ${hexToRgba(Colors.Black, 16)};
   @media (max-width: 768px) {
-    margin-top: 2.4rem;
+    margin-top: ${Size(6)};
   }
   span {
     color: ${Colors.Blue};
@@ -31,11 +33,11 @@ const title = css`
 `
 
 const tool = css`
-  width: 24rem;
-  margin-top: 4.8rem;
+  width: ${Size(60)};
+  margin-top: ${Size(12)};
   @media (max-width: 768px) {
-    width: 20rem;
-    margin: 4.8rem auto 0;
+    width: ${Size(50)};
+    margin: ${Size(12)} auto 0;
   }
 `
 
@@ -101,7 +103,7 @@ export default () => (
           新しいチャレンジも出来るし世界とのコミュニケーションも図れる。ということでサイト制作に取り掛かりました。
         </p>
         <h2>サイト名の表記の由来</h2>
-        <p css={title}>
+        <p css={origin}>
           Keisuke <span>W</span>atanuk<span>i</span> <span>P</span>ortfolio
         </p>
         <p>

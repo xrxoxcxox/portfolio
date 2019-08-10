@@ -11,28 +11,19 @@ import ToIndex from '../components/WorkToIndex'
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Colors from '../styles/Colors.js'
-
-const tag = css`
-  margin-top: 6.4rem;
-  position: sticky;
-  top: 9.6rem;
-`
-
-const content = css`
-  margin-top: 6.4rem;
-`
+import Size from '../styles/Size'
 
 const image = css`
-  margin-top: 4rem;
+  margin-top: ${Size(10)};
   @media (max-width: 768px) {
-    margin-top: 2.4rem;
+    margin-top: ${Size(6)};
   }
 `
 
 const externalLink = css`
   color: ${Colors.Blue};
   & + & {
-    margin-left: 1.6rem;
+    margin-left: ${Size(4)};
   }
 `
 
@@ -50,8 +41,8 @@ export default () => (
       <AboveTheFold image='about_me.jpg' alt='綿貫佳祐'>
         <span>綿貫佳祐について</span>
       </AboveTheFold>
-      <Tag year='1993~' tags={tags} css={tag} />
-      <WorkContent css={content}>
+      <Tag year='1993~' tags={tags} />
+      <WorkContent>
         <p>愛知県在住。エイチームという会社でデザイナーをしています。</p>
         <p>
           1993年生まれ、大学を卒業後にエイチームに就職。業務ではWebのビジュアルからマークアップまでを担当。また、サイトを分析し改善、効果測定をしてまた分析……と制作以外の役割も担っています。
