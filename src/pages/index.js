@@ -8,7 +8,7 @@ import Image from '../components/image'
 
 import { css, keyframes } from '@emotion/core'
 import { GlobalStyle } from '../styles/GlobalStyle'
-import colors from '../styles/colors.js'
+import Colors from '../styles/Colors'
 
 const opacity = keyframes`
   0% {
@@ -51,7 +51,7 @@ const link = css`
     width: 80%;
     text-align: center;
     font-size: 2.4rem;
-    color: ${colors.White};
+    color: ${Colors.White};
     opacity: 0;
   }
 `

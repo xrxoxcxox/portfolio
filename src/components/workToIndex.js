@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react'
+import { Link } from 'gatsby'
 
-import { css } from "@emotion/core";
-import colors from "../styles/colors.js";
+import { css } from '@emotion/core'
+import Colors from '../styles/Colors'
 
 const link = css`
-  color: ${colors.Blue};
+  color: ${Colors.Blue};
   margin-top: 6.4rem;
   grid-column: 5 / 9;
   font-size: 1.4rem;
@@ -13,10 +13,10 @@ const link = css`
     grid-column: 1 / -1;
     text-align: center;
   }
-`;
+`
 
 export default () => (
-  <Link to="/" css={link}>
+  <Link to='/' css={link}>
     サイトトップへ戻る
   </Link>
-);
+)

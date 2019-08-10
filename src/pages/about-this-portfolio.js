@@ -12,7 +12,7 @@ import WorkContent from '../components/workContent'
 
 import { css } from '@emotion/core'
 import { GlobalStyle } from '../styles/GlobalStyle'
-import colors from '../styles/colors.js'
+import Colors from '../styles/Colors'
 
 const title = css`
   font-family: proxima-nova, sans-serif;
@@ -22,12 +22,12 @@ const title = css`
   font-feature-settings: 'salt';
   margin-top: 3.2rem;
   padding: 2rem;
-  box-shadow: 0 0.4rem 1.2rem ${hexToRgba(colors.Black, 16)};
+  box-shadow: 0 0.4rem 1.2rem ${hexToRgba(Colors.Black, 16)};
   @media (max-width: 768px) {
     margin-top: 2.4rem;
   }
   span {
-    color: ${colors.Blue};
+    color: ${Colors.Blue};
   }
 `
 

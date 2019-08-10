@@ -10,7 +10,7 @@ import ToIndex from '../components/workToIndex'
 
 import { css } from '@emotion/core'
 import { GlobalStyle } from '../styles/GlobalStyle'
-import colors from '../styles/colors.js'
+import Colors from '../styles/Colors.js'
 
 const tag = css`
   margin-top: 6.4rem;
@@ -30,7 +30,7 @@ const image = css`
 `
 
 const externalLink = css`
-  color: ${colors.Blue};
+  color: ${Colors.Blue};
   & + & {
     margin-left: 1.6rem;
   }

@@ -1,10 +1,9 @@
-import React from "react";
-import hexToRgba from "hex-rgba";
+import React from 'react'
 
-import Image from "../components/image";
+import Image from '../components/image'
 
-import { css } from "@emotion/core";
-import colors from "../styles/colors.js";
+import { css } from '@emotion/core'
+import Colors from '../styles/Colors'
 
 const aboveTheFold = css`
   display: grid;
@@ -16,15 +15,14 @@ const aboveTheFold = css`
   @media (max-width: 768px) {
     margin-top: 2.4rem;
   }
-`;
+`
 
 const keyVisual = css`
   grid-column: 5 / -1;
-  /* filter: brightness(120%); */
   @media (max-width: 768px) {
     grid-column: 1 / -1;
   }
-`;
+`
 
 const title = css`
   grid-column: 1 / -1;
@@ -33,7 +31,6 @@ const title = css`
   font-size: 6.4rem;
   line-height: 8rem;
   font-weight: bold;
-  /* text-shadow: 0 0 1.2rem ${hexToRgba(colors.White, 40)}; */
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
@@ -43,17 +40,17 @@ const title = css`
   }
   span {
     padding: 0 1.2rem;
-    background-color: ${colors.White};
+    background-color: ${Colors.White};
     @media (max-width: 768px) {
       padding: 0;
       background-color: transparent;
     }
   }
-`;
+`
 
 export default ({ image, alt, children }) => (
   <div css={aboveTheFold}>
     <Image filename={image} alt={alt} css={keyVisual} />
     <h1 css={title}>{children}</h1>
   </div>
-);
+)

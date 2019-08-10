@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-import { css } from "@emotion/core";
-import colors from "../styles/colors.js";
+import { css } from '@emotion/core'
+import Colors from '../styles/Colors'
 
 const root = css`
   grid-row: span 2;
@@ -56,18 +56,18 @@ const root = css`
     }
   }
   a:not([class]) {
-    color: ${colors.Blue};
+    color: ${Colors.Blue};
   }
   small:not([class]) {
     display: block;
     font-size: 1.2rem;
-    color: ${colors.Gray};
+    color: ${Colors.Gray};
     margin-top: 0.8rem;
   }
-`;
+`
 
 export default ({ className, children }) => (
   <section css={root} className={className}>
     {children}
   </section>
-);
+)
