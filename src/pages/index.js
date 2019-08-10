@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import TopTitle from '../components/topTitle'
-import Footer from '../components/footer'
-import Image from '../components/image'
+import Seo from '../components/Seo'
+import Layout from '../components/Layout'
+import TopTitle from '../components/TopTitle'
+import Footer from '../components/Footer'
+import Image from '../components/Image'
 
 import { css, keyframes } from '@emotion/core'
-import { GlobalStyle } from '../styles/GlobalStyle'
+import GlobalStyle from '../styles/GlobalStyle'
 import Colors from '../styles/Colors'
 
 const opacity = keyframes`
@@ -64,7 +64,7 @@ export default () => (
   <>
     <GlobalStyle />
     <Layout>
-      <SEO title='' />
+      <Seo title='' />
       <TopTitle />
       <Link to='/about-this-portfolio' css={link}>
         <Image

@@ -1,17 +1,16 @@
 import React from 'react'
 import hexToRgba from 'hex-rgba'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Header from '../components/header'
-import AboveTheFold from '../components/aboveTheFold'
-import WorkTag from '../components/workTag'
-import Image from '../components/image'
-import ToIndex from '../components/workToIndex'
-
-import WorkContent from '../components/workContent'
+import Seo from '../components/Seo'
+import Layout from '../components/Layout'
+import Header from '../components/Header'
+import AboveTheFold from '../components/AboveTheFold'
+import WorkTag from '../components/WorkTag'
+import WorkContent from '../components/WorkContent'
+import Image from '../components/Image'
+import ToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
-import { GlobalStyle } from '../styles/GlobalStyle'
+import GlobalStyle from '../styles/GlobalStyle'
 import Colors from '../styles/Colors'
 
 const title = css`
@@ -58,7 +57,7 @@ export default () => (
   <>
     <GlobalStyle />
     <Layout>
-      <SEO
+      <Seo
         title='About This Portfolio'
         description='このポートフォリオが出来ていく様を記録し、それ自体を1つの作品として仕上げようと考えています。「なんだかオシャレだけどどんな人が作ったか分からないポートフォリオは嫌」が第一。制作プロセスやアウトプットに至る背景がよく分かるようなものにしたいと思っています。'
       />

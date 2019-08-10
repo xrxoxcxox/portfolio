@@ -1,15 +1,15 @@
 import React from 'react'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Header from '../components/header'
-import AboveTheFold from '../components/aboveTheFold'
-import Tag from '../components/workTag'
-import WorkContent from '../components/workContent'
-import Image from '../components/image'
-import ToIndex from '../components/workToIndex'
+import Seo from '../components/Seo'
+import Layout from '../components/Layout'
+import Header from '../components/Header'
+import AboveTheFold from '../components/AboveTheFold'
+import Tag from '../components/WorkTag'
+import WorkContent from '../components/WorkContent'
+import Image from '../components/Image'
+import ToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
-import { GlobalStyle } from '../styles/GlobalStyle'
+import GlobalStyle from '../styles/GlobalStyle'
 import Colors from '../styles/Colors.js'
 
 const tag = css`
@@ -42,7 +42,7 @@ export default () => (
   <>
     <GlobalStyle />
     <Layout>
-      <SEO
+      <Seo
         title='About Me'
         description='愛知県在住。エイチームという会社でデザイナーをしています。普段はWebのビジュアルからマークアップまでを担当。また、サイトを分析し改善、効果測定をしてまた分析……と制作以外の役割も担っています。個人でもWebサービスやアプリの開発をしています。'
       />
