@@ -55,7 +55,10 @@ const tags = [
 
 export default () => (
   <Layout>
-    <SEO title="About This Portfolio" />
+    <SEO
+      title="About This Portfolio"
+      description="このポートフォリオが出来ていく様を記録し、それ自体を1つの作品として仕上げようと考えています。「なんだかオシャレだけどどんな人が作ったか分からないポートフォリオは嫌」が第一。制作プロセスやアウトプットに至る背景がよく分かるようなものにしたいと思っています。"
+    />
     <Header />
     <AboveTheFold
       image="about_this_portfolio.jpg"
