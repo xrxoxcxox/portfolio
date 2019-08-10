@@ -2,16 +2,17 @@ import React from 'react'
 
 import { css } from '@emotion/core'
 import Colors from '../styles/Colors'
+import Size from '../styles/Size'
 
 const root = css`
   grid-column: 3 / 5;
   position: sticky;
-  top: 9.6rem;
-  margin-top: 6.4rem;
+  top: ${Size(24)};
+  margin-top: ${Size(16)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
-    margin-top: 2rem;
+    margin-top: ${Size(5)};
   }
 `
 
@@ -23,9 +24,9 @@ const contents = css`
   font-size: 1.2rem;
   line-height: 1.8rem;
   color: ${Colors.Gray};
-  border-left: 0.1rem solid ${Colors.Gray};
-  margin: 0.4rem 0 0 0;
-  padding: 0.4rem 0 0.4rem 1.2rem;
+  border-left: ${Size(0.25)} solid ${Colors.Gray};
+  margin: ${Size(1)} 0 0 0;
+  padding: ${Size(1)} 0 ${Size(1)} ${Size(3)};
   list-style-type: none;
 `
 

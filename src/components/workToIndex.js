@@ -3,10 +3,11 @@ import { Link } from 'gatsby'
 
 import { css } from '@emotion/core'
 import Colors from '../styles/Colors'
+import Size from '../styles/Size'
 
 const link = css`
   color: ${Colors.Blue};
-  margin-top: 6.4rem;
+  margin-top: ${Size(16)};
   grid-column: 5 / 9;
   font-size: 1.4rem;
   @media (max-width: 768px) {

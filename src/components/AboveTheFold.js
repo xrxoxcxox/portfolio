@@ -4,6 +4,7 @@ import Image from './Image'
 
 import { css } from '@emotion/core'
 import Colors from '../styles/Colors'
+import Size from '../styles/Size'
 
 const root = css`
   display: grid;
@@ -11,9 +12,9 @@ const root = css`
   grid-template-columns: repeat(12, minmax(1.2rem, 6.4rem));
   grid-column-gap: inherit;
   position: relative;
-  margin-top: 4rem;
+  margin-top: ${Size(10)};
   @media (max-width: 768px) {
-    margin-top: 2.4rem;
+    margin-top: ${Size(6)};
   }
 `
 
@@ -27,7 +28,7 @@ const keyVisual = css`
 const title = css`
   grid-column: 1 / -1;
   position: absolute;
-  bottom: 3.2rem;
+  bottom: ${Size(8)};
   font-size: 6.4rem;
   line-height: 8rem;
   font-weight: bold;
@@ -36,10 +37,10 @@ const title = css`
     position: static;
     font-size: calc(2rem + 4vw);
     line-height: 1.4;
-    margin-top: 0.4rem;
+    margin-top: ${Size(1)};
   }
   span {
-    padding: 0 1.2rem;
+    padding: 0 ${Size(3)};
     background-color: ${Colors.White};
     @media (max-width: 768px) {
       padding: 0;

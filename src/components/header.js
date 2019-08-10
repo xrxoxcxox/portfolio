@@ -3,12 +3,13 @@ import { Link } from 'gatsby'
 
 import { css } from '@emotion/core'
 import Colors from '../styles/Colors'
+import Size from '../styles/Size'
 
 const root = css`
   display: flex;
   align-items: center;
   grid-column: 1 / -1;
-  height: 6.4rem;
+  height: ${Size(16)};
   background-color: ${Colors.White};
   a {
     font-family: proxima-nova, sans-serif;
@@ -16,14 +17,14 @@ const root = css`
     font-weight: 900;
     text-decoration: none;
     color: ${Colors.Black};
-    padding: 1.2rem 0;
+    padding: ${Size(3)} 0;
     transition: all 0.25s ease-in-out;
     ::after {
       content: '';
       display: block;
       width: 0;
       transition: all 0.25s ease-out;
-      border-bottom: 1px solid currentColor;
+      border-bottom: ${Size(0.25)} solid currentColor;
     }
     :hover::after {
       width: 100%;

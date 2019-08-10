@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import { css, keyframes } from '@emotion/core'
 import Colors from '../styles/Colors'
+import Size from '../styles/Size'
 
 const titleBlur = keyframes`
   0% {
@@ -36,7 +37,7 @@ const appear = keyframes`
 
 const container = css`
   grid-column: 1 / -1;
-  margin: 16rem 0;
+  margin: ${Size(40)} 0;
   @media (max-width: 480px) {
     margin: 20vh 0;
   }
@@ -84,7 +85,7 @@ const subTitle = css`
   font-feature-settings: 'palt';
   letter-spacing: 0.02em;
   @media (max-width: 768px) {
-    margin-top: 1.2rem;
+    margin-top: ${Size(3)};
     line-height: 1.6;
   }
 `
