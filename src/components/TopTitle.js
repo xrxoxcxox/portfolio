@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { css, keyframes } from '@emotion/core'
+
 import Colors from '../styles/Colors'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
