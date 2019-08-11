@@ -5,6 +5,7 @@ import Image from './Image'
 import { css } from '@emotion/core'
 import Colors from '../styles/Colors'
 import Size from '../styles/Size'
+import Typography from '../styles/Typography'
 
 const root = css`
   display: grid;
@@ -29,14 +30,12 @@ const title = css`
   grid-column: 1 / -1;
   position: absolute;
   bottom: ${Size(8)};
-  font-size: 6.4rem;
+  ${Typography.Title}
   line-height: 8rem;
   font-weight: bold;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
-    font-size: calc(2rem + 4vw);
-    line-height: 1.4;
     margin-top: ${Size(1)};
   }
   span {

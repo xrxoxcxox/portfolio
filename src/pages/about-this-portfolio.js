@@ -14,11 +14,12 @@ import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Colors from '../styles/Colors'
 import Size from '../styles/Size'
+import Typography from '../styles/Typography'
 
 const origin = css`
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
-  font-size: 4rem;
+  ${Typography.Headline};
   text-align: center;
   font-feature-settings: 'salt';
   margin-top: ${Size(8)};

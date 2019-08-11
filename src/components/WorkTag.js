@@ -3,6 +3,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import Colors from '../styles/Colors'
 import Size from '../styles/Size'
+import Typography from '../styles/Typography'
 
 const root = css`
   grid-column: 3 / 5;
@@ -17,12 +18,11 @@ const root = css`
 `
 
 const headline = css`
-  font-size: 2rem;
+  ${Typography.Subhead};
 `
 
 const contents = css`
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  ${Typography.Footnote};
   color: ${Colors.Gray};
   border-left: ${Size(0.25)} solid ${Colors.Gray};
   margin: ${Size(1)} 0 0 0;

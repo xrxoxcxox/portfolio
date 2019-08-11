@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import Colors from '../styles/Colors'
 import Size from '../styles/Size'
+import Typography from '../styles/Typography'
 
 const root = css`
   display: flex;
@@ -12,8 +13,8 @@ const root = css`
   height: ${Size(16)};
   background-color: ${Colors.White};
   a {
+    ${Typography.Body};
     font-family: proxima-nova, sans-serif;
-    font-size: 1.6rem;
     font-weight: 900;
     text-decoration: none;
     color: ${Colors.Black};

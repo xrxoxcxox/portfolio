@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { css, keyframes } from '@emotion/core'
 import Colors from '../styles/Colors'
 import Size from '../styles/Size'
+import Typography from '../styles/Typography'
 
 const titleBlur = keyframes`
   0% {
@@ -46,10 +47,14 @@ const container = css`
 const title = css`
   display: inline;
   font-family: proxima-nova, sans-serif;
+  ${Typography.Title};
   font-weight: 900;
-  font-size: 6.4rem;
   font-feature-settings: 'salt';
   white-space: pre-wrap;
+  @media (max-width: 768px) {
+    font-size: 6.4rem;
+    line-height: 6.8rem;
+  }
 `
 
 const titleWip = css`
@@ -81,12 +86,11 @@ const space = css`
 const subTitle = css`
   grid-column: 1 / -1;
   font-weight: 400;
-  font-size: 1.6rem;
+  ${Typography.Body}
   font-feature-settings: 'palt';
   letter-spacing: 0.02em;
   @media (max-width: 768px) {
     margin-top: ${Size(3)};
-    line-height: 1.6;
   }
 `
 

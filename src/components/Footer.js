@@ -2,10 +2,11 @@ import React from 'react'
 
 import { css } from '@emotion/core'
 import Colors from '../styles/Colors'
+import Typography from '../styles/Typography'
 
 const root = css`
   grid-column: span 12;
-  font-size: 1.4rem;
+  ${Typography.Callout};
   color: ${Colors.Gray};
   text-align: center;
 `
