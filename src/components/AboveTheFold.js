@@ -1,59 +1,55 @@
-import React from "react";
-import hexToRgba from "hex-rgba";
+import React from 'react'
+import Image from './Image'
 
-import Image from "../components/image";
+import { css } from '@emotion/core'
+import Colors from '../styles/Colors'
+import Size from '../styles/Size'
+import Typography from '../styles/Typography'
 
-import { css } from "@emotion/core";
-import colors from "../styles/colors.js";
-
-const aboveTheFold = css`
+const root = css`
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: repeat(12, minmax(1.2rem, 6.4rem));
   grid-column-gap: inherit;
   position: relative;
-  margin-top: 4rem;
+  margin-top: ${Size(10)};
   @media (max-width: 768px) {
-    margin-top: 2.4rem;
+    margin-top: ${Size(6)};
   }
-`;
+`
 
 const keyVisual = css`
   grid-column: 5 / -1;
-  /* filter: brightness(120%); */
   @media (max-width: 768px) {
     grid-column: 1 / -1;
   }
-`;
+`
 
 const title = css`
   grid-column: 1 / -1;
   position: absolute;
-  bottom: 3.2rem;
-  font-size: 6.4rem;
+  bottom: ${Size(8)};
+  ${Typography.Title}
   line-height: 8rem;
   font-weight: bold;
-  /* text-shadow: 0 0 1.2rem ${hexToRgba(colors.White, 40)}; */
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
-    font-size: calc(2rem + 4vw);
-    line-height: 1.4;
-    margin-top: 0.4rem;
+    margin-top: ${Size(1)};
   }
   span {
-    padding: 0 1.2rem;
-    background-color: ${colors.White};
+    padding: 0 ${Size(3)};
+    background-color: ${Colors.White};
     @media (max-width: 768px) {
       padding: 0;
       background-color: transparent;
     }
   }
-`;
+`
 
 export default ({ image, alt, children }) => (
-  <div css={aboveTheFold}>
+  <div css={root}>
     <Image filename={image} alt={alt} css={keyVisual} />
     <h1 css={title}>{children}</h1>
   </div>
-);
+)

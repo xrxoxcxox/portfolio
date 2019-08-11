@@ -1,13 +1,16 @@
-import React from "react";
-import { Link } from "gatsby";
-import SEO from "../components/seo";
-import Layout from "../components/layout";
-import TopTitle from "../components/topTitle";
-import Footer from "../components/footer";
-import Image from "../components/image";
+import React from 'react'
+import { Link } from 'gatsby'
 
-import { css, keyframes } from "@emotion/core";
-import colors from "../styles/colors.js";
+import Seo from '../components/Seo'
+import Layout from '../components/Layout'
+import TopTitle from '../components/TopTitle'
+import Footer from '../components/Footer'
+import Image from '../components/Image'
+
+import { css, keyframes } from '@emotion/core'
+import GlobalStyle from '../styles/GlobalStyle'
+import Colors from '../styles/Colors'
+import Size from '../styles/Size'
 
 const opacity = keyframes`
   0% {
@@ -16,7 +19,7 @@ const opacity = keyframes`
   100% {
     opacity: 1;
   }
-`;
+`
 
 const link = css`
   grid-column: span 6;
@@ -25,7 +28,7 @@ const link = css`
   @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
-      margin-top: 1.2rem;
+      margin-top: ${Size(3)};
     }
   }
   :hover,
@@ -50,30 +53,30 @@ const link = css`
     width: 80%;
     text-align: center;
     font-size: 2.4rem;
-    color: ${colors.White};
+    color: ${Colors.White};
     opacity: 0;
   }
-`;
+`
 
 const footer = css`
-  margin-top: 8rem;
-`;
+  margin-top: ${Size(20)};
+`
 
 export default () => (
-  <Layout>
-    <SEO title="" />
-    <TopTitle />
-    <Link to="/about-this-portfolio" css={link}>
-      <Image
-        filename="about_this_portfolio.jpg"
-        alt="ポートフォリオを作っている最中"
-      />
-      <p>ポートフォリオについて</p>
-    </Link>
-    <Link to="/about-me" css={link}>
-      <Image filename="about_me.jpg" alt="綿貫佳祐" />
-      <p>綿貫佳祐について</p>
-    </Link>
-    <Footer css={footer} />
-  </Layout>
-);
+  <>
+    <GlobalStyle />
+    <Layout>
+      <Seo title='' />
+      <TopTitle />
+      <Link to='/about-this-portfolio' css={link}>
+        <Image filename='about_this_portfolio.jpg' alt='画像' />
+        <p>ポートフォリオについて</p>
+      </Link>
+      <Link to='/about-me' css={link}>
+        <Image filename='about_me.jpg' alt='画像' />
+        <p>綿貫佳祐について</p>
+      </Link>
+      <Footer css={footer} />
+    </Layout>
+  </>
+)
