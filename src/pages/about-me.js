@@ -34,7 +34,7 @@ export default () => (
     <GlobalStyle />
     <Layout>
       <Seo
-        title='About Me'
+        title='綿貫佳祐について'
         description='愛知県在住。エイチームという会社でデザイナーをしています。普段はWebのビジュアルからマークアップまでを担当。また、サイトを分析し改善、効果測定をしてまた分析……と制作以外の役割も担っています。個人でもWebサービスやアプリの開発をしています。'
       />
       <Header />
