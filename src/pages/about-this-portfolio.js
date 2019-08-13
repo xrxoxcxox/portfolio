@@ -61,7 +61,7 @@ export default () => (
     <GlobalStyle />
     <Layout>
       <Seo
-        title='About This Portfolio'
+        title='ポートフォリオについて'
         description='このポートフォリオが出来ていく様を記録し、それ自体を1つの作品として仕上げようと考えています。「なんだかオシャレだけどどんな人が作ったか分からないポートフォリオは嫌」が第一。制作プロセスやアウトプットに至る背景がよく分かるようなものにしたいと思っています。'
       />
       <Header />
