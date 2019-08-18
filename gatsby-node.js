@@ -1,10 +1,10 @@
 exports.createPages = ({ graphql, actions }) => {
-  const { createRedirect } = actions;
+  const { createRedirect } = actions
 
   createRedirect({
-    fromPath: "https://www.keisukewatanuki.work/*",
-    toPath: "https://keisukewatanuki.work/:splat",
+    fromPath: 'https://keisukewatanuki.work/*',
+    toPath: 'https://www.keisukewatanuki.work/:splat',
     isPermanent: true,
-    force: true
-  });
-};
+    force: true,
+  })
+}
