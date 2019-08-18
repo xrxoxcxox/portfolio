@@ -13,7 +13,7 @@ const root = css`
   @media (max-width: 768px) {
     grid-row: span 1;
     grid-column: 1 / -1;
-    margin-top: ${Size(5)};
+    margin-top: ${Size(6)};
   }
   h2:not([class]) {
     ${Typography.Headline}
@@ -34,7 +34,7 @@ const root = css`
   p:not([class]) {
     ${Typography.Body}
     &:not(:first-of-type) {
-      margin-top: ${Size(4)};
+      margin-top: ${Size(5)};
     }
   }
   ul:not([class]) {

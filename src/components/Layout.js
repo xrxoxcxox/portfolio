@@ -16,6 +16,7 @@ const layout = css`
   @media (max-width: 480px) {
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 0;
+    padding: 0 ${Size(4)} ${Size(10)};
   }
 `
 

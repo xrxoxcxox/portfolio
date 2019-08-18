@@ -1,41 +1,11 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { css, keyframes } from '@emotion/core'
+import { css } from '@emotion/core'
 
 import Colors from '../styles/Colors'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
-
-const titleBlur = keyframes`
-  0% {
-    filter: blur(0) contrast(1);
-  }
-  30% {
-    filter: blur(0) contrast(1);
-  }
-  50% {
-    filter: blur(4rem) contrast(2);
-  }
-  85% {
-    filter: blur(0) contrast(1);
-  }
-`
-
-const appear = keyframes`
-0% {
-  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
-  max-width: 0%;
-}
-45% {
-  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
-  max-width: 0%;
-}
-85% {
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-  max-width: 100%;
-}
-`
 
 const container = css`
   grid-column: 1 / -1;
@@ -60,7 +30,6 @@ const title = css`
 
 const titleWip = css`
   ${title}
-  animation: ${titleBlur} 600ms ease-out 200ms normal;
 `
 
 const titleBlock = css`
@@ -71,17 +40,6 @@ const titleBlock = css`
 
 const wip = css`
   color: ${Colors.Blue};
-`
-
-const hide = css`
-  white-space: pre;
-  animation: ${appear} 600ms ease-out 200ms backwards;
-`
-
-const space = css`
-  @media (max-width: 768px) {
-    display: none;
-  }
 `
 
 const subTitle = css`
@@ -103,13 +61,12 @@ const TopTitle = ({ data }) => (
     <h1 css={titleWip}>
       <span css={titleBlock}>
         <span css={wip}>W</span>
-        <span css={hide}>atanuk</span>
-        <span css={wip}>i</span>
-        <span css={[hide, space]}> </span>
+        <span>atanuk</span>
+        <span css={wip}>i </span>
       </span>
       <span css={titleBlock}>
         <span css={wip}>P</span>
-        <span css={hide}>ortfolio</span>
+        <span>ortfolio</span>
       </span>
     </h1>
     <h2 css={subTitle}>{data.site.siteMetadata.description}</h2>
