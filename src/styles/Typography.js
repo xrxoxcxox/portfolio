@@ -29,11 +29,7 @@ const Subhead = css`
 
 const Body = css`
   font-size: 1.6rem;
-  line-height: 2.4rem;
-  @media (max-width: 768px) {
-    font-size: 1.4rem;
-    line-height: 2.2rem;
-  }
+  line-height: 2.8rem;
 `
 
 const Callout = css`

@@ -12,8 +12,8 @@ export default props => (
               relativePath
               name
               childImageSharp {
-                sizes(maxWidth: 1080) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 1080) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
@@ -29,7 +29,7 @@ export default props => (
         return null
       }
 
-      const imageSizes = image.node.childImageSharp.sizes
+      const imageSizes = image.node.childImageSharp.fluid
       return (
         <Img alt={props.alt} sizes={imageSizes} className={props.className} />
       )

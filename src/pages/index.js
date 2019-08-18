@@ -7,54 +7,39 @@ import TopTitle from '../components/TopTitle'
 import Footer from '../components/Footer'
 import Image from '../components/Image'
 
-import { css, keyframes } from '@emotion/core'
+import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
-import Colors from '../styles/Colors'
 import Size from '../styles/Size'
-
-const opacity = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`
+import Typography from '../styles/Typography'
 
 const link = css`
   grid-column: span 6;
-  position: relative;
-  animation: ${opacity} 400ms ease-out 400ms both;
+  text-decoration: none;
+  p {
+    ${Typography.Body};
+    display: inline-block;
+    margin-top: ${Size(1)};
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      transition: all 0.25s ease-out;
+      border-bottom: ${Size(0.25)} solid currentColor;
+    }
+  }
+  &:hover {
+    .gatsby-image-wrapper {
+      opacity: 0.8;
+    }
+    p::after {
+      width: 100%;
+    }
+  }
   @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
-      margin-top: ${Size(3)};
+      margin-top: ${Size(4)};
     }
-  }
-  :hover,
-  :active {
-    transition: all 0.2s ease-in-out;
-    .gatsby-image-wrapper {
-      /* Imageコンポーネントにクラス名などが渡せないためここで指定 */
-      filter: brightness(40%);
-      transition: all 0.2s ease-in-out;
-    }
-    p {
-      opacity: 1;
-      transition: all 0.2s ease-in-out;
-    }
-  }
-  p {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
-    font-size: 2.4rem;
-    color: ${Colors.White};
-    opacity: 0;
   }
 `
 
