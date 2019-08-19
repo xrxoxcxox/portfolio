@@ -3,7 +3,7 @@ module.exports = {
     title: `Keisuke Watanuki Portfolio`,
     description: `デザイナー、綿貫佳祐のポートフォリオです。デジタルプロダクトやユーザー体験をデザインしています。`,
     author: `@xrxoxcxox`,
-    siteUrl: `https://keisukewatanuki.work`
+    siteUrl: `https://www.keisukewatanuki.work`,
   },
   plugins: [
     `gatsby-plugin-sitemap`,
@@ -13,8 +13,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -27,13 +27,13 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
-      }
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
     },
-    `gatsby-plugin-netlify`
+    `gatsby-plugin-netlify`,
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
-  ]
-};
+  ],
+}
