@@ -26,6 +26,17 @@ const body = css`
   margin-top: ${Size(6)};
 `
 
+const button = css`
+  margin-top: ${Size(12)};
+  @media (max-width: 768px) {
+    display: block;
+    text-align: center;
+    width: calc(100% - ${Size(8)});
+    margin-right: auto;
+    margin-left: auto;
+  }
+`
+
 const NotFoundPage = () => (
   <>
     <GlobalStyle />
@@ -43,7 +54,9 @@ const NotFoundPage = () => (
           <br />
           再度URLをご確認ください。
         </p>
-        <Button to='/'>サイトトップへ戻る</Button>
+        <Button to='/' override={button}>
+          サイトトップへ戻る
+        </Button>
       </div>
       <Footer />
     </Layout>

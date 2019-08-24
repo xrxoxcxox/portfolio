@@ -2,13 +2,14 @@ import React from 'react'
 import hexToRgba from 'hex-rgba'
 
 import AboveTheFold from '../components/AboveTheFold'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Image from '../components/Image'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
-import ToIndex from '../components/WorkToIndex'
-import WorkTag from '../components/WorkTag'
 import WorkContent from '../components/WorkContent'
+import WorkTag from '../components/WorkTag'
+import WorkToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
@@ -186,8 +187,9 @@ export default () => (
           今はここまで、 <br css={br} />
           これから続きを記します
         </h2>
+        <WorkToIndex />
       </WorkContent>
-      <ToIndex />
+      <Footer />
     </Layout>
   </>
 )

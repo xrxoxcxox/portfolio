@@ -16,12 +16,11 @@ const root = css`
   text-decoration: none;
   border-radius: ${Size(1)};
   box-shadow: 0 ${Size(0.5)} ${Size(2)} ${hexToRgba(Colors.Black, 16)};
-  margin-top: ${Size(12)};
   padding: ${Size(2)} ${Size(3)};
 `
 
-export default ({ children, to }) => (
-  <Link to={to} css={root}>
+export default ({ children, to, override }) => (
+  <Link to={to} css={[root, override]}>
     {children}
   </Link>
 )

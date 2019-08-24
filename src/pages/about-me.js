@@ -1,12 +1,14 @@
 import React from 'react'
-import Seo from '../components/Seo'
-import Layout from '../components/Layout'
-import Header from '../components/Header'
+
 import AboveTheFold from '../components/AboveTheFold'
-import Tag from '../components/WorkTag'
-import WorkContent from '../components/WorkContent'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 import Image from '../components/Image'
-import ToIndex from '../components/WorkToIndex'
+import Layout from '../components/Layout'
+import Seo from '../components/Seo'
+import WorkContent from '../components/WorkContent'
+import WorkTag from '../components/WorkTag'
+import WorkToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
@@ -41,7 +43,7 @@ export default () => (
       <AboveTheFold image='about_me.jpg' alt='綿貫佳祐'>
         <span>綿貫佳祐について</span>
       </AboveTheFold>
-      <Tag year='1993~' tags={tags} />
+      <WorkTag year='1993~' tags={tags} />
       <WorkContent>
         <p>愛知県在住。エイチームという会社でデザイナーをしています。</p>
         <p>
@@ -166,8 +168,9 @@ export default () => (
         <p>
           何をどれだけやってもゴールすることは無い目標ですが、それゆえ自分に発破をかけられ続けています。
         </p>
+        <WorkToIndex />
       </WorkContent>
-      <ToIndex />
+      <Footer />
     </Layout>
   </>
 )
