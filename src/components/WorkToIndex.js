@@ -1,25 +1,22 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Button from '../components/Button'
 
 import { css } from '@emotion/core'
-
-import Colors from '../styles/Colors'
 import Size from '../styles/Size'
-import Typography from '../styles/Typography'
 
 const link = css`
-  color: ${Colors.Blue};
   margin-top: ${Size(16)};
-  grid-column: 5 / 9;
-  ${Typography.Callout};
   @media (max-width: 768px) {
-    grid-column: 1 / -1;
+    display: block;
     text-align: center;
+    width: calc(100% - ${Size(8)});
+    margin-right: auto;
+    margin-left: auto;
   }
 `
 
 export default () => (
-  <Link to='/' css={link}>
+  <Button to='/' override={link}>
     サイトトップへ戻る
-  </Link>
+  </Button>
 )

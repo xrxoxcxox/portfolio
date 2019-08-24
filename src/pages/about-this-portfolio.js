@@ -2,13 +2,14 @@ import React from 'react'
 import hexToRgba from 'hex-rgba'
 
 import AboveTheFold from '../components/AboveTheFold'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Image from '../components/Image'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
-import ToIndex from '../components/WorkToIndex'
-import WorkTag from '../components/WorkTag'
 import WorkContent from '../components/WorkContent'
+import WorkTag from '../components/WorkTag'
+import WorkToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
@@ -59,11 +60,11 @@ const tags = [
 export default () => (
   <>
     <GlobalStyle />
+    <Seo
+      title='ポートフォリオについて'
+      description='このポートフォリオが出来ていく様を記録し、それ自体を1つの作品として仕上げようと考えています。「なんだかオシャレだけどどんな人が作ったか分からないポートフォリオは嫌」が第一。制作プロセスやアウトプットに至る背景がよく分かるようなものにしたいと思っています。'
+    />
     <Layout>
-      <Seo
-        title='ポートフォリオについて'
-        description='このポートフォリオが出来ていく様を記録し、それ自体を1つの作品として仕上げようと考えています。「なんだかオシャレだけどどんな人が作ったか分からないポートフォリオは嫌」が第一。制作プロセスやアウトプットに至る背景がよく分かるようなものにしたいと思っています。'
-      />
       <Header />
       <AboveTheFold
         image='about_this_portfolio.jpg'
@@ -186,8 +187,9 @@ export default () => (
           今はここまで、 <br css={br} />
           これから続きを記します
         </h2>
+        <WorkToIndex />
       </WorkContent>
-      <ToIndex />
+      <Footer />
     </Layout>
   </>
 )
