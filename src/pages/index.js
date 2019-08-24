@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Seo from '../components/Seo'
-import Layout from '../components/Layout'
-import TopTitle from '../components/TopTitle'
 import Footer from '../components/Footer'
 import Image from '../components/Image'
+import Layout from '../components/Layout'
+import Seo from '../components/Seo'
+import TopTitle from '../components/TopTitle'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
@@ -43,15 +43,11 @@ const link = css`
   }
 `
 
-const footer = css`
-  margin-top: ${Size(20)};
-`
-
 export default () => (
   <>
     <GlobalStyle />
+    <Seo title='' />
     <Layout>
-      <Seo title='' />
       <TopTitle />
       <Link to='/about-this-portfolio' css={link}>
         <Image filename='about_this_portfolio.jpg' alt='画像' />
@@ -61,7 +57,7 @@ export default () => (
         <Image filename='about_me.jpg' alt='画像' />
         <p>綿貫佳祐について</p>
       </Link>
-      <Footer css={footer} />
+      <Footer />
     </Layout>
   </>
 )

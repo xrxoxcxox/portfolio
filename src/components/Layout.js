@@ -12,7 +12,7 @@ const layout = css`
   grid-column-gap: ${Size(6)};
   justify-content: center;
   align-content: flex-start;
-  padding: 0 ${Size(3)} ${Size(20)};
+  padding: 0 ${Size(3)};
   @media (max-width: 480px) {
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 0;
