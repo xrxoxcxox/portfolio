@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import hexToRgba from 'hex-rgba'
 
+import Button from '../components/Button'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Layout from '../components/Layout'
@@ -9,7 +8,6 @@ import Seo from '../components/Seo'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
-import Colors from '../styles/Colors.js'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
@@ -26,18 +24,6 @@ const title = css`
 const body = css`
   ${Typography.Body};
   margin-top: ${Size(6)};
-`
-
-const link = css`
-  display: inline-block;
-  color: ${Colors.White};
-  background-color: ${Colors.Blue};
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: ${Size(1)};
-  box-shadow: 0 ${Size(0.5)} ${Size(2)} ${hexToRgba(Colors.Black, 16)};
-  margin-top: ${Size(12)};
-  padding: ${Size(3)};
 `
 
 const NotFoundPage = () => (
@@ -57,9 +43,7 @@ const NotFoundPage = () => (
           <br />
           再度URLをご確認ください。
         </p>
-        <Link to='/' css={link}>
-          サイトトップへ戻る
-        </Link>
+        <Button to='/'>サイトトップへ戻る</Button>
       </div>
       <Footer />
     </Layout>
