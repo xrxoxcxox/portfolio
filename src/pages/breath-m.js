@@ -33,7 +33,7 @@ export default () => (
     <Layout>
       <Header />
       <AboveTheFold
-        image='breath-m/mainVisual.png'
+        image='breath-m/main-visual.png'
         alt='Breath.Mのロゴ'
         type='center'
       />

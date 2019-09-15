@@ -58,11 +58,11 @@ export default () => (
         <p>Breath.M</p>
       </Link>
       <Link to='/about-this-portfolio' css={link}>
-        <Image filename='about_this_portfolio.jpg' alt='画像' />
+        <Image filename='aboout-this-portfolio/main-visual.jpg' alt='画像' />
         <p>ポートフォリオについて</p>
       </Link>
       <Link to='/about-me' css={link}>
-        <Image filename='about_me.jpg' alt='画像' />
+        <Image filename='about-me/main-visual.jpg' alt='画像' />
         <p>綿貫佳祐について</p>
       </Link>
       <Footer />
