@@ -12,8 +12,8 @@ export default props => (
               relativePath
               name
               childImageSharp {
-                fluid(maxWidth: 1080) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                fluid(maxWidth: 1080, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

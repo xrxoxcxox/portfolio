@@ -12,6 +12,7 @@ import GlobalStyle from '../styles/GlobalStyle'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
+/* 画像にhoverしたときにpにスタイルをあてたいため、タグの入れ子でスタイル指定 */
 const link = css`
   grid-column: span 6;
   text-decoration: none;
@@ -35,6 +36,9 @@ const link = css`
       width: 100%;
     }
   }
+  &:nth-of-type(n + 3) {
+    margin-top: ${Size(10)};
+  }
   @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
@@ -49,12 +53,16 @@ export default () => (
     <Seo title='' />
     <Layout>
       <TopTitle />
+      <Link to='/breath-m' css={link}>
+        <Image filename='breath-m/thumbnail.png' alt='画像' />
+        <p>Breath.M</p>
+      </Link>
       <Link to='/about-this-portfolio' css={link}>
-        <Image filename='about_this_portfolio.jpg' alt='画像' />
+        <Image filename='aboout-this-portfolio/main-visual.jpg' alt='画像' />
         <p>ポートフォリオについて</p>
       </Link>
       <Link to='/about-me' css={link}>
-        <Image filename='about_me.jpg' alt='画像' />
+        <Image filename='about-me/main-visual.jpg' alt='画像' />
         <p>綿貫佳祐について</p>
       </Link>
       <Footer />

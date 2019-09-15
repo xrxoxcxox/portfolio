@@ -40,7 +40,7 @@ export default () => (
     />
     <Layout>
       <Header />
-      <AboveTheFold image='about_me.jpg' alt='綿貫佳祐'>
+      <AboveTheFold image='about-me/main-visual.jpg' alt='綿貫佳祐'>
         <span>綿貫佳祐について</span>
       </AboveTheFold>
       <WorkTag year='1993~' tags={tags} />
@@ -61,7 +61,7 @@ export default () => (
           <li>設計から実装まで、マークアップ全般</li>
         </ul>
         <Image
-          filename='available-technics.jpg'
+          filename='about-me/available-technics.jpg'
           alt='使えるソフトの一覧'
           css={image}
         />
@@ -108,7 +108,7 @@ export default () => (
           合点のいった私は「夢がないから勉強する」状態になり、地元ではそれなりに頭の良い高校に合格しました。
         </p>
         <Image
-          filename='about_me-ronin.jpg'
+          filename='about-me/ronin.jpg'
           alt='浪人当時の色彩構成'
           css={image}
         />
@@ -135,7 +135,7 @@ export default () => (
           自分で言うのもなんですが、当時は偏差値70以上はあったのでかなり無茶な進路変更だったと思います。
         </p>
         <Image
-          filename='about_me-graduation_production.jpg'
+          filename='about-me/graduation-production.jpg'
           alt='卒業制作のフォントと、一緒に写る自分'
           css={image}
         />

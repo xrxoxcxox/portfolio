@@ -67,7 +67,7 @@ export default () => (
     <Layout>
       <Header />
       <AboveTheFold
-        image='about_this_portfolio.jpg'
+        image='aboout-this-portfolio/main-visual.jpg'
         alt='ポートフォリオを作っている最中'>
         <span>ポートフォリオ</span>
         <br css={br} />
@@ -135,7 +135,11 @@ export default () => (
         </p>
         <p>もちろん現在もまだ制作途中です。</p>
         <h2>使っているツール・技術</h2>
-        <Image filename='icon-figma.png' alt='Figmaのアイコン' css={tool} />
+        <Image
+          filename='aboout-this-portfolio/figma.png'
+          alt='Figmaのアイコン'
+          css={tool}
+        />
         <h3>ビジュアル制作ではFigma</h3>
         <p>
           Figmaは各種デザインツールの中で最もコンポーネントの管理がしやすいと思っています。特に色やテキスト。自分はSketchでの管理には少々不満がありました。
@@ -146,7 +150,11 @@ export default () => (
         <p>
           そんな中Figmaのコンポーネントの設計は非常に惹かれ、「次にプロダクトを作るとしたら絶対Figma！」と決めていました。
         </p>
-        <Image filename='icon-gatsby.png' alt='GatsbyJSのアイコン' css={tool} />
+        <Image
+          filename='aboout-this-portfolio/gatsby.png'
+          alt='GatsbyJSのアイコン'
+          css={tool}
+        />
         <h3>サイトジェネレーターとしてGatsby</h3>
         <p>
           たまたまですが、会社の中でも外でもReactを使う機会が増えてきており勉強したいと思っていました。ポートフォリオサイトにReactはオーバースペックかな？と思っていましたが、静的ジェネレーターのGatsbyを発見。
@@ -161,7 +169,11 @@ export default () => (
           初めのうちこそ苦労しましたが、ほとんどカスタマイズしなくてもBlazing
           Fastに表示してくれるなどリターンも大きかったです。
         </p>
-        <Image filename='icon-emotion.png' alt='Emotionのアイコン' css={tool} />
+        <Image
+          filename='aboout-this-portfolio/emotion.png'
+          alt='Emotionのアイコン'
+          css={tool}
+        />
         <h3>Emotionによるスタイリング</h3>
         <p>
           CSS in
