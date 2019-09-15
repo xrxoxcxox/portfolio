@@ -18,7 +18,7 @@ const root = css`
   }
 `
 
-const Visual = css`
+const visual = css`
   grid-column: 3 / 11;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
@@ -59,7 +59,7 @@ export default ({ image, alt, children, type }) => (
     <Image
       filename={image}
       alt={alt}
-      css={type === 'center' ? Visual : visualWithText}
+      css={type === 'center' ? visual : visualWithText}
     />
     {children && <h1 css={title}>{children}</h1>}
   </div>
