@@ -18,7 +18,14 @@ const root = css`
   }
 `
 
-const keyVisual = css`
+const Visual = css`
+  grid-column: 3 / 11;
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+  }
+`
+
+const visualWithText = css`
   grid-column: 5 / -1;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
@@ -47,9 +54,13 @@ const title = css`
   }
 `
 
-export default ({ image, alt, children }) => (
+export default ({ image, alt, children, type }) => (
   <div css={root}>
-    <Image filename={image} alt={alt} css={keyVisual} />
-    <h1 css={title}>{children}</h1>
+    <Image
+      filename={image}
+      alt={alt}
+      css={type === 'center' ? Visual : visualWithText}
+    />
+    {children && <h1 css={title}>{children}</h1>}
   </div>
 )

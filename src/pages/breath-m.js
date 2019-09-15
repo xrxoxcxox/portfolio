@@ -33,8 +33,10 @@ export default () => (
     <Layout>
       <Header />
       <AboveTheFold
-        image='breath-m/mainVisual.jpg'
-        alt='Breath.Mのロゴ'></AboveTheFold>
+        image='breath-m/mainVisual.png'
+        alt='Breath.Mのロゴ'
+        type='center'
+      />
       <WorkTag year='2019' tags={tags} />
       <WorkContent>
         <p>アパレル・アクセサリーブランドBreath.M（ブレスミー）</p>
@@ -43,7 +45,7 @@ export default () => (
         </p>
         <p>新規立ち上げの中でBI作成を担当しました。</p>
         <Image
-          filename='breath-m/overview.jpg'
+          filename='breath-m/overview.png'
           alt='ロゴとカラーパレットの一覧'
           css={image}
         />
@@ -65,7 +67,7 @@ export default () => (
         </p>
         <h2>制作過程</h2>
         <Image
-          filename='breath-m/process.jpg'
+          filename='breath-m/process.png'
           alt='色や形の検討中の画像'
           css={image}
         />
