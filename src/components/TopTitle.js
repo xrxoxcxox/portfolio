@@ -69,7 +69,7 @@ const TopTitle = ({ data }) => (
         <span>ortfolio</span>
       </span>
     </h1>
-    <h2 css={subTitle}>{data.site.siteMetadata.description}</h2>
+    <p css={subTitle}>{data.site.siteMetadata.description}</p>
   </div>
 )
 
