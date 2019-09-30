@@ -20,7 +20,7 @@ import Typography from '../styles/Typography'
 const origin = css`
   font-family: proxima-nova, sans-serif;
   font-weight: 900;
-  ${Typography.Headline};
+  ${Typography.Headline1};
   text-align: center;
   font-feature-settings: 'salt';
   margin-top: ${Size(8)};

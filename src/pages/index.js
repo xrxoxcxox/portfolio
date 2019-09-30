@@ -18,7 +18,7 @@ const link = css`
   grid-column: span 6;
   text-decoration: none;
   h2 {
-    ${Typography.Body};
+    ${Typography.Body1};
     display: inline-block;
     margin-top: ${Size(1)};
     &::after {
@@ -50,7 +50,7 @@ const link = css`
 
 const headline = css`
   grid-column: 3 / 11;
-  ${Typography.Subhead};
+  ${Typography.Headline2};
   margin-top: ${Size(28)};
   @media (max-width: 480px) {
     grid-column: 1 / -1;

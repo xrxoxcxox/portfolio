@@ -22,7 +22,7 @@ const title = css`
 `
 
 const body = css`
-  ${Typography.Body};
+  ${Typography.Body1};
   margin-top: ${Size(6)};
 `
 
