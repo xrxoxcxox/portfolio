@@ -16,7 +16,7 @@ const root = css`
     margin-top: ${Size(6)};
   }
   h2:not([class]) {
-    ${Typography.Headline}
+    ${Typography.Headline1}
     font-weight: 500;
     margin-top: ${Size(16)};
     @media (max-width: 768px) {
@@ -24,7 +24,7 @@ const root = css`
     }
   }
   h3:not([class]) {
-    ${Typography.Subhead}
+    ${Typography.Headline2}
     font-weight: 600;
     margin-top: ${Size(8)};
     @media (max-width: 768px) {
@@ -32,13 +32,13 @@ const root = css`
     }
   }
   p:not([class]) {
-    ${Typography.Body}
+    ${Typography.Body1}
     &:not(:first-of-type) {
       margin-top: ${Size(5)};
     }
   }
   ul:not([class]) {
-    ${Typography.Body}
+    ${Typography.Body1}
     margin-top: ${Size(4)};
     margin-left: ${Size(4)};
   }
@@ -47,8 +47,8 @@ const root = css`
   }
   small:not([class]) {
     display: block;
-    ${Typography.Footnote};
-    color: ${Colors.Gray};
+    ${Typography.Body3};
+    color: ${Colors.Gray400};
     margin-top: ${Size(2)};
   }
 `
