@@ -19,13 +19,13 @@ const root = css`
 `
 
 const headline = css`
-  ${Typography.Subhead};
+  ${Typography.Headline2};
 `
 
 const contents = css`
-  ${Typography.Footnote};
-  color: ${Colors.Gray};
-  border-left: ${Size(0.25)} solid ${Colors.Gray};
+  ${Typography.Body3};
+  color: ${Colors.Gray400};
+  border-left: ${Size(0.25)} solid ${Colors.Gray400};
   margin: ${Size(1)} 0 0 0;
   padding: ${Size(1)} 0 ${Size(1)} ${Size(3)};
   list-style-type: none;

@@ -45,7 +45,7 @@ const wip = css`
 const subTitle = css`
   grid-column: 1 / -1;
   font-weight: 400;
-  ${Typography.Body}
+  ${Typography.Body1}
   font-feature-settings: 'palt';
   letter-spacing: 0.02em;
   @media (max-width: 768px) {

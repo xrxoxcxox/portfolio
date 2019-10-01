@@ -11,7 +11,7 @@ const root = css`
   display: inline-block;
   color: ${Colors.White};
   background-color: ${Colors.Blue};
-  ${Typography.Body};
+  ${Typography.Body1};
   font-weight: 500;
   text-decoration: none;
   border-radius: ${Size(1)};

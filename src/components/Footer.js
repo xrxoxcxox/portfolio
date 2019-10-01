@@ -8,7 +8,7 @@ import Typography from '../styles/Typography'
 
 const root = css`
   grid-column: 1 / -1;
-  ${Typography.Footnote};
+  ${Typography.Body3};
   color: ${Colors.Gray};
   text-align: center;
   padding: ${Size(30)} 0 ${Size(10)};
