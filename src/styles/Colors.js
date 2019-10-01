@@ -9,7 +9,6 @@ export default {
   Gray600: '#4d5154',
   Gray700: '#2f3438',
   Gray800: '#161c20',
-  Gray: '#727275',
   Black: '#040b0e',
   Blue: '#0074af',
 }

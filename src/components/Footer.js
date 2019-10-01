@@ -9,7 +9,7 @@ import Typography from '../styles/Typography'
 const root = css`
   grid-column: 1 / -1;
   ${Typography.Body3};
-  color: ${Colors.Gray};
+  color: ${Colors.Gray400};
   text-align: center;
   padding: ${Size(30)} 0 ${Size(10)};
 `
