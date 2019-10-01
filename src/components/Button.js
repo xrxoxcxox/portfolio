@@ -19,8 +19,8 @@ const root = css`
   padding: ${Size(2)} ${Size(3)};
 `
 
-export default ({ children, to, override }) => (
-  <Link to={to} css={[root, override]}>
+export default ({ children, to, ...props }) => (
+  <Link to={to} css={root} {...props}>
     {children}
   </Link>
 )

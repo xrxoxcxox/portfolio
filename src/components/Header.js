@@ -37,8 +37,8 @@ const root = css`
   }
 `
 
-export default ({ className }) => (
-  <div className={className} css={root}>
+export default () => (
+  <div css={root}>
     <Link to='/'>
       Keisuke <span>W</span>atanuk<span>i</span> <span>P</span>ortfolio
     </Link>
