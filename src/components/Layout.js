@@ -20,8 +20,8 @@ const layout = css`
   }
 `
 
-export default ({ children, className }) => (
-  <div css={layout} className={className}>
+export default ({ children }) => (
+  <div css={layout}>
     <AdobeFonts />
     {children}
   </div>

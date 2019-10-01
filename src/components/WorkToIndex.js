@@ -16,7 +16,7 @@ const link = css`
 `
 
 export default () => (
-  <Button to='/' override={link}>
+  <Button to='/' css={link}>
     サイトトップへ戻る
   </Button>
 )

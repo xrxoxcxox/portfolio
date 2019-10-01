@@ -31,10 +31,10 @@ const contents = css`
   list-style-type: none;
 `
 
-export default ({ className, year, tags }) => {
+export default ({ year, tags }) => {
   const tagItems = tags.map(tag => <li key={tag}>{tag}</li>)
   return (
-    <div css={root} className={className}>
+    <div css={root}>
       <span css={headline}>{year}</span>
       <ul css={contents}>{tagItems}</ul>
     </div>
