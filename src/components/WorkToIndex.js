@@ -17,6 +17,6 @@ const link = css`
 
 export default () => (
   <Button to='/' css={link}>
-    サイトトップへ戻る
+    ポートフォリオトップへ戻る
   </Button>
 )

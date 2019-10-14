@@ -186,6 +186,22 @@ export default () => (
         <p>
           実はEmotionに決めるまでにstyled-componentとstyled-jsxで1度ずつ全てをスタイリングしており、その上で判断をしました。長い目で見たときにつらくならなそうだと感じたためEmotionを採用。
         </p>
+        <Image
+          filename='aboout-this-portfolio/netlify.png'
+          alt='Netlifyのアイコン'
+          css={tool}
+        />
+        <h3>ホスティングはNetlifyで自動的に</h3>
+        <p>
+          一番最初に公開したときはロリポップ!のレンタルサーバーを借りていて、FTPアップロードしていました。
+        </p>
+        <p>
+          しかし、コードはGitで管理しているのにデプロイ時には毎回手作業で差分のファイルをアップするというのも変な話です。
+        </p>
+        <p>
+          いくつか候補は上がりましたが、初期設定も日々のデプロイ作業も極力簡単に済ませたかったためNetlifyに落ち着きました。
+        </p>
+        <p>現在はmasterにマージするだけでデプロイが終わる環境です。</p>
         <h2>GitHubのリポジトリ</h2>
         <p>
           <a href='https://github.com/xrxoxcxox/playground'>
@@ -195,10 +211,6 @@ export default () => (
         <p>
           GitHubはアカウントこそ持っていたものの全く使っていませんでした。自分でサイトを1から作るにあたってリポジトリを作成したので公開します。
         </p>
-        <h2>
-          今はここまで、 <br css={br} />
-          これから続きを記します
-        </h2>
         <WorkToIndex />
       </WorkContent>
       <Footer />
