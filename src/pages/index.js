@@ -51,6 +51,7 @@ const link = css`
 const headline = css`
   grid-column: 3 / 11;
   ${Typography.Headline2};
+  font-weight: 500;
   margin-top: ${Size(28)};
   @media (max-width: 480px) {
     grid-column: 1 / -1;
@@ -61,13 +62,16 @@ const releaseNote = css`
   grid-column: 3 / 11;
   height: ${Size(54)};
   overflow-y: scroll;
+  margin-top: ${Size(3)};
   @media (max-width: 480px) {
     grid-column: 1 / -1;
-    height: ${Size(80)};
+    height: ${Size(60)};
+  }
+  a {
+    color: ${Colors.Blue};
   }
   table {
     width: 100%;
-    margin-top: ${Size(3)};
     border-collapse: collapse;
   }
   tbody tr {
