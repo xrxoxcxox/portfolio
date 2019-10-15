@@ -2,7 +2,7 @@ import React from 'react'
 
 import { css } from '@emotion/core'
 
-import Colors from '../styles/Colors'
+import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
@@ -17,7 +17,6 @@ const root = css`
   }
   h2:not([class]) {
     ${Typography.Headline1}
-    font-weight: 500;
     margin-top: ${Size(16)};
     @media (max-width: 768px) {
       margin-top: ${Size(10)};
@@ -25,7 +24,6 @@ const root = css`
   }
   h3:not([class]) {
     ${Typography.Headline2}
-    font-weight: 600;
     margin-top: ${Size(8)};
     @media (max-width: 768px) {
       margin-top: ${Size(6)};
@@ -43,12 +41,12 @@ const root = css`
     margin-left: ${Size(4)};
   }
   a:not([class]) {
-    color: ${Colors.Blue};
+    color: ${Color.Blue};
   }
   small:not([class]) {
     display: block;
     ${Typography.Body3};
-    color: ${Colors.Gray400};
+    color: ${Color.Gray400};
     margin-top: ${Size(2)};
   }
 `

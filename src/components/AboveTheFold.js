@@ -2,7 +2,7 @@ import React from 'react'
 import Image from './Image'
 
 import { css } from '@emotion/core'
-import Colors from '../styles/Colors'
+import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
@@ -38,7 +38,6 @@ const title = css`
   bottom: ${Size(8)};
   ${Typography.Title}
   line-height: 8rem;
-  font-weight: bold;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
@@ -46,7 +45,7 @@ const title = css`
   }
   span {
     padding: 0 ${Size(3)};
-    background-color: ${Colors.White};
+    background-color: ${Color.White};
     @media (max-width: 768px) {
       padding: 0;
       background-color: transparent;

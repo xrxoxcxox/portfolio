@@ -17,7 +17,6 @@ const container = css`
 
 const title = css`
   ${Typography.Title};
-  font-weight: 900;
   margin-top: ${Size(30)};
 `
 

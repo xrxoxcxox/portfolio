@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import { css } from '@emotion/core'
 
-import Colors from '../styles/Colors'
+import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
@@ -12,13 +12,13 @@ const root = css`
   align-items: center;
   grid-column: 1 / -1;
   height: ${Size(16)};
-  background-color: ${Colors.White};
+  background-color: ${Color.White};
   a {
     ${Typography.Body};
     font-family: proxima-nova, sans-serif;
     font-weight: 900;
     text-decoration: none;
-    color: ${Colors.Black};
+    color: ${Color.Black};
     padding: ${Size(3)} 0;
     transition: all 0.25s ease-in-out;
     ::after {
@@ -33,7 +33,7 @@ const root = css`
     }
   }
   span {
-    color: ${Colors.Blue};
+    color: ${Color.Blue};
   }
 `
 
