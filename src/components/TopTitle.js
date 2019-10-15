@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import { css } from '@emotion/core'
 
-import Colors from '../styles/Colors'
+import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
@@ -39,7 +39,7 @@ const titleBlock = css`
 `
 
 const wip = css`
-  color: ${Colors.Blue};
+  color: ${Color.Blue};
 `
 
 const subTitle = css`

@@ -12,7 +12,7 @@ import WorkToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
-import Colors from '../styles/Colors.js'
+import Color from '../styles/Color'
 import Size from '../styles/Size'
 
 const image = css`
@@ -23,7 +23,7 @@ const image = css`
 `
 
 const externalLink = css`
-  color: ${Colors.Blue};
+  color: ${Color.Blue};
   & + & {
     margin-left: ${Size(4)};
   }

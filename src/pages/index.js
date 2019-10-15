@@ -11,7 +11,7 @@ import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
-import Colors from '../styles/Colors'
+import Color from '../styles/Color'
 
 /* 画像にhoverしたときにpにスタイルをあてたいため、タグの入れ子でスタイル指定 */
 const link = css`
@@ -67,14 +67,14 @@ const releaseNote = css`
     height: ${Size(60)};
   }
   a {
-    color: ${Colors.Blue};
+    color: ${Color.Blue};
   }
   table {
     width: 100%;
     border-collapse: collapse;
   }
   tbody tr {
-    border-top: ${Size(0.25)} solid ${Colors.Gray80};
+    border-top: ${Size(0.25)} solid ${Color.Gray80};
   }
   td {
     padding: ${Size(2)};

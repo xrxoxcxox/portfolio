@@ -13,7 +13,7 @@ import WorkToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
-import Colors from '../styles/Colors'
+import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
@@ -25,12 +25,12 @@ const origin = css`
   font-feature-settings: 'salt';
   margin-top: ${Size(8)};
   padding: ${Size(5)};
-  box-shadow: 0 ${Size(1)} ${Size(3)} ${hexToRgba(Colors.Black, 16)};
+  box-shadow: 0 ${Size(1)} ${Size(3)} ${hexToRgba(Color.Black, 16)};
   @media (max-width: 768px) {
     margin-top: ${Size(6)};
   }
   span {
-    color: ${Colors.Blue};
+    color: ${Color.Blue};
   }
 `
 

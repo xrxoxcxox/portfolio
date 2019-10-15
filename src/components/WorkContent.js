@@ -2,7 +2,7 @@ import React from 'react'
 
 import { css } from '@emotion/core'
 
-import Colors from '../styles/Colors'
+import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
@@ -41,12 +41,12 @@ const root = css`
     margin-left: ${Size(4)};
   }
   a:not([class]) {
-    color: ${Colors.Blue};
+    color: ${Color.Blue};
   }
   small:not([class]) {
     display: block;
     ${Typography.Body3};
-    color: ${Colors.Gray400};
+    color: ${Color.Gray400};
     margin-top: ${Size(2)};
   }
 `
