@@ -12,7 +12,6 @@ const root = css`
   color: ${Colors.White};
   background-color: ${Colors.Blue};
   ${Typography.Body1};
-  font-weight: 500;
   text-decoration: none;
   border-radius: ${Size(1)};
   box-shadow: 0 ${Size(0.5)} ${Size(2)} ${hexToRgba(Colors.Black, 16)};

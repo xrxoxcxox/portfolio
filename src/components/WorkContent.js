@@ -17,7 +17,6 @@ const root = css`
   }
   h2:not([class]) {
     ${Typography.Headline1}
-    font-weight: 500;
     margin-top: ${Size(16)};
     @media (max-width: 768px) {
       margin-top: ${Size(10)};
@@ -25,7 +24,6 @@ const root = css`
   }
   h3:not([class]) {
     ${Typography.Headline2}
-    font-weight: 600;
     margin-top: ${Size(8)};
     @media (max-width: 768px) {
       margin-top: ${Size(6)};

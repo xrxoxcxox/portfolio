@@ -51,7 +51,6 @@ const link = css`
 const headline = css`
   grid-column: 3 / 11;
   ${Typography.Headline2};
-  font-weight: 500;
   margin-top: ${Size(28)};
   @media (max-width: 480px) {
     grid-column: 1 / -1;

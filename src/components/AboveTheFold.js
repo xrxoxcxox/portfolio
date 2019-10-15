@@ -38,7 +38,6 @@ const title = css`
   bottom: ${Size(8)};
   ${Typography.Title}
   line-height: 8rem;
-  font-weight: bold;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
