@@ -30,7 +30,6 @@ module.exports = {
         path: `${__dirname}/src/release-notes`,
       },
     },
-    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
