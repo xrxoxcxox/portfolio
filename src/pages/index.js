@@ -114,7 +114,9 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/release-notes/" } }
+    ) {
       totalCount
       edges {
         node {
