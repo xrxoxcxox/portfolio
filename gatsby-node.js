@@ -11,8 +11,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
-            frontmatter {
-              path
+            fields {
+              slug
             }
           }
         }
@@ -26,9 +26,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
-      path: node.frontmatter.path,
+      path: node.fields.slug,
       component: workPostTemplate,
-      context: {}, // additional data can be passed via context
+      context: { slug: node.fields.slug }, // additional data can be passed via context
     })
   })
 
@@ -38,4 +38,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     isPermanent: true,
     force: true,
   })
+}
+
+const { createFilePath } = require(`gatsby-source-filesystem`)
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `markdown-pages` })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
 }
