@@ -1,6 +1,6 @@
 ---
 date: "2019-05-04"
-title: "My first blog post"
+title: "綿貫佳祐について"
 ---
 
 ![main-visual](main-visual.jpg)

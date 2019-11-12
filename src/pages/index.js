@@ -13,6 +13,8 @@ import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 import Color from '../styles/Color'
 
+import LinkToTheWork from '../components/LinkToTheWork'
+
 /* 画像にhoverしたときにpにスタイルをあてたいため、タグの入れ子でスタイル指定 */
 const link = css`
   grid-column: span 6;
@@ -81,14 +83,21 @@ const releaseNote = css`
   }
 `
 
-export default ({ data }) => {
-  const node = data.allMarkdownRemark.edges[0].node
+export default ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
+  const Posts = edges.map(edge => (
+    <LinkToTheWork key={edge.node.id} post={edge.node} />
+  ))
   return (
     <>
       <GlobalStyle />
       <Seo title='' />
       <Layout>
         <TopTitle />
+        {Posts}
         <Link to='/breath-m' css={link}>
           <Image filename='breath-m/thumbnail.png' alt='画像' />
           <h2>Breath.M</h2>
@@ -102,27 +111,48 @@ export default ({ data }) => {
           <h2>綿貫佳祐について</h2>
         </Link>
         <h2 css={headline}>リリースノート</h2>
-        <div
+        {/* <div
           dangerouslySetInnerHTML={{ __html: node.html }}
           css={releaseNote}
-        />
+        /> */}
         <Footer />
       </Layout>
     </>
   )
 }
 
-export const query = graphql`
+export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/release-notes/" } }
+      filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
+      sort: { order: DESC, fields: [frontmatter___date] }
     ) {
-      totalCount
       edges {
         node {
-          html
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+          }
+          fields {
+            slug
+          }
         }
       }
     }
   }
 `
+
+// export const query = graphql`
+//   query {
+//     allMarkdownRemark(
+//       filter: { fileAbsolutePath: { regex: "/release-notes/" } }
+//     ) {
+//       totalCount
+//       edges {
+//         node {
+//           html
+//         }
+//       }
+//     }
+//   }
+// `
