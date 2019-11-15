@@ -1,6 +1,7 @@
 ---
 date: "2019-05-04"
 title: "ポートフォリオについて"
+featuredImage: main-visual.jpg
 ---
 
 ![main-visual](main-visual.jpg)

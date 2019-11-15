@@ -1,6 +1,7 @@
 ---
 date: "2019-05-04"
 title: "Breath.M"
+featuredImage: main-visual.png
 ---
 
 ![main-visual](main-visual.png)

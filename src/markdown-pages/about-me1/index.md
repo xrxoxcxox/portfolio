@@ -1,6 +1,7 @@
 ---
 date: "2019-05-04"
 title: "綿貫佳祐について"
+featuredImage: main-visual.jpg
 ---
 
 ![main-visual](main-visual.jpg)
