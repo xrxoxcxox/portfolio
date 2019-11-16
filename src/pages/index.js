@@ -98,7 +98,7 @@ export default ({
       <Layout>
         <TopTitle />
         {Posts}
-        <Link to='/breath-m' css={link}>
+        {/* <Link to='/breath-m' css={link}>
           <Image filename='breath-m/thumbnail.png' alt='画像' />
           <h2>Breath.M</h2>
         </Link>
@@ -111,7 +111,7 @@ export default ({
           <h2>綿貫佳祐について</h2>
         </Link>
         <h2 css={headline}>リリースノート</h2>
-        {/* <div
+        <div
           dangerouslySetInnerHTML={{ __html: node.html }}
           css={releaseNote}
         /> */}
@@ -132,6 +132,13 @@ export const pageQuery = graphql`
           id
           frontmatter {
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           fields {
             slug

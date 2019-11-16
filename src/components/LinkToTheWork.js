@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 
 import { css } from '@emotion/core'
 import Size from '../styles/Size'
@@ -43,6 +44,7 @@ const link = css`
 
 const LinkToTheWork = ({ post }) => (
   <Link to={post.fields.slug} css={link}>
+    <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />
     <h2>{post.frontmatter.title}</h2>
   </Link>
 )

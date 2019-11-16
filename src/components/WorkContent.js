@@ -51,4 +51,4 @@ const root = css`
   }
 `
 
-export default ({ children }) => <section css={root}>{children}</section>
+export default ({ children }) => <article css={root}>{children}</article>

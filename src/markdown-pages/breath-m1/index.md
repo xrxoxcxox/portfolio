@@ -1,17 +1,35 @@
 ---
-date: "2019-05-04"
-title: "Breath.M"
+date: "2019-09"
+title: "Breath.M - BI"
 featuredImage: main-visual.png
 ---
 
-![main-visual](main-visual.png)
+アパレル・アクセサリーブランドBreath.M（ブレスミー）
 
-## Heading 2
+Breath.Mの服を着ていれば、いつどこで誰と会っても自信がある。クローゼットを開けたときにワクワクできて、毎日でも着たい服として君臨する。ときめく毎日を演出してくれる。満ち足りた日々の中でしっかりと呼吸していると実感できる。そんな存在を目指したブランドです。
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+新規立ち上げの中でBI作成を担当しました。
 
-### Heading 3
+![ロゴとカラーパレットの一覧](./overview.png)
 
-* foo
-* bar
-* baz
+## コンセプトの深掘り
+
+初めに相談頂いた段階でもブランドのコンセプトやイメージカラーなど、かなり言語化されていました。
+
+しかしいきなり制作に入ることはせず、その日に提案をしたのはちょっとしたワークショップです。
+
+コンセプトとして出ていた言葉は例えば「前向き」という言葉。その言葉のイメージを表している写真を探していただきました。全員で持ち寄り、お互いの考える「前向き」が何を指しているのかの共通理解をとる作業です。共通理解が得られたら今度はそれを具体的な言葉に変換……というのが提案した内容です。
+
+というのも、更にコンセプトの言葉を掘り下げることでメンバーのビジョンの解像度が上がり、より良いブランドを作れるのではないか？と感じたためです。
+
+これにより言葉の解像度が上がり、集めた画像はそのままムードボードとなりました。
+
+## 制作過程
+
+![色や形の検討中の画像](./process.png)
+
+シンボルはガーデニアがモチーフです。それに加えて「Breath」を感じられるような形状を意識しています。
+
+ロゴタイプでベースにしたのはOranienbaumというフォントです。Bの腰の高さがこのブランドを纏った人の立ち姿と重なったため選びました。少しだけ形状を変更しています。
+
+カラーリングは明るく淡い色で、それでいて消えて見えない色味を探りました。
