@@ -1,6 +1,7 @@
 ---
-date: "2019-03"
-title: "ポートフォリオについて"
+date: '2019-03'
+title: 'ポートフォリオについて'
+tags: ['デザインプロセス', 'ポートフォリオ', 'Figma', 'GatsbyJS', 'Emotion', 'Netlify']
 featuredImage: main-visual.jpg
 ---
 

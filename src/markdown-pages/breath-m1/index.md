@@ -1,6 +1,7 @@
 ---
-date: "2019-09"
-title: "Breath.M - BI"
+date: '2019-09'
+title: 'Breath.M - BI'
+tags: ['Brand Identity']
 featuredImage: main-visual.png
 ---
 

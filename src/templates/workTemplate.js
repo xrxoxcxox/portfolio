@@ -2,13 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import AboveTheFold from '../components/AboveTheFold'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import Image from '../components/Image'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
-import WorkContent from '../components/WorkContent'
 import WorkTag from '../components/WorkTag'
 import WorkToIndex from '../components/WorkToIndex'
 
@@ -23,24 +20,35 @@ const mainVisual = css`
   position: relative;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
+    margin: 0 -${Size(4)};
   }
 `
 
 const title = css`
   grid-column: 4 / -3;
-  align-self: end;
   ${Typography.Title}
-  margin-top: ${Size(6)};
+  padding-top: ${Size(6)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
-    margin-top: ${Size(1)};
+  }
+`
+
+const workTag = css`
+  grid-column: 1 / 3;
+  grid-row: span 2;
+  position: sticky;
+  top: ${Size(24)};
+  padding-top: ${Size(6)};
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+    position: static;
   }
 `
 
 const body = css`
-  grid-row: span 2;
   grid-column: 4 / -3;
+  grid-row: span 3;
   @media (max-width: 768px) {
     grid-row: span 1;
     grid-column: 1 / -1;
@@ -67,7 +75,7 @@ const body = css`
   ul {
     ${Typography.Body1}
     margin-top: ${Size(4)};
-    margin-left: ${Size(4)};
+    margin-left: ${Size(5)};
   }
   a {
     color: ${Color.Blue};
@@ -83,23 +91,30 @@ const body = css`
 const workToIndex = css`
   grid-column: 4 / -3;
   margin-top: ${Size(16)};
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+  }
 `
 
 export default ({ data }) => {
-  let post = data.markdownRemark
-  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  const post = data.markdownRemark
+  const featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
   return (
     <>
       <GlobalStyle />
       <Layout>
         <Header />
         <Img fluid={featuredImgFluid} alt='' css={mainVisual} />
+        <WorkTag
+          year={post.frontmatter.date}
+          tags={post.frontmatter.tags}
+          css={workTag}
+        />
         <h1 css={title}>{post.frontmatter.title}</h1>
         <article dangerouslySetInnerHTML={{ __html: post.html }} css={body} />
         <WorkToIndex css={workToIndex} />
         <Footer />
       </Layout>
-      <time>{post.frontmatter.date}</time>
     </>
   )
 }
@@ -110,7 +125,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MM, YYYY")
+        date(formatString: "YYYY")
+        tags
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 800) {

@@ -6,18 +6,6 @@ import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
-const root = css`
-  grid-column: 3 / 5;
-  position: sticky;
-  top: ${Size(24)};
-  margin-top: ${Size(16)};
-  @media (max-width: 768px) {
-    grid-column: 1 / -1;
-    position: static;
-    margin-top: ${Size(5)};
-  }
-`
-
 const headline = css`
   ${Typography.Headline2};
 `
@@ -31,10 +19,10 @@ const contents = css`
   list-style-type: none;
 `
 
-export default ({ year, tags }) => {
+export default ({ year, tags, ...props }) => {
   const tagItems = tags.map(tag => <li key={tag}>{tag}</li>)
   return (
-    <div css={root}>
+    <div {...props}>
       <span css={headline}>{year}</span>
       <ul css={contents}>{tagItems}</ul>
     </div>

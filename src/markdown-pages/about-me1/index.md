@@ -1,6 +1,7 @@
 ---
-date: "1993-04"
-title: "綿貫佳祐について"
+date: '1993-04'
+title: '綿貫佳祐について'
+tags: ['デザイナー', 'UI / UX', 'イデア論']
 featuredImage: ./main-visual.jpg
 ---
 
