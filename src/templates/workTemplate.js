@@ -102,6 +102,10 @@ export default ({ data }) => {
   return (
     <>
       <GlobalStyle />
+      <Seo
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+      />
       <Layout>
         <Header />
         <Img fluid={featuredImgFluid} alt='' css={mainVisual} />
@@ -124,8 +128,9 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        title
         date(formatString: "YYYY")
+        title
+        description
         tags
         featuredImage {
           childImageSharp {

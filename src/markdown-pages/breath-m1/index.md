@@ -1,6 +1,7 @@
 ---
 date: '2019-09'
 title: 'Breath.M - BI'
+description: 'アパレル・アクセサリーブランドBreath.M（ブレスミー）。新規立ち上げの中でBI作成を担当しました。ビジュアル制作だけでなく、コンセプトメイキングから携わっています。'
 tags: ['Brand Identity']
 featuredImage: main-visual.png
 ---
