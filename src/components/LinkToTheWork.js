@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { css } from '@emotion/core'
@@ -41,11 +41,48 @@ const link = css`
   }
 `
 
-const LinkToTheWork = ({ post }) => (
-  <Link to={post.fields.slug} css={link}>
-    <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />
-    <h2>{post.frontmatter.title}</h2>
-  </Link>
+const LinkToTheWork = () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
+          sort: { order: DESC, fields: [frontmatter___date] }
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                featuredImage {
+                  childImageSharp {
+                    fluid(maxWidth: 800) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      return data.allMarkdownRemark.edges.map(edge => {
+        return (
+          <Link to={edge.node.fields.slug} css={link} key={edge.node.id}>
+            <Img
+              fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid}
+            />
+            <h2>{edge.node.frontmatter.title}</h2>
+          </Link>
+        )
+      })
+    }}
+  />
 )
 
 export default LinkToTheWork

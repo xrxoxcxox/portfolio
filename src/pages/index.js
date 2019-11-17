@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 
 import Footer from '../components/Footer'
 import Layout from '../components/Layout'
@@ -22,21 +21,14 @@ const headline = css`
   }
 `
 
-export default ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
-  const Posts = edges.map(edge => (
-    <LinkToTheWork key={edge.node.id} post={edge.node} />
-  ))
+export default () => {
   return (
     <>
       <GlobalStyle />
       <Seo title='' />
       <Layout>
         <TopTitle />
-        {Posts}
+        <LinkToTheWork />
         <h2 css={headline}>リリースノート</h2>
         <ReleaseNote />
         <Footer />
@@ -44,31 +36,3 @@ export default ({
     </>
   )
 }
-
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            featuredImage {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`
