@@ -2,7 +2,7 @@ import React from 'react'
 
 import Footer from '../components/Footer'
 import Layout from '../components/Layout'
-import LinkToTheWork from '../components/LinkToTheWork'
+import LinksToTheWork from '../components/LinksToTheWork'
 import ReleaseNote from '../components/ReleaseNotes'
 import Seo from '../components/Seo'
 import TopTitle from '../components/TopTitle'
@@ -21,18 +21,16 @@ const headline = css`
   }
 `
 
-export default () => {
-  return (
-    <>
-      <GlobalStyle />
-      <Seo title='' />
-      <Layout>
-        <TopTitle />
-        <LinkToTheWork />
-        <h2 css={headline}>リリースノート</h2>
-        <ReleaseNote />
-        <Footer />
-      </Layout>
-    </>
-  )
-}
+export default () => (
+  <>
+    <GlobalStyle />
+    <Seo title='' />
+    <Layout>
+      <TopTitle />
+      <LinksToTheWork />
+      <h2 css={headline}>リリースノート</h2>
+      <ReleaseNote />
+      <Footer />
+    </Layout>
+  </>
+)

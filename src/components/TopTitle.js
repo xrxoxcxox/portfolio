@@ -7,7 +7,7 @@ import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
-const container = css`
+const root = css`
   grid-column: 1 / -1;
   margin: ${Size(40)} 0;
   @media (max-width: 480px) {
@@ -53,27 +53,7 @@ const subTitle = css`
   }
 `
 
-const TopTitle = ({ data }) => (
-  <div css={container}>
-    <h1 css={title}>
-      <span css={titleBlock}>Keisuke </span>
-    </h1>
-    <h1 css={titleWip}>
-      <span css={titleBlock}>
-        <span css={wip}>W</span>
-        <span>atanuk</span>
-        <span css={wip}>i </span>
-      </span>
-      <span css={titleBlock}>
-        <span css={wip}>P</span>
-        <span>ortfolio</span>
-      </span>
-    </h1>
-    <p css={subTitle}>{data.site.siteMetadata.description}</p>
-  </div>
-)
-
-export default props => (
+export default () => (
   <StaticQuery
     query={graphql`
       query {
@@ -84,6 +64,24 @@ export default props => (
         }
       }
     `}
-    render={data => <TopTitle data={data} {...props} />}
+    render={data => (
+      <div css={root}>
+        <h1 css={title}>
+          <span css={titleBlock}>Keisuke </span>
+        </h1>
+        <h1 css={titleWip}>
+          <span css={titleBlock}>
+            <span css={wip}>W</span>
+            <span>atanuk</span>
+            <span css={wip}>i </span>
+          </span>
+          <span css={titleBlock}>
+            <span css={wip}>P</span>
+            <span>ortfolio</span>
+          </span>
+        </h1>
+        <p css={subTitle}>{data.site.siteMetadata.description}</p>
+      </div>
+    )}
   />
 )

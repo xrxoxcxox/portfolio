@@ -41,7 +41,7 @@ const link = css`
   }
 `
 
-const LinkToTheWork = () => (
+export default () => (
   <StaticQuery
     query={graphql`
       query {
@@ -84,5 +84,3 @@ const LinkToTheWork = () => (
     }}
   />
 )
-
-export default LinkToTheWork
