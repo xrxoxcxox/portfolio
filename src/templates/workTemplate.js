@@ -43,7 +43,7 @@ const workTag = css`
   top: ${Size(24)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
-    grid-row: 3 / 4;
+    grid-row: 4 / 5;
     position: static;
     margin-top: ${Size(6)};
   }
@@ -111,12 +111,12 @@ export default ({ data }) => {
       <Layout>
         <Header />
         <Img fluid={featuredImgFluid} alt='' css={mainVisual} />
+        <h1 css={title}>{post.frontmatter.title}</h1>
         <WorkTag
           year={post.frontmatter.date}
           tags={post.frontmatter.tags}
           css={workTag}
         />
-        <h1 css={title}>{post.frontmatter.title}</h1>
         <article dangerouslySetInnerHTML={{ __html: post.html }} css={body} />
         <WorkToIndex css={workToIndex} />
         <Footer />

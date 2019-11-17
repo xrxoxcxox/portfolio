@@ -13,6 +13,13 @@ const root = css`
   grid-column: 1 / -1;
   height: ${Size(16)};
   background-color: ${Color.White};
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  @media (max-width: 768px) {
+    margin: 0 -${Size(4)};
+    padding: 0 ${Size(4)};
+  }
   a {
     ${Typography.Body};
     font-family: proxima-nova, sans-serif;
