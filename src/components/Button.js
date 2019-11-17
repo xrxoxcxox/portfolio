@@ -15,7 +15,7 @@ const root = css`
   text-decoration: none;
   border-radius: ${Size(1)};
   box-shadow: 0 ${Size(0.5)} ${Size(2)} ${hexToRgba(Color.Black, 16)};
-  padding: ${Size(2)} ${Size(3)};
+  padding: ${Size(2)} ${Size(4)};
 `
 
 export default ({ children, to, ...props }) => (

@@ -12,6 +12,9 @@ const root = css`
   color: ${Color.Gray400};
   text-align: center;
   padding: ${Size(30)} 0 ${Size(10)};
+  @media (max-width: 768px) {
+    padding-bottom: 0;
+  }
 `
 
 export default () => <footer css={root}>© 2019 Keisuke Watanuki</footer>

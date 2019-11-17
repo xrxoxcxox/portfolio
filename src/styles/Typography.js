@@ -1,8 +1,8 @@
 import { css } from '@emotion/core'
 
 const Title = css`
-  font-size: 6.4rem;
-  line-height: 7.2rem;
+  font-size: 4.8rem;
+  line-height: 5.6rem;
   font-weight: 700;
   @media (max-width: 768px) {
     font-size: 4rem;
@@ -11,8 +11,8 @@ const Title = css`
 `
 
 const Headline1 = css`
-  font-size: 4rem;
-  line-height: 4.8rem;
+  font-size: 3.6rem;
+  line-height: 4.4rem;
   font-weight: 700;
   @media (max-width: 768px) {
     font-size: 3rem;

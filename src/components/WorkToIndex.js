@@ -5,7 +5,6 @@ import { css } from '@emotion/core'
 import Size from '../styles/Size'
 
 const link = css`
-  margin-top: ${Size(16)};
   @media (max-width: 768px) {
     display: block;
     text-align: center;
@@ -15,8 +14,10 @@ const link = css`
   }
 `
 
-export default () => (
-  <Button to='/' css={link}>
-    ポートフォリオトップへ戻る
-  </Button>
+export default props => (
+  <div {...props}>
+    <Button to='/' css={link}>
+      ポートフォリオトップへ戻る
+    </Button>
+  </div>
 )
