@@ -16,7 +16,8 @@ import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
 const mainVisual = css`
-  grid-column: 4 / -3;
+  grid-column: 4 / -1;
+  grid-row: 2 / 3;
   position: relative;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
@@ -27,7 +28,7 @@ const mainVisual = css`
 const title = css`
   grid-column: 4 / -3;
   ${Typography.Title}
-  padding-top: ${Size(6)};
+  margin-top: ${Size(6)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
@@ -36,13 +37,15 @@ const title = css`
 
 const workTag = css`
   grid-column: 1 / 3;
-  grid-row: span 2;
+  grid-row: 2 / 4;
+  align-self: end;
   position: sticky;
   top: ${Size(24)};
-  padding-top: ${Size(6)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
+    grid-row: 3 / 4;
     position: static;
+    margin-top: ${Size(6)};
   }
 `
 
@@ -52,7 +55,6 @@ const body = css`
   @media (max-width: 768px) {
     grid-row: span 1;
     grid-column: 1 / -1;
-    margin-top: ${Size(6)};
   }
   h2 {
     ${Typography.Headline1}

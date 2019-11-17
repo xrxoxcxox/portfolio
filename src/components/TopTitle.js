@@ -18,7 +18,8 @@ const container = css`
 const title = css`
   display: inline;
   font-family: proxima-nova, sans-serif;
-  ${Typography.Title};
+  font-size: 6.4rem;
+  line-height: 7.2rem;
   font-weight: 900;
   font-feature-settings: 'salt';
   white-space: pre-wrap;
