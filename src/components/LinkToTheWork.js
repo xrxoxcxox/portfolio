@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 import { css } from '@emotion/core'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
-import Color from '../styles/Color'
 
 /* 画像にhoverしたときにpにスタイルをあてたいため、タグの入れ子でスタイル指定 */
 const link = css`

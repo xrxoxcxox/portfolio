@@ -1,38 +1,24 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Footer from '../components/Footer'
 import Layout from '../components/Layout'
 import LinkToTheWork from '../components/LinkToTheWork'
+import ReleaseNote from '../components/ReleaseNotes'
 import Seo from '../components/Seo'
 import TopTitle from '../components/TopTitle'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Size from '../styles/Size'
-import Color from '../styles/Color'
+import Typography from '../styles/Typography'
 
-const releaseNote = css`
+const headline = css`
   grid-column: 3 / 11;
-  height: ${Size(54)};
-  overflow-y: scroll;
-  margin-top: ${Size(3)};
+  ${Typography.Headline2};
+  margin-top: ${Size(28)};
   @media (max-width: 480px) {
     grid-column: 1 / -1;
-    height: ${Size(60)};
-  }
-  a {
-    color: ${Color.Blue};
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  tbody tr {
-    border-top: ${Size(0.25)} solid ${Color.Gray80};
-  }
-  td {
-    padding: ${Size(2)};
   }
 `
 
@@ -51,6 +37,8 @@ export default ({
       <Layout>
         <TopTitle />
         {Posts}
+        <h2 css={headline}>リリースノート</h2>
+        <ReleaseNote />
         <Footer />
       </Layout>
     </>
@@ -84,18 +72,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-// export const query = graphql`
-//   query {
-//     allMarkdownRemark(
-//       filter: { fileAbsolutePath: { regex: "/release-notes/" } }
-//     ) {
-//       totalCount
-//       edges {
-//         node {
-//           html
-//         }
-//       }
-//     }
-//   }
-// `
