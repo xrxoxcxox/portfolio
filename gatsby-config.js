@@ -9,25 +9,26 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-mdx',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/images/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-pages`,
-        path: `${__dirname}/src/markdown-pages`,
+        path: `${__dirname}/src/markdown-pages/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `release-notes`,
-        path: `${__dirname}/src/release-notes`,
+        path: `${__dirname}/src/release-notes/`,
       },
     },
     `gatsby-transformer-sharp`,
