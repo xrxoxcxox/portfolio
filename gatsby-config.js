@@ -10,24 +10,41 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 680,
+              linkImagesToOriginal: false,
+              quality: 80,
+              withWebp: true,
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/images/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-pages`,
-        path: `${__dirname}/src/markdown-pages`,
+        path: `${__dirname}/src/markdown-pages/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `release-notes`,
-        path: `${__dirname}/src/release-notes`,
+        path: `${__dirname}/src/release-notes/`,
       },
     },
     `gatsby-transformer-sharp`,

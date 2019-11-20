@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Img from 'gatsby-image'
 
 import Footer from '../components/Footer'
@@ -56,33 +57,33 @@ const body = css`
     grid-row: span 1;
     grid-column: 1 / -1;
   }
-  h2 {
+  > h2 {
     ${Typography.Headline1}
     margin-top: ${Size(16)};
     @media (max-width: 768px) {
       margin-top: ${Size(10)};
     }
   }
-  h3 {
+  > h3 {
     ${Typography.Headline2}
     margin-top: ${Size(8)};
     @media (max-width: 768px) {
       margin-top: ${Size(6)};
     }
   }
-  p {
+  > p {
     ${Typography.Body1}
     margin-top: ${Size(5)};
   }
-  ul {
+  > ul {
     ${Typography.Body1}
     margin-top: ${Size(4)};
     margin-left: ${Size(5)};
   }
-  a {
+  > a {
     color: ${Color.Blue};
   }
-  small {
+  > small {
     display: block;
     ${Typography.Body3};
     color: ${Color.Gray400};
@@ -98,26 +99,27 @@ const workToIndex = css`
   }
 `
 
-export default ({ data }) => {
-  const post = data.markdownRemark
-  const featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+export default ({ data: { mdx } }) => {
+  const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
   return (
     <>
       <GlobalStyle />
       <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
+        title={mdx.frontmatter.title}
+        description={mdx.frontmatter.description}
       />
       <Layout>
         <Header />
         <Img fluid={featuredImgFluid} alt='' css={mainVisual} />
-        <h1 css={title}>{post.frontmatter.title}</h1>
+        <h1 css={title}>{mdx.frontmatter.title}</h1>
         <WorkTag
-          year={post.frontmatter.date}
-          tags={post.frontmatter.tags}
+          year={mdx.frontmatter.date}
+          tags={mdx.frontmatter.tags}
           css={workTag}
         />
-        <article dangerouslySetInnerHTML={{ __html: post.html }} css={body} />
+        <article css={body}>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </article>
         <WorkToIndex css={workToIndex} />
         <Footer />
       </Layout>
@@ -126,9 +128,10 @@ export default ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query PostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+  query PostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
       frontmatter {
         date(formatString: "YYYY")
         title
@@ -136,7 +139,7 @@ export const pageQuery = graphql`
         tags
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 680) {
               ...GatsbyImageSharpFluid
             }
           }
