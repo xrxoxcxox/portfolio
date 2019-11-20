@@ -57,33 +57,33 @@ const body = css`
     grid-row: span 1;
     grid-column: 1 / -1;
   }
-  h2 {
+  > h2 {
     ${Typography.Headline1}
     margin-top: ${Size(16)};
     @media (max-width: 768px) {
       margin-top: ${Size(10)};
     }
   }
-  h3 {
+  > h3 {
     ${Typography.Headline2}
     margin-top: ${Size(8)};
     @media (max-width: 768px) {
       margin-top: ${Size(6)};
     }
   }
-  p {
+  > p {
     ${Typography.Body1}
     margin-top: ${Size(5)};
   }
-  ul {
+  > ul {
     ${Typography.Body1}
     margin-top: ${Size(4)};
     margin-left: ${Size(5)};
   }
-  a {
+  > a {
     color: ${Color.Blue};
   }
-  small {
+  > small {
     display: block;
     ${Typography.Body3};
     color: ${Color.Gray400};
