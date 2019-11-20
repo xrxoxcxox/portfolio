@@ -45,7 +45,7 @@ export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark(
+        allMdx(
           filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
@@ -71,7 +71,7 @@ export default () => (
       }
     `}
     render={data => {
-      return data.allMarkdownRemark.edges.map(edge => {
+      return data.allMdx.edges.map(edge => {
         return (
           <Link to={edge.node.fields.slug} css={link} key={edge.node.id}>
             <Img
