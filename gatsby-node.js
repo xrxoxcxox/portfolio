@@ -4,13 +4,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const workPostTemplate = path.resolve(`src/templates/workTemplate.js`)
   const result = await graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
         edges {
           node {
+            id
             fields {
               slug
             }
@@ -24,11 +25,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMdx.edges.forEach(({ node }, index) => {
     createPage({
       path: node.fields.slug,
       component: workPostTemplate,
-      context: { slug: node.fields.slug }, // additional data can be passed via context
+      context: { id: node.id }, // additional data can be passed via context
     })
   })
 
@@ -43,12 +44,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `markdown-pages` })
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode })
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: value,
     })
   }
 }

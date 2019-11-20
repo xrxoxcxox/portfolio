@@ -9,7 +9,12 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
-    'gatsby-plugin-mdx',
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
