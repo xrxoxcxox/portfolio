@@ -1,6 +1,6 @@
 export default {
   White: '#fff',
-  Gray20: 'f2f2f2',
+  Gray20: '#f2f2f2',
   Gray50: '#dfe0e0',
   Gray80: '#c8c9ca',
   Gray100: '#abacae',
