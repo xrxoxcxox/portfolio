@@ -79,6 +79,9 @@ const body = css`
     ${Typography.Body1}
     margin-top: ${Size(4)};
     margin-left: ${Size(6)};
+    ul, ol {
+      margin-top: 0;
+    }
   }
   a {
     color: ${Color.Blue};
