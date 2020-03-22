@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "keisuke-watanuki-portfolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "private": true,
+  "author": "Keisuke Watanuki <watanuki@ju-zen.com>",
+  "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
@@ -30,10 +30,6 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "devDependencies": {
     "prettier": "^2.0.1",
     "stylelint": "^13.2.1",
@@ -50,12 +46,5 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
