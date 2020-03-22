@@ -15,9 +15,9 @@ const resetStyle = css`
 
   html {
     box-sizing: border-box;
+    font-family: source-han-sans-japanese, sans-serif;
     overflow-y: scroll; /* All browsers without overlaying scrollbars */
     -webkit-text-size-adjust: 100%; /* iOS 8+ */
-    font-family: source-han-sans-japanese, sans-serif;
     visibility: hidden; /* Webフォント読み込み時のちらつき防止のため */
   }
 
@@ -39,8 +39,8 @@ const resetStyle = css`
   }
 
   * {
-    padding: 0; /* Reset 'padding' and 'margin' of all elements */
     margin: 0;
+    padding: 0; /* Reset 'padding' and 'margin' of all elements */
   }
 
   /* =================================================================
@@ -265,8 +265,8 @@ const resetStyle = css`
   }
 
   fieldset {
-    margin: 0;
     border: 0;
+    margin: 0;
   }
 
   legend {
@@ -321,8 +321,8 @@ const resetStyle = css`
       display: inherit;
     }
     [hidden~='screen']:not(:active):not(:focus):not(:target) {
-      position: absolute !important;
       clip: rect(0 0 0 0) !important;
+      position: absolute !important;
     }
   }
 

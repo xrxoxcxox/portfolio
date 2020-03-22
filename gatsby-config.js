@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Keisuke Watanuki Portfolio`,
-    description: `デザイナー、綿貫佳祐のポートフォリオです。デジタルプロダクトやユーザー体験をデザインしています。`,
+    description: `アイデアルデザイナー、綿貫佳祐のポートフォリオです。デジタルプロダクトやユーザー体験をデザインしています。`,
     author: `@xrxoxcxox`,
     siteUrl: `https://www.keisukewatanuki.work`,
   },
@@ -71,11 +71,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Keisuke Watanuki Portfolio`,
+        short_name: `Keisuke Watanuki Portfolio`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#0074af`,
+        theme_color: `#0074af`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
