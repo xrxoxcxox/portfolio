@@ -6,16 +6,16 @@ import { css } from '@emotion/core'
 import Size from '../styles/Size'
 
 const layout = css`
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: repeat(12, minmax(${Size(3)}, ${Size(16)}));
-  grid-column-gap: ${Size(6)};
-  justify-content: center;
   align-content: flex-start;
+  display: grid;
+  grid-column-gap: ${Size(6)};
+  grid-template-columns: repeat(12, minmax(${Size(3)}, ${Size(16)}));
+  grid-template-rows: auto;
+  justify-content: center;
   padding: 0 ${Size(3)};
   @media (max-width: 480px) {
-    grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 0;
+    grid-template-columns: repeat(6, 1fr);
     padding: 0 ${Size(4)} ${Size(10)};
   }
 `

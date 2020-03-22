@@ -8,11 +8,11 @@ import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
 const root = css`
-  display: flex;
   align-items: center;
+  background-color: ${Color.White};
+  display: flex;
   grid-column: 1 / -1;
   height: ${Size(16)};
-  background-color: ${Color.White};
   position: sticky;
   top: 0;
   z-index: 10;
@@ -21,19 +21,19 @@ const root = css`
     padding: 0 ${Size(4)};
   }
   a {
+    color: ${Color.Black};
     ${Typography.Body};
     font-family: proxima-nova, sans-serif;
     font-weight: 900;
-    text-decoration: none;
-    color: ${Color.Black};
     padding: ${Size(3)} 0;
+    text-decoration: none;
     transition: all 0.25s ease-in-out;
     ::after {
+      border-bottom: ${Size(0.25)} solid currentColor;
       content: '';
       display: block;
-      width: 0;
       transition: all 0.25s ease-out;
-      border-bottom: ${Size(0.25)} solid currentColor;
+      width: 0;
     }
     :hover::after {
       width: 100%;

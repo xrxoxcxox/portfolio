@@ -39,10 +39,10 @@ const content = css`
 const title = css`
   display: inline;
   font-family: proxima-nova, sans-serif;
-  font-size: 6.4rem;
-  line-height: 7.2rem;
-  font-weight: 900;
   font-feature-settings: 'salt';
+  font-size: 6.4rem;
+  font-weight: 900;
+  line-height: 7.2rem;
   white-space: pre-wrap;
   @media (max-width: 768px) {
     line-height: 6.8rem;
@@ -64,9 +64,9 @@ const wip = css`
 `
 
 const subTitle = css`
-  grid-column: 1 / -1;
   ${Typography.Body1}
   font-feature-settings: 'palt';
+  grid-column: 1 / -1;
   letter-spacing: 0.02em;
   @media (max-width: 768px) {
     margin-top: ${Size(3)};
@@ -76,7 +76,7 @@ const subTitle = css`
 export default () => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <div css={root}>
         <Img
           fluid={data.file.childImageSharp.fluid}

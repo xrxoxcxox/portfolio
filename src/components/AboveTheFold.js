@@ -9,10 +9,10 @@ import Typography from '../styles/Typography'
 const root = css`
   display: grid;
   grid-column: 1 / -1;
-  grid-template-columns: repeat(12, minmax(1.2rem, 6.4rem));
   grid-column-gap: inherit;
-  position: relative;
+  grid-template-columns: repeat(12, minmax(1.2rem, 6.4rem));
   margin-top: ${Size(10)};
+  position: relative;
   @media (max-width: 768px) {
     margin-top: ${Size(6)};
   }
@@ -33,22 +33,22 @@ const visualWithText = css`
 `
 
 const title = css`
-  grid-column: 1 / -1;
-  position: absolute;
-  bottom: ${Size(8)};
   ${Typography.Title}
+  bottom: ${Size(8)};
+  grid-column: 1 / -1;
   line-height: 8rem;
+  position: absolute;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
-    position: static;
     margin-top: ${Size(1)};
+    position: static;
   }
   span {
-    padding: 0 ${Size(3)};
     background-color: ${Color.White};
+    padding: 0 ${Size(3)};
     @media (max-width: 768px) {
-      padding: 0;
       background-color: transparent;
+      padding: 0;
     }
   }
 `

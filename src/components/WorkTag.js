@@ -11,16 +11,16 @@ const headline = css`
 `
 
 const contents = css`
+  border-left: ${Size(0.25)} solid ${Color.Gray300};
   ${Typography.Body3};
   color: ${Color.Gray400};
-  border-left: ${Size(0.25)} solid ${Color.Gray300};
+  list-style-type: none;
   margin: ${Size(1)} 0 0 0;
   padding: ${Size(1)} 0 ${Size(1)} ${Size(3)};
-  list-style-type: none;
 `
 
 export default ({ year, tags, ...props }) => {
-  const tagItems = tags.map(tag => <li key={tag}>{tag}</li>)
+  const tagItems = tags.map((tag) => <li key={tag}>{tag}</li>)
   return (
     <div {...props}>
       <span css={headline}>{year}</span>

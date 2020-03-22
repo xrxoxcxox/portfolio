@@ -9,8 +9,8 @@ import Size from '../styles/Size'
 const releaseNote = css`
   grid-column: 3 / 11;
   height: ${Size(54)};
-  overflow-y: scroll;
   margin-top: ${Size(3)};
+  overflow-y: scroll;
   @media (max-width: 480px) {
     grid-column: 1 / -1;
     height: ${Size(60)};
@@ -19,8 +19,8 @@ const releaseNote = css`
     color: ${Color.Blue};
   }
   table {
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
   }
   tbody tr {
     border-top: ${Size(0.25)} solid ${Color.Gray80};

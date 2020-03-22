@@ -37,16 +37,16 @@ const title = css`
 `
 
 const workTag = css`
+  align-self: end;
   grid-column: 1 / 3;
   grid-row: 2 / 4;
-  align-self: end;
   position: sticky;
   top: ${Size(24)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     grid-row: 4 / 5;
-    position: static;
     margin-top: ${Size(6)};
+    position: static;
   }
 `
 
@@ -54,8 +54,8 @@ const body = css`
   grid-column: 4 / -3;
   grid-row: span 3;
   @media (max-width: 768px) {
-    grid-row: span 1;
     grid-column: 1 / -1;
+    grid-row: span 1;
   }
   h2 {
     ${Typography.Headline1}

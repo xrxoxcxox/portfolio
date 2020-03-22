@@ -7,12 +7,12 @@ import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
 const root = css`
-  grid-row: span 2;
   grid-column: 5 / 11;
+  grid-row: span 2;
   margin-top: ${Size(16)};
   @media (max-width: 768px) {
-    grid-row: span 1;
     grid-column: 1 / -1;
+    grid-row: span 1;
     margin-top: ${Size(6)};
   }
   h2:not([class]) {
@@ -36,17 +36,17 @@ const root = css`
     }
   }
   ul:not([class]) {
+    margin-left: ${Size(4)};
     ${Typography.Body1}
     margin-top: ${Size(4)};
-    margin-left: ${Size(4)};
   }
   a:not([class]) {
     color: ${Color.Blue};
   }
   small:not([class]) {
-    display: block;
     ${Typography.Body3};
     color: ${Color.Gray400};
+    display: block;
     margin-top: ${Size(2)};
   }
 `

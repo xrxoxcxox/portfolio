@@ -15,11 +15,11 @@ const link = css`
     display: inline-block;
     margin-top: ${Size(1)};
     &::after {
+      border-bottom: ${Size(0.25)} solid currentColor;
       content: '';
       display: block;
-      width: 0;
       transition: all 0.25s ease-out;
-      border-bottom: ${Size(0.25)} solid currentColor;
+      width: 0;
     }
   }
   &:hover {
@@ -70,8 +70,8 @@ export default () => (
         }
       }
     `}
-    render={data => {
-      return data.allMdx.edges.map(edge => {
+    render={(data) => {
+      return data.allMdx.edges.map((edge) => {
         return (
           <Link to={edge.node.fields.slug} css={link} key={edge.node.id}>
             <Img

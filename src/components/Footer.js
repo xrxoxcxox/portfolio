@@ -7,11 +7,11 @@ import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
 const root = css`
-  grid-column: 1 / -1;
   ${Typography.Body3};
   color: ${Color.Gray400};
-  text-align: center;
+  grid-column: 1 / -1;
   padding: ${Size(30)} 0 ${Size(10)};
+  text-align: center;
   @media (max-width: 768px) {
     padding-bottom: 0;
   }

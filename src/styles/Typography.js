@@ -2,8 +2,8 @@ import { css } from '@emotion/core'
 
 const Title = css`
   font-size: 4.8rem;
-  line-height: 5.6rem;
   font-weight: 700;
+  line-height: 5.6rem;
   @media (max-width: 768px) {
     font-size: 4rem;
     line-height: 4.8rem;
@@ -12,8 +12,8 @@ const Title = css`
 
 const Headline1 = css`
   font-size: 3.6rem;
-  line-height: 4.4rem;
   font-weight: 700;
+  line-height: 4.4rem;
   @media (max-width: 768px) {
     font-size: 3rem;
     line-height: 3.8rem;
@@ -22,8 +22,8 @@ const Headline1 = css`
 
 const Headline2 = css`
   font-size: 2.4rem;
-  line-height: 3.2rem;
   font-weight: 700;
+  line-height: 3.2rem;
   @media (max-width: 768px) {
     font-size: 2rem;
     line-height: 3rem;
@@ -32,8 +32,8 @@ const Headline2 = css`
 
 const Headline3 = css`
   font-size: 2rem;
-  line-height: 2.8rem;
   font-weight: 700;
+  line-height: 2.8rem;
   @media (max-width: 768px) {
     font-size: 1.8rem;
     line-height: 2.8rem;

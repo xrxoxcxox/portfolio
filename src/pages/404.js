@@ -29,10 +29,10 @@ const button = css`
   margin-top: ${Size(12)};
   @media (max-width: 768px) {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     width: calc(100% - ${Size(8)});
-    margin-right: auto;
-    margin-left: auto;
   }
 `
 
