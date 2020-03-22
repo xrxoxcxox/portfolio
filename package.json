@@ -34,10 +34,19 @@
     "gatsby"
   ],
   "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.0.1",
+    "stylelint": "^13.2.1",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-order": "^4.0.0",
+    "stylelint-prettier": "^1.1.2"
+  },
   "scripts": {
     "build": "gatsby build",
     "clean": "rm -rf .cache",
     "dev": "gatsby develop",
+    "lint:css": "stylelint './src/**/*.js'",
+    "lint:css:fix": "stylelint './src/**/*.js' --fix",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
