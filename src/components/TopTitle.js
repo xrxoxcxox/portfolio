@@ -113,7 +113,7 @@ const query = graphql`
         description
       }
     }
-    file(absolutePath: { regex: "/images/icon/" }) {
+    file(relativePath: { eq: "icon.png" }) {
       childImageSharp {
         fluid(maxWidth: 64, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
