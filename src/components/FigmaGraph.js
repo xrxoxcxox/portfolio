@@ -7,7 +7,7 @@ import { css } from '@emotion/core'
 // import Typography from '../styles/Typography'
 
 const root = css`
-  grid-column: span 6;
+  grid-column: span 12;
 `
 
 export default () => {
@@ -25,17 +25,9 @@ export default () => {
         setVerions(response.data.versions)
       })
   }, [])
-  const contributes = {}
   const createdAtArray = versions.map((version) =>
     version.created_at.slice(0, 10)
   )
-  createdAtArray.map(
-    (createdAt) =>
-      (contributes[createdAt] = contributes[createdAt]
-        ? contributes[createdAt] + 1
-        : 1)
-  )
-  console.log(contributes)
 
   const now = new Date()
   const days = [...Array(100)].map((_, i) =>
@@ -43,17 +35,24 @@ export default () => {
       dateStyle: 'short',
     }).format(now - i * 86400000)
   )
+
+  const concatedArray = days.concat(createdAtArray)
+  const contributes = {}
+  concatedArray.map(
+    (createdAt) =>
+      (contributes[createdAt] = contributes[createdAt]
+        ? contributes[createdAt] + 1
+        : 1)
+  )
+  console.log(createdAtArray)
+  console.log(contributes)
+
   return (
     <>
       <ul css={root}>
-        {days.map((day) => (
-          <li key={day}>{day}: 0</li>
-        ))}
-      </ul>
-      <ul css={root}>
         {Object.entries(contributes).map(([key, value]) => (
           <li key={key}>
-            {key}: {value}
+            {key}: {value - 1}
           </li>
         ))}
       </ul>
