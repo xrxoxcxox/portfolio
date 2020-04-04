@@ -23,9 +23,19 @@ export default () => {
       })
       .then((response) => {
         setVerions(response.data.versions)
-        console.log(response.data.versions)
       })
   }, [])
+  const contributes = {}
+  const createdAtArray = versions.map((version) =>
+    version.created_at.slice(0, 10)
+  )
+  createdAtArray.map(
+    (createdAt) =>
+      (contributes[createdAt] = contributes[createdAt]
+        ? contributes[createdAt] + 1
+        : 1)
+  )
+  console.log(contributes)
 
   const now = new Date()
   const days = [...Array(100)].map((_, i) =>
@@ -37,12 +47,14 @@ export default () => {
     <>
       <ul css={root}>
         {days.map((day) => (
-          <li key={day}>{day}:</li>
+          <li key={day}>{day}: 0</li>
         ))}
       </ul>
       <ul css={root}>
-        {versions.map((version) => (
-          <li key={version.id}>{version.created_at}</li>
+        {Object.entries(contributes).map(([key, value]) => (
+          <li key={key}>
+            {key}: {value}
+          </li>
         ))}
       </ul>
     </>
