@@ -14,11 +14,10 @@ const root = css`
   height: 720px;
 `
 
-const useFilesList = () => {
+const useFilesList = (fileKey) => {
   const [versions, setVerions] = useState([])
-  const FIGMA_VERSIONS_ENDPOINT =
-    'https://api.figma.com/v1/files/S4BeZk9p2DI5C42gSpIM1l/versions'
   useEffect(() => {
+    const FIGMA_VERSIONS_ENDPOINT = `https://api.figma.com/v1/files/${fileKey}/versions`
     axios
       .get(FIGMA_VERSIONS_ENDPOINT, {
         headers: {
@@ -28,15 +27,23 @@ const useFilesList = () => {
       .then((response) => {
         setVerions(response.data.versions)
       })
-  }, [])
+  }, [fileKey])
   const createdAtArray = versions.map((version) =>
     version.created_at.slice(0, 10)
   )
   return createdAtArray
 }
 
+const filesArray = (fileKeys) => {
+  const allFilesList = fileKeys.map((fileKey) => useFilesList(fileKey))
+  return Array.prototype.concat.apply([], allFilesList)
+}
+
 export default () => {
-  const filesList = useFilesList()
+  const filesList = filesArray([
+    'S4BeZk9p2DI5C42gSpIM1l',
+    'fEhtHRzGiCDAD7f2JXW9Hmau',
+  ])
 
   const now = new Date()
   const days = [...Array(100)].map((_, i) =>
