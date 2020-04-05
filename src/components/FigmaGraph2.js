@@ -2,15 +2,72 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import { css } from '@emotion/core'
-// import Color from '../styles/Color'
+import styled from '@emotion/styled'
+import Color from '../styles/Color'
 import Size from '../styles/Size'
-// import Typography from '../styles/Typography'
+import Typography from '../styles/Typography'
+
+const headline = css`
+  grid-column: 3 / 11;
+  margin-top: ${Size(28)};
+  ${Typography.Headline2};
+  @media (max-width: 480px) {
+    grid-column: 1 / -1;
+  }
+`
+
+const text = css`
+  grid-column: 3 / 11;
+  margin-top: ${Size(3)};
+  ${Typography.Body1};
+  @media (max-width: 480px) {
+    grid-column: 1 / -1;
+  }
+`
 
 const root = css`
+  align-items: flex-end;
+  border-bottom: ${Size(0.25)} solid ${Color.Gray20};
+  border-top: ${Size(0.25)} solid ${Color.Gray20};
   display: flex;
   grid-column: span 12;
-  height: ${Size(10)};
+  height: ${Size(48)};
+  justify-content: space-between;
   list-style: none;
+  margin-top: ${Size(3)};
+`
+
+const Chart = styled.li`
+  background-color: ${Color.Gray50};
+  flex-grow: 1;
+  height: calc(${(props) => props.percentage} * 95%);
+  margin: 0 0.1%;
+  position: relative;
+  &:hover {
+    background-color: ${Color.Blue};
+    transition: all 100ms ease-in-out;
+    &::before {
+      content: '${(props) => props.date}';
+      left: 50%;
+      position: absolute;
+      bottom: -2em;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 1;
+      ${Typography.Body3};
+    }
+    &::after {
+      bottom: -3.2em;
+      content: '${(props) => props.value}';
+      font-weight: 600;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 1;
+      ${Typography.Body3};
+    }
+  }
 `
 
 // const useProjects = () => {
@@ -55,7 +112,9 @@ const useVersion = () => {
     const files = [
       'ytX3yZP3v7M3df2CNlM1SM',
       'fEhtHRzGiCDAD7f2JXW9Hmau',
+      'ytX3yZP3v7M3df2CNlM1SM',
       'S4BeZk9p2DI5C42gSpIM1l',
+      'KeIV3apGnA27TZGMZHqlcZ',
     ]
     files.forEach((file) => {
       const FIGMA_VERSION_ENDPOINT = `https://api.figma.com/v1/files/${file}/versions`
@@ -79,7 +138,7 @@ const useVersion = () => {
 export default () => {
   const versionsCreatedAt = useVersion()
 
-  const allContributes = {}
+  const allContributes = []
   versionsCreatedAt.map(
     (versionCreatedAt) =>
       (allContributes[versionCreatedAt] = allContributes[versionCreatedAt]
@@ -87,13 +146,29 @@ export default () => {
         : 1)
   )
 
-  const contributes = Object.entries(allContributes)
+  const contributes = Object.entries(allContributes).sort()
+  const counter = []
+  contributes.map(([_, value]) => counter.push(value)).slice(0, 100)
+  const max = Math.max(...counter)
 
   return (
     <>
+      <h2 css={headline}>Figma Activity</h2>
+      <p css={text}>
+        私のFigma上での活動量のグラフ（β版）です。Figma APIからversion
+        historyを取得しています。Figmaは一定時間で自動保存されるため、version
+        historyの数≒活動量であると考えて実装しました。GiHubのContributions
+        Graphと同じような考えで作っています。
+      </p>
       <ul css={root}>
-        {contributes.map(([key, value]) => (
-          <li key={key}>{value}</li>
+        {contributes.slice(0, 100).map(([key, value]) => (
+          <Chart
+            key={key}
+            value={value}
+            max={max}
+            percentage={value / max}
+            date={key}
+          ></Chart>
         ))}
       </ul>
     </>
