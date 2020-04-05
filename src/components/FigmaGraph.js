@@ -14,7 +14,7 @@ const root = css`
   height: 720px;
 `
 
-const useFilesList = (fileKey) => {
+const useVersionEachFile = (fileKey) => {
   const [versions, setVerions] = useState([])
   useEffect(() => {
     const FIGMA_VERSIONS_ENDPOINT = `https://api.figma.com/v1/files/${fileKey}/versions`
@@ -28,36 +28,35 @@ const useFilesList = (fileKey) => {
         setVerions(response.data.versions)
       })
   }, [fileKey])
-  const createdAtArray = versions.map((version) =>
-    version.created_at.slice(0, 10)
-  )
-  return createdAtArray
+  return versions.map((version) => version.created_at.slice(0, 10))
 }
 
-const filesArray = (fileKeys) => {
-  const allFilesList = fileKeys.map((fileKey) => useFilesList(fileKey))
-  return Array.prototype.concat.apply([], allFilesList)
+const versionsCreatedAt = (fileKeys) => {
+  const versionsEachFile = fileKeys.map((fileKey) =>
+    useVersionEachFile(fileKey)
+  )
+  return Array.prototype.concat.apply([], versionsEachFile)
 }
 
 export default () => {
-  const filesList = filesArray([
+  const allVersionsCreatedAt = versionsCreatedAt([
     'S4BeZk9p2DI5C42gSpIM1l',
     'fEhtHRzGiCDAD7f2JXW9Hmau',
   ])
 
-  const now = new Date()
-  const days = [...Array(100)].map((_, i) =>
+  const today = new Date()
+  const period = [...Array(100)].map((_, i) =>
     new Intl.DateTimeFormat('sv-SE', {
       dateStyle: 'short',
-    }).format(now - i * 86400000)
+    }).format(today - i * 86400000)
   )
 
-  const concatedArray = days.concat(filesList)
+  const activities = period.concat(allVersionsCreatedAt)
   const contributes = {}
-  concatedArray.map(
-    (createdAt) =>
-      (contributes[createdAt] = contributes[createdAt]
-        ? contributes[createdAt] + 1
+  activities.map(
+    (activity) =>
+      (contributes[activity] = contributes[activity]
+        ? contributes[activity] + 1
         : 1)
   )
 
