@@ -6,6 +6,7 @@ import LinksToTheWork from '../components/LinksToTheWork'
 import ReleaseNote from '../components/ReleaseNotes'
 import Seo from '../components/Seo'
 import TopTitle from '../components/TopTitle'
+import FigmaGraph from '../components/FigmaGraph'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
@@ -28,6 +29,7 @@ export default () => (
     <Layout>
       <TopTitle />
       <LinksToTheWork />
+      <FigmaGraph />
       <h2 css={headline}>リリースノート</h2>
       <ReleaseNote />
       <Footer />
