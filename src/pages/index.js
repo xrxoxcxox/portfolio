@@ -28,8 +28,8 @@ export default () => (
     <Seo title='' />
     <Layout>
       <TopTitle />
-      <FigmaGraph />
       <LinksToTheWork />
+      <FigmaGraph />
       <h2 css={headline}>リリースノート</h2>
       <ReleaseNote />
       <Footer />
