@@ -14,6 +14,30 @@ const root = css`
   height: 720px;
 `
 
+const useFilesEachProject = (projectId) => {
+  const [files, setFiles] = useState([])
+  useEffect(() => {
+    const FIGMA_FILES_ENDPOINT = `https://api.figma.com/v1/projects/${projectId}/files`
+    axios
+      .get(FIGMA_FILES_ENDPOINT, {
+        headers: {
+          'X-FIGMA-TOKEN': '40392-21150d59-5fb8-4040-95ef-76e5c2100b59',
+        },
+      })
+      .then((response) => {
+        setFiles(response.data.files)
+      })
+  }, [projectId])
+  return files.map((file) => file.key)
+}
+
+const versionsCreatedAt = (fileKeys) => {
+  const versionsEachFile = fileKeys.map((fileKey) =>
+    useVersionEachFile(fileKey)
+  )
+  return Array.prototype.concat.apply([], versionsEachFile)
+}
+
 const useVersionEachFile = (fileKey) => {
   const [versions, setVerions] = useState([])
   useEffect(() => {
@@ -31,17 +55,11 @@ const useVersionEachFile = (fileKey) => {
   return versions.map((version) => version.created_at.slice(0, 10))
 }
 
-const versionsCreatedAt = (fileKeys) => {
-  const versionsEachFile = fileKeys.map((fileKey) =>
-    useVersionEachFile(fileKey)
-  )
-  return Array.prototype.concat.apply([], versionsEachFile)
-}
-
 export default () => {
+  const fileKeys = useFilesEachProject(1895022)
   const allVersionsCreatedAt = versionsCreatedAt([
     'S4BeZk9p2DI5C42gSpIM1l',
-    'fEhtHRzGiCDAD7f2JXW9Hmau',
+    'KeIV3apGnA27TZGMZHqlcZ',
   ])
 
   const today = new Date()
@@ -52,23 +70,25 @@ export default () => {
   )
 
   const activities = period.concat(allVersionsCreatedAt)
-  const contributes = {}
+  const allContributes = {}
   activities.map(
     (activity) =>
-      (contributes[activity] = contributes[activity]
-        ? contributes[activity] + 1
+      (allContributes[activity] = allContributes[activity]
+        ? allContributes[activity] + 1
         : 1)
   )
 
+  const displayedContributes = Object.entries(allContributes)
+    .slice(0, 100)
+    .map(([key, value]) => (
+      <li key={key}>
+        {key}: {value - 1}
+      </li>
+    ))
+
   return (
     <>
-      <ul css={root}>
-        {Object.entries(contributes).map(([key, value]) => (
-          <li key={key}>
-            {key}: {value - 1}
-          </li>
-        ))}
-      </ul>
+      <ul css={root}>{displayedContributes}</ul>
     </>
   )
 }
