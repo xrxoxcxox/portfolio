@@ -7,10 +7,14 @@ import { css } from '@emotion/core'
 // import Typography from '../styles/Typography'
 
 const root = css`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   grid-column: span 12;
+  height: 720px;
 `
 
-export default () => {
+const useFilesList = () => {
   const [versions, setVerions] = useState([])
   const FIGMA_VERSIONS_ENDPOINT =
     'https://api.figma.com/v1/files/S4BeZk9p2DI5C42gSpIM1l/versions'
@@ -28,6 +32,11 @@ export default () => {
   const createdAtArray = versions.map((version) =>
     version.created_at.slice(0, 10)
   )
+  return createdAtArray
+}
+
+export default () => {
+  const filesList = useFilesList()
 
   const now = new Date()
   const days = [...Array(100)].map((_, i) =>
@@ -36,7 +45,7 @@ export default () => {
     }).format(now - i * 86400000)
   )
 
-  const concatedArray = days.concat(createdAtArray)
+  const concatedArray = days.concat(filesList)
   const contributes = {}
   concatedArray.map(
     (createdAt) =>
@@ -44,8 +53,6 @@ export default () => {
         ? contributes[createdAt] + 1
         : 1)
   )
-  console.log(createdAtArray)
-  console.log(contributes)
 
   return (
     <>
