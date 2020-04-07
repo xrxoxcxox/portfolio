@@ -9,7 +9,7 @@ function SEO({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
+      render={(data) => {
         const metaDescription =
           description || data.site.siteMetadata.description
         const metaTitle = title || data.site.siteMetadata.title
@@ -75,7 +75,9 @@ function SEO({ description, lang, meta, keywords, title }) {
                   : []
               )
               .concat(meta)}
-          />
+          >
+            <link rel='icon' href='/icon.svg' type='image/svg+xml' />
+          </Helmet>
         )
       }}
     />
