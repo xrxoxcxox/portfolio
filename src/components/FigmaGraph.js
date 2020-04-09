@@ -41,16 +41,16 @@ const Chart = styled.li`
   background-color: ${Color.Gray50};
   flex-grow: 1;
   height: calc(${(props) => props.percentage} * 95%);
-  margin: 0 0.1%;
+  margin: 0 ${Size(0.25)};
   position: relative;
   &:hover {
     background-color: ${Color.Blue};
     transition: all 100ms ease-in-out;
     &::before {
+      bottom: -2em;
       content: '${(props) => props.date}';
       left: 50%;
       position: absolute;
-      bottom: -2em;
       transform: translateX(-50%);
       white-space: nowrap;
       z-index: 1;
@@ -79,7 +79,7 @@ const Chart = styled.li`
 //     axios
 //       .get(FIGMA_TEAM_ENDPOINT, {
 //         headers: {
-//           'X-FIGMA-TOKEN': '40392-21150d59-5fb8-4040-95ef-76e5c2100b59',
+//           'X-FIGMA-TOKEN': 'process.env.FIGMA_TOKEN',
 //         },
 //       })
 //       .then((responseProjects) => {
@@ -97,7 +97,7 @@ const Chart = styled.li`
 //       axios
 //         .get(FIGMA_PROJECT_ENDPOINT, {
 //           headers: {
-//             'X-FIGMA-TOKEN': '40392-21150d59-5fb8-4040-95ef-76e5c2100b59',
+//             'X-FIGMA-TOKEN': 'process.env.FIGMA_TOKEN',
 //           },
 //         })
 //         .then((responseFiles) => {
@@ -111,19 +111,13 @@ const Chart = styled.li`
 const useVersion = () => {
   const [versions, setVerions] = useState([])
   useEffect(() => {
-    const files = [
-      'ytX3yZP3v7M3df2CNlM1SM',
-      'fEhtHRzGiCDAD7f2JXW9Hmau',
-      'ytX3yZP3v7M3df2CNlM1SM',
-      'S4BeZk9p2DI5C42gSpIM1l',
-      'KeIV3apGnA27TZGMZHqlcZ',
-    ]
+    const files = process.env.FIGMA_FILE_KEYS.split(',')
     files.forEach((file) => {
       const FIGMA_VERSION_ENDPOINT = `https://api.figma.com/v1/files/${file}/versions`
       axios
         .get(FIGMA_VERSION_ENDPOINT, {
           headers: {
-            'X-FIGMA-TOKEN': '40392-21150d59-5fb8-4040-95ef-76e5c2100b59',
+            'X-FIGMA-TOKEN': process.env.FIGMA_TOKEN,
           },
         })
         .then((responseVersions) => {
