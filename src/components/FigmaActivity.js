@@ -79,7 +79,7 @@ const Chart = styled.li`
 //     axios
 //       .get(FIGMA_TEAM_ENDPOINT, {
 //         headers: {
-//           'X-FIGMA-TOKEN': 'process.env.FIGMA_TOKEN',
+//           'X-FIGMA-TOKEN': 'process.env.GATSBY_FIGMA_TOKEN',
 //         },
 //       })
 //       .then((responseProjects) => {
@@ -97,7 +97,7 @@ const Chart = styled.li`
 //       axios
 //         .get(FIGMA_PROJECT_ENDPOINT, {
 //           headers: {
-//             'X-FIGMA-TOKEN': 'process.env.FIGMA_TOKEN',
+//             'X-FIGMA-TOKEN': 'process.env.GATSBY_FIGMA_TOKEN',
 //           },
 //         })
 //         .then((responseFiles) => {
@@ -111,13 +111,13 @@ const Chart = styled.li`
 const useVersion = () => {
   const [versions, setVerions] = useState([])
   useEffect(() => {
-    const files = process.env.FIGMA_FILE_KEYS.split(',')
+    const files = process.env.GATSBY_FIGMA_FILE_KEYS.split(',')
     files.forEach((file) => {
       const FIGMA_VERSION_ENDPOINT = `https://api.figma.com/v1/files/${file}/versions`
       axios
         .get(FIGMA_VERSION_ENDPOINT, {
           headers: {
-            'X-FIGMA-TOKEN': process.env.FIGMA_TOKEN,
+            'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
           },
         })
         .then((responseVersions) => {
