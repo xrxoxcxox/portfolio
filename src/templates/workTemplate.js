@@ -9,7 +9,6 @@ import Header from '../components/Header'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import WorkTag from '../components/WorkTag'
-import WorkToIndex from '../components/WorkToIndex'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
@@ -77,9 +76,9 @@ const body = css`
     margin-top: ${Size(5)};
   }
   ul, ol {
+    margin-left: ${Size(6)};
     ${Typography.Body1}
     margin-top: ${Size(4)};
-    margin-left: ${Size(6)};
     ul, ol {
       margin-top: 0;
     }
@@ -88,9 +87,9 @@ const body = css`
     color: ${Color.Blue};
   }
   small {
-    display: block;
     ${Typography.Body3};
     color: ${Color.Gray400};
+    display: block;
     margin-top: ${Size(2)};
   }
   iframe {
@@ -116,14 +115,6 @@ const navigation = css`
   padding: ${Size(4)};
   @media (max-width: 768px) {
     text-align: center;
-  }
-`
-
-const workToIndex = css`
-  grid-column: 4 / -3;
-  margin-top: ${Size(16)};
-  @media (max-width: 768px) {
-    grid-column: 1 / -1;
   }
 `
 
@@ -164,7 +155,6 @@ export default ({ data: { mdx }, pageContext }) => {
             トップページ
           </Link>
         </div>
-        <WorkToIndex css={workToIndex} />
         <Footer />
       </Layout>
     </>
