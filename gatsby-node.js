@@ -25,11 +25,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  result.data.allMdx.edges.forEach(({ node }, index) => {
+  const posts = result.data.allMdx.edges
+  posts.forEach(({ node }, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
     createPage({
       path: node.fields.slug,
       component: workPostTemplate,
-      context: { id: node.id }, // additional data can be passed via context
+      context: {
+        id: node.id,
+        previous,
+        next,
+      },
     })
   })
 
