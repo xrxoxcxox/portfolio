@@ -1,7 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Img from 'gatsby-image'
+import hexToRgba from 'hex-rgba'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -97,6 +98,27 @@ const body = css`
   }
 `
 
+const pageToPage = css`
+  border-radius: ${Size(1)};
+  box-shadow: 0 ${Size(0.5)} ${Size(2)} ${hexToRgba(Color.Black, 16)};
+  display: flex;
+  grid-column: 4 / -3;
+  justify-content: space-around;
+  margin-top: ${Size(16)};
+  @media (max-width: 768px) {
+    flex-direction: column;
+    grid-column: 1 / -1;
+  }
+`
+
+const navigation = css`
+  color: ${Color.Blue};
+  padding: ${Size(4)};
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`
+
 const workToIndex = css`
   grid-column: 4 / -3;
   margin-top: ${Size(16)};
@@ -105,8 +127,9 @@ const workToIndex = css`
   }
 `
 
-export default ({ data: { mdx } }) => {
+export default ({ data: { mdx }, pageContext }) => {
   const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
+  const { next, previous } = pageContext
   return (
     <>
       <GlobalStyle />
@@ -126,6 +149,21 @@ export default ({ data: { mdx } }) => {
         <article css={body}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </article>
+        <div css={pageToPage}>
+          {previous && (
+            <Link to={`${previous.fields.slug}`} css={navigation}>
+              ←前の記事
+            </Link>
+          )}
+          {next && (
+            <Link to={`${next.fields.slug}`} css={navigation}>
+              次の記事→
+            </Link>
+          )}
+          <Link to='/' css={navigation}>
+            トップページ
+          </Link>
+        </div>
         <WorkToIndex css={workToIndex} />
         <Footer />
       </Layout>
