@@ -17,6 +17,7 @@ import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
 const mainVisual = css`
+  border: 1px solid ${hexToRgba(Color.Black, 8)};
   grid-column: 4 / -1;
   grid-row: 2 / 3;
   position: relative;
@@ -120,6 +121,8 @@ const navigation = css`
 
 export default ({ data: { mdx }, pageContext }) => {
   const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
+  const featuredImgPath =
+    mdx.frontmatter.featuredImage.childImageSharp.fixed.src
   const { next, previous } = pageContext
   return (
     <>
@@ -127,6 +130,7 @@ export default ({ data: { mdx }, pageContext }) => {
       <Seo
         title={mdx.frontmatter.title}
         description={mdx.frontmatter.description}
+        ogImagePath={featuredImgPath}
       />
       <Layout>
         <Header />
@@ -173,8 +177,11 @@ export const pageQuery = graphql`
         tags
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 680) {
-              ...GatsbyImageSharpFluid
+            fluid(maxWidth: 768, quality: 85) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+            fixed(width: 1200) {
+              src
             }
           }
         }
