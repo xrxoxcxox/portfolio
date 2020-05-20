@@ -70,45 +70,7 @@ const Chart = styled.li`
   }
 `
 
-// TODO team_idの指定だけで全ファイルの活動履歴を取得して、APIへのリクエストも走りすぎないようにする
-
-// const useProjects = () => {
-//   const [projects, setProjects] = useState([])
-//   useEffect(() => {
-//     const FIGMA_TEAM_ENDPOINT = `https://api.figma.com/v1/teams/681529201922078422/projects`
-//     axios
-//       .get(FIGMA_TEAM_ENDPOINT, {
-//         headers: {
-//           'X-FIGMA-TOKEN': 'process.env.GATSBY_FIGMA_TOKEN',
-//         },
-//       })
-//       .then((responseProjects) => {
-//         setProjects(responseProjects.data.projects)
-//       })
-//   }, [])
-//   return useFiles(projects)
-// }
-
-// const useFiles = (projects) => {
-//   const [files, setFiles] = useState([])
-//   useEffect(() => {
-//     projects.forEach((project) => {
-//       const FIGMA_PROJECT_ENDPOINT = `https://api.figma.com/v1/projects/${project.id}/files`
-//       axios
-//         .get(FIGMA_PROJECT_ENDPOINT, {
-//           headers: {
-//             'X-FIGMA-TOKEN': 'process.env.GATSBY_FIGMA_TOKEN',
-//           },
-//         })
-//         .then((responseFiles) => {
-//           setFiles((files) => [...files, ...responseFiles.data.files])
-//         })
-//     })
-//   }, [projects])
-//   return useVersion(files)
-// }
-
-const useProjects = () => {
+const useVersions = () => {
   const [versions, setVerions] = useState([])
   useEffect(() => {
     fetch(
@@ -149,31 +111,8 @@ const useProjects = () => {
   return versions.map((version) => version.created_at.slice(0, 10))
 }
 
-const useVersion = () => {
-  const [versions, setVerions] = useState([])
-  useEffect(() => {
-    const files = process.env.GATSBY_FIGMA_FILE_KEYS.split(',')
-    files.forEach((file) => {
-      const FIGMA_VERSION_ENDPOINT = `https://api.figma.com/v1/files/${file}/versions`
-      axios
-        .get(FIGMA_VERSION_ENDPOINT, {
-          headers: {
-            'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
-          },
-        })
-        .then((responseVersions) => {
-          setVerions((versons) => [
-            ...versons,
-            ...responseVersions.data.versions,
-          ])
-        })
-    })
-  }, [])
-  return versions.map((version) => version.created_at.slice(0, 10))
-}
-
 export default () => {
-  const versionsCreatedAt = useProjects()
+  const versionsCreatedAt = useVersions()
 
   const allContributes = []
   versionsCreatedAt.map(
