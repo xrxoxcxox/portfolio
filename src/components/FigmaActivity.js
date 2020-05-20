@@ -46,8 +46,9 @@ const Chart = styled.li`
     background-color: ${Color.Blue};
     transition: all 100ms ease-in-out;
     &::before {
-      bottom: -2em;
-      content: '${(props) => props.date}';
+      bottom: ${Size(-6)};
+      content: '${(props) => props.value} ${(props) => (props.value === 1 ? 'contribution' : 'contributions')}';
+      font-weight: 600;
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
@@ -56,9 +57,8 @@ const Chart = styled.li`
       ${Typography.Body3};
     }
     &::after {
-      bottom: -3.2em;
-      content: '${(props) => props.value}';
-      font-weight: 600;
+      bottom: ${Size(-10)};
+      content: 'on ${(props) => props.date}';
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
@@ -72,14 +72,11 @@ const Chart = styled.li`
 const useVersions = () => {
   const [versions, setVerions] = useState([])
   useEffect(() => {
-    fetch(
-      `https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`,
-      {
-        headers: {
-          'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
-        },
-      }
-    )
+    fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, {
+      headers: {
+        'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
+      },
+    })
       .then((response) => response.json())
       .then((result) => result.projects)
       .then((projects) =>
@@ -99,9 +96,7 @@ const useVersions = () => {
                   },
                 })
                   .then((response) => response.json())
-                  .then((result) =>
-                    setVerions((version) => [...version, ...result.versions])
-                  )
+                  .then((result) => setVerions((version) => [...version, ...result.versions]))
               )
             )
         )
@@ -114,12 +109,7 @@ export default () => {
   const versionsCreatedAt = useVersions()
 
   const allContributes = []
-  versionsCreatedAt.map(
-    (versionCreatedAt) =>
-      (allContributes[versionCreatedAt] = allContributes[versionCreatedAt]
-        ? allContributes[versionCreatedAt] + 1
-        : 1)
-  )
+  versionsCreatedAt.map((versionCreatedAt) => (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
 
   const contributes = Object.entries(allContributes).sort()
   const counter = []
@@ -129,21 +119,10 @@ export default () => {
   return (
     <>
       <h2 css={headline}>Figma Activity</h2>
-      <p css={text}>
-        私のFigma上での活動量のグラフ（β版）です。Figma APIからversion
-        historyを取得しています。Figmaは一定時間で自動保存されるため、version
-        historyの数≒活動量であると考えて実装しました。GiHubのContributions
-        Graphと同じような考えで作っています。
-      </p>
+      <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
       <ul css={root}>
         {contributes.slice(0, 100).map(([key, value]) => (
-          <Chart
-            key={key}
-            value={value}
-            max={max}
-            percentage={value / max}
-            date={key}
-          ></Chart>
+          <Chart key={key} value={value} max={max} percentage={value / max} date={key}></Chart>
         ))}
       </ul>
     </>
