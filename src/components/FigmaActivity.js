@@ -79,20 +79,27 @@ const useVersions = () => {
       const projects = await result.projects
       getFiles(projects)
     }
-    const getFiles = (projects) => {
-      projects.map(async (project) => {
-        const response = await fetch(`https://api.figma.com/v1/projects/${project.id}/files`, { headers: token })
-        const result = await response.json()
-        const files = await result.files
-        getVersions(files)
-      })
+    const getFiles = async (projects) => {
+      const filesArray = await Promise.all(
+        projects.map(async (project) => {
+          const response = await fetch(`https://api.figma.com/v1/projects/${project.id}/files`, { headers: token })
+          const result = await response.json()
+          return result.files
+        })
+      )
+      const files = [].concat(...filesArray)
+      getVersions(files)
     }
-    const getVersions = (files) => {
-      files.map(async (file) => {
-        const response = await fetch(`https://api.figma.com/v1/files/${file.key}/versions`, { headers: token })
-        const result = await response.json()
-        setVerions((version) => [...version, ...result.versions])
-      })
+    const getVersions = async (files) => {
+      const versionsArray = await Promise.all(
+        files.map(async (file) => {
+          const response = await fetch(`https://api.figma.com/v1/files/${file.key}/versions`, { headers: token })
+          const result = await response.json()
+          return result.versions
+        })
+      )
+      const versions = [].concat(...versionsArray)
+      setVerions(versions)
     }
     getProject()
   }, [])
