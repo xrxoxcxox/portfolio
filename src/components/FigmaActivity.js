@@ -103,14 +103,14 @@ const useVersions = () => {
     }
     getProject()
   }, [])
-  return versions.map((version) => version.created_at.slice(0, 10))
+  return versions.map((version) => version && version.created_at.slice(0, 10)) // versionがない場合はundefinedが返されるので、versionsCreatedAt.mapの中で評価している
 }
 
 export default () => {
   const versionsCreatedAt = useVersions()
 
   const allContributes = []
-  versionsCreatedAt.map((versionCreatedAt) => (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
+  versionsCreatedAt.map((versionCreatedAt) => versionCreatedAt !== undefined && (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
 
   const contributes = Object.entries(allContributes).sort()
   const counter = []
