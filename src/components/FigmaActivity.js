@@ -71,30 +71,19 @@ const Chart = styled.li`
 
 const useVersions = () => {
   const [versions, setVerions] = useState([])
+  const token = { 'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN }
   useEffect(() => {
-    fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, {
-      headers: {
-        'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
-      },
-    })
+    fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, { headers: token })
       .then((response) => response.json())
       .then((result) => result.projects)
       .then((projects) =>
         projects.map((project) =>
-          fetch(`https://api.figma.com/v1/projects/${project.id}/files`, {
-            headers: {
-              'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
-            },
-          })
+          fetch(`https://api.figma.com/v1/projects/${project.id}/files`, { headers: token })
             .then((response) => response.json())
             .then((result) => result.files)
             .then((files) =>
               files.map((file) =>
-                fetch(`https://api.figma.com/v1/files/${file.key}/versions`, {
-                  headers: {
-                    'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
-                  },
-                })
+                fetch(`https://api.figma.com/v1/files/${file.key}/versions`, { headers: token })
                   .then((response) => response.json())
                   .then((result) => setVerions((version) => [...version, ...result.versions]))
               )
