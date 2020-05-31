@@ -77,18 +77,18 @@ const useVersions = () => {
       const response = await fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, { headers: token })
       const result = await response.json()
       const projects = await result.projects
-      await getFiles(projects)
+      getFiles(projects)
     }
-    const getFiles = async (projects) => {
-      await projects.map(async (project) => {
+    const getFiles = (projects) => {
+      projects.map(async (project) => {
         const response = await fetch(`https://api.figma.com/v1/projects/${project.id}/files`, { headers: token })
         const result = await response.json()
-        const files = result.files
-        await getVersions(files)
+        const files = await result.files
+        getVersions(files)
       })
     }
-    const getVersions = async (files) => {
-      await files.map(async (file) => {
+    const getVersions = (files) => {
+      files.map(async (file) => {
         const response = await fetch(`https://api.figma.com/v1/files/${file.key}/versions`, { headers: token })
         const result = await response.json()
         setVerions((version) => [...version, ...result.versions])
