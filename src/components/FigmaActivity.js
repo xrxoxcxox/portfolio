@@ -72,44 +72,45 @@ const Chart = styled.li`
 const useVersions = () => {
   const [versions, setVerions] = useState([])
   useEffect(() => {
-    fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, {
-      headers: {
-        'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => result.projects)
-      .then((projects) =>
-        projects.map((project) =>
-          fetch(`https://api.figma.com/v1/projects/${project.id}/files`, {
-            headers: {
-              'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
-            },
-          })
-            .then((response) => response.json())
-            .then((result) => result.files)
-            .then((files) =>
-              files.map((file) =>
-                fetch(`https://api.figma.com/v1/files/${file.key}/versions`, {
-                  headers: {
-                    'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN,
-                  },
-                })
-                  .then((response) => response.json())
-                  .then((result) => setVerions((version) => [...version, ...result.versions]))
-              )
-            )
-        )
+    const token = { 'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN }
+    const getProject = async () => {
+      const response = await fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, { headers: token })
+      const result = await response.json()
+      const projects = await result.projects
+      getFiles(projects)
+    }
+    const getFiles = async (projects) => {
+      const filesArray = await Promise.all(
+        projects.map(async (project) => {
+          const response = await fetch(`https://api.figma.com/v1/projects/${project.id}/files`, { headers: token })
+          const result = await response.json()
+          return result.files
+        })
       )
+      const files = [].concat(...filesArray)
+      getVersions(files)
+    }
+    const getVersions = async (files) => {
+      const versionsArray = await Promise.all(
+        files.map(async (file) => {
+          const response = await fetch(`https://api.figma.com/v1/files/${file.key}/versions`, { headers: token })
+          const result = await response.json()
+          return result.versions
+        })
+      )
+      const versions = [].concat(...versionsArray)
+      setVerions(versions)
+    }
+    getProject()
   }, [])
-  return versions.map((version) => version.created_at.slice(0, 10))
+  return versions.map((version) => version && version.created_at.slice(0, 10)) // versionがない場合はundefinedが返されるので、versionsCreatedAt.mapの中で評価している
 }
 
 export default () => {
   const versionsCreatedAt = useVersions()
 
   const allContributes = []
-  versionsCreatedAt.map((versionCreatedAt) => (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
+  versionsCreatedAt.map((versionCreatedAt) => versionCreatedAt !== undefined && (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
 
   const contributes = Object.entries(allContributes).sort()
   const counter = []
