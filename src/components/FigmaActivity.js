@@ -114,7 +114,7 @@ export default () => {
 
   const contributes = Object.entries(allContributes).sort()
   const counter = []
-  contributes.map(([_, value]) => counter.push(value)).slice(0, 100)
+  contributes.map(([_, value]) => counter.push(value)).slice(-100)
   const max = Math.max(...counter)
 
   return (
@@ -122,7 +122,7 @@ export default () => {
       <h2 css={headline}>Figma Activity</h2>
       <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
       <ul css={root}>
-        {contributes.slice(0, 100).map(([key, value]) => (
+        {contributes.slice(-100).map(([key, value]) => (
           <Chart key={key} value={value} max={max} percentage={value / max} date={key}></Chart>
         ))}
       </ul>
