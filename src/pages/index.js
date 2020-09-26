@@ -2,7 +2,7 @@ import React from 'react'
 
 import Footer from '../components/Footer'
 import Layout from '../components/Layout'
-import LinksToTheWork from '../components/LinksToTheWork'
+import LinksToWork from '../components/LinksToWork'
 import ReleaseNote from '../components/ReleaseNotes'
 import Seo from '../components/Seo'
 import TopTitle from '../components/TopTitle'
@@ -28,7 +28,7 @@ export default () => (
     <Seo title='' />
     <Layout>
       <TopTitle />
-      <LinksToTheWork />
+      <LinksToWork />
       <FigmaActivity />
       <h2 css={headline}>リリースノート</h2>
       <ReleaseNote />
