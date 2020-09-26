@@ -53,7 +53,7 @@ export default () => (
       query {
         allMdx(
           filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
-          sort: { order: DESC, fields: [frontmatter___date] }
+          sort: { order: DESC, fields: [frontmatter___end] }
         ) {
           edges {
             node {
