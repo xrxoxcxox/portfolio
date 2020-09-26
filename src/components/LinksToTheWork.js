@@ -38,7 +38,7 @@ const link = css`
   @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
-      margin-top: ${Size(4)};
+      margin-top: ${Size(8)};
     }
   }
 `
