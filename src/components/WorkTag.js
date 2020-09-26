@@ -7,7 +7,7 @@ import Size from '../styles/Size'
 import Typography from '../styles/Typography'
 
 const headline = css`
-  ${Typography.Headline2};
+  ${Typography.Headline3};
 `
 
 const contents = css`
@@ -15,7 +15,7 @@ const contents = css`
   ${Typography.Body3};
   color: ${Color.Gray400};
   list-style-type: none;
-  margin: ${Size(1)} 0 0 0;
+  margin: ${Size(2)} 0 0 0;
   padding: ${Size(1)} 0 ${Size(1)} ${Size(3)};
 `
 
