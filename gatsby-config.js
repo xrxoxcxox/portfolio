@@ -77,7 +77,18 @@ module.exports = {
         theme_color: `#0074af`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
+        icon_options: {
+          purpose: `maskable`,
+        },
       },
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        workboxConfig: {
+          globPatterns: ['**/icon-path*']
+        }
+      }
     },
     `gatsby-plugin-netlify`,
   ],
