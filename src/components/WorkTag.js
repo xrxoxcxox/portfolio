@@ -19,11 +19,11 @@ const contents = css`
   padding: ${Size(1)} 0 ${Size(1)} ${Size(3)};
 `
 
-export default ({ year, tags, ...props }) => {
+export default ({ start, end, tags, ...props }) => {
   const tagItems = tags.map((tag) => <li key={tag}>{tag}</li>)
   return (
     <div {...props}>
-      <span css={headline}>{year}</span>
+      <span css={headline}>{start} ~ {end}</span>
       <ul css={contents}>{tagItems}</ul>
     </div>
   )

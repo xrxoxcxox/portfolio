@@ -6,7 +6,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     {
       allMdx(
         filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { order: DESC, fields: [frontmatter___end] }
         limit: 1000
       ) {
         edges {

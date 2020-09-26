@@ -137,7 +137,8 @@ export default ({ data: { mdx }, pageContext }) => {
         <Img fluid={featuredImgFluid} alt='' css={mainVisual} />
         <h1 css={title}>{mdx.frontmatter.title}</h1>
         <WorkTag
-          year={mdx.frontmatter.date}
+          start={mdx.frontmatter.start}
+          end={mdx.frontmatter.end}
           tags={mdx.frontmatter.tags}
           css={workTag}
         />
@@ -171,7 +172,8 @@ export const pageQuery = graphql`
       id
       body
       frontmatter {
-        date(formatString: "YYYY")
+        start
+        end
         title
         description
         tags
