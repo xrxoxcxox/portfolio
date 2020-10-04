@@ -60,3 +60,41 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
   }
 }
+
+const fetch = require(`node-fetch`)
+exports.sourceNodes = async ({
+  actions: { createNode },
+  createContentDigest,
+}) => {
+  const token = { 'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN }
+  const team = await fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, { headers: token })
+  const result = await team.json()
+  const projects = await result.projects
+  const files = await Promise.all(
+    projects.map(async (project) => {
+      const response = await fetch(`https://api.figma.com/v1/projects/${project.id}/files`, { headers: token })
+      const result = await response.json()
+      return result.files
+    })
+  )
+  const versions = await Promise.all(
+    files.flat().map(async (file) => {
+      const response = await fetch(`https://api.figma.com/v1/files/${file.key}/versions`, { headers: token })
+      const result = await response.json()
+      return result.versions
+    })
+  )
+
+  const allVersions = versions.flat()
+
+  createNode({
+    id: `figma`,
+    parent: null,
+    children: [],
+    content: allVersions,
+    internal: {
+      type: `Figma`,
+      contentDigest: createContentDigest(allVersions),
+    },
+  })
+}

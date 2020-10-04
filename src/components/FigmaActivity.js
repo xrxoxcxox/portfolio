@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
@@ -69,62 +70,58 @@ const Chart = styled.li`
   }
 `
 
-const useVersions = () => {
-  const [versions, setVerions] = useState([])
-  useEffect(() => {
-    const token = { 'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN }
-    const getProject = async () => {
-      const response = await fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, { headers: token })
-      const result = await response.json()
-      const projects = await result.projects
-      getFiles(projects)
-    }
-    const getFiles = async (projects) => {
-      const filesArray = await Promise.all(
-        projects.map(async (project) => {
-          const response = await fetch(`https://api.figma.com/v1/projects/${project.id}/files`, { headers: token })
-          const result = await response.json()
-          return result.files
-        })
-      )
-      const files = [].concat(...filesArray)
-      getVersions(files)
-    }
-    const getVersions = async (files) => {
-      const versionsArray = await Promise.all(
-        files.map(async (file) => {
-          const response = await fetch(`https://api.figma.com/v1/files/${file.key}/versions`, { headers: token })
-          const result = await response.json()
-          return result.versions
-        })
-      )
-      const versions = [].concat(...versionsArray)
-      setVerions(versions)
-    }
-    getProject()
-  }, [])
-  return versions.map((version) => version && version.created_at.slice(0, 10)) // versionがない場合はundefinedが返されるので、versionsCreatedAt.mapの中で評価している
-}
-
 export default () => {
-  const versionsCreatedAt = useVersions()
+  const data = useStaticQuery(graphql`
+    {
+      allFigma {
+        nodes {
+          content {
+            created_at
+          }
+        }
+      }
+    }
+  `)
+
+  const contents = data.allFigma.nodes[0].content
+  const versionsCreatedAt = contents.flat().map(content => (
+    content.created_at.slice(0, 10) //先頭から10文字を取得することで「時間」を切り捨てて1日ずつのデータにしている
+  ))
+  // data.allFigma.nodes より下のデータが何故か配列が何度も入れ子になっているのでflat()などを使って取り出している
+
+  const days = 100
+  const today = new Date()
+  const period = [...Array(days)].map((_, i) =>
+    new Intl.DateTimeFormat('sv-SE', {
+      dateStyle: 'short',
+    }).format(today - i * 86400000)
+  )
+  // yyyy-mm-dd形式にできるのが'sv-SE'という形式だったので'ja-JP'ではなくこちらを使う
+  // 86400000 = 24時間 * 60分 * 60秒 * 1000（ミリ）
+
+  const concatedversionsCreatedAt = period.concat(versionsCreatedAt)
+  // versionsCreatedAtにはversion historyが記録されている日だけが格納されているので、periodと合成して全ての日のリストを作成する
 
   const allContributes = []
-  versionsCreatedAt.map((versionCreatedAt) => versionCreatedAt !== undefined && (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
+  concatedversionsCreatedAt.map((versionCreatedAt) => (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
+  // 日毎の、1回以上version historyを記録した回数の配列
 
-  const contributes = Object.entries(allContributes).sort()
+  const contributes = Object.entries(allContributes).sort().slice(-days)
+  // 日付が昇順にも降順にもなっていないのでソートした後スライス
+
   const counter = []
-  contributes.map(([_, value]) => counter.push(value)).slice(-100)
+  contributes.map(([_, value]) => counter.push(value - 1))
   const max = Math.max(...counter)
+  // contributesからスコアだけ抜き出した配列を作った後、最大値を取得
+
+  const charts = contributes.map(([key, value]) => (<Chart key={key} value={value - 1} max={max} percentage={(value - 1) / max} date={key}></Chart>))
 
   return (
     <>
       <h2 css={headline}>Figma Activity</h2>
       <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
       <ul css={root}>
-        {contributes.slice(-100).map(([key, value]) => (
-          <Chart key={key} value={value} max={max} percentage={value / max} date={key}></Chart>
-        ))}
+        {charts}
       </ul>
     </>
   )
