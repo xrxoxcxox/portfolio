@@ -26,16 +26,29 @@ const text = css`
   }
 `
 
+const wrap = css`
+  display: flex;
+  justify-content: center;
+  grid-column: span 12;
+  margin-top: ${Size(4)};
+  @media (max-width: 848px) {
+    grid-column: 1 / -1;
+    overflow: scroll;
+  }
+`
+
 const root = css`
   align-content: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  grid-column: span 12;
   height: ${Size(28.5)};
   justify-content: flex-start;
   list-style: none;
-  margin-top: ${Size(4)};
+  width: 100%;
+  @media (max-width: 848px) {
+    align-content: flex-start;
+  }
 `
 
 const Chart = styled.li`
@@ -144,9 +157,11 @@ export default () => {
     <>
       <h2 css={headline}>Figma Activity</h2>
       <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
-      <ul css={root}>
-        {charts}
-      </ul>
+      <div css={wrap}>
+        <ul css={root}>
+          {charts}
+        </ul>
+      </div>
     </>
   )
 }
