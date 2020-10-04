@@ -82,14 +82,7 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-offline',
-      options: {
-        workboxConfig: {
-          globPatterns: ['**/icon-path*']
-        }
-      }
-    },
+    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-netlify`,
   ],
 }
