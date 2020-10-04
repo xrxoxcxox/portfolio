@@ -89,22 +89,39 @@ export default () => {
   ))
   // data.allFigma.nodes より下のデータが何故か配列が何度も入れ子になっているのでflat()などを使って取り出している
 
-  const allContributes = []
-  versionsCreatedAt.map((versionCreatedAt) => versionCreatedAt !== undefined && (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
+  const days = 100
+  const today = new Date()
+  const period = [...Array(days)].map((_, i) =>
+    new Intl.DateTimeFormat('sv-SE', {
+      dateStyle: 'short',
+    }).format(today - i * 86400000)
+  )
+  // yyyy-mm-dd形式にできるのが'sv-SE'という形式だったので'ja-JP'ではなくこちらを使う
+  // 86400000 = 24時間 * 60分 * 60秒 * 1000（ミリ）
 
-  const contributes = Object.entries(allContributes).sort()
+  const concatedversionsCreatedAt = period.concat(versionsCreatedAt)
+  // versionsCreatedAtにはversion historyが記録されている日だけが格納されているので、periodと合成して全ての日のリストを作成する
+
+  const allContributes = []
+  concatedversionsCreatedAt.map((versionCreatedAt) => (allContributes[versionCreatedAt] = allContributes[versionCreatedAt] ? allContributes[versionCreatedAt] + 1 : 1))
+  // 日毎の、1回以上version historyを記録した回数の配列
+
+  const contributes = Object.entries(allContributes).sort().slice(-days)
+  // 日付が昇順にも降順にもなっていないのでソートした後スライス
+
   const counter = []
-  contributes.map(([_, value]) => counter.push(value)).slice(-100)
+  contributes.map(([_, value]) => counter.push(value - 1))
   const max = Math.max(...counter)
+  // contributesからスコアだけ抜き出した配列を作った後、最大値を取得
+
+  const charts = contributes.map(([key, value]) => (<Chart key={key} value={value - 1} max={max} percentage={(value - 1) / max} date={key}></Chart>))
 
   return (
     <>
       <h2 css={headline}>Figma Activity</h2>
       <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
       <ul css={root}>
-        {contributes.slice(-100).map(([key, value]) => (
-          <Chart key={key} value={value} max={max} percentage={value / max} date={key}></Chart>
-        ))}
+        {charts}
       </ul>
     </>
   )
