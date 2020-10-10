@@ -6,6 +6,7 @@ import styled from '@emotion/styled'
 import Color from '../styles/Color'
 import Size from '../styles/Size'
 import Typography from '../styles/Typography'
+import hexToRgba from 'hex-rgba'
 
 const headline = css`
   grid-column: 3 / 11;
@@ -25,49 +26,78 @@ const text = css`
   }
 `
 
-const root = css`
-  align-items: flex-end;
-  border-bottom: ${Size(0.25)} solid ${Color.Gray20};
-  border-top: ${Size(0.25)} solid ${Color.Gray20};
+const wrap = css`
   display: flex;
+  justify-content: center;
   grid-column: span 12;
-  height: ${Size(48)};
-  justify-content: space-between;
+  margin-top: ${Size(4)};
+  @media (max-width: 848px) {
+    grid-column: 1 / -1;
+    overflow: scroll;
+  }
+`
+
+const root = css`
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: ${Size(28.5)};
+  justify-content: flex-start;
   list-style: none;
-  margin-top: ${Size(3)};
+  width: 100%;
+  @media (max-width: 848px) {
+    align-content: flex-start;
+  }
 `
 
 const Chart = styled.li`
-  background-color: ${Color.Gray50};
-  flex-grow: 1;
-  height: calc(${(props) => props.percentage} * 95%);
-  margin: 0 ${Size(0.25)};
+  background-color: ${(props) => props.value ? hexToRgba(Color.Blue, (props.value / props.max * 100)) : Color.White};
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: ${Size(0.5)};
+  height: ${Size(3)};
+  margin: ${Size(0.5)};
   position: relative;
-  &:hover {
-    background-color: ${Color.Blue};
-    transition: all 100ms ease-in-out;
-    &::before {
-      bottom: ${Size(-6)};
-      content: '${(props) => props.value} ${(props) => (props.value === 1 ? 'contribution' : 'contributions')}';
-      font-weight: 600;
-      left: 50%;
-      position: absolute;
-      transform: translateX(-50%);
-      white-space: nowrap;
-      z-index: 1;
-      ${Typography.Body3};
-    }
+  width: ${Size(3)};
+  }
+`
+
+const ChartText = styled.span`
+  display: none;
+  ${Chart}:hover & {
+    background-color: ${hexToRgba(Color.Black, 80)};
+    border-radius: ${Size(1)};
+    display: flex;
+    left: 50%;
+    padding: ${Size(2)} ${Size(4)};
+    position: absolute;
+    top: ${Size(-12)};
+    transform: translateX(-50%);
+    z-index: 1;
+    ${Typography.Body3};
     &::after {
-      bottom: ${Size(-10)};
-      content: 'on ${(props) => props.date}';
+      border-left: ${Size(2.5)} solid transparent;
+      border-right: ${Size(2.5)} solid transparent;
+      border-top: ${Size(2)} solid ${hexToRgba(Color.Black, 80)};
+      bottom: ${Size(-2)};
+      content: "";
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
-      white-space: nowrap;
-      z-index: 1;
-      ${Typography.Body3};
     }
   }
+`
+
+const ChartValue = styled.span`
+  color: ${Color.White};
+  font-weight: 600;
+  white-space: nowrap;
+`
+
+const ChartDate = styled.span`
+  color: ${hexToRgba(Color.White, 60)};
+  margin-left: ${Size(2)};
+  white-space: nowrap;
 `
 
 export default () => {
@@ -89,7 +119,7 @@ export default () => {
   ))
   // data.allFigma.nodes より下のデータが何故か配列が何度も入れ子になっているのでflat()などを使って取り出している
 
-  const days = 100
+  const days = 365
   const today = new Date()
   const period = [...Array(days)].map((_, i) =>
     new Intl.DateTimeFormat('sv-SE', {
@@ -114,15 +144,24 @@ export default () => {
   const max = Math.max(...counter)
   // contributesからスコアだけ抜き出した配列を作った後、最大値を取得
 
-  const charts = contributes.map(([key, value]) => (<Chart key={key} value={value - 1} max={max} percentage={(value - 1) / max} date={key}></Chart>))
+  const charts = contributes.map(([key, value]) => (
+    <Chart key={key} value={value - 1} max={max}>
+      <ChartText>
+        <ChartValue>{value} {value === 1 ? 'contribution' : 'contributions'}</ChartValue>
+        <ChartDate>on {key}</ChartDate>
+      </ChartText>
+    </Chart>)
+  )
 
   return (
     <>
       <h2 css={headline}>Figma Activity</h2>
       <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
-      <ul css={root}>
-        {charts}
-      </ul>
+      <div css={wrap}>
+        <ul css={root}>
+          {charts}
+        </ul>
+      </div>
     </>
   )
 }
