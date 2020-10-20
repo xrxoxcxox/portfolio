@@ -59,7 +59,6 @@ const Chart = styled.li`
   margin: ${Size(0.5)};
   position: relative;
   width: ${Size(3)};
-  }
 `
 
 const ChartText = styled.span`
@@ -88,13 +87,13 @@ const ChartText = styled.span`
   }
 `
 
-const ChartValue = styled.span`
+const chartValue = css`
   color: ${Color.White};
   font-weight: 600;
   white-space: nowrap;
 `
 
-const ChartDate = styled.span`
+const chartDate = css`
   color: ${hexToRgba(Color.White, 60)};
   margin-left: ${Size(2)};
   white-space: nowrap;
@@ -147,8 +146,8 @@ export default () => {
   const charts = contributes.map(([key, value]) => (
     <Chart key={key} value={value - 1} max={max}>
       <ChartText>
-        <ChartValue>{value} {value === 1 ? 'contribution' : 'contributions'}</ChartValue>
-        <ChartDate>on {key}</ChartDate>
+        <span css={chartValue}>{value - 1} {value <= 1 ? 'contribution' : 'contributions'}</span>
+        <span css={chartDate}>on {key}</span>
       </ChartText>
     </Chart>)
   )
@@ -158,9 +157,9 @@ export default () => {
       <h2 css={headline}>Figma Activity</h2>
       <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
       <div css={wrap}>
-        <ul css={root}>
+        <ol css={root}>
           {charts}
-        </ul>
+        </ol>
       </div>
     </>
   )
