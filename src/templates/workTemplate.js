@@ -96,6 +96,32 @@ const body = css`
   iframe {
     margin-top: ${Size(5)};
   }
+  code {
+    background-color: ${Color.Gray700};
+    color: ${Color.White};
+    display: block;
+    overflow-x: scroll;
+    padding: ${Size(3)};
+    white-space: nowrap;
+    width: 100%;
+  }
+  blockquote {
+    background-color: ${Color.Gray20};
+    margin-top: ${Size(5)};
+    padding: ${Size(3)};
+    position: relative;
+    &::before {
+      content: '“';
+      font-size: ${Size(15)};
+      left: ${Size(-2)};
+      line-height: 1;
+      position: absolute;
+      top: ${Size(-3)};
+    }
+    ul {
+      margin-top: initial;
+    }
+  }
 `
 
 const pageToPage = css`
