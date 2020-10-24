@@ -52,7 +52,7 @@ const root = css`
 `
 
 const Chart = styled.li`
-  background-color: ${(props) => props.value ? hexToRgba(Color.Blue, (props.value / props.max * 100)) : Color.White};
+  background-color: ${(props) => (props.value ? hexToRgba(Color.Blue, (props.value / props.max) * 100) : Color.White)};
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: ${Size(0.5)};
   height: ${Size(3)};
@@ -79,7 +79,7 @@ const ChartText = styled.span`
       border-right: ${Size(2.5)} solid transparent;
       border-top: ${Size(2)} solid ${hexToRgba(Color.Black, 80)};
       bottom: ${Size(-2)};
-      content: "";
+      content: '';
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
@@ -113,20 +113,15 @@ export default () => {
   `)
 
   const contents = data.allFigma.nodes[0].content
-  const versionsCreatedAt = contents.flat().map(content => (
-    content.created_at.slice(0, 10) //先頭から10文字を取得することで「時間」を切り捨てて1日ずつのデータにしている
-  ))
+  const versionsCreatedAt = contents.flat().map(
+    (content) => content.created_at.slice(0, 10) //先頭から10文字を取得することで「時間」を切り捨てて1日ずつのデータにしている
+  )
   // data.allFigma.nodes より下のデータが何故か配列が何度も入れ子になっているのでflat()などを使って取り出している
 
   const days = 365
   const today = new Date()
-  const period = [...Array(days)].map((_, i) =>
-    new Intl.DateTimeFormat('sv-SE', {
-      dateStyle: 'short',
-    }).format(today - i * 86400000)
-  )
-  // yyyy-mm-dd形式にできるのが'sv-SE'という形式だったので'ja-JP'ではなくこちらを使う
-  // 86400000 = 24時間 * 60分 * 60秒 * 1000（ミリ）
+  const period = [...Array(days)].map(() => new Intl.DateTimeFormat('sv-SE', { timeZone: 'UTC' }).format(today.setDate(today.getDate() - 1)))
+  // yyyy-mm-dd形式にできるのが'sv-SE'という形式だったのでIntl.DateTimeFormatでは'ja-JP'ではなく'sv-SE'を使う
 
   const concatedversionsCreatedAt = period.concat(versionsCreatedAt)
   // versionsCreatedAtにはversion historyが記録されている日だけが格納されているので、periodと合成して全ての日のリストを作成する
@@ -146,20 +141,20 @@ export default () => {
   const charts = contributes.map(([key, value]) => (
     <Chart key={key} value={value - 1} max={max}>
       <ChartText>
-        <span css={chartValue}>{value - 1} {value <= 1 ? 'contribution' : 'contributions'}</span>
+        <span css={chartValue}>
+          {value - 1} {value <= 1 ? 'contribution' : 'contributions'}
+        </span>
         <span css={chartDate}>on {key}</span>
       </ChartText>
-    </Chart>)
-  )
+    </Chart>
+  ))
 
   return (
     <>
       <h2 css={headline}>Figma Activity</h2>
       <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
       <div css={wrap}>
-        <ol css={root}>
-          {charts}
-        </ol>
+        <ol css={root}>{charts}</ol>
       </div>
     </>
   )
