@@ -48,7 +48,16 @@ Gatsbyを使っているのでReactとGraphQLは必然的に使うのですが�
 
 ### ポイント1 blankのstarterから作った
 
-Gatsbyで新規プロジェクトを作るときは何かしらstarterを下敷きにして作るのですが、今回はチャレンジがてら全くblankのstarterから作りました。
+Gatsbyで新規プロジェクトを作るときは、以下のコマンドのようなイメージで何かしらのstarterを下敷きにして作ります。
+
+`gatsby new [SITE_DIRECTORY_NAME] [URL_OF_STARTER_GITHUB_REPO]`
+
+ですが、今回はチャレンジも含めて[gatsby-starter-hello-world](https://github.com/gatsbyjs/gatsby-starter-hello-world)という全くblankのstarterから作りました。
+公式の説明も以下のように説明されているstarterです。
+
+> - A no-frills Gatsby install
+> - No plugins, no boilerplate
+> - Great for advanced users
 
 そもそもGatsbyは単体で成立するものではなく、色々なプラグインを追加して動かすようなものです。
 
@@ -66,20 +75,23 @@ Gatsbyで新規プロジェクトを作るときは何かしらstarterを下敷�
 
 ### ポイント2 Google Sheetsをソースにした
 
-上で挙げた中でも特に大事なのは`gatsby-source-google-spreadsheets`です。
+上で挙げた中でも特に大事なのはgatsby-source-google-spreadsheetsです。
 
 GatsbyはGraphQLでデータを取得するのですが、このプラグインを入れることで少しの設定をするだけで、Google SheetsのデータにGraphQLからアクセスできます。
 
 具体的には、まずGoogle Developers ConsoleからGoogle Sheets APIをウィザードに沿って有効化。
+
+![プロジェクトにcredentialsを追加する際のスクリーンショット](./credentials.png)
+
 その後生成されたjsonの中身をenvに登録。更にgatsby-configに必要な内容を記載します。
 
-コードのスクショ
+![gatsby-configの中身](./config.png)
 
 するとプラグインが働きGraphQLでGoogle Sheetsのデータをとるのクエリが書けるようになります。
 
 実際にタイムテーブルを作るにあたってこのようなコードを書いてます。
 
-コードのスクショ
+![GraphQLとJSXの中身](./graphql-and-jsx.png)
 
 この後はスタイリングを施し、Google Sheetsのデータをベースにしたタイムテーブルが出来上がります。
 （個人名が含まれるためモザイクをかけています）
