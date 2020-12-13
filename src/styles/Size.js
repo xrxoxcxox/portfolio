@@ -1,3 +1,3 @@
-export default num => {
-  return `${(num * 4) / 10}rem`
+export const getSize = (num) => {
+  return `${num * 4}px`
 }

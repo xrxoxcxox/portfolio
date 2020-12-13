@@ -1,21 +1,23 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import hexToRgba from 'hex-rgba'
 
 import { css } from '@emotion/core'
-import Color from '../styles/Color'
-import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { getSize } from '../styles/Size'
+import { color, elevation } from '../styles/Theme'
 
 const root = css`
-  background-color: ${Color.Blue};
-  border-radius: ${Size(1)};
-  box-shadow: 0 ${Size(0.5)} ${Size(2)} ${hexToRgba(Color.Black, 16)};
-  color: ${Color.White};
+  background-color: ${color.blue[60]};
+  border-radius: ${getSize(1)};
+  box-shadow: ${elevation[1]};
+  color: ${color.gray[0]};
   display: inline-block;
-  padding: ${Size(2)} ${Size(4)};
-  ${Typography.Body1};
+  padding: ${getSize(2)} ${getSize(4)};
   text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    background-color: ${color.blue[80]};
+    box-shadow: ${elevation[2]};
+  }
 `
 
 export default ({ children, to, ...props }) => (

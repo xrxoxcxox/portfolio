@@ -1,23 +1,20 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import hexToRgba from 'hex-rgba'
 
 import { css } from '@emotion/core'
-import Color from '../styles/Color'
-import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { getSize } from '../styles/Size'
+import { color } from '../styles/Theme'
 
 /* 画像にhoverしたときにpにスタイルをあてたいため、タグの入れ子でスタイル指定 */
 const link = css`
   grid-column: span 6;
   text-decoration: none;
   h2 {
-    ${Typography.Body1};
     display: inline-block;
-    margin-top: ${Size(1)};
+    margin-top: ${getSize(1)};
     &::after {
-      border-bottom: ${Size(0.25)} solid currentColor;
+      border-bottom: ${getSize(0.25)} solid currentColor;
       content: '';
       display: block;
       transition: all 0.25s ease-out;
@@ -33,28 +30,25 @@ const link = css`
     }
   }
   &:nth-of-type(n + 3) {
-    margin-top: ${Size(10)};
+    margin-top: ${getSize(10)};
   }
   @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
-      margin-top: ${Size(8)};
+      margin-top: ${getSize(8)};
     }
   }
 `
 
 const image = css`
-  border: 1px solid ${hexToRgba(Color.Black, 8)};
+  border: 1px solid ${color.divider.onSurface};
 `
 
 export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allMdx(
-          filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
-          sort: { order: DESC, fields: [frontmatter___end] }
-        ) {
+        allMdx(filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }, sort: { order: DESC, fields: [frontmatter___end] }) {
           edges {
             node {
               id
@@ -80,10 +74,7 @@ export default () => (
       return data.allMdx.edges.map((edge) => {
         return (
           <Link to={edge.node.fields.slug} css={link} key={edge.node.id}>
-            <Img
-              fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid}
-              css={image}
-            />
+            <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} css={image} />
             <h2>{edge.node.frontmatter.title}</h2>
           </Link>
         )

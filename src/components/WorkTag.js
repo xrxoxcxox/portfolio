@@ -2,28 +2,29 @@ import React from 'react'
 
 import { css } from '@emotion/core'
 
-import Color from '../styles/Color'
-import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { getSize } from '../styles/Size'
+import { color, typography } from '../styles/Theme'
 
 const headline = css`
-  ${Typography.Headline3};
+  ${typography.headline3};
 `
 
 const contents = css`
-  border-left: ${Size(0.25)} solid ${Color.Gray300};
-  ${Typography.Body3};
-  color: ${Color.Gray400};
+  border-left: ${getSize(0.25)} solid ${color.divider.onSurface};
+  ${typography.body3};
+  color: ${color.text.onSurface.mediumEmphasis};
   list-style-type: none;
-  margin: ${Size(2)} 0 0 0;
-  padding: ${Size(1)} 0 ${Size(1)} ${Size(3)};
+  margin: ${getSize(2)} 0 0 0;
+  padding: ${getSize(1)} 0 ${getSize(1)} ${getSize(3)};
 `
 
 export default ({ start, end, tags, ...props }) => {
   const tagItems = tags.map((tag) => <li key={tag}>{tag}</li>)
   return (
     <div {...props}>
-      <span css={headline}>{start} ~ {end}</span>
+      <span css={headline}>
+        {start} ~ {end}
+      </span>
       <ul css={contents}>{tagItems}</ul>
     </div>
   )

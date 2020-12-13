@@ -3,15 +3,14 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import Color from '../styles/Color'
-import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { getSize } from '../styles/Size'
 import hexToRgba from 'hex-rgba'
+import { color, typography } from '../styles/Theme'
 
 const headline = css`
   grid-column: 3 / 11;
-  margin-top: ${Size(28)};
-  ${Typography.Headline2};
+  margin-top: ${getSize(28)};
+  ${typography.headline2};
   @media (max-width: 480px) {
     grid-column: 1 / -1;
   }
@@ -19,8 +18,8 @@ const headline = css`
 
 const text = css`
   grid-column: 3 / 11;
-  margin-top: ${Size(3)};
-  ${Typography.Body1};
+  margin-top: ${getSize(3)};
+  ${typography.body1};
   @media (max-width: 480px) {
     grid-column: 1 / -1;
   }
@@ -30,7 +29,7 @@ const wrap = css`
   display: flex;
   justify-content: center;
   grid-column: span 12;
-  margin-top: ${Size(4)};
+  margin-top: ${getSize(4)};
   @media (max-width: 848px) {
     grid-column: 1 / -1;
     overflow: scroll;
@@ -42,7 +41,7 @@ const root = css`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: ${Size(28.5)};
+  height: ${getSize(28.5)};
   justify-content: flex-start;
   list-style: none;
   width: 100%;
@@ -52,33 +51,33 @@ const root = css`
 `
 
 const Chart = styled.li`
-  background-color: ${(props) => (props.value ? hexToRgba(Color.Blue, (props.value / props.max) * 100) : Color.White)};
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: ${Size(0.5)};
-  height: ${Size(3)};
-  margin: ${Size(0.5)};
+  background-color: ${(props) => (props.value ? hexToRgba(color.blue[60], (props.value / props.max) * 100) : color.gray[0])};
+  border: 1px solid ${color.divider.onSurface};
+  border-radius: ${getSize(0.5)};
+  height: ${getSize(3)};
+  margin: ${getSize(0.5)};
   position: relative;
-  width: ${Size(3)};
+  width: ${getSize(3)};
 `
 
 const ChartText = styled.span`
   display: none;
   ${Chart}:hover & {
-    background-color: ${hexToRgba(Color.Black, 80)};
-    border-radius: ${Size(1)};
+    background-color: ${color.gray[90]};
+    border-radius: ${getSize(1)};
     display: flex;
     left: 50%;
-    padding: ${Size(2)} ${Size(4)};
+    padding: ${getSize(2)} ${getSize(4)};
     position: absolute;
-    top: ${Size(-12)};
+    top: ${getSize(-12)};
     transform: translateX(-50%);
     z-index: 1;
-    ${Typography.Body3};
+    ${typography.body3};
     &::after {
-      border-left: ${Size(2.5)} solid transparent;
-      border-right: ${Size(2.5)} solid transparent;
-      border-top: ${Size(2)} solid ${hexToRgba(Color.Black, 80)};
-      bottom: ${Size(-2)};
+      border-left: ${getSize(2.5)} solid transparent;
+      border-right: ${getSize(2.5)} solid transparent;
+      border-top: ${getSize(2)} solid ${color.gray[90]};
+      bottom: ${getSize(-2)};
       content: '';
       left: 50%;
       position: absolute;
@@ -88,14 +87,14 @@ const ChartText = styled.span`
 `
 
 const chartValue = css`
-  color: ${Color.White};
+  color: ${color.text.onBackground.highEmphasis};
   font-weight: 600;
   white-space: nowrap;
 `
 
 const chartDate = css`
-  color: ${hexToRgba(Color.White, 60)};
-  margin-left: ${Size(2)};
+  color: ${color.text.onBackground.mediumEmphasis};
+  margin-left: ${getSize(2)};
   white-space: nowrap;
 `
 
