@@ -58,7 +58,7 @@ const accent = css`
   color: ${color.blue[60]};
 `
 
-export default () => {
+export const Header = () => {
   const data = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "icon.png" }) {

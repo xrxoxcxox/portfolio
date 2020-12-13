@@ -79,7 +79,7 @@ const chartDate = css`
   white-space: nowrap;
 `
 
-export default ({ ...props }) => {
+export const FigmaActivity = ({ ...props }) => {
   const data = useStaticQuery(graphql`
     {
       allFigma {

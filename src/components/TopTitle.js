@@ -67,7 +67,7 @@ const subTitle = css`
   }
 `
 
-export default ({ ...props }) => {
+export const TopTitle = ({ ...props }) => {
   const data = useStaticQuery(graphql`
     {
       site {

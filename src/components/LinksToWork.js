@@ -47,7 +47,7 @@ const Headline = styled.div`
   }
 `
 
-export default () => {
+export const LinksToWork = () => {
   const data = useStaticQuery(graphql`
     {
       allMdx(filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }, sort: { order: DESC, fields: [frontmatter___end] }) {

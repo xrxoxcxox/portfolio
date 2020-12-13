@@ -16,4 +16,4 @@ const root = css`
   }
 `
 
-export default () => <footer css={root}>© 2019 Keisuke Watanuki</footer>
+export const Footer = () => <footer css={root}>© 2019 Keisuke Watanuki</footer>

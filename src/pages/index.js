@@ -1,15 +1,15 @@
 import React from 'react'
 
-import Footer from '../components/Footer'
-import Layout from '../components/Layout'
-import LinksToWork from '../components/LinksToWork'
-import ReleaseNote from '../components/ReleaseNotes'
-import Seo from '../components/Seo'
-import TopTitle from '../components/TopTitle'
-import FigmaActivity from '../components/FigmaActivity'
+import { Footer } from '../components/Footer'
+import { Layout } from '../components/Layout'
+import { LinksToWork } from '../components/LinksToWork'
+import { ReleaseNote } from '../components/ReleaseNotes'
+import { Seo } from '../components/Seo'
+import { TopTitle } from '../components/TopTitle'
+import { FigmaActivity } from '../components/FigmaActivity'
 
 import { css } from '@emotion/core'
-import GlobalStyle from '../styles/GlobalStyle'
+import { GlobalStyle } from '../styles/GlobalStyle'
 import { getSize } from '../styles/Size'
 import { typography } from '../styles/Theme'
 

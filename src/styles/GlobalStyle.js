@@ -376,4 +376,4 @@ const baseStyle = css`
   }
 `
 
-export default () => <Global styles={[resetStyle, baseStyle]} />
+export const GlobalStyle = () => <Global styles={[resetStyle, baseStyle]} />

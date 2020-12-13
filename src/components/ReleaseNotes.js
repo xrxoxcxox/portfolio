@@ -30,7 +30,7 @@ const releaseNote = css`
   }
 `
 
-export default () => {
+export const ReleaseNote = () => {
   const data = useStaticQuery(graphql`
     {
       markdownRemark(fileAbsolutePath: { regex: "/release-notes/" }) {

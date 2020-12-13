@@ -1,8 +1,7 @@
 import React from 'react'
-import AdobeFonts from './AdobeFonts'
+import { AdobeFonts } from './AdobeFonts'
 
 import { css } from '@emotion/core'
-
 import { getSize } from '../styles/Size'
 
 const layout = css`
@@ -20,7 +19,7 @@ const layout = css`
   }
 `
 
-export default ({ children }) => (
+export const Layout = ({ children }) => (
   <div css={layout}>
     <AdobeFonts />
     {children}
