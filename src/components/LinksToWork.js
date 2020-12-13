@@ -5,7 +5,7 @@ import hexToRgba from 'hex-rgba'
 
 import { css } from '@emotion/core'
 import Color from '../styles/Color'
-import Size from '../styles/Size'
+import { getSize } from '../styles/Size'
 
 /* 画像にhoverしたときにpにスタイルをあてたいため、タグの入れ子でスタイル指定 */
 const link = css`
@@ -13,9 +13,9 @@ const link = css`
   text-decoration: none;
   h2 {
     display: inline-block;
-    margin-top: ${Size(1)};
+    margin-top: ${getSize(1)};
     &::after {
-      border-bottom: ${Size(0.25)} solid currentColor;
+      border-bottom: ${getSize(0.25)} solid currentColor;
       content: '';
       display: block;
       transition: all 0.25s ease-out;
@@ -31,12 +31,12 @@ const link = css`
     }
   }
   &:nth-of-type(n + 3) {
-    margin-top: ${Size(10)};
+    margin-top: ${getSize(10)};
   }
   @media (max-width: 480px) {
     grid-column: 1 / -1;
     :not(:first-of-type) {
-      margin-top: ${Size(8)};
+      margin-top: ${getSize(8)};
     }
   }
 `

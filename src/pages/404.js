@@ -25,13 +25,13 @@ const body = css`
 `
 
 const button = css`
-  margin-top: ${Size(12)};
+  margin-top: ${getSize(12)};
   @media (max-width: 768px) {
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: calc(100% - ${Size(8)});
+    width: calc(100% - ${getSize(8)});
   }
 `
 

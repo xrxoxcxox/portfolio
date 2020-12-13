@@ -9,8 +9,8 @@ import { getSize } from '../styles/Size'
 
 const root = css`
   background-color: ${Color.Blue};
-  border-radius: ${Size(1)};
-  box-shadow: 0 ${Size(0.5)} ${Size(2)} ${hexToRgba(Color.Black, 16)};
+  border-radius: ${getSize(1)};
+  box-shadow: 0 ${getSize(0.5)} ${getSize(2)} ${hexToRgba(Color.Black, 16)};
   color: ${Color.White};
   display: inline-block;
   padding: ${getSize(2)} ${getSize(4)};

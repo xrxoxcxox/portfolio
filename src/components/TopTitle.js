@@ -5,13 +5,13 @@ import Img from 'gatsby-image'
 import { css } from '@emotion/core'
 
 import Color from '../styles/Color'
-import Size from '../styles/Size'
+import { getSize } from '../styles/Size'
 
 const root = css`
   align-items: center;
   display: flex;
   grid-column: 1 / -1;
-  margin: ${Size(40)} 0;
+  margin: ${getSize(40)} 0;
   @media (max-width: 768px) {
     align-items: flex-start;
     flex-direction: column;
@@ -28,10 +28,10 @@ const icon = css`
 `
 
 const content = css`
-  margin-left: ${Size(6)};
+  margin-left: ${getSize(6)};
   @media (max-width: 768px) {
     margin-left: 0;
-    margin-top: ${Size(6)};
+    margin-top: ${getSize(6)};
   }
 `
 
@@ -67,7 +67,7 @@ const subTitle = css`
   grid-column: 1 / -1;
   letter-spacing: 0.02em;
   @media (max-width: 768px) {
-    margin-top: ${Size(3)};
+    margin-top: ${getSize(3)};
   }
 `
 

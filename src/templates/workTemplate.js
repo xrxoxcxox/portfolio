@@ -13,7 +13,7 @@ import WorkTag from '../components/WorkTag'
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Color from '../styles/Color'
-import Size from '../styles/Size'
+import { getSize } from '../styles/Size'
 import { typography } from '../styles/Theme'
 
 const mainVisual = css`
@@ -23,14 +23,14 @@ const mainVisual = css`
   position: relative;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
-    margin: 0 -${Size(4)};
+    margin: 0 -${getSize(4)};
   }
 `
 
 const title = css`
   grid-column: 4 / -3;
   ${typography.title}
-  margin-top: ${Size(6)};
+  margin-top: ${getSize(6)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     position: static;
@@ -42,11 +42,11 @@ const workTag = css`
   grid-column: 1 / 4;
   grid-row: 2 / 4;
   position: sticky;
-  top: ${Size(24)};
+  top: ${getSize(24)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
     grid-row: 4 / 5;
-    margin-top: ${Size(6)};
+    margin-top: ${getSize(6)};
     position: static;
   }
 `
@@ -60,24 +60,24 @@ const body = css`
   }
   h2 {
     ${typography.headline1}
-    margin-top: ${Size(16)};
+    margin-top: ${getSize(16)};
     @media (max-width: 768px) {
-      margin-top: ${Size(10)};
+      margin-top: ${getSize(10)};
     }
   }
   h3 {
     ${typography.headline2}
-    margin-top: ${Size(8)};
+    margin-top: ${getSize(8)};
     @media (max-width: 768px) {
-      margin-top: ${Size(6)};
+      margin-top: ${getSize(6)};
     }
   }
   p {
-    margin-top: ${Size(5)};
+    margin-top: ${getSize(5)};
   }
   ul, ol {
-    margin-left: ${Size(6)};
-    margin-top: ${Size(4)};
+    margin-left: ${getSize(6)};
+    margin-top: ${getSize(4)};
     ul, ol {
       margin-top: 0;
     }
@@ -89,32 +89,32 @@ const body = css`
     ${typography.body3};
     color: ${Color.Gray400};
     display: block;
-    margin-top: ${Size(2)};
+    margin-top: ${getSize(2)};
   }
   iframe {
-    margin-top: ${Size(5)};
+    margin-top: ${getSize(5)};
   }
   code {
     background-color: ${Color.Gray700};
     color: ${Color.White};
     display: block;
     overflow-x: scroll;
-    padding: ${Size(3)};
+    padding: ${getSize(3)};
     white-space: nowrap;
     width: 100%;
   }
   blockquote {
     background-color: ${Color.Gray20};
-    margin-top: ${Size(5)};
-    padding: ${Size(3)};
+    margin-top: ${getSize(5)};
+    padding: ${getSize(3)};
     position: relative;
     &::before {
       content: '“';
-      font-size: ${Size(15)};
-      left: ${Size(-2)};
+      font-size: ${getSize(15)};
+      left: ${getSize(-2)};
       line-height: 1;
       position: absolute;
-      top: ${Size(-3)};
+      top: ${getSize(-3)};
     }
     ul {
       margin-top: initial;
@@ -123,12 +123,12 @@ const body = css`
 `
 
 const pageToPage = css`
-  border-radius: ${Size(1)};
-  box-shadow: 0 ${Size(0.5)} ${Size(2)} ${hexToRgba(Color.Black, 16)};
+  border-radius: ${getSize(1)};
+  box-shadow: 0 ${getSize(0.5)} ${getSize(2)} ${hexToRgba(Color.Black, 16)};
   display: flex;
   grid-column: 4 / -3;
   justify-content: space-around;
-  margin-top: ${Size(16)};
+  margin-top: ${getSize(16)};
   @media (max-width: 768px) {
     flex-direction: column;
     grid-column: 1 / -1;
@@ -137,7 +137,7 @@ const pageToPage = css`
 
 const navigation = css`
   color: ${Color.Blue};
-  padding: ${Size(4)};
+  padding: ${getSize(4)};
   @media (max-width: 768px) {
     text-align: center;
   }

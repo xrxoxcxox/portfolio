@@ -3,7 +3,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 
 import Color from '../styles/Color'
-import Size from '../styles/Size'
+import { getSize } from '../styles/Size'
 import { typography } from '../styles/Theme'
 
 const headline = css`
@@ -11,12 +11,12 @@ const headline = css`
 `
 
 const contents = css`
-  border-left: ${Size(0.25)} solid ${Color.Gray300};
+  border-left: ${getSize(0.25)} solid ${Color.Gray300};
   ${typography.body3};
   color: ${Color.Gray400};
   list-style-type: none;
-  margin: ${Size(2)} 0 0 0;
-  padding: ${Size(1)} 0 ${Size(1)} ${Size(3)};
+  margin: ${getSize(2)} 0 0 0;
+  padding: ${getSize(1)} 0 ${getSize(1)} ${getSize(3)};
 `
 
 export default ({ start, end, tags, ...props }) => {

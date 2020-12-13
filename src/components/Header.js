@@ -4,30 +4,30 @@ import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 
 import Color from '../styles/Color'
-import Size from '../styles/Size'
+import { getSize } from '../styles/Size'
 
 const root = css`
   align-items: center;
   background-color: ${Color.White};
   display: flex;
   grid-column: 1 / -1;
-  height: ${Size(16)};
+  height: ${getSize(16)};
   position: sticky;
   top: 0;
   z-index: 10;
   @media (max-width: 768px) {
-    margin: 0 -${Size(4)};
-    padding: 0 ${Size(4)};
+    margin: 0 -${getSize(4)};
+    padding: 0 ${getSize(4)};
   }
   a {
     color: ${Color.Black};
     font-family: proxima-nova, sans-serif;
     font-weight: 900;
-    padding: ${Size(3)} 0;
+    padding: ${getSize(3)} 0;
     text-decoration: none;
     transition: all 0.25s ease-in-out;
     ::after {
-      border-bottom: ${Size(0.25)} solid currentColor;
+      border-bottom: ${getSize(0.25)} solid currentColor;
       content: '';
       display: block;
       transition: all 0.25s ease-out;
