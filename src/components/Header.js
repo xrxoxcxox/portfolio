@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { css } from '@emotion/core'
@@ -58,30 +58,26 @@ const accent = css`
   color: ${color.blue[60]};
 `
 
-export default () => (
-  <StaticQuery
-    query={query}
-    render={(data) => (
-      <div css={root}>
-        <Link to='/'>
-          <Img fluid={data.file.childImageSharp.fluid} aria-hidden='true' alt='' css={icon} />
-          <span css={siteName}>
-            Keisuke <span css={accent}>W</span>atanuk<span css={accent}>i</span> <span css={accent}>P</span>ortfolio
-          </span>
-        </Link>
-      </div>
-    )}
-  />
-)
-
-const query = graphql`
-  query {
-    file(relativePath: { eq: "icon.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 16, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+export default () => {
+  const data = useStaticQuery(graphql`
+    {
+      file(relativePath: { eq: "icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 16, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
     }
-  }
-`
+  `)
+  return (
+    <header css={root}>
+      <Link to='/'>
+        <Img fluid={data.file.childImageSharp.fluid} aria-hidden='true' alt='' css={icon} />
+        <span css={siteName}>
+          Keisuke <span css={accent}>W</span>atanuk<span css={accent}>i</span> <span css={accent}>P</span>ortfolio
+        </span>
+      </Link>
+    </header>
+  )
+}
