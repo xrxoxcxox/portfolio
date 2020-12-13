@@ -53,7 +53,7 @@ const NotFoundPage = () => (
           再度URLをご確認ください。
         </p>
         <Button to='/' css={button}>
-          サイトトップへ戻る
+          ポートフォリオのトップへ戻る
         </Button>
       </div>
       <Footer />

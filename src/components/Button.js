@@ -13,6 +13,11 @@ const root = css`
   display: inline-block;
   padding: ${getSize(2)} ${getSize(4)};
   text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    background-color: ${color.blue[80]};
+    box-shadow: ${elevation[2]};
+  }
 `
 
 export default ({ children, to, ...props }) => (

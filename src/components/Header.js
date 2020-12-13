@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import { css } from '@emotion/core'
 
@@ -12,6 +14,7 @@ const root = css`
   display: flex;
   grid-column: 1 / -1;
   height: ${getSize(16)};
+  line-height: 1;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -20,7 +23,9 @@ const root = css`
     padding: 0 ${getSize(4)};
   }
   a {
+    align-items: center;
     color: ${color.gray[90]};
+    display: flex;
     font-family: proxima-nova, sans-serif;
     font-weight: 900;
     padding: ${getSize(3)} 0;
@@ -37,15 +42,46 @@ const root = css`
       width: 100%;
     }
   }
-  span {
-    color: ${color.blue[60]};
-  }
+`
+
+const icon = css`
+  flex-shrink: 0;
+  height: 16px;
+  width: 16px;
+`
+
+const siteName = css`
+  margin-left: ${getSize(2)};
+`
+
+const accent = css`
+  color: ${color.blue[60]};
 `
 
 export default () => (
-  <div css={root}>
-    <Link to='/'>
-      Keisuke <span>W</span>atanuk<span>i</span> <span>P</span>ortfolio
-    </Link>
-  </div>
+  <StaticQuery
+    query={query}
+    render={(data) => (
+      <div css={root}>
+        <Link to='/'>
+          <Img fluid={data.file.childImageSharp.fluid} aria-hidden='true' alt='' css={icon} />
+          <span css={siteName}>
+            Keisuke <span css={accent}>W</span>atanuk<span css={accent}>i</span> <span css={accent}>P</span>ortfolio
+          </span>
+        </Link>
+      </div>
+    )}
+  />
 )
+
+const query = graphql`
+  query {
+    file(relativePath: { eq: "icon.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 16, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`
