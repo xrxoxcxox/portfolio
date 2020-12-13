@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import { css } from '@emotion/core'
 
@@ -30,15 +30,13 @@ const releaseNote = css`
   }
 `
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        markdownRemark(fileAbsolutePath: { regex: "/release-notes/" }) {
-          html
-        }
+export default () => {
+  const data = useStaticQuery(graphql`
+    {
+      markdownRemark(fileAbsolutePath: { regex: "/release-notes/" }) {
+        html
       }
-    `}
-    render={(data) => <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} css={releaseNote} />}
-  />
-)
+    }
+  `)
+  return <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} css={releaseNote} />
+}
