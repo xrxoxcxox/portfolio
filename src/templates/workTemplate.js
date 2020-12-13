@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Img from 'gatsby-image'
-import hexToRgba from 'hex-rgba'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -13,7 +12,7 @@ import WorkTag from '../components/WorkTag'
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import { getSize } from '../styles/Size'
-import { color, typography } from '../styles/Theme'
+import { color, elevation, typography } from '../styles/Theme'
 
 const mainVisual = css`
   border: 1px solid ${color.divider.onSurface};
@@ -123,7 +122,7 @@ const body = css`
 
 const pageToPage = css`
   border-radius: ${getSize(1)};
-  box-shadow: 0 ${getSize(0.5)} ${getSize(2)} ${hexToRgba(color.gray[90], 16)};
+  box-shadow: ${elevation[1]};
   display: flex;
   grid-column: 4 / -3;
   justify-content: space-around;

@@ -105,3 +105,8 @@ export const typography = {
   body2: body2,
   body3: body3,
 }
+
+export const elevation = {
+  1: '0 2px 8px rgba(0 0 0 / 0.2)',
+  2: '0 4px 16px rgba(0 0 0 / 0.16)',
+}
