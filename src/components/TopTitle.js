@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { css } from '@emotion/core'
@@ -11,13 +11,9 @@ const root = css`
   align-items: center;
   display: flex;
   grid-column: 1 / -1;
-  margin: ${getSize(40)} 0;
   @media (max-width: 768px) {
     align-items: flex-start;
     flex-direction: column;
-  }
-  @media (max-width: 480px) {
-    margin: 20vh 0;
   }
 `
 
@@ -71,47 +67,43 @@ const subTitle = css`
   }
 `
 
-export default () => (
-  <StaticQuery
-    query={query}
-    render={(data) => (
-      <div css={root}>
-        <Img fluid={data.file.childImageSharp.fluid} aria-hidden='true' alt='' css={icon} />
-        <div css={content}>
-          <h1 css={title}>
-            <span css={titleBlock}>Keisuke </span>
-          </h1>
-          <h1 css={titleWip}>
-            <span css={titleBlock}>
-              <span css={wip}>W</span>
-              <span>atanuk</span>
-              <span css={wip}>i </span>
-            </span>
-            <span css={titleBlock}>
-              <span css={wip}>P</span>
-              <span>ortfolio</span>
-            </span>
-          </h1>
-          <p css={subTitle}>{data.site.siteMetadata.description}</p>
-        </div>
-      </div>
-    )}
-  />
-)
-
-const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        description
+export default ({ ...props }) => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          description
+        }
       }
-    }
-    file(relativePath: { eq: "icon.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 64, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+      file(relativePath: { eq: "icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 64, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
     }
-  }
-`
+  `)
+  return (
+    <div css={root} className={props.className}>
+      <Img fluid={data.file.childImageSharp.fluid} aria-hidden='true' alt='' css={icon} />
+      <div css={content}>
+        <h1 css={title}>
+          <span css={titleBlock}>Keisuke </span>
+        </h1>
+        <h1 css={titleWip}>
+          <span css={titleBlock}>
+            <span css={wip}>W</span>
+            <span>atanuk</span>
+            <span css={wip}>i </span>
+          </span>
+          <span css={titleBlock}>
+            <span css={wip}>P</span>
+            <span>ortfolio</span>
+          </span>
+        </h1>
+        <p css={subTitle}>{data.site.siteMetadata.description}</p>
+      </div>
+    </div>
+  )
+}

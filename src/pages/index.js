@@ -13,6 +13,13 @@ import GlobalStyle from '../styles/GlobalStyle'
 import { getSize } from '../styles/Size'
 import { typography } from '../styles/Theme'
 
+const topTitleStyle = css`
+  padding: ${getSize(40)} 0;
+  @media (max-width: 480px) {
+    padding: 20vh 0;
+  }
+`
+
 const headline = css`
   grid-column: 3 / 11;
   ${typography.headline2};
@@ -27,7 +34,7 @@ export default () => (
     <GlobalStyle />
     <Seo title='' />
     <Layout>
-      <TopTitle />
+      <TopTitle css={topTitleStyle} />
       <LinksToWork />
       <FigmaActivity />
       <h2 css={headline}>リリースノート</h2>
