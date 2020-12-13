@@ -15,6 +15,7 @@ const root = css`
   grid-column: 1 / -1;
   height: ${getSize(16)};
   line-height: 1;
+  padding: ${getSize(3)} 0;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -28,13 +29,15 @@ const root = css`
     display: flex;
     font-family: proxima-nova, sans-serif;
     font-weight: 900;
-    padding: ${getSize(3)} 0;
+    position: relative;
     text-decoration: none;
     transition: all 0.25s ease-in-out;
     ::after {
-      border-bottom: ${getSize(0.25)} solid currentColor;
+      border-bottom: ${getSize(0.25)} solid ${color.blue[60]};
+      bottom: ${getSize(-1)};
       content: '';
       display: block;
+      position: absolute;
       transition: all 0.25s ease-out;
       width: 0;
     }
