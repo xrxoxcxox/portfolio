@@ -18,7 +18,7 @@ const contents = css`
   padding: ${getSize(1)} 0 ${getSize(1)} ${getSize(3)};
 `
 
-export default ({ start, end, tags, ...props }) => {
+export const WorkTag = ({ start, end, tags, ...props }) => {
   const tagItems = tags.map((tag) => <li key={tag}>{tag}</li>)
   return (
     <div {...props}>

@@ -20,7 +20,7 @@ const root = css`
   }
 `
 
-export default ({ children, to, ...props }) => (
+export const Button = ({ children, to, ...props }) => (
   <Link to={to} css={root} {...props}>
     {children}
   </Link>

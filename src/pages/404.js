@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Button from '../components/Button'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import Layout from '../components/Layout'
-import Seo from '../components/Seo'
+import { Button } from '../components/Button'
+import { Footer } from '../components/Footer'
+import { Header } from '../components/Header'
+import { Layout } from '../components/Layout'
+import { Seo } from '../components/Seo'
 
 import { css } from '@emotion/core'
-import GlobalStyle from '../styles/GlobalStyle'
+import { GlobalStyle } from '../styles/GlobalStyle'
 import { getSize } from '../styles/Size'
 import { typography } from '../styles/Theme'
 
