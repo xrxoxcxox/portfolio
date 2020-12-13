@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import hexToRgba from 'hex-rgba'
 
 import { css } from '@emotion/core'
-import Color from '../styles/Color'
 import { getSize } from '../styles/Size'
+import { color } from '../styles/Theme'
 
 /* 画像にhoverしたときにpにスタイルをあてたいため、タグの入れ子でスタイル指定 */
 const link = css`
@@ -42,7 +41,7 @@ const link = css`
 `
 
 const image = css`
-  border: 1px solid ${hexToRgba(Color.Black, 8)};
+  border: 1px solid ${color.divider.onSurface};
 `
 
 export default () => (

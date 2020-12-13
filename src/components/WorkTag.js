@@ -2,18 +2,17 @@ import React from 'react'
 
 import { css } from '@emotion/core'
 
-import Color from '../styles/Color'
 import { getSize } from '../styles/Size'
-import { typography } from '../styles/Theme'
+import { color, typography } from '../styles/Theme'
 
 const headline = css`
   ${typography.headline3};
 `
 
 const contents = css`
-  border-left: ${getSize(0.25)} solid ${Color.Gray300};
+  border-left: ${getSize(0.25)} solid ${color.divider.onSurface};
   ${typography.body3};
-  color: ${Color.Gray400};
+  color: ${color.text.onSurface.mediumEmphasis};
   list-style-type: none;
   margin: ${getSize(2)} 0 0 0;
   padding: ${getSize(1)} 0 ${getSize(1)} ${getSize(3)};

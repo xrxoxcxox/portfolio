@@ -16,6 +16,7 @@ const resetStyle = css`
 
   html {
     box-sizing: border-box;
+    color: ${color.text.onSurface.highEmphasis};
     font-family: source-han-sans-japanese, sans-serif;
     overflow-y: scroll; /* All browsers without overlaying scrollbars */
     -webkit-text-size-adjust: 100%; /* iOS 8+ */

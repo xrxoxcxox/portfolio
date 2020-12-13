@@ -12,12 +12,11 @@ import WorkTag from '../components/WorkTag'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
-import Color from '../styles/Color'
 import { getSize } from '../styles/Size'
-import { typography } from '../styles/Theme'
+import { color, typography } from '../styles/Theme'
 
 const mainVisual = css`
-  border: 1px solid ${hexToRgba(Color.Black, 8)};
+  border: 1px solid ${color.divider.onSurface};
   grid-column: 4 / -1;
   grid-row: 2 / 3;
   position: relative;
@@ -83,11 +82,11 @@ const body = css`
     }
   }
   a {
-    color: ${Color.Blue};
+    color: ${color.blue[60]};
   }
   small {
     ${typography.body3};
-    color: ${Color.Gray400};
+    color: ${color.text.onSurface.mediumEmphasis};
     display: block;
     margin-top: ${getSize(2)};
   }
@@ -95,8 +94,8 @@ const body = css`
     margin-top: ${getSize(5)};
   }
   code {
-    background-color: ${Color.Gray700};
-    color: ${Color.White};
+    background-color: ${color.gray[80]};
+    color: ${color.text.onBackground.highEmphasis};
     display: block;
     overflow-x: scroll;
     padding: ${getSize(3)};
@@ -104,7 +103,7 @@ const body = css`
     width: 100%;
   }
   blockquote {
-    background-color: ${Color.Gray20};
+    background-color: ${color.gray[10]};
     margin-top: ${getSize(5)};
     padding: ${getSize(3)};
     position: relative;
@@ -124,7 +123,7 @@ const body = css`
 
 const pageToPage = css`
   border-radius: ${getSize(1)};
-  box-shadow: 0 ${getSize(0.5)} ${getSize(2)} ${hexToRgba(Color.Black, 16)};
+  box-shadow: 0 ${getSize(0.5)} ${getSize(2)} ${hexToRgba(color.gray[90], 16)};
   display: flex;
   grid-column: 4 / -3;
   justify-content: space-around;
@@ -136,7 +135,7 @@ const pageToPage = css`
 `
 
 const navigation = css`
-  color: ${Color.Blue};
+  color: ${color.blue[60]};
   padding: ${getSize(4)};
   @media (max-width: 768px) {
     text-align: center;

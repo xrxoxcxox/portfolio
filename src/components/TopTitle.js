@@ -4,8 +4,8 @@ import Img from 'gatsby-image'
 
 import { css } from '@emotion/core'
 
-import Color from '../styles/Color'
 import { getSize } from '../styles/Size'
+import { color } from '../styles/Theme'
 
 const root = css`
   align-items: center;
@@ -59,7 +59,7 @@ const titleBlock = css`
 `
 
 const wip = css`
-  color: ${Color.Blue};
+  color: ${color.blue[60]};
 `
 
 const subTitle = css`

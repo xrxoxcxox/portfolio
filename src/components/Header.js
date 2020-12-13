@@ -3,12 +3,12 @@ import { Link } from 'gatsby'
 
 import { css } from '@emotion/core'
 
-import Color from '../styles/Color'
 import { getSize } from '../styles/Size'
+import { color } from '../styles/Theme'
 
 const root = css`
   align-items: center;
-  background-color: ${Color.White};
+  background-color: ${color.gray[0]};
   display: flex;
   grid-column: 1 / -1;
   height: ${getSize(16)};
@@ -20,7 +20,7 @@ const root = css`
     padding: 0 ${getSize(4)};
   }
   a {
-    color: ${Color.Black};
+    color: ${color.gray[90]};
     font-family: proxima-nova, sans-serif;
     font-weight: 900;
     padding: ${getSize(3)} 0;
@@ -38,7 +38,7 @@ const root = css`
     }
   }
   span {
-    color: ${Color.Blue};
+    color: ${color.blue[60]};
   }
 `
 

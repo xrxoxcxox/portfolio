@@ -3,10 +3,9 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import Color from '../styles/Color'
 import { getSize } from '../styles/Size'
 import hexToRgba from 'hex-rgba'
-import { typography } from '../styles/Theme'
+import { color, typography } from '../styles/Theme'
 
 const headline = css`
   grid-column: 3 / 11;
@@ -52,8 +51,8 @@ const root = css`
 `
 
 const Chart = styled.li`
-  background-color: ${(props) => (props.value ? hexToRgba(Color.Blue, (props.value / props.max) * 100) : Color.White)};
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: ${(props) => (props.value ? hexToRgba(color.blue[60], (props.value / props.max) * 100) : color.gray[0])};
+  border: 1px solid ${color.divider.onSurface};
   border-radius: ${getSize(0.5)};
   height: ${getSize(3)};
   margin: ${getSize(0.5)};
@@ -64,7 +63,7 @@ const Chart = styled.li`
 const ChartText = styled.span`
   display: none;
   ${Chart}:hover & {
-    background-color: ${hexToRgba(Color.Black, 80)};
+    background-color: ${color.gray[90]};
     border-radius: ${getSize(1)};
     display: flex;
     left: 50%;
@@ -77,7 +76,7 @@ const ChartText = styled.span`
     &::after {
       border-left: ${getSize(2.5)} solid transparent;
       border-right: ${getSize(2.5)} solid transparent;
-      border-top: ${getSize(2)} solid ${hexToRgba(Color.Black, 80)};
+      border-top: ${getSize(2)} solid ${color.gray[90]};
       bottom: ${getSize(-2)};
       content: '';
       left: 50%;
@@ -88,13 +87,13 @@ const ChartText = styled.span`
 `
 
 const chartValue = css`
-  color: ${Color.White};
+  color: ${color.text.onBackground.highEmphasis};
   font-weight: 600;
   white-space: nowrap;
 `
 
 const chartDate = css`
-  color: ${hexToRgba(Color.White, 60)};
+  color: ${color.text.onBackground.mediumEmphasis};
   margin-left: ${getSize(2)};
   white-space: nowrap;
 `

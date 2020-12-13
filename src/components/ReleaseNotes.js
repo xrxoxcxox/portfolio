@@ -3,8 +3,8 @@ import { graphql, StaticQuery } from 'gatsby'
 
 import { css } from '@emotion/core'
 
-import Color from '../styles/Color'
 import { getSize } from '../styles/Size'
+import { color } from '../styles/Theme'
 
 const releaseNote = css`
   grid-column: 3 / 11;
@@ -16,14 +16,14 @@ const releaseNote = css`
     height: ${getSize(60)};
   }
   a {
-    color: ${Color.Blue};
+    color: ${color.blue[60]};
   }
   table {
     border-collapse: collapse;
     width: 100%;
   }
   tbody tr {
-    border-top: ${getSize(0.25)} solid ${Color.Gray80};
+    border-top: ${getSize(0.25)} solid ${color.divider.onSurface};
   }
   td {
     padding: ${getSize(2)};
