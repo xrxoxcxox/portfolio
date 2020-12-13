@@ -7,29 +7,10 @@ import { getSize } from '../styles/Size'
 import hexToRgba from 'hex-rgba'
 import { color, typography } from '../styles/Theme'
 
-const headline = css`
-  grid-column: 3 / 11;
-  margin-top: ${getSize(28)};
-  ${typography.headline2};
-  @media (max-width: 480px) {
-    grid-column: 1 / -1;
-  }
-`
-
-const text = css`
-  grid-column: 3 / 11;
-  margin-top: ${getSize(3)};
-  ${typography.body1};
-  @media (max-width: 480px) {
-    grid-column: 1 / -1;
-  }
-`
-
 const wrap = css`
   display: flex;
   justify-content: center;
   grid-column: span 12;
-  margin-top: ${getSize(4)};
   @media (max-width: 848px) {
     grid-column: 1 / -1;
     overflow: scroll;
@@ -98,7 +79,7 @@ const chartDate = css`
   white-space: nowrap;
 `
 
-export default () => {
+export default ({ ...props }) => {
   const data = useStaticQuery(graphql`
     {
       allFigma {
@@ -149,12 +130,8 @@ export default () => {
   ))
 
   return (
-    <>
-      <h2 css={headline}>Figma Activity</h2>
-      <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
-      <div css={wrap}>
-        <ol css={root}>{charts}</ol>
-      </div>
-    </>
+    <div css={wrap} className={props.className}>
+      <ol css={root}>{charts}</ol>
+    </div>
   )
 }
