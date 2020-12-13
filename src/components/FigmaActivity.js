@@ -4,14 +4,14 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import Color from '../styles/Color'
-import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { getSize } from '../styles/Size'
 import hexToRgba from 'hex-rgba'
+import { typography } from '../styles/Theme'
 
 const headline = css`
   grid-column: 3 / 11;
   margin-top: ${Size(28)};
-  ${Typography.Headline2};
+  ${typography.headline2};
   @media (max-width: 480px) {
     grid-column: 1 / -1;
   }
@@ -20,7 +20,7 @@ const headline = css`
 const text = css`
   grid-column: 3 / 11;
   margin-top: ${Size(3)};
-  ${Typography.Body1};
+  ${typography.body1};
   @media (max-width: 480px) {
     grid-column: 1 / -1;
   }
@@ -73,7 +73,7 @@ const ChartText = styled.span`
     top: ${Size(-12)};
     transform: translateX(-50%);
     z-index: 1;
-    ${Typography.Body3};
+    ${typography.body3};
     &::after {
       border-left: ${Size(2.5)} solid transparent;
       border-right: ${Size(2.5)} solid transparent;

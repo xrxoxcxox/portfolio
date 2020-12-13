@@ -11,11 +11,11 @@ import FigmaActivity from '../components/FigmaActivity'
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { typography } from '../styles/Theme'
 
 const headline = css`
   grid-column: 3 / 11;
-  ${Typography.Headline2};
+  ${typography.headline2};
   margin-top: ${Size(28)};
   @media (max-width: 480px) {
     grid-column: 1 / -1;

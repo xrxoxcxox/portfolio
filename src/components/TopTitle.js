@@ -6,7 +6,6 @@ import { css } from '@emotion/core'
 
 import Color from '../styles/Color'
 import Size from '../styles/Size'
-import Typography from '../styles/Typography'
 
 const root = css`
   align-items: center;
@@ -24,15 +23,15 @@ const root = css`
 
 const icon = css`
   flex-shrink: 0;
-  height: 6.4rem;
-  width: 6.4rem;
+  height: 64px;
+  width: 64px;
 `
 
 const content = css`
-  margin-left: 2.4rem;
+  margin-left: ${Size(6)};
   @media (max-width: 768px) {
     margin-left: 0;
-    margin-top: 2.4rem;
+    margin-top: ${Size(6)};
   }
 `
 
@@ -40,12 +39,12 @@ const title = css`
   display: inline;
   font-family: proxima-nova, sans-serif;
   font-feature-settings: 'salt';
-  font-size: 6.4rem;
+  font-size: 64px;
   font-weight: 900;
-  line-height: 7.2rem;
+  line-height: 72px;
   white-space: pre-wrap;
   @media (max-width: 768px) {
-    line-height: 6.8rem;
+    line-height: 68px;
   }
 `
 
@@ -64,7 +63,6 @@ const wip = css`
 `
 
 const subTitle = css`
-  ${Typography.Body1}
   font-feature-settings: 'palt';
   grid-column: 1 / -1;
   letter-spacing: 0.02em;
@@ -78,12 +76,7 @@ export default () => (
     query={query}
     render={(data) => (
       <div css={root}>
-        <Img
-          fluid={data.file.childImageSharp.fluid}
-          aria-hidden='true'
-          alt=''
-          css={icon}
-        />
+        <Img fluid={data.file.childImageSharp.fluid} aria-hidden='true' alt='' css={icon} />
         <div css={content}>
           <h1 css={title}>
             <span css={titleBlock}>Keisuke </span>

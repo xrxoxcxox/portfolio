@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Global, css } from '@emotion/core'
+import { color, typography } from './Theme'
 
 const resetStyle = css`
   /*!
@@ -361,12 +362,8 @@ const resetStyle = css`
 `
 
 const baseStyle = css`
-  html {
-    font-size: 62.5%;
-  }
-
   body {
-    font-size: 1.6rem;
+    ${typography.body1};
   }
 
   img {

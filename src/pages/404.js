@@ -8,21 +8,20 @@ import Seo from '../components/Seo'
 
 import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
-import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { getSize } from '../styles/Size'
+import { typography } from '../styles/Theme'
 
 const container = css`
   grid-column: 1 / -1;
 `
 
 const title = css`
-  ${Typography.Title};
-  margin-top: ${Size(30)};
+  ${typography.title};
+  margin-top: ${getSize(30)};
 `
 
 const body = css`
-  ${Typography.Body1};
-  margin-top: ${Size(6)};
+  margin-top: ${getSize(6)};
 `
 
 const button = css`

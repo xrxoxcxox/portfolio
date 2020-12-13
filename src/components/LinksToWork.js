@@ -6,14 +6,12 @@ import hexToRgba from 'hex-rgba'
 import { css } from '@emotion/core'
 import Color from '../styles/Color'
 import Size from '../styles/Size'
-import Typography from '../styles/Typography'
 
 /* 画像にhoverしたときにpにスタイルをあてたいため、タグの入れ子でスタイル指定 */
 const link = css`
   grid-column: span 6;
   text-decoration: none;
   h2 {
-    ${Typography.Body1};
     display: inline-block;
     margin-top: ${Size(1)};
     &::after {
@@ -51,10 +49,7 @@ export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allMdx(
-          filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
-          sort: { order: DESC, fields: [frontmatter___end] }
-        ) {
+        allMdx(filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }, sort: { order: DESC, fields: [frontmatter___end] }) {
           edges {
             node {
               id
@@ -80,10 +75,7 @@ export default () => (
       return data.allMdx.edges.map((edge) => {
         return (
           <Link to={edge.node.fields.slug} css={link} key={edge.node.id}>
-            <Img
-              fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid}
-              css={image}
-            />
+            <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} css={image} />
             <h2>{edge.node.frontmatter.title}</h2>
           </Link>
         )

@@ -4,10 +4,10 @@ import { css } from '@emotion/core'
 
 import Color from '../styles/Color'
 import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { typography } from '../styles/Theme'
 
 const root = css`
-  ${Typography.Body3};
+  ${typography.body3};
   color: ${Color.Gray400};
   grid-column: 1 / -1;
   padding: ${Size(30)} 0 ${Size(10)};

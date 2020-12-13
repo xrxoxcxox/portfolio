@@ -5,7 +5,6 @@ import { css } from '@emotion/core'
 
 import Color from '../styles/Color'
 import Size from '../styles/Size'
-import Typography from '../styles/Typography'
 
 const root = css`
   align-items: center;
@@ -22,7 +21,6 @@ const root = css`
   }
   a {
     color: ${Color.Black};
-    ${Typography.Body};
     font-family: proxima-nova, sans-serif;
     font-weight: 900;
     padding: ${Size(3)} 0;

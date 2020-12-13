@@ -14,7 +14,7 @@ import { css } from '@emotion/core'
 import GlobalStyle from '../styles/GlobalStyle'
 import Color from '../styles/Color'
 import Size from '../styles/Size'
-import Typography from '../styles/Typography'
+import { typography } from '../styles/Theme'
 
 const mainVisual = css`
   border: 1px solid ${hexToRgba(Color.Black, 8)};
@@ -29,7 +29,7 @@ const mainVisual = css`
 
 const title = css`
   grid-column: 4 / -3;
-  ${Typography.Title}
+  ${typography.title}
   margin-top: ${Size(6)};
   @media (max-width: 768px) {
     grid-column: 1 / -1;
@@ -59,26 +59,24 @@ const body = css`
     grid-row: span 1;
   }
   h2 {
-    ${Typography.Headline1}
+    ${typography.headline1}
     margin-top: ${Size(16)};
     @media (max-width: 768px) {
       margin-top: ${Size(10)};
     }
   }
   h3 {
-    ${Typography.Headline2}
+    ${typography.headline2}
     margin-top: ${Size(8)};
     @media (max-width: 768px) {
       margin-top: ${Size(6)};
     }
   }
   p {
-    ${Typography.Body1}
     margin-top: ${Size(5)};
   }
   ul, ol {
     margin-left: ${Size(6)};
-    ${Typography.Body1}
     margin-top: ${Size(4)};
     ul, ol {
       margin-top: 0;
@@ -88,7 +86,7 @@ const body = css`
     color: ${Color.Blue};
   }
   small {
-    ${Typography.Body3};
+    ${typography.body3};
     color: ${Color.Gray400};
     display: block;
     margin-top: ${Size(2)};
@@ -147,27 +145,17 @@ const navigation = css`
 
 export default ({ data: { mdx }, pageContext }) => {
   const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
-  const featuredImgPath =
-    mdx.frontmatter.featuredImage.childImageSharp.fixed.src
+  const featuredImgPath = mdx.frontmatter.featuredImage.childImageSharp.fixed.src
   const { next, previous } = pageContext
   return (
     <>
       <GlobalStyle />
-      <Seo
-        title={mdx.frontmatter.title}
-        description={mdx.frontmatter.description}
-        ogImagePath={featuredImgPath}
-      />
+      <Seo title={mdx.frontmatter.title} description={mdx.frontmatter.description} ogImagePath={featuredImgPath} />
       <Layout>
         <Header />
         <Img fluid={featuredImgFluid} alt='' css={mainVisual} />
         <h1 css={title}>{mdx.frontmatter.title}</h1>
-        <WorkTag
-          start={mdx.frontmatter.start}
-          end={mdx.frontmatter.end}
-          tags={mdx.frontmatter.tags}
-          css={workTag}
-        />
+        <WorkTag start={mdx.frontmatter.start} end={mdx.frontmatter.end} tags={mdx.frontmatter.tags} css={workTag} />
         <article css={body}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </article>
