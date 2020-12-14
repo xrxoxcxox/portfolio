@@ -1,5 +1,6 @@
 |||
 |-|-|
+|2020.12.14|Figmaとコードの差分を解消。|
 |2020.10.24|[Ateam DESI-ENGINEER LT Fes 2020 夏](/ateam-desi-engineer-lt/)のページを追加。|
 |2020.10.20|Figma Activityのcontribution数が間違っていたのと、時間によって日付とcontribution記録がズレてしまうのを修正。|
 |2020.10.04|Figma Activityのパフォーマンス向上とスタイルを変更。|
