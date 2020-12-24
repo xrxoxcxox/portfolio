@@ -11,6 +11,7 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-helmet-async`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
