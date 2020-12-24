@@ -35,11 +35,11 @@ const button = css`
   }
 `
 
-const NotFoundPage = () => (
+export default () => (
   <>
     <GlobalStyle />
-    <Seo title='404: Not found' />
     <Layout>
+      <Seo title='404 Not found' />
       <div css={container}>
         <Header />
         <h1 css={title}>
@@ -60,5 +60,3 @@ const NotFoundPage = () => (
     </Layout>
   </>
 )
-
-export default NotFoundPage

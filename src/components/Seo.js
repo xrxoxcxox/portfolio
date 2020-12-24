@@ -1,105 +1,40 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import { Helmet } from 'react-helmet-async'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import image from '../images/OGP.png'
 
-export const Seo = ({ description, lang, meta, keywords, title, ogImagePath }) => (
-  <StaticQuery
-    query={detailsQuery}
-    render={(data) => {
-      const metaDescription = description || data.site.siteMetadata.description
-      const metaTitle = title || data.site.siteMetadata.title
-      const ogImage = ogImagePath ? `${data.site.siteMetadata.siteUrl}${ogImagePath}` : `${data.site.siteMetadata.siteUrl}${image}`
-      return (
-        <Helmet
-          htmlAttributes={{
-            lang,
-          }}
-          title={title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title}
-          meta={[
-            {
-              name: `description`,
-              content: metaDescription,
-            },
-            {
-              property: `og:title`,
-              content: metaTitle,
-            },
-            {
-              property: `og:url`,
-              content: data.site.siteMetadata.siteUrl,
-            },
-            {
-              property: `og:description`,
-              content: metaDescription,
-            },
-            {
-              property: `og:type`,
-              content: `website`,
-            },
-            {
-              name: `og:image`,
-              content: ogImage,
-            },
-            {
-              name: `twitter:card`,
-              content: `summary_large_image`,
-            },
-            {
-              name: `twitter:site`,
-              content: data.site.siteMetadata.author,
-            },
-            {
-              name: `twitter:title`,
-              content: metaTitle,
-            },
-            {
-              name: `twitter:description`,
-              content: metaDescription,
-            },
-          ]
-            .concat(
-              keywords.length > 0
-                ? {
-                    name: `keywords`,
-                    content: keywords.join(`, `),
-                  }
-                : []
-            )
-            .concat(meta)}
-        >
-          <link rel='icon' href='/icon.svg' type='image/svg+xml' />
-        </Helmet>
-      )
-    }}
-  />
-)
-
-Seo.defaultProps = {
-  lang: `ja`,
-  meta: [],
-  keywords: [],
-}
-
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
-}
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-        siteUrl
+export const Seo = ({ title, description, ogImagePath }) => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          siteUrl
+        }
       }
     }
-  }
-`
+  `)
+  const metaDescription = description || data.site.siteMetadata.description
+  const metaTitle = title || data.site.siteMetadata.title
+  const ogImage = ogImagePath ? `${data.site.siteMetadata.siteUrl}${ogImagePath}` : `${data.site.siteMetadata.siteUrl}${image}`
+  return (
+    <Helmet>
+      <html lang='ja' />
+      <title>{title ? `${title} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title}</title>
+      <meta name='description' content={metaDescription} />
+      <meta property='og:title' content={metaTitle} />
+      <meta property='og:url' content={data.site.siteMetadata.siteUrl} />
+      <meta property='og:description' content={metaDescription} />
+      <meta property='og:type' content='website' />
+      <meta property='og:image' content={ogImage} />
+      <meta property='twitter:card' content='summary_large_image' />
+      <meta property='twitter:site' content={data.site.siteMetadata.author} />
+      <meta property='twitter:title' content={metaTitle} />
+      <meta property='twitter:description' content={metaDescription} />
+      <link rel='icon' href='/icon.svg' type='image/svg+xml' />
+    </Helmet>
+  )
+}
