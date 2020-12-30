@@ -10,7 +10,7 @@
     "@mdx-js/mdx": "^1.5.7",
     "@mdx-js/react": "^1.5.7",
     "gatsby": "^2.29.3",
-    "gatsby-cli": "^2.11.0",
+    "gatsby-cli": "^2.16.2",
     "gatsby-image": "^2.3.0",
     "gatsby-plugin-emotion": "^5.1.0",
     "gatsby-plugin-manifest": "^2.3.1",
@@ -39,12 +39,11 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "clean": "rm -rf .cache",
+    "clean": "gatsby clean",
     "dev": "gatsby develop",
     "lint:css": "stylelint './src/**/*.js'",
     "lint:css:fix": "stylelint './src/**/*.js' --fix",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "serve": "gatsby serve"
   }
 }
