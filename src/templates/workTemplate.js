@@ -9,7 +9,7 @@ import { Layout } from '../components/Layout'
 import { Seo } from '../components/Seo'
 import { WorkTag } from '../components/WorkTag'
 
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { GlobalStyle } from '../styles/GlobalStyle'
 import { getSize } from '../styles/Size'
 import { color, elevation, typography } from '../styles/Theme'
@@ -74,10 +74,12 @@ const body = css`
   p {
     margin-top: ${getSize(5)};
   }
-  ul, ol {
+  ul,
+  ol {
     margin-left: ${getSize(6)};
     margin-top: ${getSize(4)};
-    ul, ol {
+    ul,
+    ol {
       margin-top: 0;
     }
   }

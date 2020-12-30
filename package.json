@@ -5,15 +5,14 @@
   "author": "Keisuke Watanuki <watanuki@ju-zen.com>",
   "license": "MIT",
   "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "@mdx-js/mdx": "^1.5.7",
     "@mdx-js/react": "^1.5.7",
-    "axios": "^0.19.2",
-    "gatsby": "^2.20.2",
-    "gatsby-cli": "^2.11.0",
+    "gatsby": "^2.29.3",
+    "gatsby-cli": "^2.16.2",
     "gatsby-image": "^2.3.0",
-    "gatsby-plugin-emotion": "^4.2.0",
+    "gatsby-plugin-emotion": "^5.1.0",
     "gatsby-plugin-manifest": "^2.3.1",
     "gatsby-plugin-mdx": "^1.1.0",
     "gatsby-plugin-netlify": "^2.2.0",
@@ -26,11 +25,12 @@
     "gatsby-transformer-remark": "^2.7.0",
     "gatsby-transformer-sharp": "^2.4.1",
     "hex-rgba": "^1.0.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-helmet-async": "^1.0.7"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.1.2",
     "prettier": "^2.0.1",
     "stylelint": "^13.2.1",
     "stylelint-config-prettier": "^8.0.1",
@@ -39,12 +39,11 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "clean": "rm -rf .cache",
+    "clean": "gatsby clean",
     "dev": "gatsby develop",
     "lint:css": "stylelint './src/**/*.js'",
     "lint:css:fix": "stylelint './src/**/*.js' --fix",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "serve": "gatsby serve"
   }
 }

@@ -8,7 +8,7 @@ import { Seo } from '../components/Seo'
 import { TopTitle } from '../components/TopTitle'
 import { FigmaActivity } from '../components/FigmaActivity'
 
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { GlobalStyle } from '../styles/GlobalStyle'
 import { getSize } from '../styles/Size'
 import { typography } from '../styles/Theme'

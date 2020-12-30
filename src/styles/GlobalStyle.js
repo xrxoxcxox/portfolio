@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Global, css } from '@emotion/core'
+import { Global, css } from '@emotion/react'
 import { color, typography } from './Theme'
 
 const resetStyle = css`
