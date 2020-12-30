@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { getSize } from '../styles/Size'
 import { color, elevation } from '../styles/Theme'
 

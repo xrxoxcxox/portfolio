@@ -1,7 +1,7 @@
 import React from 'react'
 import { AdobeFonts } from './AdobeFonts'
 
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { getSize } from '../styles/Size'
 
 const layout = css`

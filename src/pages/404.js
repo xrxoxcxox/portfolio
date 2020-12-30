@@ -6,7 +6,7 @@ import { Header } from '../components/Header'
 import { Layout } from '../components/Layout'
 import { Seo } from '../components/Seo'
 
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { GlobalStyle } from '../styles/GlobalStyle'
 import { getSize } from '../styles/Size'
 import { typography } from '../styles/Theme'

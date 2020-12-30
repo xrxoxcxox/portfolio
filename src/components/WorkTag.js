@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 import { getSize } from '../styles/Size'
 import { color, typography } from '../styles/Theme'
