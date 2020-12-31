@@ -1,5 +1,6 @@
 |||
 |-|-|
+|2020.12.31|使用しているライブラリのアップデート。|
 |2020.12.25|React Helmetを使用していたことによるcomponentWillMountのwarningを解消。|
 |2020.12.14|Figmaとコードの差分を解消。|
 |2020.10.24|[Ateam DESI-ENGINEER LT Fes 2020 夏](/ateam-desi-engineer-lt/)のページを追加。|
