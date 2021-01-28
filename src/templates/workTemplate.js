@@ -15,14 +15,12 @@ import { getSize } from '../styles/Size'
 import { color, elevation, typography } from '../styles/Theme'
 
 const mainVisual = css`
-  border: 1px solid ${color.divider.onSurface};
   border-radius: ${getSize(1)};
   grid-column: 4 / -1;
   grid-row: 2 / 3;
   position: relative;
   @media (max-width: 768px) {
     grid-column: 1 / -1;
-    margin: 0 -${getSize(4)};
   }
 `
 
@@ -82,6 +80,9 @@ const body = css`
     ol {
       margin-top: 0;
     }
+  }
+  img {
+    border-radius: ${getSize(1)};
   }
   a {
     color: ${color.blue[60]};

@@ -11,14 +11,12 @@ const LinkToWork = styled(Link)`
   grid-column: span 6;
   text-decoration: none;
   .gatsby-image-wrapper {
-    border: 1px solid ${color.divider.onSurface};
     border-radius: ${getSize(1)};
     transition: all 200ms ease-in-out;
   }
   &:hover {
     .gatsby-image-wrapper {
-      border: 1px solid ${color.blue[60]};
-      opacity: 0.8;
+      filter: brightness(0.87);
     }
   }
   &:nth-of-type(n + 3) {
@@ -39,11 +37,13 @@ const Headline = styled.div`
     border-bottom: ${getSize(0.25)} solid ${color.blue[60]};
     content: '';
     display: block;
+    transform: scaleX(0);
+    transform-origin: bottom left;
     transition: all 200ms ease-in-out;
-    width: 0;
   }
   ${LinkToWork}:hover &::after {
-    width: 100%;
+    transform: scaleX(1);
+    transform-origin: bottom right;
   }
 `
 
