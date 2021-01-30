@@ -3,7 +3,6 @@ import React from 'react'
 import { Footer } from '../components/Footer'
 import { Layout } from '../components/Layout'
 import { LinksToWork } from '../components/LinksToWork'
-import { ReleaseNote } from '../components/ReleaseNotes'
 import { Seo } from '../components/Seo'
 import { TopTitle } from '../components/TopTitle'
 import { FigmaActivity } from '../components/FigmaActivity'
@@ -52,8 +51,6 @@ export default () => (
       <h2 css={headline}>Figma Activity</h2>
       <p css={text}>私のFigma上での活動量のグラフ（β版）です。Figma APIからversion historyを取得しています。Figmaは一定時間で自動保存されるため、version historyの数≒活動量であると考えて実装しました。GiHubのContributions Graphと同じような考えで作っています。</p>
       <FigmaActivity css={figmaActivityStyle} />
-      <h2 css={headline}>リリースノート</h2>
-      <ReleaseNote />
       <Footer />
     </Layout>
   </>
