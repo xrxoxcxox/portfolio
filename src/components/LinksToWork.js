@@ -58,8 +58,8 @@ export const LinksToWork = () => {
               title
               featuredImage {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
+                  fluid(maxWidth: 504, quality: 85) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
