@@ -19,10 +19,16 @@ const title = css`
   ${typography.headline1};
   grid-column: 3 / -3;
   margin-top: ${getSize(10)};
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+  }
 `
 
 const releaseNote = css`
   grid-column: 3 / -3;
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+  }
   time {
     ${typography.body2};
     color: ${color.text.onSurface.mediumEmphasis};
