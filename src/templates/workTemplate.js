@@ -198,7 +198,7 @@ export const pageQuery = graphql`
             fluid(maxWidth: 768, quality: 85) {
               ...GatsbyImageSharpFluid_withWebp
             }
-            fixed(width: 1200) {
+            fixed(width: 1200, quality: 85) {
               src
             }
           }
