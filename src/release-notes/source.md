@@ -1,3 +1,9 @@
+<time>2021-03-15</time>
+
+## サムネイルを更新。
+
+「[メディアエンジン株式会社 記事制作ディレクションシステム](/media-engine-direction-system/)」と「[Ateam DESI-ENGINEER LT Fes 2020 夏](/ateam-desi-engineer-lt/)」と「[DASADA WEB STORE](/dasada-web-store/)」と「[綿貫佳祐について](/about-me/)」のサムネイルを更新
+
 <time>2021-01-31</time>
 
 ## [リリースノート](/release-notes/)のページを追加。
@@ -6,7 +12,7 @@
 
 <time>2021-01-29</time>
 
-## [メディアエンジン株式会社 記事制作ディレクションシステム](/media-engine-direction-system/)」のページを追加。
+## 「[メディアエンジン株式会社 記事制作ディレクションシステム](/media-engine-direction-system/)」のページを追加。
 
 ユーザーインタビューから UI モックアップ作成までを担当したプロジェクト。
 
