@@ -76,9 +76,11 @@ const body = css`
   ol {
     margin-left: ${getSize(6)};
     margin-top: ${getSize(4)};
-    ul,
-    ol {
-      margin-top: 0;
+    li {
+      ul,
+      ol {
+        margin-top: 0;
+      }
     }
   }
   img {
