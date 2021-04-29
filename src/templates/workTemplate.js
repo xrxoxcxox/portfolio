@@ -147,7 +147,7 @@ const navigation = css`
   }
 `
 
-export default ({ data: { mdx }, pageContext }) => {
+const WorkTemplatePage = ({ data: { mdx }, pageContext }) => {
   const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
   const featuredImgPath = mdx.frontmatter.featuredImage.childImageSharp.fixed.src
   const { next, previous } = pageContext
@@ -183,6 +183,8 @@ export default ({ data: { mdx }, pageContext }) => {
     </>
   )
 }
+
+export default WorkTemplatePage
 
 export const pageQuery = graphql`
   query PostQuery($id: String) {
