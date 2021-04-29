@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import Img from 'gatsby-image'
+import { GatsbyImage, getSrc } from 'gatsby-plugin-image'
 
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
@@ -148,8 +148,8 @@ const navigation = css`
 `
 
 const WorkTemplatePage = ({ data: { mdx }, pageContext }) => {
-  const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
-  const featuredImgPath = mdx.frontmatter.featuredImage.childImageSharp.fixed.src
+  const featuredImg = mdx.frontmatter.featuredImage.childImageSharp.gatsbyImageData
+  const featuredImgPath = getSrc(featuredImg)
   const { next, previous } = pageContext
   return (
     <>
@@ -157,7 +157,7 @@ const WorkTemplatePage = ({ data: { mdx }, pageContext }) => {
       <Seo title={mdx.frontmatter.title} description={mdx.frontmatter.description} ogImagePath={featuredImgPath} />
       <Layout>
         <Header />
-        <Img fluid={featuredImgFluid} alt='' css={mainVisual} />
+        <GatsbyImage image={featuredImg} alt='' css={mainVisual} />
         <h1 css={title}>{mdx.frontmatter.title}</h1>
         <WorkTag start={mdx.frontmatter.start} end={mdx.frontmatter.end} tags={mdx.frontmatter.tags} css={workTag} />
         <article css={body}>
@@ -199,12 +199,7 @@ export const pageQuery = graphql`
         tags
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 768, quality: 85) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-            fixed(width: 1200, quality: 85) {
-              src
-            }
+            gatsbyImageData(quality: 85, layout: CONSTRAINED)
           }
         }
       }

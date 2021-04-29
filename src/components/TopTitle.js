@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { css } from '@emotion/react'
 
@@ -77,16 +77,14 @@ export const TopTitle = ({ ...props }) => {
       }
       file(relativePath: { eq: "icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 64, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(width: 64, quality: 100, layout: CONSTRAINED)
         }
       }
     }
   `)
   return (
     <div css={root} className={props.className}>
-      <Img fluid={data.file.childImageSharp.fluid} aria-hidden='true' alt='' css={icon} />
+      <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} aria-hidden='true' alt='' css={icon} />
       <div css={content}>
         <h1 css={title}>
           <span css={titleBlock}>Keisuke </span>
