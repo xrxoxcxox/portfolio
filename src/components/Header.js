@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { css } from '@emotion/react'
 import hexToRgba from 'hex-rgba'
@@ -71,9 +71,7 @@ export const Header = () => {
     {
       file(relativePath: { eq: "icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 16, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(width: 16, quality: 100, layout: CONSTRAINED)
         }
       }
     }
@@ -81,7 +79,7 @@ export const Header = () => {
   return (
     <header css={root}>
       <Link to='/'>
-        <Img fluid={data.file.childImageSharp.fluid} aria-hidden='true' alt='' css={icon} />
+        <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} aria-hidden='true' alt='' css={icon} />
         <span css={siteName}>
           Keisuke <span css={accent}>W</span>atanuk<span css={accent}>i</span> <span css={accent}>P</span>ortfolio
         </span>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import styled from '@emotion/styled'
 import { getSize } from '../styles/Size'
@@ -58,9 +58,7 @@ export const LinksToWork = () => {
               title
               featuredImage {
                 childImageSharp {
-                  fluid(maxWidth: 504, quality: 85) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+                  gatsbyImageData(width: 504, quality: 85, layout: CONSTRAINED)
                 }
               }
             }
@@ -74,7 +72,7 @@ export const LinksToWork = () => {
   `)
   return data.allMdx.edges.map((edge) => (
     <LinkToWork to={edge.node.fields.slug} key={edge.node.id}>
-      <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} />
+      <GatsbyImage image={edge.node.frontmatter.featuredImage.childImageSharp.gatsbyImageData} alt='' />
       <Headline as='h2'>{edge.node.frontmatter.title}</Headline>
     </LinkToWork>
   ))

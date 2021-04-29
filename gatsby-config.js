@@ -1,6 +1,9 @@
 require('dotenv').config()
 
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
     title: `Keisuke Watanuki Portfolio`,
     description: `アイデアルデザイナー、綿貫佳祐のポートフォリオです。デジタルプロダクトやユーザー体験をデザインしています。`,
@@ -50,8 +53,9 @@ module.exports = {
         path: `${__dirname}/src/release-notes/`,
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

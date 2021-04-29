@@ -35,7 +35,7 @@ const button = css`
   }
 `
 
-export default () => (
+const NotFoundPage = () => (
   <>
     <GlobalStyle />
     <Layout>
@@ -60,3 +60,5 @@ export default () => (
     </Layout>
   </>
 )
+
+export default NotFoundPage

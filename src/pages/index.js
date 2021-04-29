@@ -41,7 +41,7 @@ const text = css`
   }
 `
 
-export default () => (
+const IndexPage = () => (
   <>
     <GlobalStyle />
     <Seo title='' />
@@ -55,3 +55,5 @@ export default () => (
     </Layout>
   </>
 )
+
+export default IndexPage
