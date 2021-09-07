@@ -38,7 +38,7 @@ const listItem = css`
   }
 `
 
-export const WorkTag = ({ start, end, tags, categories, tools, ...props }) => {
+export const WorkSummary = ({ start, end, tags, categories, tools, ...props }) => {
   const categoryItems = categories.map((category) => (
     <li key={category} css={listItem}>
       {category}
