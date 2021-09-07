@@ -159,7 +159,7 @@ const WorkTemplatePage = ({ data: { mdx }, pageContext }) => {
         <Header />
         <GatsbyImage image={featuredImg} alt='' css={mainVisual} />
         <h1 css={title}>{mdx.frontmatter.title}</h1>
-        <WorkTag start={mdx.frontmatter.start} end={mdx.frontmatter.end} tags={mdx.frontmatter.tags} css={workTag} />
+        <WorkTag start={mdx.frontmatter.start} end={mdx.frontmatter.end} categories={mdx.frontmatter.categories} tools={mdx.frontmatter.tools} css={workTag} />
         <article css={body}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </article>
@@ -196,7 +196,8 @@ export const pageQuery = graphql`
         end
         title
         description
-        tags
+        categories
+        tools
         featuredImage {
           childImageSharp {
             gatsbyImageData(quality: 85, layout: CONSTRAINED)
