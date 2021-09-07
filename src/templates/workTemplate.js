@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Layout } from '../components/Layout'
 import { Seo } from '../components/Seo'
-import { WorkTag } from '../components/WorkTag'
+import { WorkSummary } from '../components/WorkSummary'
 
 import { css } from '@emotion/react'
 import { GlobalStyle } from '../styles/GlobalStyle'
@@ -34,7 +34,7 @@ const title = css`
   }
 `
 
-const workTag = css`
+const workSummary = css`
   align-self: end;
   grid-column: 1 / 4;
   grid-row: 2 / 4;
@@ -159,7 +159,7 @@ const WorkTemplatePage = ({ data: { mdx }, pageContext }) => {
         <Header />
         <GatsbyImage image={featuredImg} alt='' css={mainVisual} />
         <h1 css={title}>{mdx.frontmatter.title}</h1>
-        <WorkTag start={mdx.frontmatter.start} end={mdx.frontmatter.end} tags={mdx.frontmatter.tags} css={workTag} />
+        <WorkSummary start={mdx.frontmatter.start} end={mdx.frontmatter.end} categories={mdx.frontmatter.categories} tools={mdx.frontmatter.tools} css={workSummary} />
         <article css={body}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </article>
@@ -196,7 +196,8 @@ export const pageQuery = graphql`
         end
         title
         description
-        tags
+        categories
+        tools
         featuredImage {
           childImageSharp {
             gatsbyImageData(quality: 85, layout: CONSTRAINED)
