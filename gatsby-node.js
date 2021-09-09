@@ -4,11 +4,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const workPostTemplate = path.resolve(`src/templates/workTemplate.js`)
   const result = await graphql(`
     {
-      allMdx(
-        filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }
-        sort: { order: DESC, fields: [frontmatter___end] }
-        limit: 1000
-      ) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/markdown-pages/" } }, sort: { order: DESC, fields: [frontmatter___end] }, limit: 1000) {
         edges {
           node {
             id
@@ -39,13 +35,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
-
-  createRedirect({
-    fromPath: 'https://keisukewatanuki.work/*',
-    toPath: 'https://www.keisukewatanuki.work/:splat',
-    isPermanent: true,
-    force: true,
-  })
 }
 
 const { createFilePath } = require(`gatsby-source-filesystem`)
@@ -62,10 +51,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 const fetch = require(`node-fetch`)
-exports.sourceNodes = async ({
-  actions: { createNode },
-  createContentDigest,
-}) => {
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   const token = { 'X-FIGMA-TOKEN': process.env.GATSBY_FIGMA_TOKEN }
   const team = await fetch(`https://api.figma.com/v1/teams/${process.env.GATSBY_FIGMA_TEAM_ID}/projects`, { headers: token })
   const result = await team.json()
