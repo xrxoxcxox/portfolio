@@ -15,7 +15,7 @@
     "gatsby-plugin-emotion": "^6.8.0",
     "gatsby-plugin-image": "^1.8.0",
     "gatsby-plugin-manifest": "^3.8.0",
-    "gatsby-plugin-mdx": "^2.8.0",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-react-helmet-async": "^1.1.0",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sharp": "^3.8.0",
