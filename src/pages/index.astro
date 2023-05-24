@@ -1,7 +1,10 @@
 ---
+import "../styles/global.css";
+import "@fontsource/noto-serif-jp/400.css";
+import "@fontsource/noto-serif-jp/700.css";
 ---
 
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,6 +13,101 @@
     <title>Astro</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <div class="above-the-fold">
+      <header class="header">
+        <h1 class="title">
+          <ruby class="name"
+            >綿貫 佳祐<rp>(</rp><rt>ワタヌキ ケイスケ</rt><rp>)</rp></ruby
+          >
+        </h1>
+        <h2 class="categories">UIデザイン / マークアップ / グラフィック</h2>
+      </header>
+      <span class="scroll-guide">下へスクロール</span>
+      <nav class="navigation">
+        <ul class="navigation-list">
+          <li class="navigation-list-item -active">
+            <a href="#a">私</a>
+          </li>
+          <li class="navigation-list-item">
+            <a href="#b">制作物</a>
+          </li>
+          <li class="navigation-list-item">
+            <a href="#c">手記</a>
+          </li>
+          <li class="navigation-list-item">
+            <a href="#d">連絡先</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </body>
 </html>
+
+<style>
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  .above-the-fold {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100dvh;
+    padding: 60px 90px;
+    width: 100dvw;
+  }
+  .header {
+    align-content: center;
+    display: grid;
+    gap: 72px;
+    grid-row: 1 / 2;
+    line-height: 1;
+  }
+  .title {
+    font-weight: 700;
+  }
+  .name {
+    display: grid;
+    font-size: 8rem;
+    gap: 48px;
+  }
+  .name > rt {
+    display: unset;
+    font-size: 3.5rem;
+    line-height: inherit;
+    text-align: left;
+  }
+  .categories {
+    font-size: 1.5rem;
+  }
+  .scroll-guide {
+    align-self: end;
+    font-size: 0.875rem;
+    grid-row: -2 / -1;
+    justify-self: start;
+    writing-mode: vertical-lr;
+  }
+  .scroll-guide::after {
+    content: url('data:image/svg+xml;utf-8,<svg fill="none" height="14" viewBox="0 0 18 14" width="18" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m1 0-1 1c2.99988 1 7 4 9.00003 6 1.99997-2 5.99997-5 8.99997-6l-1-1c-4.0001 1.00006-8 4-8 4s-4.00012-2.99995-8-4zm0 7.00006-1 1c2.99988 1 7 4.00004 9.00003 6.00004 1.99997-2 5.99997-5.00004 8.99997-6.00004l-1-1c-4.0001 1.00006-8 4.00004-8 4.00004s-4.00012-2.99999-8-4.00004z" fill="currentColor" fill-rule="evenodd"/></svg>');
+    margin-inline-start: 12px;
+  }
+  .navigation {
+    align-self: end;
+    display: flex;
+    grid-row: -2 / -1;
+    justify-self: end;
+  }
+  .navigation-list {
+    background-color: hsl(0 0% 100%);
+    border-radius: calc(infinity * 1px);
+    display: flex;
+    list-style-type: none;
+    padding: 6px;
+  }
+  .navigation-list-item {
+    padding: 6px 12px;
+  }
+  .navigation-list-item.-active {
+    background-color: hsl(0 0% 92%);
+    border-radius: calc(infinity * 1px);
+  }
+</style>
