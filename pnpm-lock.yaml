@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@fontsource/noto-serif-jp':
     specifier: ^5.0.1
@@ -7,8 +11,14 @@ dependencies:
   astro:
     specifier: ^2.3.2
     version: 2.3.2
+  p5:
+    specifier: ^1.6.0
+    version: 1.6.0
 
 devDependencies:
+  '@types/p5':
+    specifier: ^1.6.2
+    version: 1.6.2
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.59.1
     version: 5.59.1(@typescript-eslint/parser@5.59.1)(eslint@8.39.0)(typescript@5.0.4)
@@ -768,6 +778,10 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
     dev: false
+
+  /@types/p5@1.6.2:
+    resolution: {integrity: sha512-iy1B7DBMc9e5j0DrWnIjSJh+Ro9UkKxPHspbx/GvIeGFTOIJF0H2lICnIN4go1OZEAQSHBinLd7t+oe8lrrLvA==}
+    dev: true
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -3224,6 +3238,10 @@ packages:
   /p-try@2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
+    dev: false
+
+  /p5@1.6.0:
+    resolution: {integrity: sha512-RowF+RxfVUhJm/YKXL5TCFzTqnwAIwK6W1VGs9LAqSf3PCmLz9Igbxzlf0Ry5IMV71L42wipCdH/bDiNsqAstA==}
     dev: false
 
   /parent-module@1.0.1:
