@@ -1,3 +1,7 @@
+:root {
+  --background-color: hsl(0 0% 96%);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +9,7 @@
 }
 
 body {
-  background-color: hsl(0 0% 96%);
+  background-color: var(--background-color);
   color: hsl(0 0% 8%);
   font-family: "Noto Serif JP", sans-serif;
   line-height: 1.5;
