@@ -8,6 +8,9 @@ dependencies:
   '@fontsource/noto-serif-jp':
     specifier: ^5.0.1
     version: 5.0.1
+  '@fontsource/shippori-mincho':
+    specifier: ^5.0.3
+    version: 5.0.3
   astro:
     specifier: ^2.3.2
     version: 2.3.2
@@ -622,6 +625,10 @@ packages:
 
   /@fontsource/noto-serif-jp@5.0.1:
     resolution: {integrity: sha512-kZlLk37bH+c5KYasJqPgmFJc6zDcAa00jcjlGdNxhqadlpRS9cv0RBL97xHpXviAdPVGdyKgxTJb5xSc6940SQ==}
+    dev: false
+
+  /@fontsource/shippori-mincho@5.0.3:
+    resolution: {integrity: sha512-OBSjRSYg161nd6hBFEqhHRJaJVxVnwi26vhdMEIJHL6Ku06jOg0gmnYjcSz9bb4bLF+BdRf0KR5SMxs9HA0rrw==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.8:
