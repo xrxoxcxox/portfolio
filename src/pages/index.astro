@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
-import "@fontsource/noto-serif-jp/400.css";
-import "@fontsource/noto-serif-jp/700.css";
+import "@fontsource/shippori-mincho/400.css";
+import "@fontsource/shippori-mincho/700.css";
 ---
 
 <html lang="ja">
@@ -33,26 +33,61 @@ import "@fontsource/noto-serif-jp/700.css";
         <nav class="navigation">
           <ul class="navigation-list">
             <li class="navigation-list-item -active">
-              <a href="#a">私</a>
+              <a href="#about-me">私</a>
             </li>
             <li class="navigation-list-item">
-              <a href="#b">制作物</a>
-            </li>
-            <li class="navigation-list-item">
-              <a href="#c">手記</a>
-            </li>
-            <li class="navigation-list-item">
-              <a href="#d">連絡先</a>
+              <a href="#">制作物</a>
             </li>
           </ul>
         </nav>
       </div>
     </div>
-    <div style="height: 200dvh; padding: 90px">
-      <p style="font-size: 4rem;">
-        あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-      </p>
-    </div>
+    <section class="section section-first">
+      <h2 class="section-title" id="about-me">私</h2>
+      <div>
+        <p>
+          デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
+        </p>
+        <p>
+          答えの無い問いに向き合うのが好きで、自分自身の在り方や世の中を美しくするための方法について考えている時間が長いです。
+        </p>
+        <p>
+          <a href="#">詳細なプロフィールを読む</a>
+        </p>
+      </div>
+    </section>
+    <section class="section section-second">
+      <h2 class="section-title section-second-title" id="works">制作物</h2>
+      <div class="work-list">
+        <a href="#" class="work">
+          <img
+            src="https://via.placeholder.com/800x450"
+            alt="ダミー画像"
+            width="800"
+            height="450"
+          />
+          <h3>ポートフォリオ</h3>
+        </a>
+        <a href="#" class="work">
+          <img
+            src="https://via.placeholder.com/800x450"
+            alt="ダミー画像"
+            width="800"
+            height="450"
+          />
+          <h3>書籍: Figmaデザイン入門</h3>
+        </a>
+        <a href="#" class="work">
+          <img
+            src="https://via.placeholder.com/800x450"
+            alt="ダミー画像"
+            width="800"
+            height="450"
+          />
+          <h3>Qiita ダークモード</h3>
+        </a>
+      </div>
+    </section>
   </body>
 </html>
 
@@ -61,7 +96,7 @@ import "@fontsource/noto-serif-jp/700.css";
 
   const sketch = (p: p5) => {
     const particles: p5.Vector[] = [];
-    const numberOfPoints = 2000;
+    const numberOfPoints = 4000;
     const noiseScale = 0.01;
 
     function perticlesPush() {
@@ -150,6 +185,37 @@ import "@fontsource/noto-serif-jp/700.css";
     throw new Error("Element with ID 'name-top' not found");
   }
 
+  const options = {
+    root: null,
+    rootMargin: "16px",
+    threshold: 0,
+  };
+
+  const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        nameTop.style.opacity = "0";
+        nameTop.style.filter = "blur(2px)";
+      } else {
+        nameTop.style.opacity = "1";
+        nameTop.style.filter = "blur(0)";
+        nameTop.style.transition =
+          "opacity 300ms ease-in-out, filter 300ms ease-in-out";
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, options);
+
+  observer.observe(observationTarget);
+</script>
+
+<script>
+  const observationTarget = document.getElementById("about-me");
+  if (!observationTarget) {
+    throw new Error("Element with ID 'about-me' not found");
+  }
+
   const p5Container = document.getElementById("p5-container");
   if (!p5Container) {
     throw new Error("Element with ID 'p5-container' not found");
@@ -164,19 +230,10 @@ import "@fontsource/noto-serif-jp/700.css";
   const observerCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        nameTop.style.opacity = "0";
-        nameTop.style.filter = "blur(2px)";
-        p5Container.style.opacity = "1";
-        p5Container.style.filter = "blur(0)";
+        p5Container.style.opacity = "0.35";
+        p5Container.style.transition = "opacity 400ms ease-in-out";
       } else {
-        nameTop.style.opacity = "1";
-        nameTop.style.filter = "blur(0)";
-        nameTop.style.transition =
-          "opacity 300ms ease-in-out, filter 300ms ease-in-out";
-        p5Container.style.opacity = "0";
-        p5Container.style.filter = "blur(2px)";
-        p5Container.style.transition =
-          "opacity 800ms ease-in-out, blur 800ms ease-in-out";
+        p5Container.style.opacity = "1";
       }
     });
   };
@@ -186,7 +243,28 @@ import "@fontsource/noto-serif-jp/700.css";
   observer.observe(observationTarget);
 </script>
 
+<script>
+  function overallMargin() {
+    if (window.innerWidth < 1024) {
+      document.documentElement.style.setProperty("--overall-margin", "0");
+    } else {
+      const overallMargin = (window.innerWidth - 1024) / 2;
+      document.documentElement.style.setProperty(
+        "--overall-margin",
+        `${overallMargin}px`
+      );
+    }
+  }
+
+  overallMargin();
+
+  window.addEventListener("resize", overallMargin);
+</script>
+
 <style>
+  body {
+    padding-block-end: 180px;
+  }
   a {
     color: inherit;
     text-decoration: inherit;
@@ -282,5 +360,46 @@ import "@fontsource/noto-serif-jp/700.css";
   .navigation-list-item.-active {
     background-color: hsl(0 0% 92%);
     border-radius: calc(infinity * 1px);
+  }
+  .section p {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+  .section p + p {
+    margin-block-start: 1.5rem;
+  }
+  .section-first {
+    display: grid;
+    grid-template-columns: 1fr minmax(800px, 1fr);
+    gap: 2rem;
+    margin-block-start: 180px;
+    margin-inline: auto;
+    width: min(100%, 1024px);
+  }
+  .section-title {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  .section-second {
+    margin-block-start: 180px;
+  }
+  .section-second-title {
+    padding-inline-start: var(--overall-margin);
+  }
+  .work-list {
+    display: flex;
+    gap: 24px;
+    margin-block-start: 24px;
+    overflow-x: scroll;
+    padding-inline: var(--overall-margin);
+    width: 100dvw;
+  }
+  .work img {
+    border-radius: 8px;
+  }
+  .work h3 {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    margin-block-start: 12px;
   }
 </style>
