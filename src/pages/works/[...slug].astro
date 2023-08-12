@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import GlobalLayout from "../../layouts/GlobalLayout.astro";
+
+export async function getStaticPaths() {
+  const workEntries = await getCollection("works");
+  return workEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<GlobalLayout title={entry.data.title}>
+  <Content />
+</GlobalLayout>

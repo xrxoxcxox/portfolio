@@ -1,5 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import GlobalLayout from "../layouts/GlobalLayout.astro";
+
+const allWorks = await getCollection("works");
 ---
 
 <GlobalLayout>
@@ -23,14 +26,14 @@ import GlobalLayout from "../layouts/GlobalLayout.astro";
             <a href="#about-me">私</a>
           </li>
           <li>
-            <a href="#">制作物</a>
+            <a href="#works">制作物</a>
           </li>
         </ul>
       </nav>
     </div>
   </div>
   <section>
-    <h2>私</h2>
+    <h2 id="about-me">私</h2>
     <div>
       <p>
         デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
@@ -44,26 +47,15 @@ import GlobalLayout from "../layouts/GlobalLayout.astro";
     </div>
   </section>
   <section>
-    <h2>制作物</h2>
+    <h2 id="works">制作物</h2>
     <div>
-      <a href="#">
-        <img
-          src="https://via.placeholder.com/800x450"
-          alt="ダミー画像"
-          width="800"
-          height="450"
-        />
-        <h3>ポートフォリオ</h3>
-      </a>
-      <a href="#">
-        <img
-          src="https://via.placeholder.com/800x450"
-          alt="ダミー画像"
-          width="800"
-          height="450"
-        />
-        <h3>書籍: Figmaデザイン入門</h3>
-      </a>
+      {
+        allWorks.map((work) => (
+          <a href={`${work.collection}/${work.slug}`}>
+            <h3>{work.data.title}</h3>
+          </a>
+        ))
+      }
     </div>
   </section>
 </GlobalLayout>
