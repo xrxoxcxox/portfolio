@@ -1,97 +1,74 @@
 ---
-import "../styles/global.css";
-import "@fontsource/shippori-mincho/400.css";
-import "@fontsource/shippori-mincho/700.css";
+import GlobalLayout from "../layouts/GlobalLayout.astro";
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <div id="above-the-fold" class="above-the-fold">
-      <div id="p5-container"></div>
-      <div class="above-the-fold-foreground">
-        <header id="header" class="header">
-          <h1 class="title">
-            <ruby class="name"
-              ><span>綿貫 佳祐</span><rp>(</rp><rt>ワタヌキ ケイスケ</rt><rp
-                >)</rp
-              ></ruby
-            >
-          </h1>
-          <h2 class="categories" id="categories">
-            ユーザーインターフェース / マークアップ / グラフィック
-          </h2>
-          <span id="name-top" class="name-top">綿貫 佳祐</span>
-        </header>
-        <span id="scroll-guide" class="scroll-guide">下へスクロール</span>
-        <nav class="navigation">
-          <ul class="navigation-list">
-            <li class="navigation-list-item -active">
-              <a href="#about-me">私</a>
-            </li>
-            <li class="navigation-list-item">
-              <a href="#">制作物</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+<GlobalLayout>
+  <div id="above-the-fold">
+    <div id="p5-container"></div>
+    <div>
+      <header id="header">
+        <h1>
+          <ruby
+            ><span>綿貫 佳祐</span><rp>(</rp><rt>ワタヌキ ケイスケ</rt><rp>)</rp
+            ></ruby
+          >
+        </h1>
+        <h2>ユーザーインターフェース / マークアップ / グラフィック</h2>
+        <span id="name-top">綿貫 佳祐</span>
+      </header>
+      <span id="scroll-guide">下へスクロール</span>
+      <nav>
+        <ul>
+          <li>
+            <a href="#about-me">私</a>
+          </li>
+          <li>
+            <a href="#">制作物</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <section class="section section-first">
-      <h2 class="section-title" id="about-me">私</h2>
-      <div>
-        <p>
-          デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
-        </p>
-        <p>
-          答えの無い問いに向き合うのが好きで、自分自身の在り方や世の中を美しくするための方法について考えている時間が長いです。
-        </p>
-        <p>
-          <a href="/about-me">詳細なプロフィールを読む</a>
-        </p>
-      </div>
-    </section>
-    <section class="section section-second">
-      <h2 class="section-title section-second-title" id="works">制作物</h2>
-      <div class="work-list">
-        <a href="#" class="work">
-          <img
-            src="https://via.placeholder.com/800x450"
-            alt="ダミー画像"
-            width="800"
-            height="450"
-          />
-          <h3>ポートフォリオ</h3>
-        </a>
-        <a href="#" class="work">
-          <img
-            src="https://via.placeholder.com/800x450"
-            alt="ダミー画像"
-            width="800"
-            height="450"
-          />
-          <h3>書籍: Figmaデザイン入門</h3>
-        </a>
-        <a href="#" class="work">
-          <img
-            src="https://via.placeholder.com/800x450"
-            alt="ダミー画像"
-            width="800"
-            height="450"
-          />
-          <h3>Qiita ダークモード</h3>
-        </a>
-      </div>
-    </section>
-  </body>
-</html>
+  </div>
+  <section>
+    <h2>私</h2>
+    <div>
+      <p>
+        デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
+      </p>
+      <p>
+        答えの無い問いに向き合うのが好きで、自分自身の在り方や世の中を美しくするための方法について考えている時間が長いです。
+      </p>
+      <p>
+        <a href="/about-me">詳細なプロフィールを読む</a>
+      </p>
+    </div>
+  </section>
+  <section>
+    <h2>制作物</h2>
+    <div>
+      <a href="#">
+        <img
+          src="https://via.placeholder.com/800x450"
+          alt="ダミー画像"
+          width="800"
+          height="450"
+        />
+        <h3>ポートフォリオ</h3>
+      </a>
+      <a href="#">
+        <img
+          src="https://via.placeholder.com/800x450"
+          alt="ダミー画像"
+          width="800"
+          height="450"
+        />
+        <h3>書籍: Figmaデザイン入門</h3>
+      </a>
+    </div>
+  </section>
+</GlobalLayout>
 
-<script>
+<!-- <script>
   import p5 from "p5";
 
   const sketch = (p: p5) => {
@@ -241,165 +218,4 @@ import "@fontsource/shippori-mincho/700.css";
   const observer = new IntersectionObserver(observerCallback, options);
 
   observer.observe(observationTarget);
-</script>
-
-<script>
-  function overallMargin() {
-    if (window.innerWidth < 1024) {
-      document.documentElement.style.setProperty("--overall-margin", "0");
-    } else {
-      const overallMargin = (window.innerWidth - 1024) / 2;
-      document.documentElement.style.setProperty(
-        "--overall-margin",
-        `${overallMargin}px`
-      );
-    }
-  }
-
-  overallMargin();
-
-  window.addEventListener("resize", overallMargin);
-</script>
-
-<style>
-  body {
-    padding-block-end: 180px;
-  }
-  a {
-    color: inherit;
-    text-decoration: inherit;
-  }
-  .above-the-fold {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    height: 100dvh;
-    width: 100dvw;
-  }
-  .above-the-fold-foreground {
-    display: grid;
-    grid-template-rows: 1fr 1fr 2fr;
-    height: 100dvh;
-    padding: 90px;
-    width: 100dvw;
-  }
-  #p5-container {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    height: 100dvh;
-    width: 100dvw;
-    position: fixed;
-    top: 0;
-    z-index: -1;
-  }
-  .header {
-    align-content: start;
-    display: grid;
-    gap: 5rem;
-    line-height: 1;
-  }
-  .title {
-    font-weight: 700;
-    text-shadow: 4px 4px 16px var(--background-color),
-      -4px 4px 16px var(--background-color),
-      4px -4px 16px var(--background-color),
-      -4px -4px 16px var(--background-color);
-  }
-  .name {
-    display: grid;
-    font-size: 10rem;
-    gap: 48px;
-  }
-  .name > rt {
-    display: unset;
-    font-size: 4rem;
-    line-height: inherit;
-    text-align: left;
-  }
-  .name-top {
-    font-size: 1.5rem;
-    font-weight: 700;
-    position: fixed;
-    top: 24px;
-  }
-  .categories {
-    font-size: 1.5rem;
-    text-shadow: 4px 4px 6px var(--background-color),
-      -4px 4px 6px var(--background-color), 4px -4px 6px var(--background-color),
-      -4px -4px 6px var(--background-color);
-  }
-  .scroll-guide {
-    align-self: end;
-    bottom: 60px;
-    font-size: 0.875rem;
-    position: fixed;
-    writing-mode: vertical-lr;
-  }
-  .scroll-guide::after {
-    content: url('data:image/svg+xml;utf-8,<svg fill="currentColor" width="18" height="14" viewBox="0 0 18 14" xmlns="http://www.w3.org/2000/svg"><path d="M1 0L0 1C3 2 7 5 9 7C11 5 15 2 18 1L17 0C13 1 9 4 9 4C9 4 5 1 1 0Z"/><path d="M1 7L0 8C3 9 7 12 9 14C11 12 15 9 18 8L17 7C13 8 9 11 9 11C9 11 5 8 1 7Z"/></svg>');
-    margin-inline-start: 12px;
-  }
-  .navigation {
-    align-self: end;
-    bottom: 60px;
-    display: flex;
-    justify-self: end;
-    position: fixed;
-    right: 90px;
-  }
-  .navigation-list {
-    background-color: hsl(0 0% 100%);
-    border-radius: calc(infinity * 1px);
-    display: flex;
-    list-style-type: none;
-    padding: 6px;
-  }
-  .navigation-list-item {
-    padding: 6px 12px;
-  }
-  .navigation-list-item.-active {
-    background-color: hsl(0 0% 92%);
-    border-radius: calc(infinity * 1px);
-  }
-  .section p {
-    font-size: 1.25rem;
-    line-height: 2rem;
-  }
-  .section p + p {
-    margin-block-start: 1.5rem;
-  }
-  .section-first {
-    display: grid;
-    grid-template-columns: 1fr minmax(800px, 1fr);
-    gap: 2rem;
-    margin-block-start: 180px;
-    margin-inline: auto;
-    width: min(100%, 1024px);
-  }
-  .section-title {
-    font-size: 4rem;
-    font-weight: 700;
-  }
-  .section-second {
-    margin-block-start: 180px;
-  }
-  .section-second-title {
-    padding-inline-start: var(--overall-margin);
-  }
-  .work-list {
-    display: flex;
-    gap: 24px;
-    margin-block-start: 24px;
-    overflow-x: scroll;
-    padding-inline: var(--overall-margin);
-    width: 100dvw;
-  }
-  .work img {
-    border-radius: 8px;
-  }
-  .work h3 {
-    font-size: 1.25rem;
-    line-height: 2rem;
-    margin-block-start: 12px;
-  }
-</style>
+</script> -->

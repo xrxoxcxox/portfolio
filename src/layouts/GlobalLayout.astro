@@ -1,6 +1,7 @@
 ---
 import "@fontsource/shippori-mincho/400.css";
 import "@fontsource/shippori-mincho/700.css";
+const { title } = Astro.props;
 ---
 
 <html lang="ja">
@@ -9,6 +10,9 @@ import "@fontsource/shippori-mincho/700.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{title ? title : "綿貫佳祐"}</title>
   </head>
+  <body class="bg-stone-100 font-serif text-stone-950">
+    <slot />
+  </body>
 </html>
