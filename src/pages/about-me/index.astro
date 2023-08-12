@@ -1,0 +1,15 @@
+---
+import { getEntry } from "astro:content";
+const aboutMe = await getEntry("about-me", "index");
+const { Content } = await aboutMe.render();
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>{aboutMe.data.title}</title>
+  </head>
+  <h1>{aboutMe.data.title}</h1>
+  <Content />
+
+</html>
