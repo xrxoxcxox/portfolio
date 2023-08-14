@@ -4,6 +4,7 @@ const aboutMeCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    keywords: z.string().array(),
   }),
 });
 

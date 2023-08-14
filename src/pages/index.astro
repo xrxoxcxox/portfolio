@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import GlobalLayout from "../layouts/GlobalLayout.astro";
+import Footer from "../components/Footer.astro";
 
 const allWorks = await getCollection("works");
 ---
@@ -33,8 +34,8 @@ const allWorks = await getCollection("works");
         >
       </div>
     </div>
-    <section class="mx-auto grid w-content grid-cols-4 gap-4">
-      <h2 id="about-me" class="col-span-1 text-5xl font-bold">私</h2>
+    <section class="mx-auto grid w-content grid-cols-5 gap-4">
+      <h2 id="about-me" class="col-span-2 text-5xl font-bold">私について</h2>
       <div class="col-span-3 flex flex-col gap-5 text-md">
         <p>
           デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
@@ -44,7 +45,7 @@ const allWorks = await getCollection("works");
         </p>
         <p>
           <a href="/about-me" class="text-cyan-600 underline"
-            >詳細なプロフィールを読む</a
+            >詳細なプロフィール</a
           >
         </p>
       </div>
@@ -65,39 +66,7 @@ const allWorks = await getCollection("works");
           ))
       }
     </section>
-    <footer
-      class="rounded-tl-xl rounded-tr-xl bg-stone-800 px-12 py-10 text-stone-50"
-    >
-      <div class="grid grid-flow-row grid-cols-6 justify-between">
-        <div class="col-span-4 flex flex-col justify-between">
-          <ruby class="grid gap-1"
-            ><span class="text-3xl font-bold">綿貫&nbsp;佳祐</span><rp>(</rp><rt
-              class="flex text-sm font-bold"
-              >ワタヌキ&nbsp;<span class="tracking-tighter">ケ</span><span
-                class="tracking-tighter">イ</span
-              >スケ</rt
-            ><rp>)</rp></ruby
-          >
-          <small class="text-xs">©️&nbsp;2023&nbsp;綿貫&nbsp;佳祐</small>
-        </div>
-        <div
-          class="flex flex-col gap-1 self-start border-l border-stone-500 py-2 pl-5"
-        >
-          <a href="/">トップ</a>
-          <a href="/about-me">私</a>
-          <a href="/works">制作物</a>
-        </div>
-        <div
-          class="flex flex-col gap-1 border-l border-stone-500 py-2 pl-5 text-sm"
-        >
-          <a href="https://twitter.com/xrxoxcxox">X (Twitter)</a>
-          <a href="https://www.instagram.com/xrxoxcxox/">Instagram</a>
-          <a href="https://www.threads.net/@xrxoxcxox">Threads</a>
-          <a href="https://github.com/xrxoxcxox">GitHub</a>
-          <a href="https://qiita.com/xrxoxcxox">Qiita</a>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </div>
 </GlobalLayout>
 
