@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import GlobalLayout from "../../layouts/GlobalLayout.astro";
 
@@ -15,5 +16,7 @@ const { Content } = await entry.render();
 ---
 
 <GlobalLayout title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
+  <Image src={entry.data.cover} alt="" />
   <Content />
 </GlobalLayout>

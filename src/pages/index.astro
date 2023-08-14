@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 
@@ -6,61 +7,110 @@ const allWorks = await getCollection("works");
 ---
 
 <GlobalLayout>
-  <div id="above-the-fold">
-    <div id="p5-container"></div>
-    <div>
-      <header id="header">
-        <h1>
-          <ruby
-            ><span>綿貫 佳祐</span><rp>(</rp><rt>ワタヌキ ケイスケ</rt><rp>)</rp
-            ></ruby
+  <div class="flex flex-col gap-16 px-16">
+    <div id="above-the-fold" class="h-screen">
+      <div id="p5-container" class="fixed inset-0 -z-10 w-screen"></div>
+      <div class="h-full pt-16">
+        <header id="header" class="grid gap-12">
+          <h1>
+            <ruby class="grid gap-6"
+              ><span class="text-9xl font-bold">綿貫&nbsp;佳祐</span><rp>(</rp
+              ><rt class="flex text-4xl font-bold"
+                >ワタヌキ&nbsp;<span class="tracking-tighter">ケ</span><span
+                  class="tracking-tighter">イ</span
+                >スケ</rt
+              ><rp>)</rp></ruby
+            >
+          </h1>
+          <h2 class="text-xl">
+            ユーザーインターフェース / マークアップ / グラフィック
+          </h2>
+        </header>
+        <span
+          id="scroll-guide"
+          class="scroll-guide fixed bottom-8 flex gap-1 text-sm"
+          >下へスクロール</span
+        >
+      </div>
+    </div>
+    <section class="mx-auto grid w-content grid-cols-4 gap-4">
+      <h2 id="about-me" class="col-span-1 text-5xl font-bold">私</h2>
+      <div class="col-span-3 flex flex-col gap-5 text-md">
+        <p>
+          デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
+        </p>
+        <p>
+          答えの無い問いに向き合うのが好きで、自分自身の在り方や世の中を美しくするための方法について考えている時間が長いです。
+        </p>
+        <p>
+          <a href="/about-me" class="text-cyan-600 underline"
+            >詳細なプロフィールを読む</a
           >
-        </h1>
-        <h2>ユーザーインターフェース / マークアップ / グラフィック</h2>
-        <span id="name-top">綿貫 佳祐</span>
-      </header>
-      <span id="scroll-guide">下へスクロール</span>
-      <nav>
-        <ul>
-          <li>
-            <a href="#about-me">私</a>
-          </li>
-          <li>
-            <a href="#works">制作物</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <section>
-    <h2 id="about-me">私</h2>
-    <div>
-      <p>
-        デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
-      </p>
-      <p>
-        答えの無い問いに向き合うのが好きで、自分自身の在り方や世の中を美しくするための方法について考えている時間が長いです。
-      </p>
-      <p>
-        <a href="/about-me">詳細なプロフィールを読む</a>
-      </p>
-    </div>
-  </section>
-  <section>
-    <h2 id="works">制作物</h2>
-    <div>
+        </p>
+      </div>
+    </section>
+    <section class="mx-auto grid w-content grid-cols-4 flex-col gap-4">
+      <h2 id="works" class="col-span-full text-5xl font-bold">制作物</h2>
       {
-        allWorks.map((work) => (
-          <a href={`${work.collection}/${work.slug}`}>
-            <h3>{work.data.title}</h3>
-          </a>
-        ))
+        allWorks
+          .sort((a, b) => a.data.sort - b.data.sort)
+          .map((work) => (
+            <a
+              href={`${work.collection}/${work.slug}`}
+              class="col-span-2 grid gap-1"
+            >
+              <Image src={work.data.cover} alt="" class="rounded-md" />
+              <h3 class="text-md">{work.data.title}</h3>
+            </a>
+          ))
       }
-    </div>
-  </section>
+    </section>
+    <footer
+      class="rounded-tl-xl rounded-tr-xl bg-stone-800 px-12 py-10 text-stone-50"
+    >
+      <div class="grid grid-flow-row grid-cols-6 justify-between">
+        <div class="col-span-4 flex flex-col justify-between">
+          <ruby class="grid gap-1"
+            ><span class="text-3xl font-bold">綿貫&nbsp;佳祐</span><rp>(</rp><rt
+              class="flex text-sm font-bold"
+              >ワタヌキ&nbsp;<span class="tracking-tighter">ケ</span><span
+                class="tracking-tighter">イ</span
+              >スケ</rt
+            ><rp>)</rp></ruby
+          >
+          <small class="text-xs">©️&nbsp;2023&nbsp;綿貫&nbsp;佳祐</small>
+        </div>
+        <div
+          class="flex flex-col gap-1 self-start border-l border-stone-500 py-2 pl-5"
+        >
+          <a href="/">トップ</a>
+          <a href="/about-me">私</a>
+          <a href="/works">制作物</a>
+        </div>
+        <div
+          class="flex flex-col gap-1 border-l border-stone-500 py-2 pl-5 text-sm"
+        >
+          <a href="https://twitter.com/xrxoxcxox">X (Twitter)</a>
+          <a href="https://www.instagram.com/xrxoxcxox/">Instagram</a>
+          <a href="https://www.threads.net/@xrxoxcxox">Threads</a>
+          <a href="https://github.com/xrxoxcxox">GitHub</a>
+          <a href="https://qiita.com/xrxoxcxox">Qiita</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 </GlobalLayout>
 
-<!-- <script>
+<style>
+  .scroll-guide {
+    writing-mode: vertical-lr;
+  }
+  .scroll-guide::after {
+    content: url('data:image/svg+xml;utf-8,<svg fill="currentColor" width="18" height="14" viewBox="0 0 18 14" xmlns="http://www.w3.org/2000/svg"><path d="M1 0L0 1C3 2 7 5 9 7C11 5 15 2 18 1L17 0C13 1 9 4 9 4C9 4 5 1 1 0Z"/><path d="M1 7L0 8C3 9 7 12 9 14C11 12 15 9 18 8L17 7C13 8 9 11 9 11C9 11 5 8 1 7Z"/></svg>');
+  }
+</style>
+
+<script>
   import p5 from "p5";
 
   const sketch = (p: p5) => {
@@ -144,42 +194,6 @@ const allWorks = await getCollection("works");
 </script>
 
 <script>
-  const observationTarget = document.getElementById("categories");
-  if (!observationTarget) {
-    throw new Error("Element with ID 'categories' not found");
-  }
-
-  const nameTop = document.getElementById("name-top");
-  if (!nameTop) {
-    throw new Error("Element with ID 'name-top' not found");
-  }
-
-  const options = {
-    root: null,
-    rootMargin: "16px",
-    threshold: 0,
-  };
-
-  const observerCallback = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        nameTop.style.opacity = "0";
-        nameTop.style.filter = "blur(2px)";
-      } else {
-        nameTop.style.opacity = "1";
-        nameTop.style.filter = "blur(0)";
-        nameTop.style.transition =
-          "opacity 300ms ease-in-out, filter 300ms ease-in-out";
-      }
-    });
-  };
-
-  const observer = new IntersectionObserver(observerCallback, options);
-
-  observer.observe(observationTarget);
-</script>
-
-<script>
   const observationTarget = document.getElementById("about-me");
   if (!observationTarget) {
     throw new Error("Element with ID 'about-me' not found");
@@ -210,4 +224,4 @@ const allWorks = await getCollection("works");
   const observer = new IntersectionObserver(observerCallback, options);
 
   observer.observe(observationTarget);
-</script> -->
+</script>
