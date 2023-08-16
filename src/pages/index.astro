@@ -8,22 +8,24 @@ const allWorks = await getCollection("works");
 ---
 
 <GlobalLayout>
-  <div class="flex flex-col gap-16 px-16">
+  <div class="flex flex-col gap-16 px-3">
     <div id="above-the-fold" class="h-screen">
-      <div id="p5-container" class="fixed inset-0 -z-10 w-screen"></div>
-      <div class="h-full pt-16">
-        <header id="header" class="grid gap-12">
+      <div id="p5-container" class="fixed inset-0 -z-10"></div>
+      <div class="mx-auto h-full max-w-7xl pt-16">
+        <header id="header" class="grid gap-4 sm:gap-8 md:gap-12">
           <h1>
-            <ruby class="grid gap-6"
-              ><span class="text-9xl font-bold">綿貫&nbsp;佳祐</span><rp>(</rp
-              ><rt class="flex text-4xl font-bold"
+            <ruby class="grid gap-2 sm:gap-4 md:gap-6"
+              ><span class="text-5xl font-bold sm:text-7xl md:text-9xl"
+                >綿貫&nbsp;佳祐</span
+              ><rp>(</rp><rt
+                class="flex text-2xl font-bold sm:text-3xl md:text-4xl"
                 >ワタヌキ&nbsp;<span class="tracking-tighter">ケ</span><span
                   class="tracking-tighter">イ</span
                 >スケ</rt
               ><rp>)</rp></ruby
             >
           </h1>
-          <h2 class="text-xl">
+          <h2 class="text-m sm:text-l md:text-xl">
             ユーザーインターフェース / マークアップ / グラフィック
           </h2>
         </header>
@@ -34,9 +36,16 @@ const allWorks = await getCollection("works");
         >
       </div>
     </div>
-    <section class="mx-auto grid w-content grid-cols-5 gap-4">
-      <h2 id="about-me" class="col-span-2 text-5xl font-bold">私について</h2>
-      <div class="col-span-3 flex flex-col gap-5 text-md">
+    <section
+      class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-1 gap-4 px-2 sm:grid-cols-11 sm:px-0"
+    >
+      <h2
+        id="about-me"
+        class="col-span-5 text-3xl font-bold sm:text-4xl md:text-5xl lg:col-span-4"
+      >
+        私について
+      </h2>
+      <div class="col-span-6 flex flex-col gap-5 text-md lg:col-span-7">
         <p>
           デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
         </p>
@@ -50,15 +59,22 @@ const allWorks = await getCollection("works");
         </p>
       </div>
     </section>
-    <section class="mx-auto grid w-content grid-cols-4 flex-col gap-4">
-      <h2 id="works" class="col-span-full text-5xl font-bold">制作物</h2>
+    <section
+      class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-4 flex-col gap-4 px-2 sm:px-0"
+    >
+      <h2
+        id="works"
+        class="col-span-full text-3xl font-bold sm:text-4xl md:text-5xl"
+      >
+        制作物
+      </h2>
       {
         allWorks
           .sort((a, b) => a.data.sort - b.data.sort)
           .map((work) => (
             <a
               href={`${work.collection}/${work.slug}`}
-              class="col-span-2 grid gap-1"
+              class="col-span-full grid gap-1 sm:col-span-2"
             >
               <Image src={work.data.cover} alt="" class="rounded-md" />
               <h3 class="text-md">{work.data.title}</h3>

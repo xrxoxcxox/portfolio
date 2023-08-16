@@ -7,23 +7,25 @@ const { Content } = await aboutMe.render();
 ---
 
 <GlobalLayout>
-  <div class="flex flex-col gap-16 px-16 pt-16">
-    <div class="mx-auto grid w-content grid-cols-3 gap-x-6 gap-y-10">
+  <div class="flex flex-col gap-16 px-3 pt-16">
+    <div
+      class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-3"
+    >
       <h1 class="col-span-full text-5xl font-bold">{aboutMe.data.title}</h1>
       <ul
-        class="sticky top-16 col-start-1 col-end-2 row-start-2 row-end-3 text-xs"
+        class="top-16 text-xs md:sticky md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3"
       >
         {aboutMe.data.keywords.map((keyword) => <li>{keyword}</li>)}
       </ul>
       <div
         id="content"
-        class="col-start-2 col-end-4 row-start-2 row-end-5 text-md"
+        class="text-md md:col-start-2 md:col-end-4 md:row-start-2 md:row-end-5"
       >
         <Content />
       </div>
       <a
         href="/"
-        class="col-start-1 col-end-2 row-start-4 row-end-5 self-end text-cyan-600 underline"
+        class="self-end text-cyan-600 underline md:col-start-1 md:col-end-2 md:row-start-4 md:row-end-5"
         >トップページへ</a
       >
     </div>
