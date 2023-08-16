@@ -1,12 +1,18 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll.tslint": true
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.tabSize": 2,
-  "prettier.packageManager": "yarn",
-  "prettier.proseWrap": "never"
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.documentSelectors": ["**/*.astro"],
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+  "editor.indentSize": 2
 }

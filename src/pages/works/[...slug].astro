@@ -1,0 +1,156 @@
+---
+import type {
+  GetStaticPaths,
+  InferGetStaticPropsType,
+  MarkdownHeading,
+} from "astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Footer from "../../components/Footer.astro";
+import GlobalLayout from "../../layouts/GlobalLayout.astro";
+
+export const getStaticPaths = (async () => {
+  const workEntries = await getCollection("works");
+  return workEntries.map(
+    (entry) => (
+      console.log(entry),
+      {
+        params: { slug: entry.slug },
+        props: { entry },
+      }
+    )
+  );
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+const startDate = new Intl.DateTimeFormat("ja-JP", {
+  year: "numeric",
+  month: "numeric",
+  timeZone: "Asia/Tokyo",
+}).format(entry.data.startDate);
+const endDate = entry.data.endDate
+  ? new Intl.DateTimeFormat("ja-JP", {
+      year: "numeric",
+      month: "numeric",
+      timeZone: "Asia/Tokyo",
+    }).format(entry.data.endDate)
+  : "";
+
+function buildToc(headings: MarkdownHeading[]) {
+  const toc: {
+    subheadings: never[];
+    depth: number;
+    slug: string;
+    text: string;
+  }[] = [];
+  const parentHeadings = new Map();
+  headings.forEach((h) => {
+    const heading = { ...h, subheadings: [] };
+    parentHeadings.set(heading.depth, heading);
+    if (heading.depth === 2) {
+      toc.push(heading);
+    } else {
+      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+    }
+  });
+  return toc;
+}
+
+const toc = buildToc(headings);
+---
+
+<GlobalLayout title={entry.data.title} excerpt={entry.data.excerpt}>
+  <div class="flex flex-col gap-16 px-3 pt-10 md:pt-16">
+    <div
+      class="mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-[minmax(0,_1fr)_repeat(3,_minmax(0,_320px))_minmax(0,_1fr)] md:gap-x-6"
+    >
+      <div
+        class="col-span-full md:col-start-2 md:col-end-5 md:row-start-1 md:row-end-2"
+      >
+        <h1 class="text-3xl font-bold sm:text-5xl md:text-7xl">
+          {entry.data.title}
+        </h1>
+        <div
+          class="mt-6 flex flex-col items-start gap-y-4 md:mt-8 md:flex-row md:gap-x-10"
+        >
+          <div class="border-l-2 border-stone-300 pl-3">
+            <p class="text-xs">期間</p>
+            <p class="w-max text-md md:text-lg">
+              {`${startDate} - ${endDate}`}
+            </p>
+          </div>
+          <div class="border-l-2 border-stone-300 pl-3">
+            <p class="text-xs">キーワード</p>
+            <ul class="w-max text-md md:text-lg">
+              {entry.data.keywords.map((keyword) => <li>{keyword}</li>)}
+            </ul>
+          </div>
+          <p class="border-l-2 border-stone-300 pl-3 text-md md:text-lg">
+            {entry.data.excerpt}
+          </p>
+        </div>
+      </div>
+      <Image
+        src={entry.data.cover}
+        alt=""
+        class="col-span-full rounded-xl md:row-start-2 md:row-end-3"
+      />
+      <div
+        class="md:ow-end-4 top-16 col-span-full border-l-2 border-stone-300 pl-3 md:sticky md:col-start-2 md:col-end-3 md:row-start-3"
+      >
+        <span class="text-xs">目次</span>
+        <ul class="mt-1 flex flex-col gap-1 text-sm">
+          {
+            toc.map((heading) => (
+              <li>
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div
+        id="content"
+        class="col-span-full text-md md:col-start-3 md:col-end-5 md:row-start-3 md:row-end-6"
+      >
+        <Content />
+      </div>
+      <a
+        href="/"
+        class="col-span-full self-end text-cyan-600 underline md:col-start-2 md:col-end-3 md:row-start-5 md:row-end-6"
+        >トップページへ</a
+      >
+    </div>
+    <Footer />
+  </div>
+</GlobalLayout>
+
+<style is:global>
+  #content > * + * {
+    @apply mt-5;
+  }
+  #content h2 {
+    @apply text-3xl font-bold;
+  }
+  #content > * + h2 {
+    @apply mt-10;
+  }
+  #content > h3 {
+    @apply text-xl font-bold;
+  }
+  #content a {
+    @apply text-cyan-600 underline;
+  }
+  #content ul {
+    @apply list-inside list-disc;
+  }
+  #content ol {
+    @apply list-inside list-decimal;
+  }
+  #content :where(li, ol) ul {
+    @apply list-inside list-[circle] pl-4;
+  }
+</style>
