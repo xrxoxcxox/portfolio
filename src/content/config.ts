@@ -16,7 +16,11 @@ const worksCollection = defineCollection({
       cover: image().refine((img) => img.width >= 1080, {
         message: "Cover image must be at least 1080 pixels wide!",
       }),
+      keywords: z.string().array(),
       sort: z.number(),
+      startDate: z.coerce.date(),
+      endDate: z.coerce.date().optional(),
+      excerpt: z.string(),
     }),
 });
 
