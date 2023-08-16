@@ -1,0 +1,58 @@
+---
+import GlobalLayout from "../../layouts/GlobalLayout.astro";
+import Footer from "../../components/Footer.astro";
+import { getEntry } from "astro:content";
+const aboutMe = await getEntry("about-me", "index");
+const { Content } = await aboutMe.render();
+---
+
+<GlobalLayout>
+  <div class="flex flex-col gap-16 px-3 pt-16">
+    <div
+      class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-3"
+    >
+      <h1 class="col-span-full text-5xl font-bold">{aboutMe.data.title}</h1>
+      <ul
+        class="top-16 text-xs md:sticky md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3"
+      >
+        {aboutMe.data.keywords.map((keyword) => <li>{keyword}</li>)}
+      </ul>
+      <div
+        id="content"
+        class="text-md md:col-start-2 md:col-end-4 md:row-start-2 md:row-end-5"
+      >
+        <Content />
+      </div>
+      <a
+        href="/"
+        class="self-end text-cyan-600 underline md:col-start-1 md:col-end-2 md:row-start-4 md:row-end-5"
+        >トップページへ</a
+      >
+    </div>
+    <Footer />
+  </div>
+</GlobalLayout>
+
+<style is:global>
+  #content > * + * {
+    @apply mt-5;
+  }
+  #content h2 {
+    @apply mt-10 text-3xl font-bold;
+  }
+  #content > h3 {
+    @apply text-xl font-bold;
+  }
+  #content a {
+    @apply text-cyan-600 underline;
+  }
+  #content ul {
+    @apply list-inside list-disc;
+  }
+  #content ol {
+    @apply list-inside list-decimal;
+  }
+  #content :where(li, ol) ul {
+    @apply list-inside list-[circle] pl-4;
+  }
+</style>

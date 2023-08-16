@@ -10,5 +10,9 @@
     "typescript",
     "typescriptreact"
   ],
-  "prettier.documentSelectors": ["**/*.astro"]
+  "prettier.documentSelectors": ["**/*.astro"],
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+  "editor.indentSize": 2
 }
