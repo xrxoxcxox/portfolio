@@ -35,10 +35,6 @@ function sketch(p: p5) {
   };
 }
 
-export function noiseFlowFields(containerElement: HTMLElement | null) {
-  if (containerElement !== null) {
-    new p5(sketch, containerElement);
-  } else {
-    console.error("containerElement is not found");
-  }
+export function noiseFlowFields(containerElement: HTMLElement) {
+  new p5(sketch, containerElement);
 }
