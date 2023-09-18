@@ -11,15 +11,10 @@ import GlobalLayout from "../../layouts/GlobalLayout.astro";
 
 export const getStaticPaths = (async () => {
   const workEntries = await getCollection("works");
-  return workEntries.map(
-    (entry) => (
-      console.log(entry),
-      {
-        params: { slug: entry.slug },
-        props: { entry },
-      }
-    )
-  );
+  return workEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
