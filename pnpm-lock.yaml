@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.1.0
     version: 3.1.0
   p5:
-    specifier: ^1.6.0
-    version: 1.6.0
+    specifier: ^1.7.0
+    version: 1.7.0
   sharp:
     specifier: ^0.32.5
     version: 0.32.5
@@ -26,8 +26,8 @@ dependencies:
 
 devDependencies:
   '@types/p5':
-    specifier: ^1.6.2
-    version: 1.6.2
+    specifier: ^1.7.0
+    version: 1.7.0
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.7.0
     version: 6.7.0(@typescript-eslint/parser@6.7.0)(eslint@8.49.0)(typescript@5.1.6)
@@ -979,8 +979,8 @@ packages:
       '@types/unist': 2.0.7
     dev: false
 
-  /@types/p5@1.6.2:
-    resolution: {integrity: sha512-iy1B7DBMc9e5j0DrWnIjSJh+Ro9UkKxPHspbx/GvIeGFTOIJF0H2lICnIN4go1OZEAQSHBinLd7t+oe8lrrLvA==}
+  /@types/p5@1.7.0:
+    resolution: {integrity: sha512-6AnjmW98/edgXB+pYDBx7t6QbCogIG6NUzey93JpGTZA4096C+KjSN8y0sj43QRd9XtblrAhoRXHj1pFZ2vsCg==}
     dev: true
 
   /@types/parse5@6.0.3:
@@ -3701,8 +3701,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /p5@1.6.0:
-    resolution: {integrity: sha512-RowF+RxfVUhJm/YKXL5TCFzTqnwAIwK6W1VGs9LAqSf3PCmLz9Igbxzlf0Ry5IMV71L42wipCdH/bDiNsqAstA==}
+  /p5@1.7.0:
+    resolution: {integrity: sha512-qrbT/44Dwm63ZtOKX/mp61pw+5yj6ijYLOmRv7p6zcfjbo83Vb0gVFEvW0kTLFu7hceWCig0HONo9F1bSlqbsQ==}
     dev: false
 
   /parent-module@1.0.1:
