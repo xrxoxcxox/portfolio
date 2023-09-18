@@ -76,7 +76,12 @@ const allWorks = await getCollection("works");
               href={`${work.collection}/${work.slug}`}
               class="col-span-full grid gap-1 sm:col-span-2"
             >
-              <Image src={work.data.cover} alt="" class="rounded-md" />
+              <Image
+                src={work.data.cover}
+                alt=""
+                class="rounded-md"
+                transition:name={`${work.slug}Image`}
+              />
               <h3 class="text-md">{work.data.title}</h3>
             </a>
           ))

@@ -11,7 +11,9 @@ const { Content } = await aboutMe.render();
     <div
       class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-3"
     >
-      <h1 class="col-span-full text-5xl font-bold">{aboutMe.data.title}</h1>
+      <h1 class="col-span-full text-5xl font-bold">
+        {aboutMe.data.title}
+      </h1>
       <ul
         class="top-16 text-xs md:sticky md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3"
       >
