@@ -10,7 +10,7 @@ const allWorks = await getCollection("works");
 <GlobalLayout>
   <div class="flex flex-col gap-16 px-3">
     <div id="above-the-fold" class="h-screen">
-      <div id="p5-container" class="fixed inset-0 -z-10"></div>
+      <div id="container" class="fixed inset-0 -z-10"></div>
       <div class="mx-auto h-full max-w-7xl pt-16">
         <header id="header" class="grid gap-4 sm:gap-8 md:gap-12">
           <h1>
@@ -101,15 +101,15 @@ const allWorks = await getCollection("works");
 </style>
 
 <script>
-  import { noiseFlowFields } from "../effects/noiseFlowFields";
-
   // Drawing p5 canvas
-  const p5Container = document.getElementById("p5-container");
-  if (!p5Container) {
-    throw new Error("Element with ID 'p5-container' not found");
+  const container = document.getElementById("container");
+  if (!container) {
+    throw new Error("Element with ID 'container' not found");
   }
 
-  noiseFlowFields(p5Container);
+  import Sketch from "../effects/granyGradients";
+
+  new Sketch(container);
 
   // Show / hide p5 canvas
   const observationTarget = document.getElementById("above-the-fold");
@@ -124,13 +124,13 @@ const allWorks = await getCollection("works");
   };
 
   function p5ObserverCallback(entries: IntersectionObserverEntry[]) {
-    if (!p5Container) return;
+    if (!container) return;
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        p5Container.style.opacity = "1";
+        container.style.opacity = "1";
       } else {
-        p5Container.style.opacity = "0.35";
-        p5Container.style.transition = "opacity 400ms ease-in-out";
+        container.style.opacity = "0.35";
+        container.style.transition = "opacity 400ms ease-in-out";
       }
     });
   }
