@@ -1,14 +1,10 @@
 import * as THREE from "three";
-
-import fragment from "./shader/fragment.glsl?raw";
-import fragment1 from "./shader/fragment1.glsl?raw";
-import vertex from "./shader/vertex.glsl?raw";
-import vertex1 from "./shader/vertex1.glsl?raw";
-
-import { DotScreenShader } from "./CustomShader";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
+import { DotScreenShader } from "./CustomShader";
+import fragment from "./shader/fragment.glsl?raw";
+import vertex from "./shader/vertex.glsl?raw";
 
 export default class Sketch {
   constructor(options) {
@@ -26,12 +22,8 @@ export default class Sketch {
 
     this.container.appendChild(this.renderer.domElement);
 
-    this.camera = new THREE.PerspectiveCamera(
-      70,
-      window.innerWidth / window.innerHeight,
-      0.001,
-      1000
-    );
+    this.camera = new THREE.PerspectiveCamera();
+    this.camera.aspect = window.innerWidth / window.innerHeight;
 
     this.camera.position.set(0, 0, 1.3);
     this.time = 0;
@@ -122,28 +114,6 @@ export default class Sketch {
 
     this.plane = new THREE.Mesh(this.geometry, this.material);
     this.scene.add(this.plane);
-
-    let geo = new THREE.SphereGeometry(0.4, 32, 32);
-    this.mat = new THREE.ShaderMaterial({
-      extensions: {
-        derivatives: "#extension GL_OES_standard_derivatives : enable",
-      },
-      side: THREE.DoubleSide,
-      uniforms: {
-        time: { value: 0 },
-        tCube: { value: 0 },
-        mRefractionRatio: { value: 1.02 },
-        mFresnelBias: { value: 0.1 },
-        mFresnelScale: { value: 4 },
-        mFresnelPower: { value: 2 },
-        resolution: { value: new THREE.Vector4() },
-      },
-      vertexShader: vertex1,
-      fragmentShader: fragment1,
-    });
-
-    this.smallSphere = new THREE.Mesh(geo, this.mat);
-    this.scene.add(this.smallSphere);
   }
 
   stop() {
@@ -160,10 +130,7 @@ export default class Sketch {
   render() {
     if (!this.isPlaying) return;
     this.time += 0.01;
-    this.smallSphere.visible = false;
     this.cubeCamera.update(this.renderer, this.scene);
-    this.smallSphere.visible = true;
-    this.mat.uniforms.tCube.value = this.cubeRenderTarget.texture;
     this.material.uniforms.time.value = this.time;
     requestAnimationFrame(this.render.bind(this));
     this.composer.render(this.scene, this.camera);

@@ -53,8 +53,6 @@ const DotScreenShader = {
       );
     }
 
-
-
 		void main() {
 			vec4 color = texture2D( tDiffuse, vUv );
         vec2 uvrandom = vUv;
