@@ -1,11 +1,12 @@
 ---
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 import Footer from "../components/Footer.astro";
+import GrainyGradients from "../components/GrainyGradients.astro";
 ---
 
 <GlobalLayout>
-  <div class="flex h-screen flex-col gap-16 px-3 pt-12">
-    <div id="canvas-container" class="fixed inset-0 -z-10 opacity-50"></div>
+  <div class="flex h-screen flex-col gap-16 px-3 pt-12 sm:px-5 md:px-7">
+    <GrainyGradients />
     <div
       class="flex flex-grow flex-col items-center justify-center gap-6 text-center"
     >
@@ -19,15 +20,3 @@ import Footer from "../components/Footer.astro";
     <Footer />
   </div>
 </GlobalLayout>
-
-<script>
-  // Drawing canvas
-  const canvasContainer = document.getElementById("canvas-container");
-  if (!canvasContainer) {
-    throw new Error("Element with ID 'canvas-container' not found");
-  }
-
-  import { createGranyGradients } from "../effects/granyGradients";
-
-  createGranyGradients(canvasContainer);
-</script>

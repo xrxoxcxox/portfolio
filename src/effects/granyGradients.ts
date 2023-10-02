@@ -7,18 +7,16 @@ import gradientVertex from "./shader/gradientVertex.glsl?raw";
 import grainyFragment from "./shader/grainyFragment.glsl?raw";
 import grainyVertex from "./shader/grainyVertex.glsl?raw";
 
-export function createGranyGradients(dom: HTMLElement) {
+export function createGranyGradients(canvas: HTMLCanvasElement) {
   // Setup
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera();
   camera.position.z = 1;
 
-  const renderer = new THREE.WebGLRenderer();
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.outputColorSpace = THREE.DisplayP3ColorSpace;
-
-  dom.appendChild(renderer.domElement);
 
   // Add gradient plane
   const gradientPlaneGeometry = new THREE.PlaneGeometry(2, 2);

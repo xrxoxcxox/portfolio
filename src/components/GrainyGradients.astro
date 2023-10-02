@@ -1,0 +1,54 @@
+<canvas id="grainy-gradient-canvas" class="fixed inset-0 -z-10"></canvas>
+
+<script>
+  import { createGranyGradients } from "../effects/granyGradients";
+
+  // Draw canvas
+  function drawGrainyGradients() {
+    const canvasElement = document.getElementById("grainy-gradient-canvas");
+    if (canvasElement instanceof HTMLCanvasElement) {
+      createGranyGradients(canvasElement);
+    }
+  }
+
+  drawGrainyGradients();
+
+  document.addEventListener("astro:after-swap", drawGrainyGradients);
+
+  // Observe canvas
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.95,
+  };
+
+  function observerCallback(entries: IntersectionObserverEntry[]) {
+    const canvasElement = document.getElementById("grainy-gradient-canvas");
+    if (!canvasElement) return;
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        canvasElement.style.opacity = "1";
+      } else {
+        canvasElement.style.opacity = "0.5";
+        canvasElement.style.transition = "opacity 400ms ease-in-out";
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  function toggleGrainyGradientsVisibility() {
+    const observationTarget = document.getElementById(
+      "grainy-gradient-observation-target"
+    );
+    if (!observationTarget) return;
+    observer.observe(observationTarget);
+  }
+
+  toggleGrainyGradientsVisibility();
+
+  document.addEventListener(
+    "astro:after-swap",
+    toggleGrainyGradientsVisibility
+  );
+</script>
