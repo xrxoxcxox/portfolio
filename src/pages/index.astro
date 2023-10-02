@@ -107,9 +107,9 @@ const allWorks = await getCollection("works");
     throw new Error("Element with ID 'container' not found");
   }
 
-  import Sketch from "../effects/granyGradients";
+  import { createGranyGradients } from "../effects/granyGradients";
 
-  new Sketch(container);
+  createGranyGradients(container);
 
   // Show / hide p5 canvas
   const observationTarget = document.getElementById("above-the-fold");

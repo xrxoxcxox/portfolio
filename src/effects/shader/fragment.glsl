@@ -43,7 +43,7 @@ void main() {
 	vec3 baseFirst = vec3(226.0 / 255.0, 232.0 / 255.0, 240.0 / 255.0);
 	vec3 baseSecond = vec3(203.0 / 255.0, 213.0 / 255.0, 225.0 / 255.0);
 	vec3 accent = vec3(241.0 / 255.0, 245.0 / 255.0, 249.0 / 255.0);
-	float n = noise(vPosition + (time / 3.0));
+	float n = noise(vPosition + time);
 
 	vec2 baseUV = rotate2D(n) * vPosition.xy * 0.1;
 	float basePattern = lines(baseUV, 0.5);
