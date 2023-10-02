@@ -1,7 +1,7 @@
 ---
 title: ポートフォリオ
 cover: "./cover.png"
-keywords: ["Figma", "Astro", "Tailwind CSS", "TypeScript", "p5.js", "Vercel"]
+keywords: ["Figma", "Astro", "Tailwind CSS", "TypeScript", "three.js", "Vercel"]
 sort: 1
 startDate: "2023-08"
 excerpt: "このポートフォリオそのものも制作物の 1 つと捉えています。作った経緯や使用している技術、今後の展望などを記載します。"
@@ -21,7 +21,7 @@ Gatsby 自体はとても良いツールで React の勉強にもなりました
 - [Astro](https://astro.build/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [p5.js](https://p5js.org/)
+- [three.js](https://threejs.org/)
 - [Vercel](https://vercel.com/)
 
 ## 上記の技術を選んだ理由
@@ -58,15 +58,15 @@ Astro にはデフォルトで TypeScript のサポートが組み込まれて�
 
 ポートフォリオ制作においても、正直言って Astro によるスコープ設定だけを活かした素の CSS を書く方が早かったのですが、ひとまず練習中です。
 
-### p5.js
+### three.js
 
 ここ最近はクリエイティブコーディングに興味があり、canvas 関連のインプットをしていることが多かったです。
 
-そんな中、素の canvas や three.js は何度か試したことがありましたが、p5.js は触ったことがなかったので、今回はそれを使ってみることにしました。
+中でも、オンスクリーンにおけるノイズ表現は面白いと感じていて、それを活かして何か作りたいと思っていました。  
+デジタルコンテンツはムラや不均衡がなく非常に綺麗なのが魅力ですが、逆にそれが物足りないと感じることもあります。  
+特に最近はフラットデザインからの脱却が進んでいるように感じていて、その一環として動くノイズを実装してみました。
 
-トップページのノイズアニメーションは p5.js を用いて実装して、Qiita で記事にもしています。
-
-[ページロード時のアニメーション、Perlin Noise で Flow Fields - Qiita](https://qiita.com/xrxoxcxox/items/7d374d27637a4e9edf15)
+初めてシェーダーを自分で書いてみてもいます。
 
 ### Vercel
 
