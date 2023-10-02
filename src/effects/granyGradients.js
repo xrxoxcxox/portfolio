@@ -2,9 +2,10 @@ import * as THREE from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
-import { DotScreenShader } from "./CustomShader";
-import fragment from "./shader/fragment.glsl?raw";
-import vertex from "./shader/vertex.glsl?raw";
+import gradientFragment from "./shader/gradientFragment.glsl?raw";
+import gradientVertex from "./shader/gradientVertex.glsl?raw";
+import grainyFragment from "./shader/grainyFragment.glsl?raw";
+import grainyVertex from "./shader/grainyVertex.glsl?raw";
 
 export function createGranyGradients(dom) {
   const scene = new THREE.Scene();
@@ -23,8 +24,8 @@ export function createGranyGradients(dom) {
     uniforms: {
       time: { value: 0 },
     },
-    vertexShader: vertex,
-    fragmentShader: fragment,
+    vertexShader: gradientVertex,
+    fragmentShader: gradientFragment,
   });
 
   const plane = new THREE.Mesh(planeGeometry, planeMaterial);
@@ -35,14 +36,19 @@ export function createGranyGradients(dom) {
   const renderPass = new RenderPass(scene, camera);
   composer.addPass(renderPass);
 
-  const dotScreenShaderPass = new ShaderPass(DotScreenShader);
-  composer.addPass(dotScreenShaderPass);
+  const GrainyShader = {
+    uniforms: {
+      tDiffuse: { value: null },
+    },
+    vertexShader: grainyVertex,
+    fragmentShader: grainyFragment,
+  };
 
-  let time = 0;
+  const GrainyShaderPass = new ShaderPass(GrainyShader);
+  composer.addPass(GrainyShaderPass);
 
   function render() {
-    time += 0.005;
-    planeMaterial.uniforms.time.value = time;
+    planeMaterial.uniforms.time.value += 0.005;
     requestAnimationFrame(render);
     composer.render();
   }

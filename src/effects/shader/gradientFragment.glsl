@@ -1,4 +1,5 @@
 uniform float time;
+
 varying vec3 vPosition;
 
 // NOISE
@@ -52,6 +53,5 @@ void main() {
 	vec3 baseColor = mix(baseSecond, baseFirst, basePattern);
 	vec3 secondBaseColor = mix(baseColor, accent, secondPattern);
 
-	// vec2 newUV = (vUv - vec2(0.5))*resolution.zw + vec2(0.5);
 	gl_FragColor = vec4(vec3(secondBaseColor), 1.);
 }
