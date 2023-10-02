@@ -3,17 +3,18 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 import Footer from "../components/Footer.astro";
+import GrainyGradients from "../components/GrainyGradients.astro";
 
 const allWorks = await getCollection("works");
 ---
 
 <GlobalLayout>
-  <div class="flex flex-col gap-16 px-3">
+  <div class="flex flex-col gap-16 px-3 sm:px-5 md:px-7">
     <div id="above-the-fold" class="h-screen">
-      <div id="p5-container" class="fixed inset-0 -z-10"></div>
+      <GrainyGradients />
       <div class="mx-auto h-full max-w-7xl pt-16">
         <header id="header" class="grid gap-4 sm:gap-8 md:gap-12">
-          <h1>
+          <h1 id="grainy-gradient-observation-target">
             <ruby class="grid gap-2 sm:gap-4 md:gap-6"
               ><span class="text-5xl font-bold sm:text-7xl md:text-9xl"
                 >綿貫&nbsp;佳祐</span
@@ -101,65 +102,22 @@ const allWorks = await getCollection("works");
 </style>
 
 <script>
-  import { noiseFlowFields } from "../effects/noiseFlowFields";
-
-  // Drawing p5 canvas
-  const p5Container = document.getElementById("p5-container");
-  if (!p5Container) {
-    throw new Error("Element with ID 'p5-container' not found");
-  }
-
-  noiseFlowFields(p5Container);
-
-  // Show / hide p5 canvas
-  const observationTarget = document.getElementById("above-the-fold");
-  if (!observationTarget) {
-    throw new Error("Element with ID 'above-the-fold' not found");
-  }
-
-  const p5Options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.95,
-  };
-
-  function p5ObserverCallback(entries: IntersectionObserverEntry[]) {
-    if (!p5Container) return;
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        p5Container.style.opacity = "1";
-      } else {
-        p5Container.style.opacity = "0.35";
-        p5Container.style.transition = "opacity 400ms ease-in-out";
-      }
-    });
-  }
-
-  const p5Observer = new IntersectionObserver(p5ObserverCallback, p5Options);
-
-  p5Observer.observe(observationTarget);
-
-  // Show / hide scroll guide
-  const scrollGuide = document.getElementById("scroll-guide");
-  if (!scrollGuide) {
-    throw new Error("Element with ID 'scroll-guide' not found");
-  }
-
-  const scrollGuideOptions = {
+  const scrollGuideObserverOptions = {
     root: null,
     rootMargin: "64px",
     threshold: 1,
   };
 
   function scrollGuideObserverCallback(entries: IntersectionObserverEntry[]) {
+    const scrollGuide = document.getElementById("scroll-guide");
+    if (!scrollGuide) return;
     entries.forEach((entry: { isIntersecting: boolean }) => {
-      if (!scrollGuide) return;
       if (entry.isIntersecting) {
         scrollGuide.style.opacity = "1";
         scrollGuide.style.transform = "translateY(0)";
       } else {
         scrollGuide.style.opacity = "0";
-        scrollGuide.style.transform = "translateY(-16px)";
+        scrollGuide.style.transform = "translateY(-24px)";
         scrollGuide.style.transition =
           "opacity 300ms ease-in-out, transform 300ms ease-in-out";
       }
@@ -168,8 +126,16 @@ const allWorks = await getCollection("works");
 
   const scrollGuideObserver = new IntersectionObserver(
     scrollGuideObserverCallback,
-    scrollGuideOptions
+    scrollGuideObserverOptions
   );
 
-  scrollGuideObserver.observe(observationTarget);
+  function toggleScrollGuideVisibility() {
+    const observationTarget = document.getElementById("above-the-fold");
+    if (!observationTarget) return;
+    scrollGuideObserver.observe(observationTarget);
+  }
+
+  toggleScrollGuideVisibility();
+
+  document.addEventListener("astro:after-swap", toggleScrollGuideVisibility);
 </script>

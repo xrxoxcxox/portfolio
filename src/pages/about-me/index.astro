@@ -1,17 +1,22 @@
 ---
 import GlobalLayout from "../../layouts/GlobalLayout.astro";
 import Footer from "../../components/Footer.astro";
+import GrainyGradients from "../../components/GrainyGradients.astro";
 import { getEntry } from "astro:content";
 const aboutMe = await getEntry("about-me", "index");
 const { Content } = await aboutMe.render();
 ---
 
 <GlobalLayout>
-  <div class="flex flex-col gap-16 px-3 pt-16">
+  <div class="flex flex-col gap-16 px-3 pt-16 sm:px-5 md:px-7">
+    <GrainyGradients />
     <div
       class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-3"
     >
-      <h1 class="col-span-full text-5xl font-bold">
+      <h1
+        id="grainy-gradient-observation-target"
+        class="col-span-full text-5xl font-bold"
+      >
         {aboutMe.data.title}
       </h1>
       <ul
