@@ -1,13 +1,14 @@
 import * as THREE from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
-import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import gradientFragment from "./shader/gradientFragment.glsl?raw";
 import gradientVertex from "./shader/gradientVertex.glsl?raw";
 import grainyFragment from "./shader/grainyFragment.glsl?raw";
 import grainyVertex from "./shader/grainyVertex.glsl?raw";
 
-export function createGranyGradients(dom) {
+export function createGranyGradients(dom: HTMLElement) {
+  // Setup
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera();
   camera.position.z = 1;
@@ -19,8 +20,9 @@ export function createGranyGradients(dom) {
 
   dom.appendChild(renderer.domElement);
 
-  const planeGeometry = new THREE.PlaneGeometry(2, 2);
-  const planeMaterial = new THREE.ShaderMaterial({
+  // Add gradient plane
+  const gradientPlaneGeometry = new THREE.PlaneGeometry(2, 2);
+  const gradientPlaneMaterial = new THREE.ShaderMaterial({
     uniforms: {
       time: { value: 0 },
     },
@@ -28,15 +30,16 @@ export function createGranyGradients(dom) {
     fragmentShader: gradientFragment,
   });
 
-  const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+  const plane = new THREE.Mesh(gradientPlaneGeometry, gradientPlaneMaterial);
   scene.add(plane);
 
+  // Postprocessing
   const composer = new EffectComposer(renderer);
 
   const renderPass = new RenderPass(scene, camera);
   composer.addPass(renderPass);
 
-  const GrainyShader = {
+  const grainyShader = {
     uniforms: {
       tDiffuse: { value: null },
     },
@@ -44,22 +47,23 @@ export function createGranyGradients(dom) {
     fragmentShader: grainyFragment,
   };
 
-  const GrainyShaderPass = new ShaderPass(GrainyShader);
-  composer.addPass(GrainyShaderPass);
+  const grainyShaderPass = new ShaderPass(grainyShader);
+  composer.addPass(grainyShaderPass);
 
+  // Render
   function render() {
-    planeMaterial.uniforms.time.value += 0.005;
+    gradientPlaneMaterial.uniforms.time.value += 0.005;
     requestAnimationFrame(render);
     composer.render();
   }
 
   render();
 
+  // Resize
   window.addEventListener("resize", () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
     renderer.setSize(width, height);

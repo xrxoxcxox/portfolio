@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 
 <GlobalLayout>
   <div class="flex h-screen flex-col gap-16 px-3 pt-12">
-    <div id="p5-container" class="fixed inset-0 -z-10 opacity-50"></div>
+    <div id="canvas-container" class="fixed inset-0 -z-10 opacity-50"></div>
     <div
       class="flex flex-grow flex-col items-center justify-center gap-6 text-center"
     >
@@ -21,13 +21,13 @@ import Footer from "../components/Footer.astro";
 </GlobalLayout>
 
 <script>
-  import { noiseFlowFields } from "../effects/noiseFlowFields";
-
-  // Drawing p5 canvas
-  const p5Container = document.getElementById("p5-container");
-  if (!p5Container) {
-    throw new Error("Element with ID 'p5-container' not found");
+  // Drawing canvas
+  const canvasContainer = document.getElementById("canvas-container");
+  if (!canvasContainer) {
+    throw new Error("Element with ID 'canvas-container' not found");
   }
 
-  noiseFlowFields(p5Container);
+  import { createGranyGradients } from "../effects/granyGradients";
+
+  createGranyGradients(canvasContainer);
 </script>

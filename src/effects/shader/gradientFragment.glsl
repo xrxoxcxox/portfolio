@@ -41,17 +41,15 @@ mat2 rotate2D(float angle) {
 }
 
 void main() {
-	vec3 baseFirst = vec3(226.0 / 255.0, 232.0 / 255.0, 240.0 / 255.0);
-	vec3 baseSecond = vec3(203.0 / 255.0, 213.0 / 255.0, 225.0 / 255.0);
-	vec3 accent = vec3(241.0 / 255.0, 245.0 / 255.0, 249.0 / 255.0);
-	float n = noise(vPosition + time);
+	vec3 firstColor = vec3(161.0 / 255.0, 161.0 / 255.0, 170.0 / 255.0); // Tailwind CSS v3 Zinc 400
+	vec3 secondColor = vec3(212.0 / 255.0, 212.0 / 255.0, 216.0 / 255.0); // Tailwind CSS v3 Zinc 300
+	vec3 thirdColor = vec3(228.0 / 255.0, 228.0 / 255.0, 231.0 / 255.0); // Tailwind CSS v3 Zinc 200
 
-	vec2 baseUV = rotate2D(n) * vPosition.xy * 0.1;
-	float basePattern = lines(baseUV, 0.5);
-	float secondPattern = lines(baseUV, 0.1);
+	float noiseAngle = noise(vPosition + time);
+	vec2 baseUV = rotate2D(noiseAngle) * vPosition.xy * 0.1;
 
-	vec3 baseColor = mix(baseSecond, baseFirst, basePattern);
-	vec3 secondBaseColor = mix(baseColor, accent, secondPattern);
+	vec3 mixedTwoColor = mix(firstColor, secondColor, lines(baseUV, 0.5));
+	vec3 mixedThreeColor = mix(mixedTwoColor, thirdColor, lines(baseUV, 0.1));
 
-	gl_FragColor = vec4(vec3(secondBaseColor), 1.);
+	gl_FragColor = vec4(vec3(mixedThreeColor), 1.0);
 }
