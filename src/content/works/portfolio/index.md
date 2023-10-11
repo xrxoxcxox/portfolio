@@ -1,7 +1,7 @@
 ---
 title: ポートフォリオ
 cover: "./cover.png"
-keywords: ["Figma", "Astro", "Tailwind CSS", "TypeScript", "three.js", "Vercel"]
+keywords: ["Figma", "Astro", "Tailwind CSS", "TypeScript", "three.js", "Vercel", "Bun"]
 sort: 1
 startDate: "2023-08"
 excerpt: "このポートフォリオそのものも制作物の 1 つと捉えています。作った経緯や使用している技術、今後の展望などを記載します。"
@@ -23,6 +23,7 @@ Gatsby 自体はとても良いツールで React の勉強にもなりました
 - [Tailwind CSS](https://tailwindcss.com/)
 - [three.js](https://threejs.org/)
 - [Vercel](https://vercel.com/)
+- [Bun](https://bun.sh/)
 
 ## 上記の技術を選んだ理由
 
@@ -82,6 +83,14 @@ Astro の公式ドキュメントでは最初に Netlify が紹介されてい�
 デプロイ周りは自分の知識がほとんどないため、有名なものやドキュメントが豊富そうなものを選ぶことしました。
 
 そんな中、Vercel は Astro の公式ドキュメントで 2 番目に記載されているのと、Astro のスポンサーもしているので安心感があり選びました。
+
+### Bun
+
+2023 年 10 月 12 日追記:  
+Bun をパッケージマネージャーとして使っています。
+
+[Bun は 2023 年 9 月 8 日にバージョン 1.0 がリリースされた](https://bun.sh/blog/bun-v1.0)ばかりです。
+もともと PNPM を使っていましたが、速いに越したことはないため Bun へ乗り換えました。
 
 ## 今後の展望
 
