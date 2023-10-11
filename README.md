@@ -4,10 +4,10 @@
 
 | Command        | Action                                       |
 | -------------- | -------------------------------------------- |
-| `pnpm install` | Installs dependencies                        |
-| `pnpm dev`     | Starts local dev server at `localhost:3000`  |
-| `pnpm build`   | Build your production site to `./dist/`      |
-| `pnpm preview` | Preview your build locally, before deploying |
+| `bun install` | Installs dependencies                        |
+| `bun dev`     | Starts local dev server at `localhost:4321`  |
+| `bun build`   | Build your production site to `./dist/`      |
+| `bun preview` | Preview your build locally, before deploying |
 
 ## Content Languages
 
