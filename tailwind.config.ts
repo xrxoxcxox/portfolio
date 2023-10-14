@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
@@ -43,14 +44,10 @@ module.exports = {
       40: "15rem",
     },
     extend: {
-      height: {
-        screen: ["100vh", "100dvh"],
-      },
       width: {
         content: "1080px",
-        screen: ["100vw", "100dvw"],
       },
     },
   },
   plugins: [],
-};
+} satisfies Config;
