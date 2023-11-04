@@ -1,8 +1,11 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+    borderRadius: {
+      sm: "0.375rem",
+    },
     fontFamily: {
       serif: ["Shippori Mincho", "serif"],
     },
@@ -42,8 +45,22 @@ export default {
       32: "12rem",
       36: "13.5rem",
       40: "15rem",
+      44: "16.5rem",
+      48: "18rem",
+      52: "19.5rem",
+      56: "21rem",
+      60: "22.5rem",
+      64: "24rem",
+      72: "27rem",
+      80: "30rem",
+      96: "36rem",
     },
     extend: {
+      screens: {
+        sm: "480px",
+        md: "640px",
+        lg: "960px",
+      },
       width: {
         content: "1080px",
       },

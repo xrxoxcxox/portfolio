@@ -9,78 +9,112 @@ const allWorks = await getCollection("works");
 ---
 
 <GlobalLayout>
-  <div class="flex flex-col gap-16 px-3 sm:px-5 md:px-7">
-    <div id="above-the-fold" class="h-screen  h-[100dvh]">
-      <GrainyGradients />
-      <div class="mx-auto h-full max-w-7xl pt-16">
-        <header id="header" class="grid gap-4 sm:gap-8 md:gap-12">
-          <h1 id="grainy-gradient-observation-target">
-            <ruby class="grid gap-2 sm:gap-4 md:gap-6"
-              ><span class="text-5xl font-bold sm:text-7xl md:text-9xl"
-                >綿貫&nbsp;佳祐</span
-              ><rp>(</rp><rt
-                class="flex text-2xl font-bold sm:text-3xl md:text-4xl"
-                >ワタヌキ&nbsp;<span class="tracking-tighter">ケ</span><span
-                  class="tracking-tighter">イ</span
-                >スケ</rt
+  <GrainyGradients />
+  <div
+    class="grid grid-cols-[theme('width.2')_1fr_minmax(0,theme('width.60'))_1fr_theme('width.2')] gap-y-4 sm:grid-cols-[theme('width.4')_1fr_minmax(0,theme('width.80'))_1fr_theme('width.4')] sm:gap-y-10 md:grid-cols-[theme('width.8')_1fr_minmax(0,theme('width.content'))_1fr_theme('width.8')] md:gap-y-16 lg:grid-cols-[theme('width.16')_1fr_minmax(0,theme('width.content'))_1fr_theme('width.16')]"
+  >
+    <div
+      id="above-the-fold"
+      class="col-start-2 col-end-5 flex h-screen flex-col gap-y-5 pb-3 pt-2 sm:gap-y-6 sm:pb-4 sm:pt-3 md:gap-y-10"
+    >
+      <header
+        class="flex flex-wrap items-center justify-between gap-x-3 text-xs font-bold"
+      >
+        <span>デザイン ポートフォリオ</span>
+        <hr class="flex-grow border-zinc-300" />
+        <span>ユーザーインターフェース / マークアップ / グラフィック</span>
+      </header>
+      <div class="relative flex flex-grow flex-col justify-between">
+        <section class="flex flex-col gap-y-3 sm:gap-y-4 md:gap-y-6">
+          <h1>
+            <ruby
+              class="grid gap-y-2 text-[calc((100vw-2*theme('width.2'))/4)] leading-none sm:text-[calc((100vw-2*theme('width.4'))/4)] md:gap-y-4 md:text-[calc((100vw-2*theme('width.8'))/6)]"
+              ><span class="font-bold">綿貫佳祐</span><rp>(</rp><rt
+                class="flex text-[calc(1em/3)] font-bold">Keisuke Watanuki</rt
               ><rp>)</rp></ruby
             >
           </h1>
-          <h2 class="text-m sm:text-l md:text-xl">
-            ユーザーインターフェース / マークアップ / グラフィック
-          </h2>
-        </header>
+          <div class="flex flex-col items-start gap-y-3 lg:gap-y-5">
+            <p
+              class="w-full text-sm sm:w-[calc((100vw-2*theme('width.4'))*0.75)] md:w-[calc((100vw-2*theme('width.8'))*0.5)] lg:text-md"
+            >
+              デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れてものづくりをします。
+            </p>
+            <a
+              href="/about-me"
+              class="rounded-sm bg-zinc-700 px-3 py-1 text-sm font-bold text-zinc-50 transition-colors hover:bg-zinc-900 lg:px-6 lg:py-2 lg:text-md"
+              >詳細なプロフィール</a
+            >
+          </div>
+        </section>
+
         <span
           id="scroll-guide"
-          class="scroll-guide fixed bottom-8 flex gap-1 text-sm"
-          >下へスクロール</span
+          class="fixed bottom-5 flex items-center gap-2 text-xs"
         >
+          <svg width="18" height="25" viewBox="0 0 18 25">
+            <defs>
+              <symbol id="arrow">
+                <path
+                  d="M1 0l-1 1c3 1 7 4 9 6c2 -2 6 -5 9 -6l-1 -1c-4 1 -8 4 -8 4c0 0 -4 -3 -8 -4Z"
+                >
+                  <animateMotion
+                    dur="4s"
+                    repeatCount="indefinite"
+                    path="M0 0 V18"></animateMotion>
+                </path>
+              </symbol>
+            </defs>
+            <use href="#arrow" y="-18"></use>
+            <use href="#arrow" y="-9"></use>
+            <use href="#arrow" y="0"></use>
+            <use href="#arrow" y="9"></use>
+            <use href="#arrow" y="18"></use>
+          </svg>
+           下へスクロール
+        </span>
+        <div class="absolute bottom-0 right-0 flex flex-col">
+          <a
+            href="https://twitter.com/xrxoxcxox"
+            class="rounded-sm p-2 transition-colors hover:bg-slate-50"
+            title="X (Twitter)"
+          >
+            <img src="logo-x.svg" alt="" class="w-4" />
+          </a>
+          <a
+            href="https://www.instagram.com/xrxoxcxox"
+            class="rounded-sm p-2 transition-colors hover:bg-slate-50"
+            title="Instagram"
+          >
+            <img src="logo-instagram.svg" alt="" class="w-4" />
+          </a>
+          <a
+            href="https://twitter.com/xrxoxcxox"
+            class="rounded-sm p-2 transition-colors hover:bg-slate-50"
+            title="GitHub"
+          >
+            <img src="logo-github.svg" alt="" class="w-4" />
+          </a>
+        </div>
       </div>
     </div>
     <section
-      class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-1 gap-4 px-2 sm:grid-cols-11 sm:px-0"
+      id="works"
+      class="col-start-3 col-end-4 grid grid-cols-4 flex-col gap-4"
     >
-      <h2
-        id="about-me"
-        class="col-span-5 text-3xl font-bold sm:text-4xl md:text-5xl lg:col-span-4"
-      >
-        私について
-      </h2>
-      <div class="col-span-6 flex flex-col gap-5 text-md lg:col-span-7">
-        <p>
-          デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。静的な意匠だけでなく、データの構造や使用時の心地よさなども考慮に入れながら制作するよう心掛けています。
-        </p>
-        <p>
-          答えの無い問いに向き合うのが好きで、自分自身の在り方や世の中を美しくするための方法について考えている時間が長いです。
-        </p>
-        <p>
-          <a href="/about-me" class="text-cyan-600 underline"
-            >詳細なプロフィール</a
-          >
-        </p>
-      </div>
-    </section>
-    <section
-      class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-4 flex-col gap-4 px-2 sm:px-0"
-    >
-      <h2
-        id="works"
-        class="col-span-full text-3xl font-bold sm:text-4xl md:text-5xl"
-      >
-        制作物
-      </h2>
+      <h2 class="col-span-full text-3xl font-bold">制作物</h2>
       {
         allWorks
           .sort((a, b) => a.data.sort - b.data.sort)
           .map((work) => (
             <a
               href={`${work.collection}/${work.slug}`}
-              class="col-span-full grid gap-1 sm:col-span-2"
+              class="col-span-full grid gap-1 md:col-span-2"
             >
               <Image
                 src={work.data.cover}
                 alt=""
-                class="rounded-md"
+                class="rounded-sm"
                 transition:name={`${work.slug}Image`}
               />
               <h3 class="text-md">{work.data.title}</h3>
@@ -88,23 +122,16 @@ const allWorks = await getCollection("works");
           ))
       }
     </section>
-    <Footer />
+    <div class="col-start-2 col-end-5">
+      <Footer />
+    </div>
   </div>
 </GlobalLayout>
-
-<style>
-  .scroll-guide {
-    writing-mode: vertical-lr;
-  }
-  .scroll-guide::after {
-    content: url('data:image/svg+xml;utf-8,<svg fill="currentColor" width="18" height="14" viewBox="0 0 18 14" xmlns="http://www.w3.org/2000/svg"><path d="M1 0L0 1C3 2 7 5 9 7C11 5 15 2 18 1L17 0C13 1 9 4 9 4C9 4 5 1 1 0Z"/><path d="M1 7L0 8C3 9 7 12 9 14C11 12 15 9 18 8L17 7C13 8 9 11 9 11C9 11 5 8 1 7Z"/></svg>');
-  }
-</style>
 
 <script>
   const scrollGuideObserverOptions = {
     root: null,
-    rootMargin: "64px",
+    rootMargin: "24px",
     threshold: 1,
   };
 
@@ -114,19 +141,16 @@ const allWorks = await getCollection("works");
     entries.forEach((entry: { isIntersecting: boolean }) => {
       if (entry.isIntersecting) {
         scrollGuide.style.opacity = "1";
-        scrollGuide.style.transform = "translateY(0)";
       } else {
         scrollGuide.style.opacity = "0";
-        scrollGuide.style.transform = "translateY(-24px)";
-        scrollGuide.style.transition =
-          "opacity 300ms ease-in-out, transform 300ms ease-in-out";
+        scrollGuide.style.transition = "opacity 300ms ease-in-out";
       }
     });
   }
 
   const scrollGuideObserver = new IntersectionObserver(
     scrollGuideObserverCallback,
-    scrollGuideObserverOptions
+    scrollGuideObserverOptions,
   );
 
   function toggleScrollGuideVisibility() {

@@ -1,7 +1,8 @@
 ---
 title: ポートフォリオ
 cover: "./cover.png"
-keywords: ["Figma", "Astro", "Tailwind CSS", "TypeScript", "three.js", "Vercel", "Bun"]
+keywords:
+  ["Figma", "Astro", "Tailwind CSS", "TypeScript", "three.js", "Vercel", "Bun"]
 sort: 1
 startDate: "2023-08"
 excerpt: "このポートフォリオそのものも制作物の 1 つと捉えています。作った経緯や使用している技術、今後の展望などを記載します。"
