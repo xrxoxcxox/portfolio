@@ -2,7 +2,6 @@
 title: "記事制作ディレクションシステム"
 cover: "./cover.png"
 keywords: ["Figma", "Vue.js", "Vuetify", "ユーザーインタビュー", "情報設計"]
-sort: 3
 startDate: "2020-05"
 endDate: "2020-11"
 excerpt: "メディアエンジン株式会社様の記事制作ディレクションシステムのUIデザインをしました。既存の社内向けツールをアップデートするプロジェクトです。"

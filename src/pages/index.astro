@@ -105,7 +105,9 @@ const allWorks = await getCollection("works");
       <h2 class="col-span-full text-3xl font-bold">制作物</h2>
       {
         allWorks
-          .sort((a, b) => a.data.sort - b.data.sort)
+          .sort(
+            (a, b) => b.data.startDate.getTime() - a.data.startDate.getTime(),
+          )
           .map((work) => (
             <a
               href={`${work.collection}/${work.slug}`}
