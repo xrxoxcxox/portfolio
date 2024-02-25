@@ -4,6 +4,8 @@ import { getCollection } from "astro:content";
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 import Footer from "../components/Footer.astro";
 import GrainyGradients from "../components/GrainyGradients.astro";
+import darkTheme from "./20231006-dark_theme.jpg";
+import kininaruDevops from "./20231120-kininaru_devops.jpg";
 
 const allWorks = await getCollection("works");
 ---
@@ -71,7 +73,7 @@ const allWorks = await getCollection("works");
             <use href="#arrow" y="9"></use>
             <use href="#arrow" y="18"></use>
           </svg>
-           下へスクロール
+          下へスクロール
         </span>
         <div class="absolute bottom-0 right-0 flex flex-col">
           <a
@@ -123,6 +125,28 @@ const allWorks = await getCollection("works");
             </a>
           ))
       }
+    </section>
+    <section
+      id="blog"
+      class="col-start-3 col-end-4 grid grid-cols-4 flex-col gap-4"
+    >
+      <h2 class="col-span-full text-3xl font-bold">記事</h2>
+      <a
+        href="https://qiita.com/xrxoxcxox/items/9fac826a2e1c8526aa50"
+        class="col-span-full grid gap-1 md:col-span-2"
+        target="_blank"
+      >
+        <Image src={darkTheme} alt="" class="rounded-sm" />
+        <h3 class="text-md">12 年続くサービスにダークテーマ UI を導入した</h3>
+      </a>
+      <a
+        href="https://qiita.com/xrxoxcxox/items/1c9e626f28a2798fdc21"
+        class="col-span-full grid gap-1 md:col-span-2"
+        target="_blank"
+      >
+        <Image src={kininaruDevops} alt="" class="rounded-sm" />
+        <h3 class="text-md">デザインデータとコードを一体のものとして捉える</h3>
+      </a>
     </section>
     <div class="col-start-2 col-end-5">
       <Footer />
