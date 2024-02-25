@@ -1,5 +1,5 @@
 ---
-title: ポートフォリオ
+title: "ポートフォリオ"
 cover: "./cover.png"
 keywords:
   ["Figma", "Astro", "Tailwind CSS", "TypeScript", "three.js", "Vercel", "Bun"]
