@@ -39,7 +39,7 @@
 
   function toggleGrainyGradientsVisibility() {
     const observationTarget = document.getElementById(
-      "grainy-gradient-observation-target"
+      "grainy-gradient-observation-target",
     );
     if (!observationTarget) return;
     observer.observe(observationTarget);
@@ -49,6 +49,6 @@
 
   document.addEventListener(
     "astro:after-swap",
-    toggleGrainyGradientsVisibility
+    toggleGrainyGradientsVisibility,
   );
 </script>
