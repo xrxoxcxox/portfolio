@@ -7,7 +7,6 @@ import type {
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Footer from "../../components/Footer.astro";
-import GrainyGradients from "../../components/GrainyGradients.astro";
 import GlobalLayout from "../../layouts/GlobalLayout.astro";
 
 export const getStaticPaths = (async () => {
@@ -62,7 +61,6 @@ const toc = buildToc(headings);
 
 <GlobalLayout title={entry.data.title} excerpt={entry.data.excerpt}>
   <div class="flex flex-col gap-16 px-3 pt-10 sm:px-5 md:px-7 md:pt-16">
-    <GrainyGradients />
     <div
       class="mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-[minmax(0,_1fr)_repeat(3,_minmax(0,_320px))_minmax(0,_1fr)] md:gap-x-6"
     >

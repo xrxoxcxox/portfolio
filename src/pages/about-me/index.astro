@@ -1,7 +1,6 @@
 ---
 import GlobalLayout from "../../layouts/GlobalLayout.astro";
 import Footer from "../../components/Footer.astro";
-import GrainyGradients from "../../components/GrainyGradients.astro";
 import { getEntry } from "astro:content";
 import { Image } from "astro:assets";
 import Me from "./me.jpg";
@@ -11,7 +10,6 @@ const { Content } = await aboutMe.render();
 
 <GlobalLayout>
   <div class="flex flex-col gap-16 px-3 pt-10 sm:px-5 md:px-7 md:pt-16">
-    <GrainyGradients />
     <div
       class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-1 gap-x-6 gap-y-6 sm:gap-y-8 md:grid-cols-3 md:gap-y-10"
     >
