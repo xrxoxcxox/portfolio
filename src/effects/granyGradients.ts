@@ -14,8 +14,8 @@ export function createGranyGradients(canvas: HTMLCanvasElement) {
   camera.position.z = 1;
 
   const renderer = new THREE.WebGLRenderer({ canvas: canvas });
-  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.outputColorSpace = THREE.DisplayP3ColorSpace;
 
   // Add gradient plane
@@ -50,7 +50,7 @@ export function createGranyGradients(canvas: HTMLCanvasElement) {
 
   // Render
   function render() {
-    gradientPlaneMaterial.uniforms.time.value += 0.005;
+    gradientPlaneMaterial.uniforms.time.value += 0.002;
     requestAnimationFrame(render);
     composer.render();
   }
@@ -62,8 +62,8 @@ export function createGranyGradients(canvas: HTMLCanvasElement) {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    camera.updateProjectionMatrix();
-
     renderer.setSize(width, height);
+
+    camera.updateProjectionMatrix();
   });
 }

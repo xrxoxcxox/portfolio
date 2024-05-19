@@ -2,7 +2,14 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.formatOnSave": true,
+  "editor.indentSize": 2,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -10,9 +17,10 @@
     "typescript",
     "typescriptreact"
   ],
-  "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.documentSelectors": [
+    "**/*.astro"
+  ],
   "tailwindCSS.includeLanguages": {
     "astro": "html"
-  },
-  "editor.indentSize": 2
+  }
 }

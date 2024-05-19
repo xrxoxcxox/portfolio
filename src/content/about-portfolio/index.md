@@ -1,11 +1,11 @@
 ---
-title: "ポートフォリオ"
+title: "ポートフォリオについて"
 cover: "./cover.png"
 keywords:
-  ["Figma", "Astro", "Tailwind CSS", "TypeScript", "three.js", "Vercel", "Bun"]
-startDate: "2023-08"
-excerpt: "このポートフォリオそのものも制作物の 1 つと捉えています。作った経緯や使用している技術、今後の展望などを記載します。"
+  ["Astro", "Bun", "Figma", "Tailwind CSS", "three.js", "TypeScript", "Vercel"]
 ---
+
+このポートフォリオそのものも制作物の 1 つと捉えています。作った経緯や使用している技術、今後の展望などを記載します。
 
 ## 作った経緯
 
@@ -15,24 +15,9 @@ excerpt: "このポートフォリオそのものも制作物の 1 つと捉え�
 Gatsby 自体はとても良いツールで React の勉強にもなりましたが、自分の作りたいポートフォリオにはオーバースペックかもしれない、と思うように……。  
 新しい技術の勉強をしたかったのと、もっとシンプルなものを作りたいと思い、Astro で作り直すことにしました。
 
-## 使用している主な技術
+## 技術選定の理由
 
-- [Figma](https://www.figma.com/)
-- [Astro](https://astro.build/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [three.js](https://threejs.org/)
-- [Vercel](https://vercel.com/)
-- [Bun](https://bun.sh/)
-
-## 上記の技術を選んだ理由
-
-### Figma
-
-2023 年現在のデザインツールとしては Figma がスタンダードだと考え、選んでいます。
-
-また[Friends of Figma Nagoya](https://friends.figma.com/nagoya/)というコミュニティのアドボケートをしたり、[入門用の書籍](/works/figma-introduction-to-design)を出版したりしています。
-そのため、布教活動も含めて、ポートフォリオ制作でも Figma を使うことにしました。
+正直、技術選定というほど大仰なものではありませんが、それぞれを選んだ理由を記載します。
 
 ### Astro
 
@@ -43,11 +28,20 @@ Gatsby 自体はとても良いツールで React の勉強にもなりました
 
 直接的に Astro の話ではありませんが、[Content Collections](https://docs.astro.build/en/guides/content-collections/) の機能ともあわせて、記事のスキーマも [Zod](https://zod.dev/) で定義しています。
 
-### TypeScript
+### Bun
 
-Astro にはデフォルトで TypeScript のサポートが組み込まれているため、利用しない手は無いと考えました。
+2023 年 10 月 12 日追記:  
+Bun をパッケージマネージャーとして使っています。
 
-ロジックはほとんど書かないのですが、Figma を用いてコンポーネントベースでデザインを組むなら、props の型を定義しておいた方が安心できると思っています。
+[Bun は 2023 年 9 月 8 日にバージョン 1.0 がリリースされた](https://bun.sh/blog/bun-v1.0)ばかりです。
+もともと PNPM を使っていましたが、速いに越したことはないため Bun へ乗り換えました。
+
+### Figma
+
+2023 年現在のデザインツールとしては Figma がスタンダードだと考え、選んでいます。
+
+また[Friends of Figma Nagoya](https://friends.figma.com/nagoya/)というコミュニティのアドボケートをしたり、[入門用の書籍](/works/figma-introduction-to-design)を出版したりしています。
+そのため、布教活動も含めて、ポートフォリオ制作でも Figma を使うことにしました。
 
 ### Tailwind CSS
 
@@ -69,6 +63,14 @@ Astro にはデフォルトで TypeScript のサポートが組み込まれて�
 
 初めてシェーダーを自分で書いてみてもいます。
 
+p5.js を使っていた時期もあるのですが、公式ドキュメントや世の中での導入事例の多いthree.jsへ移行しました。
+
+### TypeScript
+
+Astro にはデフォルトで TypeScript のサポートが組み込まれているため、利用しない手は無いと考えました。
+
+ロジックはほとんど書かないのですが、Figma を用いてコンポーネントベースでデザインを組むなら、props の型を定義しておいた方が安心できると思っています。
+
 ### Vercel
 
 Astro の公式ドキュメントでは最初に Netlify が紹介されているのですが、Vercel を選びました。
@@ -83,14 +85,6 @@ Astro の公式ドキュメントでは最初に Netlify が紹介されてい�
 デプロイ周りは自分の知識がほとんどないため、有名なものやドキュメントが豊富そうなものを選ぶことしました。
 
 そんな中、Vercel は Astro の公式ドキュメントで 2 番目に記載されているのと、Astro のスポンサーもしているので安心感があり選びました。
-
-### Bun
-
-2023 年 10 月 12 日追記:  
-Bun をパッケージマネージャーとして使っています。
-
-[Bun は 2023 年 9 月 8 日にバージョン 1.0 がリリースされた](https://bun.sh/blog/bun-v1.0)ばかりです。
-もともと PNPM を使っていましたが、速いに越したことはないため Bun へ乗り換えました。
 
 ## 今後の展望
 
