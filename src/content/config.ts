@@ -8,6 +8,14 @@ const aboutMeCollection = defineCollection({
   }),
 });
 
+const aboutPortfolioCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    keywords: z.string().array(),
+  }),
+});
+
 const worksCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -25,5 +33,6 @@ const worksCollection = defineCollection({
 
 export const collections = {
   "about-me": aboutMeCollection,
+  "about-portfolio": aboutPortfolioCollection,
   works: worksCollection,
 };
