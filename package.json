@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "eslint . && prettier --check ."
+    "check": "biome check ./src"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
@@ -17,6 +17,7 @@
     "three": "^0.157.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.1",
     "@types/bun": "^1.0.7",
     "@types/three": "^0.157.0",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
