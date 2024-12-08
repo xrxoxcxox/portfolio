@@ -1,7 +1,7 @@
 ---
 import "@fontsource/shippori-mincho/400.css";
 import "@fontsource/shippori-mincho/700.css";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 const { title = "綿貫佳祐", excerpt = "綿貫佳祐のポートフォリオ" } =
 	Astro.props;
 ---
@@ -14,7 +14,7 @@ const { title = "綿貫佳祐", excerpt = "綿貫佳祐のポートフォリオ"
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={excerpt} />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="bg-zinc-100 font-serif text-zinc-950">
     <slot />
