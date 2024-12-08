@@ -21,9 +21,7 @@ const worksCollection = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
-			cover: image().refine((img) => img.width >= 1080, {
-				message: "Cover image must be at least 1080 pixels wide!",
-			}),
+			cover: image(),
 			keywords: z.string().array(),
 			startDate: z.coerce.date(),
 			endDate: z.coerce.date().optional(),
