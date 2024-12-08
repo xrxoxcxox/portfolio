@@ -5,7 +5,7 @@ import type {
 	MarkdownHeading,
 } from "astro";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Footer from "../../components/Footer.astro";
 import GlobalLayout from "../../layouts/GlobalLayout.astro";
 
@@ -14,7 +14,7 @@ export const getStaticPaths = (async () => {
 	return workEntries
 		.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime())
 		.map((entry, i) => ({
-			params: { slug: entry.slug },
+			params: { id: entry.id },
 			props: { entry, prev: workEntries[i - 1], next: workEntries[i + 1] },
 		}));
 }) satisfies GetStaticPaths;
@@ -22,7 +22,7 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { entry, prev, next } = Astro.props;
-const { Content, headings } = await entry.render();
+const { Content, headings } = await render(entry);
 const startDate = new Intl.DateTimeFormat("ja-JP", {
 	year: "numeric",
 	month: "numeric",
@@ -97,7 +97,7 @@ const toc = buildToc(headings);
         src={entry.data.cover}
         alt=""
         class="col-span-full rounded-sm md:row-start-2 md:row-end-3"
-        transition:name={`${entry.slug}Image`}
+        transition:name={`${entry.id}Image`}
       />
       <div
         class="top-16 col-span-full border-l-2 border-zinc-300 pl-3 md:sticky md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-4"
@@ -127,7 +127,7 @@ const toc = buildToc(headings);
             <span>
               前の記事:
               <a
-                href={`/works/${prev.slug}`}
+                href={`/works/${prev.id}`}
                 class="text-cyan-600 underline hover:text-cyan-900"
               >
                 {prev.data.title}
@@ -140,7 +140,7 @@ const toc = buildToc(headings);
             <span>
               次の記事:
               <a
-                href={`/works/${next.slug}`}
+                href={`/works/${next.id}`}
                 class="text-cyan-600 underline hover:text-cyan-900"
               >
                 {next.data.title}
