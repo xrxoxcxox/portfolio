@@ -18,7 +18,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.1",
-    "@types/bun": "^1.0.7",
     "@types/three": "^0.157.0"
   },
   "trustedDependencies": [
