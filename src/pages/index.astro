@@ -119,14 +119,14 @@ const allWorks = await getCollection("works");
           )
           .map((work) => (
             <a
-              href={`${work.collection}/${work.slug}`}
+              href={`${work.collection}/${work.id}`}
               class="col-span-full grid gap-1 md:col-span-2"
             >
               <Image
                 src={work.data.cover}
                 alt=""
                 class="rounded-sm"
-                transition:name={`${work.slug}Image`}
+                transition:name={`${work.id}Image`}
               />
               <h3 class="text-md">{work.data.title}</h3>
             </a>
