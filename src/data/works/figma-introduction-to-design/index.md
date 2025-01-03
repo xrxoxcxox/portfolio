@@ -25,7 +25,7 @@ Figma のことをまったく知らない人が一通り触れるようにな�
 
 時系列としては次のような流れでした。
 
-1. [Qiita で Figma 関連の記事](https://qiita.com/search?q=user%3Axrxoxcxox%20tag%3Afigma)を投稿
+1. [Qiita で Figma 関連の記事](https://qiita.com/search?q=user%kskwtnk%20tag%3Afigma)を投稿
 1. 出版社の方よりメールをいただく
 1. 1~2 回打ち合わせをして、執筆確定
 
