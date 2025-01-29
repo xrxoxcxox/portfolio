@@ -11,7 +11,7 @@ const { Content } = await render(aboutMe);
 <GlobalLayout>
   <div class="flex flex-col gap-16 px-3 pt-10 sm:px-5 md:px-7 md:pt-16">
     <div
-      class="mx-auto grid w-[min(100%,_theme('width.content'))] grid-cols-1 gap-x-6 gap-y-6 sm:gap-y-8 md:grid-cols-3 md:gap-y-10"
+      class="mx-auto grid w-[min(100%,_var(--container-6xl))] grid-cols-1 gap-x-6 gap-y-6 sm:gap-y-8 md:grid-cols-3 md:gap-y-10"
     >
       <h1
         id="grainy-gradient-observation-target"
@@ -23,7 +23,7 @@ const { Content } = await render(aboutMe);
         <Image
           src={Me}
           alt=""
-          class="rounded-sm object-cover object-top opacity-95"
+          class="rounded-md object-cover object-top"
         />
 
         <ul
@@ -44,6 +44,8 @@ const { Content } = await render(aboutMe);
 </GlobalLayout>
 
 <style is:global>
+  @reference "../../styles/global.css";
+  
   #content > * + * {
     @apply mt-5;
   }
@@ -66,7 +68,7 @@ const { Content } = await render(aboutMe);
     @apply list-[circle] pl-4;
   }
   #content table {
-    @apply w-full border-collapse rounded-sm;
+    @apply w-full border-collapse;
   }
   #content table th {
     @apply border border-zinc-300 bg-zinc-200/50 p-2 text-left font-bold;
