@@ -12,9 +12,7 @@ const allWorks = await getCollection("works");
 
 <GlobalLayout>
   <GrainyGradients />
-  <div
-    class="grid grid-cols-[theme('width.2')_1fr_minmax(0,theme('width.60'))_1fr_theme('width.2')] gap-y-4 sm:grid-cols-[theme('width.4')_1fr_minmax(0,theme('width.80'))_1fr_theme('width.4')] sm:gap-y-10 md:grid-cols-[theme('width.8')_1fr_minmax(0,theme('width.content'))_1fr_theme('width.8')] md:gap-y-16 lg:grid-cols-[theme('width.16')_1fr_minmax(0,theme('width.content'))_1fr_theme('width.16')]"
-  >
+  <div class="grid grid-cols-[calc(var(--spacing)*2)_1fr_minmax(0,calc(var(--spacing)*60))_1fr_calc(var(--spacing)*2)] gap-y-4 sm:grid-cols-[calc(var(--spacing)*4)_1fr_minmax(0,calc(var(--spacing)*80))_1fr_calc(var(--spacing)*4)] sm:gap-y-10 md:grid-cols-[calc(var(--spacing)*8)_1fr_minmax(0,var(--container-5xl))_1fr_calc(var(--spacing)*8)] md:gap-y-16 lg:grid-cols-[calc(var(--spacing)*16)_1fr_minmax(0,var(--container-5xl))_1fr_calc(var(--spacing)*16)]">
     <div
       id="above-the-fold"
       class="col-start-2 col-end-5 flex h-screen flex-col gap-y-5 pb-3 pt-2 sm:gap-y-6 sm:pb-4 sm:pt-3 md:gap-y-10"
@@ -23,14 +21,14 @@ const allWorks = await getCollection("works");
         class="flex flex-wrap items-center justify-between gap-x-3 text-xs font-bold"
       >
         <span>デザイン ポートフォリオ</span>
-        <hr class="flex-grow border-zinc-300" />
+        <hr class="grow border-zinc-300" />
         <span>ユーザーインターフェース / マークアップ / グラフィック</span>
       </header>
-      <div class="relative flex flex-grow flex-col justify-between">
+      <div class="relative flex grow flex-col justify-between">
         <section class="flex flex-col gap-y-3 sm:gap-y-4 md:gap-y-6">
           <h1>
             <ruby
-              class="grid gap-y-2 text-[calc((100vw-2*theme('width.2'))/4)] leading-none sm:text-[calc((100vw-2*theme('width.4'))/4)] md:gap-y-4 md:text-[calc((100vw-2*theme('width.8'))/6)]"
+              class="grid gap-y-2 text-[calc((100vw-2*var(--spacing)*2)/4)] leading-none sm:text-[calc((100vw-2*var(--spacing)*4)/4)] md:gap-y-4 md:text-[calc((100vw-2*var(--spacing)*8)/6)]"
               ><span class="font-bold">綿貫佳祐</span><rp>(</rp><rt
                 class="flex text-[calc(1em/3)] font-bold">Keisuke Watanuki</rt
               ><rp>)</rp></ruby
@@ -38,19 +36,19 @@ const allWorks = await getCollection("works");
           </h1>
           <div class="flex flex-col items-start gap-y-3 lg:gap-y-5">
             <p
-              class="w-full text-sm sm:w-[calc((100vw-2*theme('width.4'))*0.75)] md:w-[calc((100vw-2*theme('width.8'))*0.5)] lg:text-md"
+              class="w-full text-sm sm:w-[calc((100vw-2*var(--spacing)*4)*0.75)] md:w-[calc((100vw-2*var(--spacing)*8)*0.5)] lg:text-md"
             >
               デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。意匠の良し悪しだけでなく、データの構造や使用時の心地よさなども考慮に入れてものづくりをします。
             </p>
             <div class="flex gap-x-2 lg:gap-x-3">
               <a
                 href="/about-me"
-                class="rounded-sm bg-zinc-700 px-2 py-1 text-sm font-bold text-zinc-50 transition-colors hover:bg-zinc-900 lg:px-5 lg:py-2 lg:text-md"
+                class="rounded-md bg-zinc-700 px-2 py-1 text-sm font-bold text-zinc-50 transition-colors hover:bg-zinc-900 lg:px-5 lg:py-2 lg:text-md"
                 >私について</a
               >
               <a
                 href="/about-portfolio"
-                class="rounded-sm border border-zinc-700 bg-transparent px-2 py-1 text-sm font-bold transition-colors hover:border-zinc-900 hover:bg-zinc-100 lg:px-5 lg:py-2 lg:text-md"
+                class="rounded-md border border-zinc-700 bg-transparent px-2 py-1 text-sm font-bold transition-colors hover:border-zinc-900 hover:bg-zinc-100 lg:px-5 lg:py-2 lg:text-md"
                 >このポートフォリオについて</a
               >
             </div>
@@ -85,21 +83,21 @@ const allWorks = await getCollection("works");
         <div class="absolute bottom-0 right-0 flex flex-col">
           <a
             href="https://twitter.com/kskwtnk"
-            class="rounded-sm p-2 transition-colors hover:bg-slate-50"
+            class="rounded-md p-2 transition-colors hover:bg-slate-50"
             title="X (Twitter)"
           >
             <img src="/logo-x.svg" alt="" class="w-4" />
           </a>
           <a
             href="https://www.instagram.com/kskwtnk"
-            class="rounded-sm p-2 transition-colors hover:bg-slate-50"
+            class="rounded-md p-2 transition-colors hover:bg-slate-50"
             title="Instagram"
           >
             <img src="/logo-instagram.svg" alt="" class="w-4" />
           </a>
           <a
             href="https://github.com/kskwtnk"
-            class="rounded-sm p-2 transition-colors hover:bg-slate-50"
+            class="rounded-md p-2 transition-colors hover:bg-slate-50"
             title="GitHub"
           >
             <img src="/logo-github.svg" alt="" class="w-4" />
@@ -125,7 +123,7 @@ const allWorks = await getCollection("works");
               <Image
                 src={work.data.cover}
                 alt=""
-                class="rounded-sm"
+                class="rounded-md"
                 transition:name={`${work.id}Image`}
               />
               <h3 class="text-md">{work.data.title}</h3>
@@ -143,7 +141,7 @@ const allWorks = await getCollection("works");
         class="col-span-full grid gap-1 md:col-span-2"
         target="_blank"
       >
-        <Image src={darkTheme} alt="" class="rounded-sm" />
+        <Image src={darkTheme} alt="" class="rounded-md" />
         <h3 class="text-md">12 年続くサービスにダークテーマ UI を導入した</h3>
       </a>
       <a
@@ -151,7 +149,7 @@ const allWorks = await getCollection("works");
         class="col-span-full grid gap-1 md:col-span-2"
         target="_blank"
       >
-        <Image src={kininaruDevops} alt="" class="rounded-sm" />
+        <Image src={kininaruDevops} alt="" class="rounded-md" />
         <h3 class="text-md">デザインデータとコードを一体のものとして捉える</h3>
       </a>
     </section>

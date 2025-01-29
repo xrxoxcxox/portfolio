@@ -96,7 +96,7 @@ const toc = buildToc(headings);
       <Image
         src={entry.data.cover}
         alt=""
-        class="col-span-full rounded-sm md:row-start-2 md:row-end-3"
+        class="col-span-full rounded-md md:row-start-2 md:row-end-3"
         transition:name={`${entry.id}Image`}
       />
       <div
@@ -155,6 +155,8 @@ const toc = buildToc(headings);
 </GlobalLayout>
 
 <style is:global>
+  @reference "../../styles/global.css";
+  
   #content > * + * {
     @apply mt-5;
   }
@@ -186,6 +188,6 @@ const toc = buildToc(headings);
     @apply border border-zinc-200;
   }
   #content code {
-    @apply rounded-sm bg-zinc-200 p-1 text-sm;
+    @apply rounded-md bg-zinc-200 p-1 text-sm;
   }
 </style>
