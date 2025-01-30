@@ -16,7 +16,7 @@ export function createGranyGradients(canvas: HTMLCanvasElement) {
 	const renderer = new THREE.WebGLRenderer({ canvas: canvas });
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setPixelRatio(window.devicePixelRatio);
-	renderer.outputColorSpace = THREE.DisplayP3ColorSpace;
+	renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
 	// Add gradient plane
 	const gradientPlaneGeometry = new THREE.PlaneGeometry(2, 2);

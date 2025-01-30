@@ -12,13 +12,13 @@
     "@fontsource/shippori-mincho": "^5.0.7",
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^5.0.3",
-    "sharp": "0.33.2",
+    "sharp": "^0.33.5",
     "tailwindcss": "^4.0.0",
-    "three": "^0.157.0"
+    "three": "^0.172.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.1",
-    "@types/three": "^0.157.0"
+    "@types/three": "^0.172.0"
   },
   "trustedDependencies": [
     "sharp"
