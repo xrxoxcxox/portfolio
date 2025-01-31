@@ -3,8 +3,8 @@ import GlobalLayout from "../../layouts/GlobalLayout.astro";
 import Footer from "../../components/Footer.astro";
 import { getEntry, render } from "astro:content";
 const aboutPortfolio = await getEntry({
-	collection: "about-portfolio",
-	id: "index",
+  collection: "about-portfolio",
+  id: "index",
 });
 const { Content } = await render(aboutPortfolio);
 ---
@@ -41,7 +41,7 @@ const { Content } = await render(aboutPortfolio);
 
 <style is:global>
   @reference "../../styles/global.css";
-  
+
   #content > * + * {
     @apply mt-5;
   }

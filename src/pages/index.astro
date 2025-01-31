@@ -12,10 +12,12 @@ const allWorks = await getCollection("works");
 
 <GlobalLayout>
   <GrainyGradients />
-  <div class="grid grid-cols-[calc(var(--spacing)*2)_1fr_minmax(0,calc(var(--spacing)*60))_1fr_calc(var(--spacing)*2)] gap-y-4 sm:grid-cols-[calc(var(--spacing)*4)_1fr_minmax(0,calc(var(--spacing)*80))_1fr_calc(var(--spacing)*4)] sm:gap-y-10 md:grid-cols-[calc(var(--spacing)*8)_1fr_minmax(0,var(--container-5xl))_1fr_calc(var(--spacing)*8)] md:gap-y-16 lg:grid-cols-[calc(var(--spacing)*16)_1fr_minmax(0,var(--container-5xl))_1fr_calc(var(--spacing)*16)]">
+  <div
+    class="grid grid-cols-[calc(var(--spacing)*2)_1fr_minmax(0,calc(var(--spacing)*60))_1fr_calc(var(--spacing)*2)] gap-y-4 sm:grid-cols-[calc(var(--spacing)*4)_1fr_minmax(0,calc(var(--spacing)*80))_1fr_calc(var(--spacing)*4)] sm:gap-y-10 md:grid-cols-[calc(var(--spacing)*8)_1fr_minmax(0,var(--container-5xl))_1fr_calc(var(--spacing)*8)] md:gap-y-16 lg:grid-cols-[calc(var(--spacing)*16)_1fr_minmax(0,var(--container-5xl))_1fr_calc(var(--spacing)*16)]"
+  >
     <div
       id="above-the-fold"
-      class="col-start-2 col-end-5 flex h-screen flex-col gap-y-5 pb-3 pt-2 sm:gap-y-6 sm:pb-4 sm:pt-3 md:gap-y-10"
+      class="col-start-2 col-end-5 flex h-screen flex-col gap-y-5 pt-2 pb-3 sm:gap-y-6 sm:pt-3 sm:pb-4 md:gap-y-10"
     >
       <header
         class="flex flex-wrap items-center justify-between gap-x-3 text-xs font-bold"
@@ -36,19 +38,19 @@ const allWorks = await getCollection("works");
           </h1>
           <div class="flex flex-col items-start gap-y-3 lg:gap-y-5">
             <p
-              class="w-full text-sm sm:w-[calc((100vw-2*var(--spacing)*4)*0.75)] md:w-[calc((100vw-2*var(--spacing)*8)*0.5)] lg:text-md"
+              class="lg:text-md w-full text-sm sm:w-[calc((100vw-2*var(--spacing)*4)*0.75)] md:w-[calc((100vw-2*var(--spacing)*8)*0.5)]"
             >
               デジタルプロダクトのデザイナーです。理想に向き合い、言語化し、視覚化するプロセスを重視しています。意匠の良し悪しだけでなく、データの構造や使用時の心地よさなども考慮に入れてものづくりをします。
             </p>
             <div class="flex gap-x-2 lg:gap-x-3">
               <a
                 href="/about-me"
-                class="rounded-md bg-zinc-700 px-2 py-1 text-sm font-bold text-zinc-50 transition-colors hover:bg-zinc-900 lg:px-5 lg:py-2 lg:text-md"
+                class="lg:text-md rounded-md bg-zinc-700 px-2 py-1 text-sm font-bold text-zinc-50 transition-colors hover:bg-zinc-900 lg:px-5 lg:py-2"
                 >私について</a
               >
               <a
                 href="/about-portfolio"
-                class="rounded-md border border-zinc-700 bg-transparent px-2 py-1 text-sm font-bold transition-colors hover:border-zinc-900 hover:bg-zinc-100 lg:px-5 lg:py-2 lg:text-md"
+                class="lg:text-md rounded-md border border-zinc-700 bg-transparent px-2 py-1 text-sm font-bold transition-colors hover:border-zinc-900 hover:bg-zinc-100 lg:px-5 lg:py-2"
                 >このポートフォリオについて</a
               >
             </div>
@@ -80,7 +82,7 @@ const allWorks = await getCollection("works");
           </svg>
           下へスクロール
         </span>
-        <div class="absolute bottom-0 right-0 flex flex-col">
+        <div class="absolute right-0 bottom-0 flex flex-col">
           <a
             href="https://twitter.com/kskwtnk"
             class="rounded-md p-2 transition-colors hover:bg-slate-50"
