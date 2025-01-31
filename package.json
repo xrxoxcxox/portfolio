@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "check": "biome check ./src"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@fontsource/shippori-mincho": "^5.0.7",
@@ -17,7 +16,6 @@
     "three": "^0.172.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.1",
     "@types/three": "^0.172.0"
   },
   "trustedDependencies": [
