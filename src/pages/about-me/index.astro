@@ -20,11 +20,7 @@ const { Content } = await render(aboutMe);
         {aboutMe.data.title}
       </h1>
       <div class="top-16 flex flex-col gap-3 md:sticky">
-        <Image
-          src={Me}
-          alt=""
-          class="rounded-md object-cover object-top"
-        />
+        <Image src={Me} alt="" class="rounded-md object-cover object-top" />
 
         <ul
           class="top-16 text-xs md:sticky md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3"
@@ -45,7 +41,7 @@ const { Content } = await render(aboutMe);
 
 <style is:global>
   @reference "../../styles/global.css";
-  
+
   #content > * + * {
     @apply mt-5;
   }

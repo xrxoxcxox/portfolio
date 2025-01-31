@@ -8,62 +8,62 @@ import grainyFragment from "./shader/grainyFragment.glsl?raw";
 import grainyVertex from "./shader/grainyVertex.glsl?raw";
 
 export function createGranyGradients(canvas: HTMLCanvasElement) {
-	// Setup
-	const scene = new THREE.Scene();
-	const camera = new THREE.OrthographicCamera();
-	camera.position.z = 1;
+  // Setup
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera();
+  camera.position.z = 1;
 
-	const renderer = new THREE.WebGLRenderer({ canvas: canvas });
-	renderer.setSize(window.innerWidth, window.innerHeight);
-	renderer.setPixelRatio(window.devicePixelRatio);
-	renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
-	// Add gradient plane
-	const gradientPlaneGeometry = new THREE.PlaneGeometry(2, 2);
-	const gradientPlaneMaterial = new THREE.ShaderMaterial({
-		uniforms: {
-			time: { value: 0 },
-		},
-		vertexShader: gradientVertex,
-		fragmentShader: gradientFragment,
-	});
+  // Add gradient plane
+  const gradientPlaneGeometry = new THREE.PlaneGeometry(2, 2);
+  const gradientPlaneMaterial = new THREE.ShaderMaterial({
+    uniforms: {
+      time: { value: 0 },
+    },
+    vertexShader: gradientVertex,
+    fragmentShader: gradientFragment,
+  });
 
-	const plane = new THREE.Mesh(gradientPlaneGeometry, gradientPlaneMaterial);
-	scene.add(plane);
+  const plane = new THREE.Mesh(gradientPlaneGeometry, gradientPlaneMaterial);
+  scene.add(plane);
 
-	// Postprocessing
-	const composer = new EffectComposer(renderer);
+  // Postprocessing
+  const composer = new EffectComposer(renderer);
 
-	const renderPass = new RenderPass(scene, camera);
-	composer.addPass(renderPass);
+  const renderPass = new RenderPass(scene, camera);
+  composer.addPass(renderPass);
 
-	const grainyShader = {
-		uniforms: {
-			tDiffuse: { value: null },
-		},
-		vertexShader: grainyVertex,
-		fragmentShader: grainyFragment,
-	};
+  const grainyShader = {
+    uniforms: {
+      tDiffuse: { value: null },
+    },
+    vertexShader: grainyVertex,
+    fragmentShader: grainyFragment,
+  };
 
-	const grainyShaderPass = new ShaderPass(grainyShader);
-	composer.addPass(grainyShaderPass);
+  const grainyShaderPass = new ShaderPass(grainyShader);
+  composer.addPass(grainyShaderPass);
 
-	// Render
-	function render() {
-		gradientPlaneMaterial.uniforms.time.value += 0.002;
-		requestAnimationFrame(render);
-		composer.render();
-	}
+  // Render
+  function render() {
+    gradientPlaneMaterial.uniforms.time.value += 0.002;
+    requestAnimationFrame(render);
+    composer.render();
+  }
 
-	render();
+  render();
 
-	// Resize
-	window.addEventListener("resize", () => {
-		const width = window.innerWidth;
-		const height = window.innerHeight;
+  // Resize
+  window.addEventListener("resize", () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-		renderer.setSize(width, height);
+    renderer.setSize(width, height);
 
-		camera.updateProjectionMatrix();
-	});
+    camera.updateProjectionMatrix();
+  });
 }
